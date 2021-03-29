@@ -12,6 +12,23 @@ L["Discord"] = "Discord"
 L["Discord_Info"] = ""
 L["DISCORD_HEADER"] = "Discord"
 L["DISCORD_DESCRIPTION"] = "To join the Vocal Raid Assistant community please visit the official Discord server and chime in!"
+L["1.6.4 Changelog"] = "Added abilities" .. 
+"\n" .. " - Boon of the Ascended" .. 
+"\n" .. " - Convoke the Spirits" .. 
+"\n" .. " - Ashen Hallow" .. 
+"\n" .. " - Chain Harvest" .. 
+"\n" .. " - Mindgames " .. 
+"\n" .. " - Fae Transfusion" .. 
+"\n" .. " - Primordial Wave" .. 
+"\n" .. " - Weapons of Order" .. 
+"\n" .. " - Divine Toll" .. 
+"\n" .. " - Vesper Totem" .. 
+"\n" .. " - Fae Guardians" .. 
+"\n" .. " - Fodder to the Flame" .. 
+"\n" .. " - Abomination Limb" .. 
+"\n" .. " - Purify Soul" .. 
+"\n" .. " - Fleshcraft" .. 
+"\n" .. " - Spirit Shell"
 L["1.6.3 Changelog"] = "Added abilities" .. "\n" .. " - Spell reflection" .. "\n" .. " - Shadowmeld" .. "\n" .. " - Ursols Vortex" .. "\n" .. " - Flourish (Off by default)" .. "\n" .. " - Rallying Cry"
 L["1.6.2 Changelog"] = "Shadowlands hotfix to make addon functional." .. "\n" .. "Further update will come with update of abilities."
 L["1.6.1 Changelog"] = "Fixed a misspelled ability" .. "\n" .. "Actually Moved Crowd Control abilities to a separate section" .. "\n" .. "Added Abilities (On/Off by default):" .. "\n" .. "  - Holy Avenger (On)"

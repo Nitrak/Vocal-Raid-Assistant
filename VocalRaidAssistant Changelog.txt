@@ -1,4 +1,22 @@
-﻿Version 1.6.3
+﻿Version 1.6.4
+Added abilities 
+ - Boon of the Ascended 
+ - Convoke the Spirits 
+ - Ashen Hallow 
+ - Chain Harvest 
+ - Mindgames  
+ - Fae Transfusion 
+ - Primordial Wave 
+ - Weapons of Order 
+ - Divine Toll 
+ - Vesper Totem 
+ - Fae Guardians 
+ - Fodder to the Flame 
+ - Abomination Limb 
+ - Purify Soul 
+ - Fleshcraft 
+ - Spirit Shell
+Version 1.6.3
 Added abilities
  - Spell reflection
  - Shadowmeld

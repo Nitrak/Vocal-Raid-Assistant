@@ -326,6 +326,7 @@ function VocalRaidAssistant:GetSpellList ()
 		castSuccess = {					--cast success [spellid] = ".mp3 file name",
 			--general
 			[178207] = "drums",
+			[323436] = "purifysoul",
 			--druid
 			[740] = "tranquility",
 			[106898] = "stampedingRoar",
@@ -334,6 +335,7 @@ function VocalRaidAssistant:GetSpellList ()
 			[20484] = "rebirth",
 			[197721] = "flourish",
 			[102793] = "ursolsvortex",
+			[323764] = "convoke",
 			--[124974] = "naturesvigil",
 			--[200851] = "rageofthesleeper",
 			--[208253] = "essenceofghanir",
@@ -343,9 +345,12 @@ function VocalRaidAssistant:GetSpellList ()
 			[202137] = "sigilofsilence",
 			[207684] = "sigilofmisery",
 			[202138] = "sigilofchains",
+			[329554] = "foddertotheflame",
 			--paladin	
 			[31821] = "AuraMastery",
 			[633] = "layonHands",
+			[316958] = "ashenhallow",
+			[304971] = "divinetoll",
 			--rogue
 			[76577] = "smokeBomb",
 
@@ -368,26 +373,34 @@ function VocalRaidAssistant:GetSpellList ()
 			[34433] = "shadowfiend",
 			[246287] = "evangelism",
 			[47536] = "rapture",
+			[325013] = "boonoftheascended",
+			[323673] = "mindgames",
+			[109964] = "spiritshell",
 			--shaman
 			[98008] = "spiritlinktotem",
 			[108280] = "healingTide",
-			[2825] = "bloodLust",
+			[2825] = "bloodlust",
 			[32182] = "heroism",
-			--[108281] = "ancestralguidance",
 			[192077] = "windrushtotem",
 			[8143] = "tremortotem",
 			[207399] = "ancestralprotection",
 			[198838] = "earthenshieldtotem",
 			[192058] = "lightningsurgetotem",
+			[320674] = "chainharvest",
+			[328923] = "faetransfusion",
+			[326059] = "primordialwave",
+			[324386] = "vespertotem",
 			--mage
 			[80353] = "timewarp",
 			--dk
 			[51052] = "antiMagicZone",
 			[61999] = "raiseally",
 			[108199] = "gorefiendsgrasp",
+			[315443] = "abominationlimb",
 			--hunter
 			[264667] = "primalrage",
 			[109248] = "bindingshot",
+			[328231] = "wildspirits",
 			--warlock
 			[20707] = "soulstone",
 			[30283] = "shadowfury",
@@ -396,6 +409,7 @@ function VocalRaidAssistant:GetSpellList ()
 			[115310] = "Revival",
 			[119381] = "legsweep",
 			[116844] = "ringofpeace",
+			[310454] = "weaponsoforder",
 		
 			
 			

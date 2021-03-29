@@ -357,6 +357,16 @@ function VocalRaidAssistant:OnInitialize()
 						type = "description",
 						name = "Current version: " .. L["GET_VERSION"] .. "\n",
 					},
+					header37 = {
+							order = -76,
+							type = "header",
+							name = "1.6.4",
+					},
+					desc37 = {
+						order	= -75,
+						type	= "description",
+						name	= L["1.6.4 Changelog"],
+					},
 					header36 = {
 							order = -74,
 							type = "header",
@@ -797,24 +807,18 @@ end
 
 function VocalRaidAssistant:isTankSpec(name)
 	local spec = UnitGroupRolesAssigned(name)
-	for i=1,5 do
-		if spec=="TANK" then
-			return true
-		end
+	if spec=="TANK" then
+		return true
 	end
-
 	return false
 	
 end
 
 function VocalRaidAssistant:isHealingSpec(name)
 	local spec = UnitGroupRolesAssigned(name)
-	for i=1,5 do
-		if spec=="HEALER" then
-			return true
-		end
+	if spec=="HEALER" then
+		return true
 	end
-
 	return false
 	
 end
