@@ -336,6 +336,7 @@ function VocalRaidAssistant:GetSpellList ()
 			[197721] = "flourish",
 			[102793] = "ursolsvortex",
 			[323764] = "convoke",
+			[205636] = "forceofnature",
 			--[124974] = "naturesvigil",
 			--[200851] = "rageofthesleeper",
 			--[208253] = "essenceofghanir",

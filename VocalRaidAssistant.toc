@@ -3,7 +3,7 @@
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 1.6.4
+## Version: 1.6.5
 
 embeds.xml
 Locales\locales.xml

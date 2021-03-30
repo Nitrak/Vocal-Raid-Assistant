@@ -12,6 +12,8 @@ L["Discord"] = "Discord"
 L["Discord_Info"] = ""
 L["DISCORD_HEADER"] = "Discord"
 L["DISCORD_DESCRIPTION"] = "To join the Vocal Raid Assistant community please visit the official Discord server and chime in!"
+L["1.6.5 Changelog"] = "Added abilities" .. 
+"\n" .. " - Force of Nature"
 L["1.6.4 Changelog"] = "Added abilities" .. 
 "\n" .. " - Boon of the Ascended" .. 
 "\n" .. " - Convoke the Spirits" .. 

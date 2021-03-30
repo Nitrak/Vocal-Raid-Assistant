@@ -2303,7 +2303,7 @@ function VRA:OnOptionCreate()
 								inline = true,
 								name = L["|cffFF7D0ADruid|r"],
 								order = 7,
-								args = listOption({740,106898,77764,77761,20484,197721,102793,323764},"castSuccess"),
+								args = listOption({740,106898,77764,77761,20484,197721,102793,323764,205636},"castSuccess"),
 							},
 							hunter = {
 								type = 'group',
