@@ -358,12 +358,12 @@ function VocalRaidAssistant:OnInitialize()
 						name = "Current version: " .. L["GET_VERSION"] .. "\n",
 					},
 					header38 = {
-							order = -76,
+							order = -78,
 							type = "header",
 							name = "1.6.5",
 					},
 					desc38 = {
-						order	= -75,
+						order	= -77,
 						type	= "description",
 						name	= L["1.6.5 Changelog"],
 					},
