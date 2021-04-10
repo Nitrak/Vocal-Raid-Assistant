@@ -1215,23 +1215,6 @@ local function spellCooldowns(spellName,player)
 	
 end
 
-function VRA:ClearOBars()
-	--Clearing cooldowns
-	for i,j in pairs(playerOSpell) do
-		playerOSpell[i]=""
-	end
-	
-	for i=1,activeOBars do
-		activeOBarsArray[i]:Hide()
-	end
-	
-	activeOBars = 0
-	
-	lockedO = false
-	activeOMove = 0
-
-end
-
 
 function VRA:ShowConfig()
 	InterfaceOptionsFrame_OpenToCategory(GetAddOnMetadata("VocalRaidAssistant", "Title"))
