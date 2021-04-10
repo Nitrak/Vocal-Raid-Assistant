@@ -179,36 +179,12 @@ local function RGBClassTEST(class)
 end
 
 
-function VRA:getBarX()
-   return vradb.barX
-end
-
-function VRA:setBarX(newValue)
-    vradb.barX = newValue
-end
-
-function VRA:getBarY()
-   return vradb.barY
-end
-
-function VRA:setBarY(newValue)
-    vradb.barY = newValue
-end
-
 function VRA:getHeightX()
    return vradb.heightX
 end
 
 function VRA:setHeightX(newValue)
     vradb.heightX = newValue
-end
-
-function VRA:getBarWidth()
-   return vradb.barWidth
-end
-
-function VRA:getBarHeight()
-	return vradb.barHeight
 end
 
 function VRA:getFontSize()
@@ -227,37 +203,11 @@ function VRA:getPulseIntensity()
 	return vradb.pulseIntensity
 end
 
-function VRA:getBarTexture()
-	return vradb.barTexture
-end
 
 function VRA:SetFont(font)
 	
 	return LSM:Fetch("font", font, true)
     
-end
-
-function VRA:SetTexture(texture)
-	
-	return LSM:Fetch("statusbar", texture, true)
-    
-end
-
-
-function VRA:getOBarX()
-   return vradb.obarX
-end
-
-function VRA:setOBarX(newValue)
-    vradb.obarX = newValue
-end
-
-function VRA:getOBarY()
-   return vradb.obarY
-end
-
-function VRA:setOBarY(newValue)
-    vradb.obarY = newValue
 end
 
 function VRA:getOHeightX()
@@ -268,82 +218,13 @@ function VRA:setOHeightX(newValue)
     vradb.oheightX = newValue
 end
 
-function VRA:getOBarWidth()
-   return vradb.obarWidth
-end
-
-function VRA:getOBarHeight()
-	return vradb.obarHeight
-end
-
 function VRA:getOFontSize()
 	return vradb.ofontSize
 end
 
-function VRA:getOFontType()
-	return vradb.ofontType
-end
-
-function VRA:getOBarTexture()
-	return vradb.obarTexture
-end
-
-
-function VRA:getBBarX()
-   return vradb.bbarX
-end
-
-function VRA:setBBarX(newValue)
-    vradb.bbarX = newValue
-end
-
-function VRA:getBBarY()
-   return vradb.bbarY
-end
-
-function VRA:setBBarY(newValue)
-    vradb.bbarY = newValue
-end
-
-function VRA:getBHeightX()
-   return vradb.bheightX
-end
-
-function VRA:setBHeightX(newValue)
-    vradb.bheightX = newValue
-end
-
-function VRA:getBBarWidth()
-   return vradb.bbarWidth
-end
-
-function VRA:getBBarHeight()
-	return vradb.bbarHeight
-end
-
-function VRA:getBFontSize()
-	return vradb.bfontSize
-end
-
-function VRA:getBFontType()
-	return vradb.bfontType
-end
-
-function VRA:getBBarTexture()
-	return vradb.bbarTexture
-end
-
-
-
 function VRA:SetFont(font)
 	
 	return LSM:Fetch("font", font, true)
-    
-end
-
-function VRA:SetTexture(texture)
-	
-	return LSM:Fetch("statusbar", texture, true)
     
 end
 
@@ -358,8 +239,6 @@ local function convertTime(t)
 		return minute..":"..seconds
 	end
 end
-
-
 
 local function ArraySize(array)
 
@@ -626,8 +505,7 @@ function VRA:spellPOCooldowns(spellName)
 
 
 	
-end
-
+	end
 
 function VRA:AddDataOption(spellId)
 
@@ -732,7 +610,6 @@ local function spellCooldowns(spellName,player)
 	
 end
 
-
 function VRA:ShowConfig()
 	InterfaceOptionsFrame_OpenToCategory(GetAddOnMetadata("VocalRaidAssistant", "Title"))
 	InterfaceOptionsFrame_OpenToCategory(GetAddOnMetadata("VocalRaidAssistant", "Title"))
@@ -772,7 +649,6 @@ function VRA:AddOption(name, keyName)
 	
 	return AceConfigDialog:AddToBlizOptions("VocalRaidAssistant", name, "VocalRaidAssistant", keyName)
 end
-
 
 function VRA:UpdateRoster()
 	rosterStatusOldArray[1] = vradb.raid1
@@ -961,7 +837,6 @@ function VRA:IsSelected(name)
 	return false
 end
 
-
 local function setOption(info, value)
 	local name = info[#info]
 	vradb[name] = value
@@ -969,10 +844,12 @@ local function setOption(info, value)
 		PlaySoundFile("Interface\\Addons\\"..vradb.path.."\\"..name..".ogg", VRA.VRA_CHANNEL[vradb.channel]);
 	end
 end
+
 local function getOption(info)
 	local name = info[#info]
 	return vradb[name]
 end
+
 local function spellOption(order, spellID, ...)
 	local spellname, _, icon = GetSpellInfo(spellID)	
 	if (spellname ~= nil) then
@@ -1139,7 +1016,6 @@ function VRA:MakeCustomOption(key)
 		}
 	}
 end
-
 
 function VRA:OnOptionCreate()
 	local newSpellId
