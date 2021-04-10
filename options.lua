@@ -1215,24 +1215,6 @@ local function spellCooldowns(spellName,player)
 	
 end
 
-
-function VRA:ClearBBars()
-	--Clearing cooldowns
-	for i,j in pairs(playerBSpell) do
-		playerBSpell[i]=""
-	end
-	
-	for i=1,activeBBars do
-		activeBBarsArray[i]:Hide()
-	end
-	
-	activeBBars = 0
-	
-	lockedB = false
-	activeBMove = 0
-
-end
-
 function VRA:ClearOBars()
 	--Clearing cooldowns
 	for i,j in pairs(playerOSpell) do
