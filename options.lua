@@ -400,20 +400,6 @@ function VRA:modifyOBars()
 
 end
 
-function VRA:modifyBBars()
-	
-	if(vradb.bgrowthDirection) then
-		for i=1,activeBBars do
-			activeBBarsArray[i]:SetPoint("BOTTOMLEFT",UIParent,"BOTTOMLEFT",0+VRA:getBBarX(),i*VRA:getBBarHeight()+VRA:getBBarY())
-		end
-	else
-		for i=1,activeBBars do
-			activeBBarsArray[i]:SetPoint("BOTTOMLEFT",UIParent,"BOTTOMLEFT",0+VRA:getBBarX(),-i*VRA:getBBarHeight()+VRA:getBBarY())
-		end
-	end
-
-end
-
 function VRA:AddDataBOption(spellId)
 	
 	if not spellId then 
