@@ -178,7 +178,6 @@ local function RGBClassTEST(class)
 
 end
 
-
 function VRA:getHeightX()
    return vradb.heightX
 end
@@ -203,11 +202,8 @@ function VRA:getPulseIntensity()
 	return vradb.pulseIntensity
 end
 
-
 function VRA:SetFont(font)
-	
 	return LSM:Fetch("font", font, true)
-    
 end
 
 function VRA:getOHeightX()
@@ -223,9 +219,7 @@ function VRA:getOFontSize()
 end
 
 function VRA:SetFont(font)
-	
 	return LSM:Fetch("font", font, true)
-    
 end
 
 local function convertTime(t)
@@ -343,30 +337,6 @@ function VRA:AddDataBOption(spellId)
 	
 end
 
-
-local function spellBCooldowns(spellName)
-	if(spellName~=nil) then
-		local data = VRA:GetBarDataB()
-
-		if type(data) == "table" then 
-			for k, v in pairs(data) do
-				if(tonumber(spellName)==k) then
-					return v.duration
-				end
-			end
-		end
-		if(vradb.spellsB[tostring(spellName)]~=nil and not vradb.spellsB[tostring(spellName)].selfOnly) then
-			return vradb.spellsB[tostring(spellName)].duration
-		end
-		return -1
-	else
-		return -1
-	end
-
-	
-end
-
-
 function VRA:spellPBCooldowns(spellName)
 
 	if(spellName~=nil) then
@@ -380,7 +350,6 @@ function VRA:spellPBCooldowns(spellName)
 
 	
 end
-
 
 function VRA:AddDataOOption(spellId)
 	
