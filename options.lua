@@ -756,111 +756,6 @@ function VRA:CreateBBar(player,spell,...)
 	end
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function VRA:MoveOBar(name,duration)
-	
-	if(activeOMove == 0) then
-		lockedO = true
-		activeOMove = 1
-		
-		--Clearing cooldowns
-		for i,j in pairs(playerOSpell) do
-			playerOSpell[i]=""
-		end
-		
-		for i=1,activeOBars do
-			activeOBarsArray[i]:Hide()
-		end
-		
-		activeOBars = 0
-		
-		activeOBars = activeOBars+1
-		activeOBarsArray[activeOBars] = CreateFrame("StatusBar", nil, UIParent)
-		
-		local text = activeOBarsArray[activeOBars]:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
-		text:SetPoint("CENTER",activeOBarsArray[activeOBars],"CENTER")
-		text:SetText(name)
-		text:SetFont(VRA:SetFont(VRA:getOFontType()), VRA:getOFontSize(), "OUTLINE")
-		
-		activeOBarsArray[activeOBars]:SetStatusBarTexture(VRA:SetTexture(VRA:getOBarTexture()))
-		activeOBarsArray[activeOBars]:GetStatusBarTexture():SetHorizTile(false)
-		activeOBarsArray[activeOBars]:SetMinMaxValues(0, duration)
-		activeOBarsArray[activeOBars]:SetValue(100)
-		activeOBarsArray[activeOBars]:SetWidth(VRA:getOBarWidth())
-		activeOBarsArray[activeOBars]:SetHeight(VRA:getOBarHeight())
-		if(vradb.growthDirection) then
-			activeOBarsArray[activeOBars]:SetPoint("BOTTOMLEFT",UIParent,"BOTTOMLEFT",0+VRA:getOBarX(),activeOBars*VRA:getOBarHeight()+VRA:getOBarY())
-		else
-			activeOBarsArray[activeOBars]:SetPoint("BOTTOMLEFT",UIParent,"BOTTOMLEFT",0+VRA:getOBarX(),-activeOBars*VRA:getOBarHeight()+VRA:getOBarY())
-		end
-		activeOBarsArray[activeOBars]:SetStatusBarColor(0,1,0)
-		
-		activeOBarsArray[activeOBars].bg = activeOBarsArray[activeOBars]:CreateTexture(nil, "BACKGROUND")
-		activeOBarsArray[activeOBars].bg:SetTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
-		activeOBarsArray[activeOBars].bg:SetAllPoints(true)
-		activeOBarsArray[activeOBars].bg:SetVertexColor(0, 0, 0)
-		
-		activeOBarsArray[activeOBars]:SetMovable(true)
-		activeOBarsArray[activeOBars]:EnableMouse(true)
-		activeOBarsArray[activeOBars]:RegisterForDrag("LeftButton")
-		activeOBarsArray[activeOBars]:SetScript("OnDragStart", activeOBarsArray[activeOBars].StartMoving)
-		activeOBarsArray[activeOBars]:SetScript("OnDragStop", activeOBarsArray[activeOBars].StopMovingOrSizing)
-		
-		
-		
-		local t = duration
-		local HALF_POINT = duration / 2
-		activeOBarsArray[activeOBars]:SetScript("OnUpdate", function(bar, elapsed)
-			t = t - elapsed
-			bar:SetValue(t)
-			if t > HALF_POINT then
-				bar:SetStatusBarColor(1, t / duration, 0)
-			else
-				bar:SetStatusBarColor(1 - (t / duration), 1, 0)
-			end
-			bar:SetWidth(VRA:getOBarWidth())
-			bar:SetHeight(VRA:getOBarHeight())
-			text:SetFont(VRA:SetFont(VRA:getOFontType()), VRA:getOFontSize(), "OUTLINE")
-			activeOBarsArray[activeOBars]:SetStatusBarTexture(VRA:SetTexture(VRA:getOBarTexture()))
-			if t < 0.001 then
-				activeOBars = activeOBars-1
-				for i=1,activeOBars do
-					activeOBarsArray[i] = activeOBarsArray[i+1]
-				end
-				VRA:setOBarX(bar:GetLeft())
-				VRA:setOBarY(bar:GetBottom()-VRA:getOBarHeight())
-				
-				text:SetText("")
-				VRA:modifyOBars()
-				bar:Hide()
-				activeOMove = 0
-				lockedO = false
-			end
-		end)
-	end
-end
-
 function VRA:AddDataOOption(spellId)
 	
 	if not spellId then 
@@ -948,7 +843,6 @@ function VRA:AddDataOOption(spellId)
 	}
 end
 
-
 local function spellOCooldowns(spellName)
 	if(spellName~=nil) then
 		local data = VRA:GetBarDataO()
@@ -971,7 +865,6 @@ local function spellOCooldowns(spellName)
 
 	
 end
-
 
 function VRA:spellPOCooldowns(spellName)
 
