@@ -1215,24 +1215,6 @@ local function spellCooldowns(spellName,player)
 	
 end
 
-
-function VRA:ClearBars()
-	--Clearing cooldowns
-	for i,j in pairs(playerSpell) do
-		playerSpell[i]=""
-	end
-	
-	for i=1,activeBars do
-		activeBarsArray[i]:Hide()
-	end
-	
-	activeBars = 0
-	
-	locked = false
-	activeMove = 0
-
-end
-
 function VocalRaidAssistant:bossWipe()
 	--Clearing cooldowns
 	for i,j in pairs(playerSpell) do
