@@ -372,20 +372,6 @@ local function ArraySize(array)
 
 end
 
-function VRA:modifyBars()
-	
-	if(vradb.growthDirection) then
-		for i=1,activeBars do
-			activeBarsArray[i]:SetPoint("BOTTOMLEFT",UIParent,"BOTTOMLEFT",0+VRA:getBarX(),i*VRA:getBarHeight()+VRA:getBarY())
-		end
-	else
-		for i=1,activeBars do
-			activeBarsArray[i]:SetPoint("BOTTOMLEFT",UIParent,"BOTTOMLEFT",0+VRA:getBarX(),-i*VRA:getBarHeight()+VRA:getBarY())
-		end
-	end
-
-end
-
 function VRA:AddDataBOption(spellId)
 	
 	if not spellId then 
