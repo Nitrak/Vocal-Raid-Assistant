@@ -1215,30 +1215,6 @@ local function spellCooldowns(spellName,player)
 	
 end
 
-function VocalRaidAssistant:bossWipe()
-	--Clearing cooldowns
-	for i,j in pairs(playerSpell) do
-		if(spellCooldowns(playerSpell[i])~=nil and spellCooldowns(playerSpell[i])>=5*60) then
-			playerSpell[i]=""
-		end
-	end
-	local count = 0
-	for i=1,activeBars do
-		local _,max1 = activeBarsArray[i]:GetMinMaxValues()
-		if(max1>5*60) then
-			activeBarsArray[i]:Hide()
-			count = count + 1
-		end
-		activeBarsArray[i] = activeBarsArray[i+count]
-	end
-		
-		activeBars = activeBars-count
-		VRA:modifyBars()
-	locked = false
-	activeMove = 0
-
-end
-
 
 function VRA:ClearBBars()
 	--Clearing cooldowns
