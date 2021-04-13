@@ -14,7 +14,6 @@ local testnull = 0
 local testingactive = false
 local first = true
 local raidMaxSize = 40
-local activeBarsArray = {}
 local activeBars = 0
 local activeMove = 0
 local playerSpell = {}
@@ -178,12 +177,37 @@ local function RGBClassTEST(class)
 
 end
 
+
+function VRA:getBarX()
+   return vradb.barX
+end
+
+function VRA:setBarX(newValue)
+    vradb.barX = newValue
+end
+
+function VRA:getBarY()
+   return vradb.barY
+end
+
+function VRA:setBarY(newValue)
+    vradb.barY = newValue
+end
+
 function VRA:getHeightX()
    return vradb.heightX
 end
 
 function VRA:setHeightX(newValue)
     vradb.heightX = newValue
+end
+
+function VRA:getBarWidth()
+   return vradb.barWidth
+end
+
+function VRA:getBarHeight()
+	return vradb.barHeight
 end
 
 function VRA:getFontSize()
@@ -202,8 +226,37 @@ function VRA:getPulseIntensity()
 	return vradb.pulseIntensity
 end
 
+function VRA:getBarTexture()
+	return vradb.barTexture
+end
+
 function VRA:SetFont(font)
+	
 	return LSM:Fetch("font", font, true)
+    
+end
+
+function VRA:SetTexture(texture)
+	
+	return LSM:Fetch("statusbar", texture, true)
+    
+end
+
+
+function VRA:getOBarX()
+   return vradb.obarX
+end
+
+function VRA:setOBarX(newValue)
+    vradb.obarX = newValue
+end
+
+function VRA:getOBarY()
+   return vradb.obarY
+end
+
+function VRA:setOBarY(newValue)
+    vradb.obarY = newValue
 end
 
 function VRA:getOHeightX()
@@ -214,12 +267,83 @@ function VRA:setOHeightX(newValue)
     vradb.oheightX = newValue
 end
 
+function VRA:getOBarWidth()
+   return vradb.obarWidth
+end
+
+function VRA:getOBarHeight()
+	return vradb.obarHeight
+end
+
 function VRA:getOFontSize()
 	return vradb.ofontSize
 end
 
+function VRA:getOFontType()
+	return vradb.ofontType
+end
+
+function VRA:getOBarTexture()
+	return vradb.obarTexture
+end
+
+
+function VRA:getBBarX()
+   return vradb.bbarX
+end
+
+function VRA:setBBarX(newValue)
+    vradb.bbarX = newValue
+end
+
+function VRA:getBBarY()
+   return vradb.bbarY
+end
+
+function VRA:setBBarY(newValue)
+    vradb.bbarY = newValue
+end
+
+function VRA:getBHeightX()
+   return vradb.bheightX
+end
+
+function VRA:setBHeightX(newValue)
+    vradb.bheightX = newValue
+end
+
+function VRA:getBBarWidth()
+   return vradb.bbarWidth
+end
+
+function VRA:getBBarHeight()
+	return vradb.bbarHeight
+end
+
+function VRA:getBFontSize()
+	return vradb.bfontSize
+end
+
+function VRA:getBFontType()
+	return vradb.bfontType
+end
+
+function VRA:getBBarTexture()
+	return vradb.bbarTexture
+end
+
+
+
 function VRA:SetFont(font)
+	
 	return LSM:Fetch("font", font, true)
+    
+end
+
+function VRA:SetTexture(texture)
+	
+	return LSM:Fetch("statusbar", texture, true)
+    
 end
 
 local function convertTime(t)
@@ -233,6 +357,8 @@ local function convertTime(t)
 		return minute..":"..seconds
 	end
 end
+
+
 
 local function ArraySize(array)
 
@@ -337,6 +463,30 @@ function VRA:AddDataBOption(spellId)
 	
 end
 
+
+local function spellBCooldowns(spellName)
+	if(spellName~=nil) then
+		local data = VRA:GetBarDataB()
+
+		if type(data) == "table" then 
+			for k, v in pairs(data) do
+				if(tonumber(spellName)==k) then
+					return v.duration
+				end
+			end
+		end
+		if(vradb.spellsB[tostring(spellName)]~=nil and not vradb.spellsB[tostring(spellName)].selfOnly) then
+			return vradb.spellsB[tostring(spellName)].duration
+		end
+		return -1
+	else
+		return -1
+	end
+
+	
+end
+
+
 function VRA:spellPBCooldowns(spellName)
 
 	if(spellName~=nil) then
@@ -395,14 +545,6 @@ function VRA:AddDataOOption(spellId)
 				name = "",
 				order = 3,
 			},
-			-- cdo = {
-				-- name = "CD",
-				-- type = "input",
-				-- desc = "In seconds",
-				-- get = function() return tostring(db.cd or 0) end,
-				-- set = function(info, value) db.cd = tonumber(value) end,
-				-- pattern = "^%d+$",
-			-- },
 			durationo = {
 				name = "Duration",
 				type = "input",
@@ -438,6 +580,7 @@ function VRA:AddDataOOption(spellId)
 	}
 end
 
+
 local function spellOCooldowns(spellName)
 	if(spellName~=nil) then
 		local data = VRA:GetBarDataO()
@@ -461,6 +604,7 @@ local function spellOCooldowns(spellName)
 	
 end
 
+
 function VRA:spellPOCooldowns(spellName)
 
 	if(spellName~=nil) then
@@ -474,7 +618,7 @@ function VRA:spellPOCooldowns(spellName)
 
 
 	
-	end
+end
 
 function VRA:AddDataOption(spellId)
 
@@ -521,14 +665,6 @@ function VRA:AddDataOption(spellId)
 				set = function(info, value) db.cd = tonumber(value) end,
 				pattern = "^%d+$",
 			},
-			--duration = {
-			--	name = "Duration",
-			--	type = "input",
-				
-				--get = function() return tostring(db.duration or 0) end,
-				--set = function(info, value) db.duration = tonumber(value) self:ResetAllIcons() end,
-			--	pattern = "^%d+$",
-			--},
 			spellId = {
 				name = "Spell ID",
 				type = "input",
@@ -579,30 +715,13 @@ local function spellCooldowns(spellName,player)
 	
 end
 
+
 function VRA:ShowConfig()
 	InterfaceOptionsFrame_OpenToCategory(GetAddOnMetadata("VocalRaidAssistant", "Title"))
 	InterfaceOptionsFrame_OpenToCategory(GetAddOnMetadata("VocalRaidAssistant", "Title"))
 end
 
 function VRA:ChangeProfile()
-	if(activeBMove==1) then
-		for i=1,activeBBars do
-			activeBBarsArray[i]:Hide()
-		end
-		activeBMove = 0
-	end
-	if(activeOMove==1) then
-		for i=1,activeOBars do
-			activeOBarsArray[i]:Hide()
-		end
-		activeOMove = 0
-	end
-	if(activeMove==1) then
-		for i=1,activeBars do
-			activeBarsArray[i]:Hide()
-		end
-		activeMove = 0
-	end
 	vradb = self.db1.profile
 
 	for k,v in VocalRaidAssistant:IterateModules() do
@@ -618,6 +737,7 @@ function VRA:AddOption(name, keyName)
 	
 	return AceConfigDialog:AddToBlizOptions("VocalRaidAssistant", name, "VocalRaidAssistant", keyName)
 end
+
 
 function VRA:UpdateRoster()
 	rosterStatusOldArray[1] = vradb.raid1
@@ -806,6 +926,7 @@ function VRA:IsSelected(name)
 	return false
 end
 
+
 local function setOption(info, value)
 	local name = info[#info]
 	vradb[name] = value
@@ -813,12 +934,10 @@ local function setOption(info, value)
 		PlaySoundFile("Interface\\Addons\\"..vradb.path.."\\"..name..".ogg", VRA.VRA_CHANNEL[vradb.channel]);
 	end
 end
-
 local function getOption(info)
 	local name = info[#info]
 	return vradb[name]
 end
-
 local function spellOption(order, spellID, ...)
 	local spellname, _, icon = GetSpellInfo(spellID)	
 	if (spellname ~= nil) then
@@ -985,6 +1104,7 @@ function VRA:MakeCustomOption(key)
 		}
 	}
 end
+
 
 function VRA:OnOptionCreate()
 	local newSpellId
@@ -1534,679 +1654,6 @@ function VRA:OnOptionCreate()
 					},
 				},
 			},
-			CooldownBar = {
-				type = 'group',
-				name = "Cooldown Bar",
-				desc = "Cooldown Bar",
-				set = setOption,
-				get = getOption,
-				childGroups = "tree",
-				order = 3,
-				handler = VocalRaidAssistant,
-				args = {
-					barX = {
-						name = "barX",
-						desc = "barX",
-						type = 'input',
-						get = "getBarX",
-						set = "setBarX",
-						hidden = true,
-					},
-					barY = {
-						name = "barY",
-						desc = "barY",
-						type = 'input',
-						get = "getBarY",
-						set = "setBarY",
-						hidden = true,
-					},
-					heightX = {
-						name = "heightX",
-						desc = "heightX",
-						type = 'input',
-						get = "getHeightX",
-						set = "setHeightX",
-						hidden = true,
-					},
-					enableCooldownBar = {
-						name = "Enable",
-						desc = "Enable Cooldown Bar (Only Works in Raid Group)",
-						type = 'toggle',
-						order = 1,
-						handler = VocalRaidAssistant,
-					},
-					moveBars = {
-						name = "Move me!",
-						desc = "Click to move the position of the bar(s) - Clears all active cooldowns!",
-						type = 'execute',
-						order = 2,
-						disabled = function() if(vradb.enableCooldownBar) then return false else VRA:ClearBars() return true end end,
-						func = function() 
-							VRA:MoveBar("COOLDOWN BAR!",20)
-							--vradb.spells["1022"] = newSpellTable()
-							--self:AddDataOption("1022")
-							--VRA:CreateBar("Damista","97462")
-							--VRA:CreateBar("Nítrak","97462")
-							--VRA:CreateBar("Zørg-TheMaelstrom","97462")
-						end,
-						handler = VocalRaidAssistant,
-					},
-					userTest = {
-						name = "Test!",
-						desc = "Test some bars!",
-						type = 'execute',
-						order = 3,
-						disabled = function() if(vradb.enableCooldownBar) then return false else return true end end,
-						func = function() 
-								VRA:CreateBar("Priest","64843")
-								VRA:CreateBar("Druid","740")
-								VRA:CreateBar("Death Knight","51052")
-								VRA:CreateBar("Paladin","31821")
-								VRA:CreateBar("Warrior","97462")
-								VRA:CreateBar("Shaman","108280")
-						end,
-						handler = VocalRaidAssistant,
-					},
-					resetBars = {
-						name = "Reset location",
-						desc = "Click to reset the position of the bar(s)",
-						type = 'execute',
-						order = 5,
-						disabled = function() if(vradb.enableCooldownBar) then return false else VRA:ClearBars() return true end end,
-						func = function() 
-							vradb.barX = 500
-							vradb.barY = 500
-						end,
-						handler = VocalRaidAssistant,
-					},
-					forcetest = {
-						name = "TEST!",
-						desc = "TEST!",
-						type = 'execute',
-						order = 4,
-						disabled = function() if(vradb.enableCooldownBar) then return false else return true end end,
-						hidden = not testingactive,
-						func = function() 
-								VRA:CreateBar("Priest","64843")
-								VRA:CreateBar("Druid","740")
-								VRA:CreateBar("Death Knight","51052")
-								VRA:CreateBar("Paladin","31821")
-								VRA:CreateBar("Warrior","97462")
-								VRA:CreateBar("Warrior","108280")
-						end,
-						handler = VocalRaidAssistant,
-					},
-					BarSettings = {
-						type = 'group',
-						name = "Bar Settings",
-						desc = "Bar Settings",
-						inline = true,
-						order = -2,
-						disabled = function() if(vradb.enableCooldownBar) then return false else return true end end,
-						args = {
-							barWidth = {
-								type = 'range',
-								max = 600,
-								min = 1,
-								step = 1,
-								name = "Bar Width",
-								desc = "Adjust Bar Width",
-								get = "getBarWidth",
-								order = 1,
-							},
-							barHeight = {
-								type = 'range',
-								max = 75,
-								min = 1,
-								step = 1,
-								name = "Bar Height",
-								desc = "Adjust Bar Height",
-								get = "getBarHeight",
-								order = 2,
-							},
-							fontSize = {
-								type = 'range',
-								max = 28,
-								min = 1,
-								step = 1,
-								name = "Font Size",
-								desc = "Adjust Font Size",
-								get = "getFontSize",
-								order = 3,
-							},
-							fontType = {
-								name = "Set Font",
-								desc = "Set Font Type",
-								type = "select",
-								dialogControl = 'LSM30_Font',
-								get = "getFontType",
-								values = AceGUIWidgetLSMlists.font,
-								order = 4,
-							},
-							barTexture = {
-								type = 'select',
-								dialogControl = 'LSM30_Statusbar',
-								name = "Set Bar Texture",
-								desc = "Set Bar Texture",
-								values = AceGUIWidgetLSMlists.statusbar,
-								get = "getBarTexture",
-								order=5,
-							},
-							growthDirection = {
-								type = 'toggle',
-								name = "Growth Direction",
-								desc = "Active = UP \nDisabled = DOWN",
-								order=6,
-							},
-							enablePulse = {
-								type = 'toggle',
-								name = "Enable Pulse",
-								desc = "Bar starts pulsing once timer is met",
-								order=7,
-							},
-							pulseStart = {
-								type = 'range',
-								max = 25,
-								min = 1,
-								step = 1,
-								disabled = function() if(vradb.enableCooldownBar and vradb.enablePulse) then return false else return true end end,
-								name = "Pulse Start",
-								desc = "Adjust remaining time pulse",
-								get = "getPulseStart",
-								order = 8,
-							},
-							pulseIntensity = {
-								type = 'range',
-								max = 3,
-								min = 1,
-								step = 0.1,
-								disabled = function() if(vradb.enableCooldownBar and vradb.enablePulse) then return false else return true end end,
-								name = "Pulse Intensity",
-								desc = "Adjust pulse intensity",
-								get = "getPulseIntensity",
-								order = 8,
-							},
-						},
-					},
-					BarAbilities = {
-						type = 'group',
-						name = "Bar Abilities",
-						desc = "Bar Abilities",
-						inline = true,
-						order = -1,
-						disabled = function() if(vradb.enableCooldownBar) then return false else return true end end,
-						args = {
-							spellId = {
-								name = "Spell ID",
-								type = "input",
-								set = function(info, value) newSpellId = value end,
-								get = function() return newSpellId end,
-								--pattern = "^%d+$",
-								order = 1,
-							},
-							addCustom = {
-								type = "execute",
-								name = "Add New CD",
-								func = function()
-									if not newSpellId then return end
-									if not vradb.spells[newSpellId] then
-										vradb.spells[tostring(newSpellId)] = newSpellTable()
-										self:AddDataOption(tostring(newSpellId))
-										self.options.args.CooldownBar.args.BarAbilities.args.spellId.set("","")
-									else
-										--self:log("Id '" .. newSpellId .. "' " .. "already exists.")
-									end
-								end,
-								order = 2,
-							},
-							dataDelete = {
-								type = "execute",
-								name = "Delete Custom Data",
-								desc = "To delete all custom data, the addon's original data will not be changed",
-								confirm = true,
-								confirmText = "Are you sure to delete all custom data?",
-								order = 3,
-								func = function()
-									local op = self.options.args.CooldownBar.args
-									local data = self:GetBarData()
-									local db = vradb.spells
-									for k, v in pairs(db) do
-										if v.type == "custom" then
-											db[k] = nil
-											op[k] = nil
-										end
-									end
-								end,
-							},
-						},
-					},
-				},
-			},
-			BuffBar = {
-				type = 'group',
-				name = "Buff Bar",
-				desc = "Buff Bar",
-				set = setOption,
-				get = getOption,
-				childGroups = "tree",
-				order = 3,
-				handler = VocalRaidAssistant,
-				args = {
-					bbarX = {
-						name = "bbarX",
-						desc = "bbarX",
-						type = 'input',
-						get = "getBBarX",
-						set = "setBBarX",
-						hidden = true,
-					},
-					bbarY = {
-						name = "bbarY",
-						desc = "bbarY",
-						type = 'input',
-						get = "getBBarY",
-						set = "setBBarY",
-						hidden = true,
-					},
-					bheightX = {
-						name = "bheightX",
-						desc = "bheightX",
-						type = 'input',
-						get = "getBHeightX",
-						set = "setBHeightX",
-						hidden = true,
-					},
-					enableBCooldownBar = {
-						name = "Enable",
-						desc = "Enable Buff Bar (Only Works in Raid Group)",
-						type = 'toggle',
-						order = 1,
-						handler = VocalRaidAssistant,
-					},
-					moveBBars = {
-						name = "Move me!",
-						desc = "Click to move the position of the bar(s) - Clears all active cooldowns!",
-						type = 'execute',
-						order = 2,
-						disabled = function() if(vradb.enableBCooldownBar) then return false else VRA:ClearBBars() return true end end,
-						func = function() 
-							VRA:MoveBBar("DEFENSIVE BUFF BAR!",20)
-						end,
-						handler = VocalRaidAssistant,
-					},
-					userBTest = {
-						 name = "Test!",
-						 desc = "Test some bars!",
-						 type = 'execute',
-						 order = 3,
-						 disabled = function() if(vradb.enableBCooldownBar) then return false else return true end end,
-						 func = function() 
-								VRA:CreateBBar("Priest","64843")
-								VRA:CreateBBar("Druid","740")
-								VRA:CreateBBar("Monk","116849","personal")
-								VRA:CreateBBar("Hunter","53480","personal")
-								VRA:CreateBBar("Death Knight","51052")
-								VRA:CreateBBar("Paladin","31821")
-								VRA:CreateBBar("Rogue","76577")
-								VRA:CreateBBar("Warrior","97462")
-								VRA:CreateBBar("Shaman","98008")
-						 end,
-						 handler = VocalRaidAssistant,
-					},
-					resetBBars = {
-						name = "Reset location",
-						desc = "Click to reset the position of the bar(s)",
-						type = 'execute',
-						order = 5,
-						disabled = function() if(vradb.enableCooldownBar) then return false else VRA:ClearBars() return true end end,
-						func = function() 
-							vradb.bbarX = 800
-							vradb.bbarY = 500
-						end,
-						handler = VocalRaidAssistant,
-					},
-					forceBtest = {
-						 name = "TEST!",
-						 desc = "TEST!",
-						 type = 'execute',
-						 order = 4,
-						 disabled = function() if(vradb.enableBCooldownBar) then return false else return true end end,
-						 hidden = not testingactive,
-						 func = function() 
-								VRA:CreateBBar("Priest","64843")
-								VRA:CreateBBar("Druid","740")
-								VRA:CreateBBar("Death Knight","51052")
-								VRA:CreateBBar("Paladin","31821")
-								VRA:CreateBBar("Rogue","76577")
-								VRA:CreateBBar("Warrior","97462")
-								VRA:CreateBBar("Shaman","98008")
-						 end,
-						 handler = VocalRaidAssistant,
-					},
-					bBarSettings = {
-						type = 'group',
-						name = "Bar Settings",
-						desc = "Bar Settings",
-						inline = true,
-						disabled = function() if(vradb.enableBCooldownBar) then return false else return true end end,
-						order = -2,
-						args = {
-							bbarWidth = {
-								type = 'range',
-								max = 600,
-								min = 1,
-								step = 1,
-								name = "Bar Width",
-								desc = "Adjust Bar Width",
-								get = "getBBarWidth",
-								order = 1,
-							},
-							bbarHeight = {
-								type = 'range',
-								max = 75,
-								min = 1,
-								step = 1,
-								name = "Bar Height",
-								desc = "Adjust Bar Height",
-								get = "getBBarHeight",
-								order = 2,
-							},
-							bfontSize = {
-								type = 'range',
-								max = 28,
-								min = 1,
-								step = 1,
-								name = "Font Size",
-								desc = "Adjust Font Size",
-								get = "getBFontSize",
-								order = 3,
-							},
-							bfontType = {
-								name = "Set Font",
-								desc = "Set Font Type",
-								type = "select",
-								dialogControl = 'LSM30_Font',
-								get = "getBFontType",
-								values = AceGUIWidgetLSMlists.font,
-								order = 4,
-							},
-							bbarTexture = {
-								type = 'select',
-								dialogControl = 'LSM30_Statusbar',
-								name = "Set Bar Texture",
-								desc = "Set Bar Texture",
-								values = AceGUIWidgetLSMlists.statusbar,
-								get = "getBBarTexture",
-								order=5,
-							},
-							bgrowthDirection = {
-								type = 'toggle',
-								name = "Growth Direction",
-								desc = "Active = UP \nDisabled = DOWN",
-								order=6,
-							},
-						},
-					},
-					bBarAbilities = {
-						type = 'group',
-						name = "Bar Abilities",
-						desc = "Bar Abilities",
-						inline = true,
-						order = -1,
-						disabled = function() if(vradb.enableBCooldownBar) then return false else return true end end,
-						args = {
-							bspellId = {
-								name = "Spell ID",
-								type = "input",
-								set = function(info, value) newSpellId = value end,
-								get = function() return newSpellId end,
-								--pattern = "^%d+$",
-								order = 1,
-							},
-							baddCustom = {
-								type = "execute",
-								name = "Add New Buff",
-								func = function()
-									if not newSpellId then return end
-									if not vradb.spellsB[newSpellId] then
-										vradb.spellsB[tostring(newSpellId)] = newSpellTable()
-										self:AddDataBOption(tostring(newSpellId))
-										self.options.args.BuffBar.args.bBarAbilities.args.bspellId.set("","")
-									else
-										--self:log("Id '" .. newSpellId .. "' " .. "already exists.")
-									end
-								end,
-								order = 2,
-							},
-							bdataDelete = {
-								type = "execute",
-								name = "Delete Custom Data",
-								desc = "To delete all custom data, the addon's original data will not be changed",
-								confirm = true,
-								confirmText = "Are you sure to delete all custom data?",
-								order = 3,
-								func = function()
-									local op = self.options.args.BuffBar.args
-									local data = self:GetBarDataB()
-									local db = vradb.spellsB
-									for k, v in pairs(db) do
-										if v.type == "custom" then
-											db[k] = nil
-											op[k] = nil
-										end
-									end
-								end,
-							},
-						},
-					},
-				},
-			},
-			OffensiveCooldownBar = {
-				type = 'group',
-				name = "Offensive Cooldown Bar",
-				desc = "Offensive Cooldown Bar",
-				set = setOption,
-				get = getOption,
-				childGroups = "tree",
-				order = 3,
-				handler = VocalRaidAssistant,
-				args = {
-					obarX = {
-						name = "obarX",
-						desc = "obarX",
-						type = 'input',
-						get = "getOBarX",
-						set = "setOBarX",
-						hidden = true,
-					},
-					obarY = {
-						name = "obarY",
-						desc = "obarY",
-						type = 'input',
-						get = "getOBarY",
-						set = "setOBarY",
-						hidden = true,
-					},
-					oheightX = {
-						name = "oheightX",
-						desc = "oheightX",
-						type = 'input',
-						get = "getOHeightX",
-						set = "setOHeightX",
-						hidden = true,
-					},
-					enableOCooldownBar = {
-						name = "Enable",
-						desc = "Enable Cooldown Bar (Only Works in Raid Group)",
-						type = 'toggle',
-						order = 1,
-						handler = VocalRaidAssistant,
-					},
-					moveOBars = {
-						name = "Move me!",
-						desc = "Click to move the position of the bar(s) - Clears all active cooldowns!",
-						type = 'execute',
-						order = 3,
-						disabled = function() if(vradb.enableOCooldownBar) then return false else VRA:ClearOBars() return true end end,
-						func = function() 
-							VRA:MoveOBar("OFFENSIVE BUFF BAR!",20)
-							--VRA:CreateBar("Nitrak","97462")
-						end,
-						handler = VocalRaidAssistant,
-					},
-					userOTest = {
-						name = "Test!",
-						desc = "Test some bars!",
-						type = 'execute',
-						order = 4,
-						disabled = function() if(vradb.enableOCooldownBar) then return false else return true end end,
-						func = function() 
-								VRA:CreateOBar("Mage","80353")
-								VRA:CreateOBar("Rogue","57934")
-						end,
-						handler = VocalRaidAssistant,
-					},
-					resetOBars = {
-						name = "Reset location",
-						desc = "Click to reset the position of the bar(s)",
-						type = 'execute',
-						order = 5,
-						disabled = function() if(vradb.enableCooldownBar) then return false else VRA:ClearBars() return true end end,
-						func = function() 
-							vradb.obarX = 1000
-							vradb.obarY = 500
-						end,
-						handler = VocalRaidAssistant,
-					},
-					forceOtest = {
-						name = "TEST!",
-						desc = "TEST!",
-						type = 'execute',
-						disabled = function() if(vradb.enableOCooldownBar) then return false else return true end end,
-						hidden = not testingactive,
-						func = function() 
-								VRA:CreateOBar("Mage","80353")
-						end,
-						handler = VocalRaidAssistant,
-					},
-					oBarSettings = {
-						type = 'group',
-						name = "Bar Settings",
-						desc = "Bar Settings",
-						inline = true,
-						disabled = function() if(vradb.enableOCooldownBar) then return false else return true end end,
-						order = -2,
-						args = {
-							obarWidth = {
-								type = 'range',
-								max = 600,
-								min = 1,
-								step = 1,
-								name = "Bar Width",
-								desc = "Adjust Bar Width",
-								get = "getOBarWidth",
-								order = 1,
-							},
-							obarHeight = {
-								type = 'range',
-								max = 75,
-								min = 1,
-								step = 1,
-								name = "Bar Height",
-								desc = "Adjust Bar Height",
-								get = "getOBarHeight",
-								order = 2,
-							},
-							ofontSize = {
-								type = 'range',
-								max = 28,
-								min = 1,
-								step = 1,
-								name = "Font Size",
-								desc = "Adjust Font Size",
-								get = "getOFontSize",
-								order = 3,
-							},
-							ofontType = {
-								name = "Set Font",
-								desc = "Set Font Type",
-								type = "select",
-								dialogControl = 'LSM30_Font',
-								get = "getOFontType",
-								values = AceGUIWidgetLSMlists.font,
-								order = 4,
-							},
-							obarTexture = {
-								type = 'select',
-								dialogControl = 'LSM30_Statusbar',
-								name = "Set Bar Texture",
-								desc = "Set Bar Texture",
-								values = AceGUIWidgetLSMlists.statusbar,
-								get = "getOBarTexture",
-								order=5,
-							},
-							ogrowthDirection = {
-								type = 'toggle',
-								name = "Growth Direction",
-								desc = "Active = UP \nDisabled = DOWN",
-								order=6,
-							},
-						},
-					},
-					oBarAbilities = {
-						type = 'group',
-						name = "Bar Abilities",
-						desc = "Bar Abilities",
-						inline = true,
-						order = -1,
-						disabled = function() if(vradb.enableOCooldownBar) then return false else return true end end,
-						args = {
-							ospellId = {
-								name = "Spell ID",
-								type = "input",
-								set = function(info, value) newSpellId = value end,
-								get = function() return newSpellId end,
-								--pattern = "^%d+$",
-								order = 1,
-							},
-							oaddCustom = {
-								type = "execute",
-								name = "Add New Buff",
-								func = function()
-									if not newSpellId then return end
-									if not vradb.spellsO[newSpellId] then
-										vradb.spellsO[tostring(newSpellId)] = newSpellTable()
-										self:AddDataOOption(tostring(newSpellId))
-										self.options.args.OffensiveCooldownBar.args.oBarAbilities.args.ospellId.set("","")
-									else
-										--self:log("Id '" .. newSpellId .. "' " .. "already exists.")
-									end
-								end,
-								order = 2,
-							},
-							odataDelete = {
-								type = "execute",
-								name = "Delete Custom Data",
-								desc = "To delete all custom data, the addon's original data will not be changed",
-								confirm = true,
-								confirmText = "Are you sure to delete all custom data?",
-								order = 3,
-								func = function()
-									local op = self.options.args.OffensiveCooldownBar.args
-									local data = self:GetBarDataO()
-									local db = vradb.spellsO
-									for k, v in pairs(db) do
-										if v.type == "custom" then
-											db[k] = nil
-											op[k] = nil
-										end
-									end
-								end,
-							},
-						},
-					},
-				},
-			},
 			IndividualAssingment = {
 				type = 'group',
 				name = "Individual Assingment",
@@ -2608,9 +2055,6 @@ function VRA:OnOptionCreate()
 	
 	self:AddOption(L["Abilities"], "spells")
 	self:AddOption("Individual Assignment", "IndividualAssingment")
-	self:AddOption("Cooldown Bar", "CooldownBar")
-	self:AddOption("Defensive Buff Bar", "BuffBar")
-	self:AddOption("Offensive Buff Bar", "OffensiveCooldownBar")
 	self:AddOption(L["Custom"], "custom")
 	self:AddOption(L["Profiles"], "profiles")
 end
