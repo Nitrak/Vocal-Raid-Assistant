@@ -821,7 +821,6 @@ function VocalRaidAssistant:isTankSpec(name)
 		return true
 	end
 	return false
-	
 end
 
 function VocalRaidAssistant:isHealingSpec(name)
@@ -830,7 +829,6 @@ function VocalRaidAssistant:isHealingSpec(name)
 		return true
 	end
 	return false
-	
 end
 
 -- play sound by spell id and spell type

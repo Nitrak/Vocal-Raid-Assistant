@@ -102,9 +102,6 @@ function VRA:InitDB()
 			--vradb.spellsB[k] = nil
 		end
 	end
-	
-	
-
 end
 
 function VRA:class(name)
@@ -341,9 +338,7 @@ function VRA:SetFont(font)
 end
 
 function VRA:SetTexture(texture)
-	
 	return LSM:Fetch("statusbar", texture, true)
-    
 end
 
 local function convertTime(t)
@@ -497,8 +492,6 @@ function VRA:spellPBCooldowns(spellName)
 	 else
 		 return -1
 	 end
-
-	
 end
 
 function VRA:AddDataOOption(spellId)
@@ -600,8 +593,6 @@ local function spellOCooldowns(spellName)
 	else
 		return -1
 	end
-
-	
 end
 
 
@@ -615,9 +606,6 @@ function VRA:spellPOCooldowns(spellName)
 	 else
 		 return -1
 	 end
-
-
-	
 end
 
 function VRA:AddDataOption(spellId)
@@ -712,7 +700,6 @@ local function spellCooldowns(spellName,player)
 	 else
 		 return -1
 	 end
-	
 end
 
 
@@ -734,7 +721,6 @@ function VRA:ChangeProfile()
 end
 
 function VRA:AddOption(name, keyName)
-	
 	return AceConfigDialog:AddToBlizOptions("VocalRaidAssistant", name, "VocalRaidAssistant", keyName)
 end
 
