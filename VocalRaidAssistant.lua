@@ -794,9 +794,6 @@ function VocalRaidAssistant:OnDisable()
 
 end
 
-
-
-
 -- play sound by file name
 function VRA:PlaySound(fileName, extend)
 	PlaySoundFile("Interface\\Addons\\"..vradb.path.."\\"..fileName .. "." .. (extend or "ogg"), VRA_CHANNEL[vradb.channel])
@@ -861,14 +858,16 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 	(currentZoneType == nil and vradb.scenario) or 
 	vradb.all)
 	) then
-		print(currentZoneType)
 		return
 	end
 	
 	local timestamp,event,hideCaster,sourceGUID,sourceName,sourceFlags,sourceFlags2,destGUID,destName,destFlags,destFlags2,spellID,spellName= CombatLogGetCurrentEventInfo()
-	print(spellID, spellName)
+	if not VRA_EVENT[event] then 
+		--print("Unregistered:", spellID, spellName)
+		return 
+	end
 	
-	if not VRA_EVENT[event] then return end
+	--print("Registered:", spellID, spellName)
 	
 	if (destFlags) then
 		for k in pairs(VRA_TYPE) do
