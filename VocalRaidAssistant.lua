@@ -10,7 +10,6 @@ local VRA_VERSION = " " .. GetAddOnMetadata("VocalRaidAssistant", "Version")
 local VRA_AUTHOR = " updated by Nitrak"
 local tankSpecs = {250,104,268,66,73} --Blood DK, Guardian, Brewmaster, Prot Pala, Prot Warr
 local bossesAlive = {}
-local killBoss = false
 --local test = 0
 
 local VRA_LOCALEPATH = {
@@ -852,6 +851,9 @@ end
 
 
 function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
+	
+	local timestamp,event,hideCaster,sourceGUID,sourceName,sourceFlags,sourceFlags2,destGUID,destName,destFlags,destFlags2,spellID,spellName=CombatLogGetCurrentEventInfo()
+	print(spellID)
 
 	local _,currentZoneType = IsInInstance()
 	if (not (
@@ -914,18 +916,6 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 		end
 	end
 	sourceuid.any = true
-	--print (destuid.target,sourceName,destName)
-	--[[debug
-	if (spellID == 80964 or spellID == 80965 or spellID == 85285) then 
-		print (sourceName,destName,event,spellName,spellID)
-	end
-	enddebug]]--
-	
-	if (UnitExists("boss1")) then
-		killBoss = true
-	elseif (killBoss and not UnitAffectingCombat("player")) then
-		killBoss = false
-	end
 	
 	if(spellID==123402) then
 		spellID = 115295 --To make improved guard equal to guard
