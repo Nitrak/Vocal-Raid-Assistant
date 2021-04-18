@@ -1015,22 +1015,6 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 				end
 			end
 		end
-	--elseif (event == "SPELL_AURA_REMOVED" and desttype[COMBATLOG_FILTER_FRIENDLY_UNITS] and (not vradb.ronlyTF or destuid.target or destuid.focus) and not vradb.auraRemoved) then
-	--	if(vradb.onlyRaidGroup) then
-	--		if(UnitInRaid(sourceName) or UnitInParty(sourceName)) then
-	--			self:PlaySpell("auraRemoved", spellID)
-	--		end
-	--	else
-	--		self:PlaySpell("auraRemoved", spellID)
-	--	end
-	--elseif (event == "SPELL_CAST_START" and sourcetype[COMBATLOG_FILTER_FRIENDLY_UNITS] and (not vradb.conlyTF or sourceuid.target or sourceuid.focus) and not vradb.castStart) then
-	--	if(vradb.onlyRaidGroup) then
-	--		if(UnitInRaid(sourceName) or UnitInParty(sourceName)) then
-	--			self:PlaySpell("castStart", spellID)
-	--		end
-	--	else
-	--		self:PlaySpell("castStart", spellID)
-	--	end
 	elseif (event == "SPELL_AURA_APPLIED" and (desttype[COMBATLOG_FILTER_HOSTILE_PLAYERS] or desttype[COMBATLOG_FILTER_HOSTILE_UNITS] or desttype[COMBATLOG_FILTER_NEUTRAL_UNITS]) and not sourcetype[COMBATLOG_FILTER_ME] and not vradb.aruaApplied) then 
 		self:PlaySpell("auraApplied", spellID) --Should handle CC applications
 	
