@@ -850,13 +850,13 @@ end
 function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 	local _,currentZoneType = IsInInstance()
 	if (not (
-	(currentZoneType == "none" and vradb.field) or 
-	(currentZoneType == "pvp" and vradb.battleground) or 
-	(currentZoneType == "arena" and vradb.arena) or 
-	(currentZoneType == "party" and vradb.instance) or 
-	(currentZoneType == "raid" and vradb.raid) or 
-	(currentZoneType == nil and vradb.scenario) or 
-	vradb.all)
+		(currentZoneType == "none" and vradb.field) or 
+		(currentZoneType == "pvp" and vradb.battleground) or 
+		(currentZoneType == "arena" and vradb.arena) or 
+		(currentZoneType == "party" and vradb.instance) or 
+		(currentZoneType == "raid" and vradb.raid) or 
+		(currentZoneType == nil and vradb.scenario) or 
+		vradb.all)
 	) then
 		return
 	end
@@ -867,8 +867,7 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 		return 
 	end
 	
-	--print("Registered:", spellID, spellName)
-	
+	print("Registered:", spellID, spellName)
 	if (destFlags) then
 		for k in pairs(VRA_TYPE) do
 			desttype[k] = CombatLog_Object_IsA(destFlags,k)
@@ -914,7 +913,7 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 		end
 	end
 	sourceuid.any = true
-	
+
 	if(spellID==123402) then
 		spellID = 115295 --To make improved guard equal to guard
 	end
@@ -923,38 +922,24 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 		return
 	end
 	
+	print(event)
+
 	if (event == "SPELL_AURA_APPLIED" and desttype[COMBATLOG_FILTER_ME] and not sourcetype[COMBATLOG_FILTER_ME] and not vradb.aruaApplied) then
 		if(not vradb.buffAppliedSpecific) then
 			if(vradb.buffAppliedTank) then
 				if(self:isTankSpec(destName)) then
 					self:PlaySpell("auraApplied", spellID)
-					if(vradb.enableBCooldownBar) then
-						VRA:CreateBBar(sourceName,spellID,"personal")
-						VRA:CreateBBar(sourceName,spellName,"personal")
-					end
 				end
 			else
 				self:PlaySpell("auraApplied", spellID)
-				if(vradb.enableBCooldownBar) then
-					VRA:CreateBBar(sourceName,spellID,"personal")
-					VRA:CreateBBar(sourceName,spellName,"personal")
-				end
 			end
 		else
 			if(IsInRaid() or IsInGroup()) then
 				if(self:IsSelected(destName)) then
 					self:PlaySpell("auraApplied", spellID)
-					if(vradb.enableBCooldownBar) then
-						VRA:CreateBBar(sourceName,spellID,"personal")
-						VRA:CreateBBar(sourceName,spellName,"personal")
-					end
 				end
 			else
 				self:PlaySpell("auraApplied", spellID)
-				if(vradb.enableBCooldownBar) then
-					VRA:CreateBBar(sourceName,spellID,"personal")
-					VRA:CreateBBar(sourceName,spellName,"personal")
-				end
 			end
 		end
 	elseif (event == "SPELL_AURA_APPLIED" and desttype[COMBATLOG_FILTER_FRIENDLY_UNITS] and not sourcetype[COMBATLOG_FILTER_ME] and not vradb.aruaApplied) then
@@ -966,19 +951,9 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 							if(vradb.buffAppliedTank) then
 								if(self:isTankSpec(destName)) then
 									self:PlaySpell("auraApplied", spellID)
-									if(vradb.enableBCooldownBar) then
-										if(spellID ~= 97462) then
-											VRA:CreateBBar(sourceName,spellID)
-											VRA:CreateBBar(sourceName,spellName)
-										end
-									end
 								end
 							else
 								self:PlaySpell("auraApplied", spellID)
-								if(vradb.enableBCooldownBar) then
-									VRA:CreateBBar(sourceName,spellID)
-									VRA:CreateBBar(sourceName,spellName)
-								end
 							end
 						end
 					end
@@ -986,27 +961,15 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 					if(vradb.buffAppliedTank) then
 						if(self:isTankSpec(destName)) then
 							self:PlaySpell("auraApplied", spellID)
-							if(vradb.enableBCooldownBar) then
-								VRA:CreateBBar(sourceName,spellID)
-								VRA:CreateBBar(sourceName,spellName)
-							end
 						end
 					else
 						self:PlaySpell("auraApplied", spellID)
-						if(vradb.enableBCooldownBar) then
-							VRA:CreateBBar(sourceName,spellID)
-							VRA:CreateBBar(sourceName,spellName)
-						end
 					end
 				end
 			else
 				if(IsInRaid() or IsInGroup()) then
 					if(self:IsSelected(destName)) then
 						self:PlaySpell("auraApplied", spellID)
-						if(vradb.enableBCooldownBar) then
-							VRA:CreateBBar(sourceName,spellID)
-							VRA:CreateBBar(sourceName,spellName)
-						end
 					end
 				else
 					self:PlaySpell("auraApplied", spellID)
@@ -1029,21 +992,9 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 			if(vradb.onlyRaidGroup) then
 				if(UnitInRaid(sourceName) or UnitInParty(sourceName)) then
 					self:PlaySpell("castSuccess", spellID)
-					if(vradb.enableOCooldownBar) then
-						VRA:CreateOBar(sourceName,spellID)
-						VRA:CreateOBar(sourceName,spellName)
-					end
-					if(vradb.enableBCooldownBar) then
-						VRA:CreateBBar(sourceName,spellID)
-						VRA:CreateBBar(sourceName,spellName)
-					end
 				end
 			else
 				if(UnitInRaid(sourceName) or UnitInParty(sourceName)) then
-					if(vradb.enableOCooldownBar) then
-						VRA:CreateOBar(sourceName,spellID)
-						VRA:CreateOBar(sourceName,spellName)
-					end
 				end
 				self:PlaySpell("castSuccess", spellID)
 				--Do not want to show bar ever, since target not in group
@@ -1052,14 +1003,6 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 	elseif ((event == "SPELL_CAST_SUCCESS" or event == "SPELL_SUMMON") and sourcetype[COMBATLOG_FILTER_ME] and not vradb.castSuccess) then
 			--print(sourceName.. " " ..spellID)
 			if(sourceName==(UnitName("player"))) then	
-				if(vradb.enableOCooldownBar) then
-					VRA:CreateOBar(sourceName,spellID,"personal")
-					VRA:CreateOBar(sourceName,spellName,"personal")
-				end
-				if(vradb.enableBCooldownBar) then
-					VRA:CreateBBar(sourceName,spellID,"personal")
-					VRA:CreateBBar(sourceName,spellName,"personal")
-				end
 			end
 			
 	elseif (event == "SPELL_INTERRUPT" and (desttype[COMBATLOG_FILTER_HOSTILE_PLAYERS] or desttype[COMBATLOG_FILTER_HOSTILE_UNITS]) and not vradb.interrupt) then 
