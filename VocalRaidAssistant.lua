@@ -851,10 +851,6 @@ end
 
 
 function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
-	
-	local timestamp,event,hideCaster,sourceGUID,sourceName,sourceFlags,sourceFlags2,destGUID,destName,destFlags,destFlags2,spellID,spellName=CombatLogGetCurrentEventInfo()
-	print(spellID)
-
 	local _,currentZoneType = IsInInstance()
 	if (not (
 	(currentZoneType == "none" and vradb.field) or 
@@ -865,9 +861,12 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 	(currentZoneType == nil and vradb.scenario) or 
 	vradb.all)
 	) then
+		print(currentZoneType)
 		return
 	end
+	
 	local timestamp,event,hideCaster,sourceGUID,sourceName,sourceFlags,sourceFlags2,destGUID,destName,destFlags,destFlags2,spellID,spellName= CombatLogGetCurrentEventInfo()
+	print(spellID, spellName)
 	
 	if not VRA_EVENT[event] then return end
 	
@@ -1043,59 +1042,10 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 				self:PlaySound(c);
 			end
 		else
-			--if(vradb.onlyRaidGroup and vradb.buffAppliedTank and not vradb.buffAppliedSpecific) then
-			--	if(UnitInRaid(sourceName) or UnitInParty(sourceName)) then
-			--		if(self:isTankSpec(sourceName)) then
-			--			self:PlaySpell("castSuccess", spellID)
-			--			if(vradb.enableCooldownBar) then
-			--				VRA:CreateBar(sourceName,spellID)
-			--				VRA:CreateBar(sourceName,spellName)
-			--			end
-			--			if(vradb.enableOCooldownBar) then
-			--				VRA:CreateOBar(sourceName,spellID)
-			--				VRA:CreateOBar(sourceName,spellName)
-			--			end
-			--			if(vradb.enableBCooldownBar) then
-			--				VRA:CreateBBar(sourceName,spellID)
-			--				VRA:CreateBBar(sourceName,spellName)
-			--			end
-			--		end
-			--	end
-			--else
-			--if(vradb.onlyRaidGroup and not vradb.buffAppliedSpecific) then
-			--	if(UnitInRaid(sourceName) or UnitInParty(sourceName)) then
-			--		self:PlaySpell("castSuccess", spellID)
-			--		if(vradb.enableCooldownBar) then
-			--				VRA:CreateBar(sourceName,spellID)
-			--				VRA:CreateBar(sourceName,spellName)
-			--			end
-			--			if(vradb.enableOCooldownBar) then
-			--				VRA:CreateOBar(sourceName,spellID)
-			--				VRA:CreateOBar(sourceName,spellName)
-			--			end
-			--			if(vradb.enableBCooldownBar) then
-			--				VRA:CreateBBar(sourceName,spellID)
-			--				VRA:CreateBBar(sourceName,spellName)
-			--			end
-			--	end
-			--elseif(vradb.buffAppliedSpecific) then
-			--	if(IsInRaid() or IsInGroup()) then
-			--		if(self:IsSelected(sourceName)) then
-			--			self:PlaySpell("auraApplied", spellID)
-			--			if(vradb.enableBCooldownBar) then
-			--				VRA:CreateBBar(sourceName,spellID)
-			--				VRA:CreateBBar(sourceName,spellName)							
-			--			end
-			--		end	
-			--	end
 			if(spellID==34433 and not self:isHealingSpec(sourceName)) then return end
 			if(vradb.onlyRaidGroup) then
 				if(UnitInRaid(sourceName) or UnitInParty(sourceName)) then
 					self:PlaySpell("castSuccess", spellID)
-					if(vradb.enableCooldownBar) then
-						VRA:CreateBar(sourceName,spellID)
-						VRA:CreateBar(sourceName,spellName)
-					end
 					if(vradb.enableOCooldownBar) then
 						VRA:CreateOBar(sourceName,spellID)
 						VRA:CreateOBar(sourceName,spellName)
@@ -1107,17 +1057,9 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 				end
 			else
 				if(UnitInRaid(sourceName) or UnitInParty(sourceName)) then
-					if(vradb.enableCooldownBar) then
-						VRA:CreateBar(sourceName,spellID)
-						VRA:CreateBar(sourceName,spellName)
-					end
 					if(vradb.enableOCooldownBar) then
 						VRA:CreateOBar(sourceName,spellID)
 						VRA:CreateOBar(sourceName,spellName)
-					end
-					if(vradb.enableBCooldownBar) then
-						VRA:CreateBBar(sourceName,spellID)
-						VRA:CreateBBar(sourceName,spellName)
 					end
 				end
 				self:PlaySpell("castSuccess", spellID)
@@ -1127,10 +1069,6 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 	elseif ((event == "SPELL_CAST_SUCCESS" or event == "SPELL_SUMMON") and sourcetype[COMBATLOG_FILTER_ME] and not vradb.castSuccess) then
 			--print(sourceName.. " " ..spellID)
 			if(sourceName==(UnitName("player"))) then	
-				if(vradb.enableCooldownBar) then
-					VRA:CreateBar(sourceName,spellID)
-					VRA:CreateBar(sourceName,spellName)
-				end
 				if(vradb.enableOCooldownBar) then
 					VRA:CreateOBar(sourceName,spellID,"personal")
 					VRA:CreateOBar(sourceName,spellName,"personal")
