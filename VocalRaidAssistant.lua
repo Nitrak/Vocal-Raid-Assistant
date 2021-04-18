@@ -303,43 +303,13 @@ function VocalRaidAssistant:OnInitialize()
 						type = "description",
 						name = L["ASSINGMENT_DESCRIPTION"],
 					},
-					cooldown = {
-						order = 7,
-						type = "header",
-						name = L["COOLDOWN_HEADER"],
-					},
-					desc4 = {
-						order = 8,
-						type = "description",
-						name = L["COOLDOWN_DESCRIPTION"],
-					},
-					defbuff = {
-						order = 9,
-						type = "header",
-						name = L["DEF_BUFF_HEADER"],
-					},
-					desc5 = {
-						order = 10,
-						type = "description",
-						name = L["DEF_BUFF_DESCRIPTION"],
-					},
-					offbuff = {
-						order = 11,
-						type = "header",
-						name = L["OFF_BUFF_HEADER"],
-					},
-					desc6 = {
-						order = 12,
-						type = "description",
-						name = L["OFF_BUFF_DESCRIPTION"],
-					},
 					custom = {
-						order = 13,
+						order = 7,
 						type = "header",
 						name = L["CUSTOM_ABILITIES_HEADER"],
 					},
 					desc7 = {
-						order = 14,
+						order = 8,
 						type = "description",
 						name = L["CUSTOM_ABILITIES_DESCRIPTION"],
 					},
