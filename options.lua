@@ -675,30 +675,6 @@ function VRA:AddDataOption(spellId)
 	}
 end
 
-local function spellCooldowns(spellName,player)
-	
-	 if(spellName~=nil) then
-		local data = VRA:GetBarData()
-		if type(data) == "table" then 
-			for k, v in pairs(data) do
-				if(tonumber(spellName)==k) then
-					if(k==740 and UnitGroupRolesAssigned(player)=="HEALER") then
-						return 3*60
-					else
-						return v.cd
-					end
-				end
-			end
-		end
-		 if(vradb.spells[tostring(spellName)]~=nil) then
-			 return vradb.spells[tostring(spellName)].cd
-		 end
-	 else
-		 return -1
-	 end
-end
-
-
 function VRA:ShowConfig()
 	InterfaceOptionsFrame_OpenToCategory(GetAddOnMetadata("VocalRaidAssistant", "Title"))
 	InterfaceOptionsFrame_OpenToCategory(GetAddOnMetadata("VocalRaidAssistant", "Title"))
