@@ -746,7 +746,6 @@ function VocalRaidAssistant:OnInitialize()
 	
 end
 function VocalRaidAssistant:OnEnable()
-	VocalRaidAssistant:RegisterEvent("PLAYER_ENTERING_WORLD")
 	VocalRaidAssistant:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	VocalRaidAssistant:RegisterEvent("GROUP_ROSTER_UPDATE","UpdateRoster")
 		
@@ -775,10 +774,6 @@ function VocalRaidAssistant:ArenaClass(id)
 			return select(2, UnitClass ("arena"..i))
 		end
 	end
-end
-
-function VocalRaidAssistant:PLAYER_ENTERING_WORLD()
-	--CombatLogClearEntries()
 end
 
 function VocalRaidAssistant:isTankSpec(name)
