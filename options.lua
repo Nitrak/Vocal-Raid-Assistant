@@ -31,29 +31,6 @@ end
 
 function VRA:InitDB()
 	vradb = self.db1.profile
-	local data = self:GetBarData()
-	if type(data) == "table" then 
-		for k, v in pairs(data) do
-			k = tostring(k)
-			vradb.spells[k] = newSpellTable(v)
-		end
-	end
-	
-	local data = self:GetBarDataO()
-	if type(data) == "table" then 
-		for k, v in pairs(data) do
-			k = tostring(k)
-			vradb.spellsO[k] = newSpellTable(v)
-		end
-	end
-	
-	local data = self:GetBarDataB()
-	if type(data) == "table" then 
-		for k, v in pairs(data) do
-			k = tostring(k)
-			vradb.spellsB[k] = newSpellTable(v)
-		end
-	end
 end
 
 function VRA:class(name)
