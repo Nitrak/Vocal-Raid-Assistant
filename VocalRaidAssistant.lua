@@ -932,17 +932,20 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 		else 
 			destuid.custom = false 
 		end
+
 		if css.sourceuidfilter == "custom" and sourceName == css.sourcecustomname then
 			sourceuid.custom = true  
 		else
 			sourceuid.custom = false 
 		end
+
 		if css.eventtype[event] 
 			and destuid[css.destuidfilter] 
 			and desttype[css.desttypefilter] 
 			and sourceuid[css.sourceuidfilter] 
 			and sourcetype[css.sourcetypefilter] 
 			and spellID == tonumber(css.spellid) 
+			and css.enabled
 		then
 			if self:Throttle(tostring(spellID)..css.name, 0.1) then return end
 			PlaySoundFile(css.soundfilepath, VRA_CHANNEL[vradb.channel])

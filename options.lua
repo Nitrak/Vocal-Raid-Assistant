@@ -386,10 +386,10 @@ function VRA:MakeCustomOption(key)
 		get = function(info) local name = info[#info] return db[key][name] end,
 		order = db[key].order,
 		args = {
-			enable = {
+			enabled = {
 				type = 'toggle',
 				order = 5,
-				name = L["Enabled"],
+				name = L["enabled"],
 				width = 'double',
 			},
 			name = {
@@ -1417,6 +1417,7 @@ function VRA:OnOptionCreate()
 
 						func = function()
 							vradb.custom[L["New Sound Alert"]] = {
+								enabled = true,
 								name = L["New Sound Alert"],
 								soundfilepath = "Interface\\VRASound\\"..L["New Sound Alert"]..".ogg",
 								sourceuidfilter = "any",
