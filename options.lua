@@ -531,29 +531,6 @@ function VRA:AddDataOOption(spellId)
 	}
 end
 
-
-local function spellOCooldowns(spellName)
-	if(spellName~=nil) then
-		local data = VRA:GetBarDataO()
-		
-
-		if type(data) == "table" then 
-			for k, v in pairs(data) do
-				if(tonumber(spellName)==k) then
-					return v.duration
-				end
-			end
-		end
-		if(vradb.spellsO[tostring(spellName)]~=nil and not vradb.spellsO[tostring(spellName)].selfOnly) then
-			return vradb.spellsO[tostring(spellName)].duration
-		end
-		return -1
-	else
-		return -1
-	end
-end
-
-
 function VRA:spellPOCooldowns(spellName)
 
 	if(spellName~=nil) then
