@@ -43,11 +43,6 @@ function VRA:InitDB()
 	for k, v in pairs(vradb.spells) do
 		self:AddDataOption(k)
 	end		
-	for k, v in pairs(vradb.spells) do
-		if v.type ~= "custom" then
-			--vradb.spells[k] = nil
-		end
-	end
 	
 	local data = self:GetBarDataO()
 	if type(data) == "table" then 
@@ -61,12 +56,7 @@ function VRA:InitDB()
 	
 	for k, v in pairs(vradb.spellsO) do
 		self:AddDataOOption(k)
-	end		
-	for k, v in pairs(vradb.spellsO) do
-		if v.type ~= "custom" then
-			--vradb.spellsO[k] = nil
-		end
-	end
+	end	
 	
 	local data = self:GetBarDataB()
 	if type(data) == "table" then 
@@ -81,11 +71,6 @@ function VRA:InitDB()
 	for k, v in pairs(vradb.spellsB) do
 		self:AddDataBOption(k)
 	end		
-	for k, v in pairs(vradb.spellsB) do
-		if v.type ~= "custom" then
-			--vradb.spellsB[k] = nil
-		end
-	end
 end
 
 function VRA:class(name)
@@ -663,7 +648,6 @@ function VRA:IsSelected(name)
 	return false
 end
 
-
 local function setOption(info, value)
 	local name = info[#info]
 	vradb[name] = value
@@ -671,10 +655,12 @@ local function setOption(info, value)
 		PlaySoundFile("Interface\\Addons\\"..vradb.path.."\\"..name..".ogg", VRA.VRA_CHANNEL[vradb.channel]);
 	end
 end
+
 local function getOption(info)
 	local name = info[#info]
 	return vradb[name]
 end
+
 local function spellOption(order, spellID, ...)
 	local spellname, _, icon = GetSpellInfo(spellID)	
 	if (spellname ~= nil) then
@@ -841,7 +827,6 @@ function VRA:MakeCustomOption(key)
 		}
 	}
 end
-
 
 function VRA:OnOptionCreate()
 	local newSpellId
