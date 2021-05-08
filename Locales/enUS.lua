@@ -116,6 +116,7 @@ L["name"] = true
 L["same name already exists"] = true
 L["spellid"] = true
 L["Remove"] = true
+L["Enabled"] = true
 L["Are you sure?"] = true
 L["Test"] = true
 L["Use existing sound"] = true

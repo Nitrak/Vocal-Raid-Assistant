@@ -386,6 +386,12 @@ function VRA:MakeCustomOption(key)
 		get = function(info) local name = info[#info] return db[key][name] end,
 		order = db[key].order,
 		args = {
+			enable = {
+				type = 'toggle',
+				order = 5,
+				name = L["Enabled"],
+				width = 'double',
+			},
 			name = {
 				name = L["name"],
 				type = 'input',
