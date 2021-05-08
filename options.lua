@@ -11,24 +11,10 @@ local rosterStatusOldArray = {}
 local rosterNameArray = {}
 local rosterClassArray = {}
 local testnull = 0
-local testingactive = false
 local first = true
 local raidMaxSize = 40
-local activeBars = 0
-local activeMove = 0
 local playerSpell = {}
 local locked = false
-local activeOBarsArray = {}
-local activeOBars = 0
-local activeOMove = 0
-local playerOSpell = {}
-local lockedO = false
-local activeBBarsArray = {}
-local activeBBars = 0
-local activeBMove = 0
-local playerBSpell = {}
-local lockedB = false
-
 
 local function newSpellTable(data)
 	local t = {}
