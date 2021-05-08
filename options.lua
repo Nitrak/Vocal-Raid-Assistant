@@ -109,18 +109,6 @@ function VRA:SetFont(font)
 	return LSM:Fetch("font", font, true)
 end
 
-local function convertTime(t)
-	
-	local minute = math.floor(t/60)
-	local seconds = math.floor((t/60-minute)*60)
-	
-	if(seconds<10) then
-		return minute..":0"..seconds
-	else
-		return minute..":"..seconds
-	end
-end
-
 local function ArraySize(array)
 
 	local Count = 0
