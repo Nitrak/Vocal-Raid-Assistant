@@ -36,41 +36,24 @@ function VRA:InitDB()
 		for k, v in pairs(data) do
 			k = tostring(k)
 			vradb.spells[k] = newSpellTable(v)
-			--self:AddDataOption(k)
 		end
 	end
-	
-	for k, v in pairs(vradb.spells) do
-		--self:AddDataOption(k)
-	end		
 	
 	local data = self:GetBarDataO()
 	if type(data) == "table" then 
 		for k, v in pairs(data) do
 			k = tostring(k)
 			vradb.spellsO[k] = newSpellTable(v)
-			--self:AddDataOOption(k)
 		end
 	end
-	
-	
-	for k, v in pairs(vradb.spellsO) do
-		--self:AddDataOOption(k)
-	end	
 	
 	local data = self:GetBarDataB()
 	if type(data) == "table" then 
 		for k, v in pairs(data) do
 			k = tostring(k)
 			vradb.spellsB[k] = newSpellTable(v)
-			--self:AddDataBOption(k)
 		end
 	end
-	
-	
-	for k, v in pairs(vradb.spellsB) do
-		--self:AddDataBOption(k)
-	end		
 end
 
 function VRA:class(name)
@@ -188,58 +171,6 @@ local function ArraySize(array)
 	
 	return Count
 
-end
-
-function VRA:AddDataBOption(spellId)
-	
-	if not spellId then 
-		return
-	end
-	local name, _, icon = GetSpellInfo(spellId)
-	local dbKey = tostring(spellId)
-	local db = vradb.spellsB[dbKey]
-	if not name then 
-		--mod:log(L["spell not exists, id:"] .. spellId)
-		vradb.spellsB[dbKey] = nil
-		return 
-	end	
-	local isOriginal = not(( db.type == "custom" or db.type == "premade self" ))
-	local op = self.options.args.BuffBar.args
-	
-	if(db.type == "premade self") then
-		op[dbKey].args.selfOnlyb.set(_,true)
-	end
-	
-end
-
-function VRA:AddDataOOption(spellId)
-	
-	if not spellId then 
-		return
-	end
-	local name, _, icon = GetSpellInfo(spellId)
-	local dbKey = tostring(spellId)
-	local db = vradb.spellsO[dbKey]
-	if not name then 
-		--mod:log(L["spell not exists, id:"] .. spellId)
-		vradb.spellsO[dbKey] = nil
-		return 
-	end	
-end
-
-function VRA:AddDataOption(spellId)
-
-	if not spellId then 
-		return
-	end
-	local name, _, icon = GetSpellInfo(spellId)
-	local dbKey = tostring(spellId)
-	local db = vradb.spells[dbKey]
-	if not name then 
-		--mod:log(L["spell not exists, id:"] .. spellId)
-		vradb.spells[dbKey] = nil
-		return 
-	end	
 end
 
 function VRA:ShowConfig()
@@ -470,7 +401,6 @@ local function spellOption(order, spellID, ...)
 			name = "\124T" .. icon .. ":24\124t" .. spellname,							
 			desc = function () 
 				GameTooltip:SetHyperlink(GetSpellLink(spellID));
-				--GameTooltip:Show();
 			end,
 			descStyle = "custom",
 					order = order,
@@ -620,11 +550,6 @@ function VRA:MakeCustomOption(key)
 				name = L["Custom unit name"],
 				disabled = function() return not (db[key].destuidfilter == "custom") end,
 			},
-			--[[NewLine5 = {
-				type = 'header',
-				order = 69,
-				name = "",
-			},]]
 		}
 	}
 end
