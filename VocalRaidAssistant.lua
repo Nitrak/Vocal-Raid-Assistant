@@ -193,28 +193,6 @@ function VocalRaidAssistant:OnInitialize()
 		LSM:Register("font", "Vera Serif",			[[Interface\Addons\VocalRaidAssistant\fonts\VeraSe.ttf]])
 		LSM:Register("font", "Diablo",				[[Interface\Addons\VocalRaidAssistant\fonts\Avqest.ttf]])
 		LSM:Register("font", "Accidental Presidency",	[[Interface\Addons\VocalRaidAssistant\fonts\Accidental Presidency.ttf]])
-		LSM:Register("statusbar", "Aluminium",		[[Interface\Addons\VocalRaidAssistant\statusbar\Aluminium]])
-		LSM:Register("statusbar", "Armory",			[[Interface\Addons\VocalRaidAssistant\statusbar\Armory]])
-		LSM:Register("statusbar", "BantoBar",			[[Interface\Addons\VocalRaidAssistant\statusbar\BantoBar]])
-		LSM:Register("statusbar", "Glaze",			[[Interface\Addons\VocalRaidAssistant\statusbar\Glaze]])
-		LSM:Register("statusbar", "Glaze2",			[[Interface\Addons\VocalRaidAssistant\statusbar\Glaze2]])
-		LSM:Register("statusbar", "Gloss",			[[Interface\Addons\VocalRaidAssistant\statusbar\Gloss]])
-		LSM:Register("statusbar", "Graphite",			[[Interface\Addons\VocalRaidAssistant\statusbar\Graphite]])
-		LSM:Register("statusbar", "Grid",				[[Interface\Addons\VocalRaidAssistant\statusbar\Grid]])
-		LSM:Register("statusbar", "Healbot",			[[Interface\Addons\VocalRaidAssistant\statusbar\Healbot]])
-		LSM:Register("statusbar", "LiteStep",			[[Interface\Addons\VocalRaidAssistant\statusbar\LiteStep]])
-		LSM:Register("statusbar", "Minimalist",		[[Interface\Addons\VocalRaidAssistant\statusbar\Minimalist]])
-		LSM:Register("statusbar", "Otravi",			[[Interface\Addons\VocalRaidAssistant\statusbar\Otravi]])
-		LSM:Register("statusbar", "Outline",			[[Interface\Addons\VocalRaidAssistant\statusbar\Outline]])
-		LSM:Register("statusbar", "Perl",				[[Interface\Addons\VocalRaidAssistant\statusbar\Perl]])
-		LSM:Register("statusbar", "Smooth",			[[Interface\Addons\VocalRaidAssistant\statusbar\Smooth]])
-		LSM:Register("statusbar", "Round",			[[Interface\Addons\VocalRaidAssistant\statusbar\Round]])
-		LSM:Register("statusbar", "TukTex",			[[Interface\Addons\VocalRaidAssistant\statusbar\normTex]])
-		LSM:Register("statusbar", "Frost",			[[Interface\Addons\VocalRaidAssistant\statusbar\Frost]])
-		LSM:Register("statusbar", "Xeon",			[[Interface\Addons\VocalRaidAssistant\statusbar\Xeon]])
-		LSM:Register("statusbar", "Runes",			[[Interface\Addons\VocalRaidAssistant\statusbar\Runes]])
-		LSM:Register("statusbar", "Rocks",			[[Interface\Addons\VocalRaidAssistant\statusbar\Rocks]])
-
 		-- Some sounds (copied from Omen).
 		LSM:Register("sound", "Rubber Ducky", [[Sound\Doodad\Goblin_Lottery_Open01.wav]])
 		LSM:Register("sound", "Cartoon FX", [[Sound\Doodad\Goblin_Lottery_Open03.wav]])
@@ -730,7 +708,6 @@ function VocalRaidAssistant:OnEnable()
 end
 
 function VocalRaidAssistant:OnDisable()
-
 end
 
 -- play sound by file name
@@ -779,8 +756,6 @@ function VocalRaidAssistant:PlaySpell(listName, spellID, ...)
 	end
 	self:PlaySound(list[spellID]);
 end
-
-
 
 function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 	local _,currentZoneType = IsInInstance()
@@ -975,7 +950,6 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 	end
 	end
 end
-
 
 function VocalRaidAssistant:Throttle(key,throttle)
 	if (not self.throttled) then
