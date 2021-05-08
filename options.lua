@@ -452,18 +452,6 @@ function VRA:AddDataBOption(spellId)
 	
 end
 
-function VRA:spellPBCooldowns(spellName)
-
-	if(spellName~=nil) then
-	
-		 if(vradb.spellsB[tostring(spellName)]~=nil and vradb.spellsB[tostring(spellName)].selfOnly) then
-			 return vradb.spellsB[tostring(spellName)].duration
-		 end
-	 else
-		 return -1
-	 end
-end
-
 function VRA:AddDataOOption(spellId)
 	
 	if not spellId then 
