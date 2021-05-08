@@ -233,23 +233,6 @@ function VRA:SetTexture(texture)
 	return LSM:Fetch("statusbar", texture, true)
 end
 
-
-function VRA:getOBarX()
-   return vradb.obarX
-end
-
-function VRA:setOBarX(newValue)
-    vradb.obarX = newValue
-end
-
-function VRA:getOBarY()
-   return vradb.obarY
-end
-
-function VRA:setOBarY(newValue)
-    vradb.obarY = newValue
-end
-
 function VRA:getOHeightX()
    return vradb.oheightX
 end
@@ -258,13 +241,6 @@ function VRA:setOHeightX(newValue)
     vradb.oheightX = newValue
 end
 
-function VRA:getOBarWidth()
-   return vradb.obarWidth
-end
-
-function VRA:getOBarHeight()
-	return vradb.obarHeight
-end
 
 function VRA:getOFontSize()
 	return vradb.ofontSize
@@ -274,26 +250,6 @@ function VRA:getOFontType()
 	return vradb.ofontType
 end
 
-function VRA:getOBarTexture()
-	return vradb.obarTexture
-end
-
-
-function VRA:getBBarX()
-   return vradb.bbarX
-end
-
-function VRA:setBBarX(newValue)
-    vradb.bbarX = newValue
-end
-
-function VRA:getBBarY()
-   return vradb.bbarY
-end
-
-function VRA:setBBarY(newValue)
-    vradb.bbarY = newValue
-end
 
 function VRA:getBHeightX()
    return vradb.bheightX
@@ -303,14 +259,6 @@ function VRA:setBHeightX(newValue)
     vradb.bheightX = newValue
 end
 
-function VRA:getBBarWidth()
-   return vradb.bbarWidth
-end
-
-function VRA:getBBarHeight()
-	return vradb.bbarHeight
-end
-
 function VRA:getBFontSize()
 	return vradb.bfontSize
 end
@@ -318,11 +266,6 @@ end
 function VRA:getBFontType()
 	return vradb.bfontType
 end
-
-function VRA:getBBarTexture()
-	return vradb.bbarTexture
-end
-
 
 
 function VRA:SetFont(font)
@@ -346,8 +289,6 @@ local function convertTime(t)
 		return minute..":"..seconds
 	end
 end
-
-
 
 local function ArraySize(array)
 
