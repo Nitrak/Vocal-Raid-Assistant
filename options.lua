@@ -36,12 +36,12 @@ function VRA:InitDB()
 		for k, v in pairs(data) do
 			k = tostring(k)
 			vradb.spells[k] = newSpellTable(v)
-			self:AddDataOption(k)
+			--self:AddDataOption(k)
 		end
 	end
 	
 	for k, v in pairs(vradb.spells) do
-		self:AddDataOption(k)
+		--self:AddDataOption(k)
 	end		
 	
 	local data = self:GetBarDataO()
@@ -49,13 +49,13 @@ function VRA:InitDB()
 		for k, v in pairs(data) do
 			k = tostring(k)
 			vradb.spellsO[k] = newSpellTable(v)
-			self:AddDataOOption(k)
+			--self:AddDataOOption(k)
 		end
 	end
 	
 	
 	for k, v in pairs(vradb.spellsO) do
-		self:AddDataOOption(k)
+		--self:AddDataOOption(k)
 	end	
 	
 	local data = self:GetBarDataB()
@@ -63,13 +63,13 @@ function VRA:InitDB()
 		for k, v in pairs(data) do
 			k = tostring(k)
 			vradb.spellsB[k] = newSpellTable(v)
-			self:AddDataBOption(k)
+			--self:AddDataBOption(k)
 		end
 	end
 	
 	
 	for k, v in pairs(vradb.spellsB) do
-		self:AddDataBOption(k)
+		--self:AddDataBOption(k)
 	end		
 end
 
@@ -460,7 +460,6 @@ end
 function VRA:AddOption(name, keyName)
 	return AceConfigDialog:AddToBlizOptions("VocalRaidAssistant", name, "VocalRaidAssistant", keyName)
 end
-
 
 function VRA:UpdateRoster()
 	rosterStatusOldArray[1] = vradb.raid1

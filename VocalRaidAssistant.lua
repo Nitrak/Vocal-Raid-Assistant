@@ -97,15 +97,6 @@ local dbDefaults = {
 		enableCooldownBar = false,
 		growthDirection = true,
 		
-		ofontSize = 11,
-		ofontType = "Friz Quadrata TT",
-		
-		oenableCooldownBar = false,
-		ogrowthDirection = true,
-		
-		bfontSize = 11,
-		bfontType = "Friz Quadrata TT",
-		
 		aruaApplied = false,
 		aruaRemoved = false,
 		castStart = false,
