@@ -88,8 +88,6 @@ function VRA:InitDB()
 			k = tostring(k)
 			vradb.spellsB[k] = newSpellTable(v)
 			self:AddDataBOption(k)
-			
-			
 		end
 	end
 	
@@ -454,30 +452,6 @@ function VRA:AddDataBOption(spellId)
 	
 end
 
-
-local function spellBCooldowns(spellName)
-	if(spellName~=nil) then
-		local data = VRA:GetBarDataB()
-
-		if type(data) == "table" then 
-			for k, v in pairs(data) do
-				if(tonumber(spellName)==k) then
-					return v.duration
-				end
-			end
-		end
-		if(vradb.spellsB[tostring(spellName)]~=nil and not vradb.spellsB[tostring(spellName)].selfOnly) then
-			return vradb.spellsB[tostring(spellName)].duration
-		end
-		return -1
-	else
-		return -1
-	end
-
-	
-end
-
-
 function VRA:spellPBCooldowns(spellName)
 
 	if(spellName~=nil) then
@@ -832,7 +806,6 @@ function VRA:UpdateRoster()
 end
 
 function VRA:IsSelected(name)
-	
 	rosterStatusOldArray[1] = vradb.raid1
 	rosterStatusOldArray[2] = vradb.raid2
 	rosterStatusOldArray[3] = vradb.raid3

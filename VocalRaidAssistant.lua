@@ -832,7 +832,7 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 		return 
 	end
 	
-	print("Registered:", spellID, spellName)
+	--print("Registered:", spellID, spellName)
 	if (destFlags) then
 		for k in pairs(VRA_TYPE) do
 			desttype[k] = CombatLog_Object_IsA(destFlags,k)
@@ -887,8 +887,7 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 		return
 	end
 	
-	print(event)
-
+	--print(event)
 	if (event == "SPELL_AURA_APPLIED" and desttype[COMBATLOG_FILTER_ME] and not sourcetype[COMBATLOG_FILTER_ME] and not vradb.aruaApplied) then
 		if(not vradb.buffAppliedSpecific) then
 			if(vradb.buffAppliedTank) then
@@ -993,7 +992,13 @@ function VocalRaidAssistant:COMBAT_LOG_EVENT_UNFILTERED(event , ...)
 		else
 			sourceuid.custom = false 
 		end
-		if css.eventtype[event] and destuid[css.destuidfilter] and desttype[css.desttypefilter] and sourceuid[css.sourceuidfilter] and sourcetype[css.sourcetypefilter] and spellID == tonumber(css.spellid) then
+		if css.eventtype[event] 
+			and destuid[css.destuidfilter] 
+			and desttype[css.desttypefilter] 
+			and sourceuid[css.sourceuidfilter] 
+			and sourcetype[css.sourcetypefilter] 
+			and spellID == tonumber(css.spellid) 
+		then
 			if self:Throttle(tostring(spellID)..css.name, 0.1) then return end
 			PlaySoundFile(css.soundfilepath, VRA_CHANNEL[vradb.channel])
 		end
