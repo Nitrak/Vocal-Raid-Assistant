@@ -163,16 +163,8 @@ function VRA:SetFont(font)
 	return LSM:Fetch("font", font, true)
 end
 
-function VRA:SetTexture(texture)
-	return LSM:Fetch("statusbar", texture, true)
-end
-
 function VRA:SetFont(font)
 	return LSM:Fetch("font", font, true)
-end
-
-function VRA:SetTexture(texture)
-	return LSM:Fetch("statusbar", texture, true)
 end
 
 local function convertTime(t)
