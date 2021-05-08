@@ -87,14 +87,9 @@ local dbDefaults = {
 		spellsB = {},
 		dataLock = true,
 		
-		barX = GetScreenWidth()/3-200,
-		barY = GetScreenHeight(),
 		heightX = 20,
-		barWidth = 200,
-		barHeight = 20,
 		fontSize = 11,
 		fontType = "Friz Quadrata TT",
-		barTexture = "Blizzard",
 		enablePulse = false,
 		pulseStart = 10,
 		getPulseIntensity = 2,
@@ -102,30 +97,14 @@ local dbDefaults = {
 		enableCooldownBar = false,
 		growthDirection = true,
 		
-		obarX = GetScreenWidth()/3+200,
-		obarY = GetScreenHeight(),
-		oheightX = 20,
-		obarWidth = 200,
-		obarHeight = 20,
 		ofontSize = 11,
 		ofontType = "Friz Quadrata TT",
-		obarTexture = "Blizzard",
 		
 		oenableCooldownBar = false,
 		ogrowthDirection = true,
 		
-		bbarX = GetScreenWidth()/3,
-		bbarY = GetScreenHeight(),
-		bheightX = 20,
-		bbarWidth = 200,
-		bbarHeight = 20,
 		bfontSize = 11,
 		bfontType = "Friz Quadrata TT",
-		bbarTexture = "Blizzard",
-		
-		benableCooldownBar = false,
-		bgrowthDirection = true,
-		
 		
 		aruaApplied = false,
 		aruaRemoved = false,

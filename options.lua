@@ -172,39 +172,6 @@ local function RGBClassTEST(class)
 
 end
 
-
-function VRA:getBarX()
-   return vradb.barX
-end
-
-function VRA:setBarX(newValue)
-    vradb.barX = newValue
-end
-
-function VRA:getBarY()
-   return vradb.barY
-end
-
-function VRA:setBarY(newValue)
-    vradb.barY = newValue
-end
-
-function VRA:getHeightX()
-   return vradb.heightX
-end
-
-function VRA:setHeightX(newValue)
-    vradb.heightX = newValue
-end
-
-function VRA:getBarWidth()
-   return vradb.barWidth
-end
-
-function VRA:getBarHeight()
-	return vradb.barHeight
-end
-
 function VRA:getFontSize()
 	return vradb.fontSize
 end
@@ -221,10 +188,6 @@ function VRA:getPulseIntensity()
 	return vradb.pulseIntensity
 end
 
-function VRA:getBarTexture()
-	return vradb.barTexture
-end
-
 function VRA:SetFont(font)
 	return LSM:Fetch("font", font, true)
 end
@@ -233,45 +196,8 @@ function VRA:SetTexture(texture)
 	return LSM:Fetch("statusbar", texture, true)
 end
 
-function VRA:getOHeightX()
-   return vradb.oheightX
-end
-
-function VRA:setOHeightX(newValue)
-    vradb.oheightX = newValue
-end
-
-
-function VRA:getOFontSize()
-	return vradb.ofontSize
-end
-
-function VRA:getOFontType()
-	return vradb.ofontType
-end
-
-
-function VRA:getBHeightX()
-   return vradb.bheightX
-end
-
-function VRA:setBHeightX(newValue)
-    vradb.bheightX = newValue
-end
-
-function VRA:getBFontSize()
-	return vradb.bfontSize
-end
-
-function VRA:getBFontType()
-	return vradb.bfontType
-end
-
-
 function VRA:SetFont(font)
-	
 	return LSM:Fetch("font", font, true)
-    
 end
 
 function VRA:SetTexture(texture)
