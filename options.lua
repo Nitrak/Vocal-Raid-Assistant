@@ -85,24 +85,6 @@ local function RGBClass(name)
 
 end
 
-local function RGBClassTEST(class)
-		
-	if(class=="Death Knight") then return "0.77,0.12,0.23"
-	elseif(class=="Demon Hunter") then return "0.64,0.19,0.79"
-	elseif(class=="Druid") then return "1.00,0.49,0.04"
-	elseif(class=="Hunter") then return "0.67,0.83,0.45"
-	elseif(class=="Mage") then return "0.41,0.80,0.94"
-	elseif(class=="Monk") then return "0.33,0.54,0.52"
-	elseif(class=="Paladin") then return "0.96,0.55,0.73"
-	elseif(class=="Priest") then return "1.00,1.00,1.00"
-	elseif(class=="Rogue") then return "1.00,0.96,0.41"
-	elseif(class=="Shaman") then return "0.00,0.44,0.87"
-	elseif(class=="Warlock") then return "0.58,0.51,0.79"
-	elseif(class=="Warrior") then return "0.78,0.61,0.43"
-	else return "" end
-
-end
-
 function VRA:getFontSize()
 	return vradb.fontSize
 end
