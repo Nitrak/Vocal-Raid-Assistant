@@ -166,6 +166,56 @@ local dbDefaults = {
 }
 
 VRA.log = function(msg) DEFAULT_CHAT_FRAME:AddMessage("|cFF33FF22VocalRaidAssistant|r: "..msg) end
+ 
+function reverse(t)
+	local n = #t
+	local i = 1
+	while i < n do
+	  t[i],t[n] = t[n],t[i]
+	  i = i + 1
+	  n = n - 1
+	end
+  end
+
+function VocalRaidAssistant:LoadChangeLog()
+	changeLog = {}
+
+	i = 0
+	changeLog[L["GET_VERSION"].."version"] = {
+		order = i,
+		type = "description",
+		name = "Current version: " .. L["GET_VERSION"] .. "\n",
+	}
+
+	--sort the changelog keys from the hash set in decending order--
+	sortedKeys = {}
+	for key, value in pairs(L) do
+		if (string.find(tostring(key), "Changelog")) then
+			table.insert(sortedKeys, key)
+		end
+	end
+	table.sort(sortedKeys)
+	reverse(sortedKeys)
+
+	for _, key in pairs(sortedKeys) do
+		version = string.gsub(tostring(key), " Changelog", "")
+		i = i + 1
+		changeLog[version.."header"] = {
+			order = i,
+			type = "header",
+			name = version,
+		}
+		
+		i = i + 1
+		changeLog[version.."desc"] = {
+			order = i,
+			type = "description",
+			name = L[key],
+		}
+	end
+
+	return changeLog
+end
 
 function VocalRaidAssistant:OnInitialize()
 	if not self.spellList then
@@ -268,398 +318,7 @@ function VocalRaidAssistant:OnInitialize()
 				type = "group",
 				name = L["Version"],
 				desc = L["VERSION_DESC"],
-				args = {
-					version = {
-						order = -700,
-						type = "description",
-						name = "Current version: " .. L["GET_VERSION"] .. "\n",
-					},
-					header38 = {
-							order = -78,
-							type = "header",
-							name = "1.6.5",
-					},
-					desc38 = {
-						order	= -77,
-						type	= "description",
-						name	= L["1.6.5 Changelog"],
-					},
-					header37 = {
-							order = -76,
-							type = "header",
-							name = "1.6.4",
-					},
-					desc37 = {
-						order	= -75,
-						type	= "description",
-						name	= L["1.6.4 Changelog"],
-					},
-					header36 = {
-							order = -74,
-							type = "header",
-							name = "1.6.3",
-					},
-					desc36 = {
-						order	= -73,
-						type	= "description",
-						name	= L["1.6.3 Changelog"],
-					},
-					header35 = {
-							order = -72,
-							type = "header",
-							name = "1.6.2",
-					},
-					desc35 = {
-						order	= -71,
-						type	= "description",
-						name	= L["1.6.2 Changelog"],
-					},
-					header34 = {
-							order = -70,
-							type = "header",
-							name = "1.6.1",
-					},
-					desc34 = {
-						order	= -69,
-						type	= "description",
-						name	= L["1.6.1 Changelog"],
-					},
-					header33 = {
-							order = -68,
-							type = "header",
-							name = "1.6.0",
-					},
-					desc33 = {
-						order	= -67,
-						type	= "description",
-						name	= L["1.6.0 Changelog"],
-					},
-					header32 = {
-							order = -66,
-							type = "header",
-							name = "1.5.1",
-					},
-					desc32 = {
-						order	= -65,
-						type	= "description",
-						name	= L["1.5.1 Changelog"],
-					},
-					header31 = {
-							order = -64,
-							type = "header",
-							name = "1.5.0.1",
-					},
-					desc31 = {
-						order	= -63,
-						type	= "description",
-						name	= L["1.5.0.1 Changelog"],
-					},
-					header30 = {
-							order = -62,
-							type = "header",
-							name = "1.5",
-					},
-					desc30 = {
-						order	= -61,
-						type	= "description",
-						name	= L["1.5 Changelog"],
-					},
-					header29 = {
-							order = -60,
-							type = "header",
-							name = "1.4.4",
-					},
-					desc29 = {
-						order	= -59,
-						type	= "description",
-						name	= L["1.4.4 Changelog"],
-					},
-					header28 = {
-							order = -58,
-							type = "header",
-							name = "1.4.3",
-					},
-					desc28 = {
-						order	= -57,
-						type	= "description",
-						name	= L["1.4.3 Changelog"],
-					},
-					header27 = {
-							order = -56,
-							type = "header",
-							name = "1.4.2",
-					},
-					desc27 = {
-						order	= -55,
-						type	= "description",
-						name	= L["1.4.2 Changelog"],
-					},
-					header26 = {
-							order = -54,
-							type = "header",
-							name = "1.4.1",
-					},
-					desc26 = {
-						order	= -53,
-						type	= "description",
-						name	= L["1.4.1 Changelog"],
-					},
-					header25 = {
-							order = -52,
-							type = "header",
-							name = "1.4.0",
-					},
-					desc25 = {
-						order	= -51,
-						type	= "description",
-						name	= L["1.4.0 Changelog"],
-					},
-					header24 = {
-							order = -50,
-							type = "header",
-							name = "1.3.9",
-					},
-					desc24 = {
-						order	= -49,
-						type	= "description",
-						name	= L["1.3.9 Changelog"],
-					},
-					header23 = {
-							order = -48,
-							type = "header",
-							name = "1.3.8",
-					},
-					desc23 = {
-						order	= -47,
-						type	= "description",
-						name	= L["1.3.8 Changelog"],
-					},
-					header22 = {
-							order = -46,
-							type = "header",
-							name = "1.3.7",
-					},
-					desc22 = {
-						order	= -45,
-						type	= "description",
-						name	= L["1.3.7 Changelog"],
-					},
-					header21 = {
-							order = -44,
-							type = "header",
-							name = "1.3.6",
-					},
-					desc21 = {
-						order	= -43,
-						type	= "description",
-						name	= L["1.3.6 Changelog"],
-					},
-					header20 = {
-							order = -42,
-							type = "header",
-							name = "1.3.5",
-					},
-					desc20 = {
-						order	= -41,
-						type	= "description",
-						name	= L["1.3.5 Changelog"],
-					},
-					header19 = {
-							order = -40,
-							type = "header",
-							name = "1.3.4",
-					},
-					desc19 = {
-						order	= -39,
-						type	= "description",
-						name	= L["1.3.4 Changelog"],
-					},
-					header18 = {
-							order = -38,
-							type = "header",
-							name = "1.3.3",
-					},
-					desc18 = {
-						order	= -37,
-						type	= "description",
-						name	= L["1.3.3 Changelog"],
-					},
-					header17 = {
-							order = -36,
-							type = "header",
-							name = "1.3.2",
-					},
-					desc17 = {
-						order	= -35,
-						type	= "description",
-						name	= L["1.3.2 Changelog"],
-					},
-					desc16 = {
-						order	= -33,
-						type	= "description",
-						name	= L["1.3.1 Changelog"],
-					},
-					header16 = {
-							order = -32,
-							type = "header",
-							name = "1.3.1",
-					},
-					desc16 = {
-						order	= -31,
-						type	= "description",
-						name	= L["1.3 Changelog"],
-					},
-					header15 = {
-							order = -30,
-							type = "header",
-							name = "1.2.2",
-					},
-					desc15 = {
-						order	= -29,
-						type	= "description",
-						name	= L["1.2.2 Changelog"],
-					},
-					header14 = {
-							order = -28,
-							type = "header",
-							name = "1.2.1",
-					},
-					desc14 = {
-						order	= -27,
-						type	= "description",
-						name	= L["1.2.1 Changelog"],
-					},
-					header13 = {
-							order = -26,
-							type = "header",
-							name = "1.2",
-					},
-					desc13 = {
-						order	= -25,
-						type	= "description",
-						name	= L["1.2 Changelog"],
-					},
-					header12 = {
-							order = -24,
-							type = "header",
-							name = "1.1.2",
-					},
-					desc12 = {
-						order	= -23,
-						type	= "description",
-						name	= L["1.1.2 Changelog"],
-					},
-					header11 = {
-							order = -22,
-							type = "header",
-							name = "1.1.1",
-					},
-					desc11 = {
-						order	= -21,
-						type	= "description",
-						name	= L["1.1.1 Changelog"],
-					},
-					header10 = {
-							order = -20,
-							type = "header",
-							name = "1.1.0",
-					},
-					desc10 = {
-						order	= -19,
-						type	= "description",
-						name	= L["1.1.0 Changelog"],
-					},
-					header9 = {
-							order = -18,
-							type = "header",
-							name = "1.0.9",
-					},
-					desc9 = {
-						order	= -17,
-						type	= "description",
-						name	= L["1.0.9 Changelog"],
-					},
-					header8 = {
-							order = -16,
-							type = "header",
-							name = "1.0.8",
-					},
-					desc8 = {
-						order	= -15,
-						type	= "description",
-						name	= L["1.0.8 Changelog"],
-					},
-					header7 = {
-							order = -14,
-							type = "header",
-							name = "1.0.7",
-					},
-					desc7 = {
-						order	= -13,
-						type	= "description",
-						name	= L["1.0.7 Changelog"],
-					},
-					header6 = {
-							order = -12,
-							type = "header",
-							name = "1.0.6",
-					},
-					desc6 = {
-						order	= -11,
-						type	= "description",
-						name	= L["1.0.6 Changelog"],
-					},
-					header5 = {
-							order = -10,
-							type = "header",
-							name = "1.0.5",
-					},
-					desc5 = {
-						order	= -9,
-						type	= "description",
-						name	= L["1.0.5 Changelog"],
-					},
-					header4 = {
-							order = -8,
-							type = "header",
-							name = "1.0.4",
-					},
-					desc4 = {
-						order	= -7,
-						type	= "description",
-						name	= L["1.0.4 Changelog"],
-					},
-					header3 = {
-							order = -6,
-							type = "header",
-							name = "1.0.3",
-					},
-					desc3 = {
-						order	= -5,
-						type	= "description",
-						name	= L["1.0.3 Changelog"],
-					},
-					header2 = {
-							order = -4,
-							type = "header",
-							name = "1.0.2",
-					},
-					desc2 = {
-						order	= -3,
-						type	= "description",
-						name	= L["1.0.2 Changelog"],
-					},
-					header1 = {
-							order = -2,
-							type = "header",
-							name = "1.0.1",
-					},
-					desc1 = {
-						order	= -1,
-						type	= "description",
-						name	= L["1.0.1 Changelog"],
-					},
-				},	
+				args = VocalRaidAssistant:LoadChangeLog()
 			},
 			general3 = {
 				order = 3,
@@ -676,7 +335,7 @@ function VocalRaidAssistant:OnInitialize()
 						order = 2,
 						type = "description",
 						name = L["DISCORD_DESCRIPTION"],
-					},	--https://discord.gg/UZMzqap	
+					},
 					desc2 = {
 						order = 3,
 						type = "header",
