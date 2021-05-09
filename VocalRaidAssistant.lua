@@ -8,9 +8,6 @@ local self, VRA = VocalRaidAssistant, VocalRaidAssistant
 local VRA_TEXT = "VocalRaidAssistant"
 local VRA_VERSION = " " .. GetAddOnMetadata("VocalRaidAssistant", "Version")
 local VRA_AUTHOR = " updated by Nitrak"
-local tankSpecs = {250,104,268,66,73} --Blood DK, Guardian, Brewmaster, Prot Pala, Prot Warr
-local bossesAlive = {}
---local test = 0
 
 local VRA_LOCALEPATH = {
 	enUS = "VocalRaidAssistant\\Voice_enUS",
