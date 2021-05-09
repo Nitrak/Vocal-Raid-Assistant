@@ -17,7 +17,6 @@ function VocalRaidAssistant:GetSpellList ()
 			--demon hunter
 			[198589] = "blur",
 			[217832] = "imprison",
-			--demon hunter
 			[204021] = "fierybrand",
 			[187827] = "metamorphosis",
 			[211881] = "feleruption",
