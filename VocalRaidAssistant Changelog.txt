@@ -1,4 +1,6 @@
-﻿Version 1.6.5
+﻿Version 1.6.6 
+Removed CD bar tracking, added enable/disable for custom sounds and code cleanup.
+Version 1.6.5
  - Force of Nature
 Version 1.6.4
 Added abilities 
