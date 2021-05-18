@@ -770,7 +770,7 @@ function VRA:OnOptionCreate()
 								inline = true,
 								name = L["|cffFF7D0ADruid|r"],
 								order = 7,
-								args = listOption({102342,22812,61336,33891,192081,29166},"auraApplied"),	
+								args = listOption({102342,22812,61336,33891,102558,192081,29166},"auraApplied"),	
 							},
 							hunter = {
 								type = 'group',
@@ -800,7 +800,7 @@ function VRA:OnOptionCreate()
 								order = 11,
 								args = listOption({6940,1022,86659,31850,642,216331,31884,105809,204018},"auraApplied"),
 							},
-							preist	= {
+							priest	= {
 								type = 'group',
 								inline = true,
 								name = L["|cffFFFFFFPriest|r"],
@@ -901,7 +901,7 @@ function VRA:OnOptionCreate()
 								order = 11,
 								args = listOption({31821,633,316958,304971},"castSuccess"),
 							},
-							preist	= {
+							priest	= {
 								type = 'group',
 								inline = true,
 								name = L["|cffFFFFFFPriest|r"],
@@ -1001,7 +1001,7 @@ function VRA:OnOptionCreate()
 								order = 11,
 								args = listOption({853,20066},"auraApplied"),
 							},
-							preist	= {
+							priest	= {
 								type = 'group',
 								inline = true,
 								name = L["|cffFFFFFFPriest|r"],

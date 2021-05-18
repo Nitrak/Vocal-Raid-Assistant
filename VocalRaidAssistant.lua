@@ -138,6 +138,7 @@ local dbDefaults = {
 		mockingbanner = false,
 		stoneform = false,
 		incarnationtree = false,
+		incarnationbear = false,
 		sacredshield = false,
 		eternalflame = false,
 		shieldblock = false,

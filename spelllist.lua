@@ -10,6 +10,7 @@ function VocalRaidAssistant:GetSpellList ()
 			[22812] = "barkskin",
 			[61336] = "survivalinstincts",
 			[33891] = "incarnationtree", --resto
+			[102558] = "incarnationbear", --guardian
 			[192081] = "ironfur",
 			[29166] = "innervate",
 			[33786] = "cyclone",
@@ -52,7 +53,7 @@ function VocalRaidAssistant:GetSpellList ()
 			[5246] = "intimidatingshout",
 			[23920] = "spellreflection",
 			
-			--preist
+			--priest
 			[33206] = "painSuppression", 
 			[47788] = "guardianSpirit",
 			--[207946] = "lightswrath",
