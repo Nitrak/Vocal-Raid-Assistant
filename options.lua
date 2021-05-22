@@ -142,50 +142,9 @@ function VRA:AddOption(name, keyName)
 end
 
 function VRA:UpdateRoster()
-	rosterStatusOldArray[1] = vradb.raid1
-	rosterStatusOldArray[2] = vradb.raid2
-	rosterStatusOldArray[3] = vradb.raid3
-	rosterStatusOldArray[4] = vradb.raid4
-	rosterStatusOldArray[5] = vradb.raid5
-	rosterStatusOldArray[6] = vradb.raid6
-	rosterStatusOldArray[7] = vradb.raid7
-	rosterStatusOldArray[8] = vradb.raid8
-	rosterStatusOldArray[9] = vradb.raid9
-	rosterStatusOldArray[10] = vradb.raid10
-	rosterStatusOldArray[11] = vradb.raid11
-	rosterStatusOldArray[12] = vradb.raid12
-	rosterStatusOldArray[13] = vradb.raid13
-	rosterStatusOldArray[14] = vradb.raid14
-	rosterStatusOldArray[15] = vradb.raid15
-	rosterStatusOldArray[16] = vradb.raid16
-	rosterStatusOldArray[17] = vradb.raid17
-	rosterStatusOldArray[18] = vradb.raid18
-	rosterStatusOldArray[19] = vradb.raid19
-	rosterStatusOldArray[20] = vradb.raid20
-	rosterStatusOldArray[21] = vradb.raid21
-	rosterStatusOldArray[22] = vradb.raid22
-	rosterStatusOldArray[23] = vradb.raid23
-	rosterStatusOldArray[24] = vradb.raid24
-	rosterStatusOldArray[25] = vradb.raid25
-	rosterStatusOldArray[26] = vradb.raid26
-	rosterStatusOldArray[27] = vradb.raid27
-	rosterStatusOldArray[28] = vradb.raid28
-	rosterStatusOldArray[29] = vradb.raid29
-	rosterStatusOldArray[30] = vradb.raid30
-	rosterStatusOldArray[31] = vradb.raid31
-	rosterStatusOldArray[32] = vradb.raid32
-	rosterStatusOldArray[33] = vradb.raid33
-	rosterStatusOldArray[34] = vradb.raid34
-	rosterStatusOldArray[35] = vradb.raid35
-	rosterStatusOldArray[36] = vradb.raid36
-	rosterStatusOldArray[37] = vradb.raid37
-	rosterStatusOldArray[38] = vradb.raid38
-	rosterStatusOldArray[39] = vradb.raid39
-	rosterStatusOldArray[40] = vradb.raid40
-	
 	for i=1,raidMaxSize do
+		rosterStatusOldArray[i] = vradb["raid" .. tostring(i)]
 		if GetRaidRosterInfo(i) ~= nil then
-			-- = GetRaidRosterInfo(i)
 			rosterNameArray[i], _, _, _, rosterClassArray[i], _, _, _, _, _, _ = GetRaidRosterInfo(i) 
 		else
 			rosterNameArray[i] = ""
@@ -223,49 +182,8 @@ function VRA:UpdateRoster()
 	for i=1,raidMaxSize do
 		rosterInfoArray[i] = VRA:classColor(rosterClassArray[i]) .. rosterNameArray[i]
 		--rosterStatusOldArray[i] = rosterStatusArray[i]
+		vradb["raid" .. tostring(i)] = rosterStatusArray[i]
 	end
-	
-	vradb.raid1 = rosterStatusArray[1]
-	vradb.raid2 = rosterStatusArray[2]
-	vradb.raid3 = rosterStatusArray[3]
-	vradb.raid4 = rosterStatusArray[4]
-	vradb.raid5 = rosterStatusArray[5]
-	vradb.raid6 = rosterStatusArray[6]
-	vradb.raid7 = rosterStatusArray[7]
-	vradb.raid8 = rosterStatusArray[8]
-	vradb.raid9 = rosterStatusArray[9]
-	vradb.raid10 = rosterStatusArray[10]
-	vradb.raid11 = rosterStatusArray[11]
-	vradb.raid12 = rosterStatusArray[12]
-	vradb.raid13 = rosterStatusArray[13]
-	vradb.raid14 = rosterStatusArray[14]
-	vradb.raid15 = rosterStatusArray[15]
-	vradb.raid16 = rosterStatusArray[16]
-	vradb.raid17 = rosterStatusArray[17]
-	vradb.raid18 = rosterStatusArray[18]
-	vradb.raid19 = rosterStatusArray[19]
-	vradb.raid20 = rosterStatusArray[20]
-	vradb.raid21 = rosterStatusArray[21]
-	vradb.raid22 = rosterStatusArray[22]
-	vradb.raid23 = rosterStatusArray[23]
-	vradb.raid24 = rosterStatusArray[24]
-	vradb.raid25 = rosterStatusArray[25]
-	vradb.raid26 = rosterStatusArray[26]
-	vradb.raid27 = rosterStatusArray[27]
-	vradb.raid28 = rosterStatusArray[28]
-	vradb.raid29 = rosterStatusArray[29]
-	vradb.raid30 = rosterStatusArray[30]
-	vradb.raid31 = rosterStatusArray[31]
-	vradb.raid32 = rosterStatusArray[32]
-	vradb.raid33 = rosterStatusArray[33]
-	vradb.raid34 = rosterStatusArray[34]
-	vradb.raid35 = rosterStatusArray[35]
-	vradb.raid36 = rosterStatusArray[36]
-	vradb.raid37 = rosterStatusArray[37]
-	vradb.raid38 = rosterStatusArray[38]
-	vradb.raid39 = rosterStatusArray[39]
-	vradb.raid40 = rosterStatusArray[40]
-	
 	
 	if(testnull == 1) then
 	LibStub("AceConfigRegistry-3.0"):NotifyChange("VocalRaidAssistant")
@@ -276,48 +194,8 @@ function VRA:UpdateRoster()
 end
 
 function VRA:IsSelected(name)
-	rosterStatusOldArray[1] = vradb.raid1
-	rosterStatusOldArray[2] = vradb.raid2
-	rosterStatusOldArray[3] = vradb.raid3
-	rosterStatusOldArray[4] = vradb.raid4
-	rosterStatusOldArray[5] = vradb.raid5
-	rosterStatusOldArray[6] = vradb.raid6
-	rosterStatusOldArray[7] = vradb.raid7
-	rosterStatusOldArray[8] = vradb.raid8
-	rosterStatusOldArray[9] = vradb.raid9
-	rosterStatusOldArray[10] = vradb.raid10
-	rosterStatusOldArray[11] = vradb.raid11
-	rosterStatusOldArray[12] = vradb.raid12
-	rosterStatusOldArray[13] = vradb.raid13
-	rosterStatusOldArray[14] = vradb.raid14
-	rosterStatusOldArray[15] = vradb.raid15
-	rosterStatusOldArray[16] = vradb.raid16
-	rosterStatusOldArray[17] = vradb.raid17
-	rosterStatusOldArray[18] = vradb.raid18
-	rosterStatusOldArray[19] = vradb.raid19
-	rosterStatusOldArray[20] = vradb.raid20
-	rosterStatusOldArray[21] = vradb.raid21
-	rosterStatusOldArray[22] = vradb.raid22
-	rosterStatusOldArray[23] = vradb.raid23
-	rosterStatusOldArray[24] = vradb.raid24
-	rosterStatusOldArray[25] = vradb.raid25
-	rosterStatusOldArray[26] = vradb.raid26
-	rosterStatusOldArray[27] = vradb.raid27
-	rosterStatusOldArray[28] = vradb.raid28
-	rosterStatusOldArray[29] = vradb.raid29
-	rosterStatusOldArray[30] = vradb.raid30
-	rosterStatusOldArray[31] = vradb.raid31
-	rosterStatusOldArray[32] = vradb.raid32
-	rosterStatusOldArray[33] = vradb.raid33
-	rosterStatusOldArray[34] = vradb.raid34
-	rosterStatusOldArray[35] = vradb.raid35
-	rosterStatusOldArray[36] = vradb.raid36
-	rosterStatusOldArray[37] = vradb.raid37
-	rosterStatusOldArray[38] = vradb.raid38
-	rosterStatusOldArray[39] = vradb.raid39
-	rosterStatusOldArray[40] = vradb.raid40
-	
 	for i=1,raidMaxSize do
+		rosterStatusOldArray[1] = vradb["raid" .. tostring(i)]
 		if(rosterNameArray[i]==name) then
 			if(rosterStatusOldArray[i]==true) then
 				return true
