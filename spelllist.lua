@@ -56,6 +56,7 @@ function VocalRaidAssistant:GetSpellList ()
 			--priest
 			[33206] = "painSuppression", 
 			[47788] = "guardianSpirit",
+			[10060] = "PowerInfusion",
 			--[207946] = "lightswrath",
 			--[208065] = "lightoftuure",
 			[8122] = "psychicscream",
@@ -84,6 +85,10 @@ function VocalRaidAssistant:GetSpellList ()
 			[187650] = "freezingtrap",
 			--lock
 			[5782] = "fear",
+			--mage
+			[190319] = "Combustion",
+			[110909] = "AlterTime",
+
 			--monk
 			[116849] = "lifeCocoon",
 			[115203] = "fortifyingbrew",

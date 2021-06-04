@@ -245,7 +245,7 @@ local function spellOption(order, spellID, ...)
 				GameTooltip:SetHyperlink(GetSpellLink(spellID));
 			end,
 			descStyle = "custom",
-					order = order,
+			order = order,
 		}
 	else
 		VRA.log("spell id: " .. spellID .. " is invalid")
@@ -257,15 +257,41 @@ local function spellOption(order, spellID, ...)
 	end
 end
 
+local function spellDescription(order, spellID)
+	local spellname, _, icon = GetSpellInfo(spellID)
+	if (spellID == nil) then
+		return {
+			type = 'description',
+			name = "empty spell id",	
+			order = order,
+		}
+	end
+
+	if (spellname ~= nil) then
+		return {
+			type = 'description',
+			name = "\124T" .. icon .. ":24\124t" .. spellname,							
+			desc = function () 
+				GameTooltip:SetHyperlink(GetSpellLink(spellID));
+			end,
+			descStyle = "custom",
+					order = order,
+		}
+	end
+		
+	VRA.log("spell id: " .. spellID .. " is invalid")
+	return {
+		type = 'description',
+		name = "unknown spell, id:" .. spellID,	
+		order = order,
+	}
+end
+
 local function listOption(spellList, listType, ...)
 	local args = {}
 	for k, v in pairs(spellList) do
 		if VRA.spellList[listType][v] then
 			rawset (args, VRA.spellList[listType][v] ,spellOption(k, v))
-		else 
-		--[[debug
-			print (v)
-		]]
 		end
 	end
 	return args
@@ -285,8 +311,8 @@ function VRA:MakeCustomOption(key)
 				type = 'toggle',
 				order = 5,
 				name = L["enabled"],
-				width = 'double',
 			},
+			spellIcon = spellDescription(6, db[key].spellid),
 			name = {
 				name = L["name"],
 				type = 'input',
@@ -338,14 +364,8 @@ function VRA:MakeCustomOption(key)
 				type = 'select',
 				dialogControl = 'LSM30_Sound',
 				values =  AceGUIWidgetLSMlists.sound,
-				
 				disabled = function() return not db[key].existingsound end,
 				order = 40,
-			},
-			NewLine3 = {
-				type= 'description',
-				order = 45,
-				name= '',
 			},
 			soundfilepath = {
 				name = L["file path"],
@@ -679,7 +699,7 @@ function VRA:OnOptionCreate()
 								inline = true,
 								name = L["|cff69CCF0Mage|r"],
 								order = 9,
-								args = listOption({},"auraApplied"),
+								args = listOption({190319,110909},"auraApplied"),
 							},
 							monk = {
 								type = 'group',
@@ -700,7 +720,7 @@ function VRA:OnOptionCreate()
 								inline = true,
 								name = L["|cffFFFFFFPriest|r"],
 								order = 12,
-								args = listOption({33206,47788},"auraApplied"),
+								args = listOption({33206,47788,10060},"auraApplied"),
 							},
 							rogue = {
 								type = 'group',
