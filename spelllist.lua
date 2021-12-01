@@ -1,215 +1,231 @@
-function VocalRaidAssistant:GetSpellList ()
-	return {
-		auraApplied ={					-- aura applied [spellid] = ".mp3 file name",
-			--general
-			[20594] = "stoneform",
-			[107079] = "quakingpalm",
-			[58984] = "shadowmeld",
-			--druid
-			[102342] = "ironbark",
-			[22812] = "barkskin",
-			[61336] = "survivalinstincts",
-			[33891] = "incarnationtree", --resto
-			[102558] = "incarnationbear", --guardian
-			[192081] = "ironfur",
-			[29166] = "innervate",
-			[33786] = "cyclone",
-			
-			--demon hunter
-			[198589] = "blur",
-			[217832] = "imprison",
-			[204021] = "fierybrand",
-			[187827] = "metamorphosis",
-			[211881] = "feleruption",
-			--[207810] = "netherbond",
-			--[207407] = "soulcarver",
+local _, addon = ...
 
-			--paladin
-			[1022] = "blessingofprotection", 
-			[6940] = "sacrifice", 
-			[86659] = "guardianofancientkings",
-			[31850] = "ardentdefender",
-			[204018] = "spellwarding",
-			--[498] = "divineprotection",
-			[642] = "divineshield",
-			[31884] = "avengingwrath",
-			[216331] = "avengingcrusader",
-			[105809] = "holyavenger",
-			--[156322] = "eternalflame",
-			--[200652] = "tyrsdeliverance",
-			--[209202] = "eyeoftyr",
-			[853] = "hammerofjustice",
-			[20066] = "repentance",
-			--rogue
-			[57934] = "tricksofthetrade",
-			[2094] = "blind",
-			--warrior
-			[871] = "shieldwall",
-			[12975] = "laststand",
-			[118038] = "diebythesword",
-			[190456] = "ignorepain",
-			--[203524] = "neltharionsfury",
-			[2565] = "shieldblock",
-			[5246] = "intimidatingshout",
-			[23920] = "spellreflection",
-			
-			--priest
-			[33206] = "painSuppression", 
-			[47788] = "guardianSpirit",
-			--[207946] = "lightswrath",
-			--[208065] = "lightoftuure",
-			[8122] = "psychicscream",
-			
-			--shaman
-			[114052] = "ascendance",
-			--[207778] = "giftofthequeen",
-			[79206] = "spiritwalker",
-			[51514] = "hex",
-			--mage
-			[118] = "polymorph",
-			--dk
-			[48792] = "icebound",
-			[49028] = "dancingruneweapon",
-			[55233] = "vampiricblood",
-			[48707] = "antimagicshell",
-			[221562] = "asphyxiate",
-			[49576] = "deathgrip",
-			--[206977] = "bloodmirror",
-			[194844] = "bonestorm",
-			[194679] = "runetap",
-			[219809] = "tombstone",
-			--hunter
-			[34477] = "misdirection",
-			[53480] = "roarofsacrifice",
-			[187650] = "freezingtrap",
-			--lock
-			[5782] = "fear",
-			--monk
-			[116849] = "lifeCocoon",
-			[115203] = "fortifyingbrew",
-			[122278] = "dampenharm",
-			[122783] = "diffusemagic",
-			[115176] = "zenmeditation",
-			[325197] = "invokechiji",
-			[115078] = "paralysis",
-			--[205406] = "sheilunsgift",
-			
-		},
-		auraRemoved = {					-- aura removed [spellid] = ".mp3 file name",
-			
-		},
-		castStart = {					-- cast start [spellid] = ".mp3 file name",
-			
-		},
-		castSuccess = {					--cast success [spellid] = ".mp3 file name",
-			--general
-			[178207] = "drums",
-			[323436] = "purifysoul",
-			--druid
-			[740] = "tranquility",
-			[106898] = "stampedingRoar",
-			[77764] = "stampedingRoar", --cat
-			[77761] = "stampedingRoar", --bear
-			[20484] = "rebirth",
-			[197721] = "flourish",
-			[102793] = "ursolsvortex",
-			[323764] = "convoke",
-			[205636] = "forceofnature",
-			--[124974] = "naturesvigil",
-			--[200851] = "rageofthesleeper",
-			--[208253] = "essenceofghanir",
-			--demon hunter
-			[196718] = "darkness",
-			[179057] = "chaosnova",
-			[202137] = "sigilofsilence",
-			[207684] = "sigilofmisery",
-			[202138] = "sigilofchains",
-			[329554] = "foddertotheflame",
-			--paladin	
-			[31821] = "AuraMastery",
-			[633] = "layonHands",
-			[316958] = "ashenhallow",
-			[304971] = "divinetoll",
-			--rogue
-			[76577] = "smokeBomb",
+-- Info: The strings assigned to the spellIds are only used for external sound file generation script
+local spellList = {
+    ["DEATHKNIGHT"] = {
+        [51052] = "Anti Magic Zone",
+        [61999] = "Raise Ally!",
+        [108199] = "Gorefiend's Grasp!",
+        [315443] = "Abomination Limb!",
 
-			--warrior
-			[97462] = "rallyingcry", 
-			[1160] = "demoralizingshout",
-			[228920] = "ravager",
-			[46968] = "shockwave",
-			--priest
-			[200183] = "apotheosis",
-			[64843] = "divineHymn",
-			[62618] = "barrier",
-			[271466] = "luminousbarrier",
-			[32375] = "massdispel",
-			[15286] = "vampiricembrace",
-			[64901] = "symbolofhope",
-			[205369] = "mindbomb",
-			[265202] = "salvation",
-			[73325] = "leapoffaith",
-			[34433] = "shadowfiend",
-			[246287] = "evangelism",
-			[47536] = "rapture",
-			[325013] = "boonoftheascended",
-			[323673] = "mindgames",
-			[109964] = "spiritshell",
-			--shaman
-			[98008] = "spiritlinktotem",
-			[108280] = "healingTide",
-			[2825] = "bloodlust",
-			[32182] = "heroism",
-			[192077] = "windrushtotem",
-			[8143] = "tremortotem",
-			[207399] = "ancestralprotection",
-			[198838] = "earthenshieldtotem",
-			[192058] = "lightningsurgetotem",
-			[320674] = "chainharvest",
-			[328923] = "faetransfusion",
-			[326059] = "primordialwave",
-			[324386] = "vespertotem",
-			--mage
-			[80353] = "timewarp",
-			--dk
-			[51052] = "antiMagicZone",
-			[61999] = "raiseally",
-			[108199] = "gorefiendsgrasp",
-			[315443] = "abominationlimb",
-			--hunter
-			[264667] = "primalrage",
-			[109248] = "bindingshot",
-			[328231] = "wildspirits",
-			--warlock
-			[20707] = "soulstone",
-			[30283] = "shadowfury",
-			[111771] = "gateway",
-			-- monk
-			[115310] = "Revival",
-			[119381] = "legsweep",
-			[116844] = "ringofpeace",
-			[310454] = "weaponsoforder",
-		
-			
-			
-		},
-		friendlyInterrupt = {			--friendly interrupt [spellid] = ".mp3 file name",
-			[19647] = "lockout", -- Spell Lock
-			[2139] = "lockout", -- Counter Spell
-			[1766] = "lockout", -- Kick
-			[6552] = "lockout", -- Pummel
-			[47528] = "lockout", -- Mind Freeze
-			[96231] = "lockout", -- Rebuke
-			[93985] = "lockout", -- Skull Bash
-			[97547] = "lockout", -- Solar Beam
-			[57994] = "lockout", -- Wind Shear
-			[116705] = "lockout", -- Spear Hand Strike
-			[113287] = "lockout", -- Symbiosis Solar Beam
-			[147362] = "lockout", -- Counter Shot
-			[34490] = "lockout", -- Silencing Shot
-			[183752] = "lockout", -- Consume Magic
-			[187707] = "lockout", -- Muzzle
-		},
-	}
+        [48792] = "Icebound",
+        [49028] = "dancing runeweapon",
+        [55233] = "vampiric blood",
+        [48707] = "anti magic shell",
+        [221562] = "asphyxiate",
+        [49576] = "deathgrip",
+        [42650] = "army of the dead",
+        [194844] = "bonestorm",
+        [194679] = "runetap",
+        [219809] = "tombstone"
+    },
+    ["DEMONHUNTER"] = {
+        [196718] = "darkness",
+        [179057] = "chaosnova",
+        [202137] = "sigil of silence",
+        [207684] = "sigil of misery",
+        [202138] = "sigil of chains",
+        [329554] = "fodder to the flame",
+        [206491] = "nemesis",
+
+        [198589] = "blur",
+        [217832] = "imprison",
+        [204021] = "fiery brand",
+        [187827] = "metamorphosis",
+        [211881] = "fel eruption"
+    },
+    ["DRUID"] = {
+        [740] = "tranquility",
+        [2908] = "soothe",
+        [106898] = "stampeding roar",
+        [77764] = "stampeding roar", -- cat
+        [77761] = "stampeding roar", -- bear
+        [20484] = "rebirth",
+        [197721] = "flourish",
+        [102793] = "ursols vortex",
+        [323764] = "convoke",
+        [205636] = "force of nature",
+        [323546] = "ravenous frenzy",
+
+        [102342] = "ironbark",
+        [22812] = "barkskin",
+        [61336] = "survival instincts",
+        [33891] = "incarnation tree", -- resto
+        [102558] = "incarnation bear", -- guardian
+        [192081] = "ironfur",
+        [29166] = "innervate",
+        [33786] = "cyclone"
+    },
+    ["HUNTER"] = {
+        [264667] = "primalrage",
+        [109248] = "binding shot",
+        [328231] = "wild spirits",
+        [34477] = "misdirection",
+        [53480] = "roar of sacrifice",
+        [187650] = "freezing trap",
+        [193530] = "Aspect of the Wild"
+    },
+    ["MAGE"] = {
+        [80353] = "timewarp",
+        [321507] = "touch of the magi",
+
+        [118] = "polymorph",
+        [12472] = "icy veins",
+        [12042] = "arcane power",
+        [86949] = "cauterize",
+        [190319] = "combustion",
+        [110909] = "alter time"
+    },
+    ["MONK"] = {
+        [115310] = "revival",
+        [119381] = "leg sweep",
+        [116844] = "ring of peace",
+        [310454] = "weapons of order",
+        [322109] = "touch of death",
+        [116849] = "life cocoon",
+        [115203] = "fortifying brew",
+        [122278] = "dampen harm",
+        [122783] = "diffuse magic",
+        [115176] = "zen meditation",
+        [325197] = "invoke chiji",
+        [115078] = "paralysis"
+    },
+    ["PALADIN"] = {
+        [31821] = "aura mastery",
+        [633] = "lay on hands",
+        [316958] = "ashen hallow",
+        [304971] = "divine toll",
+
+        [1022] = "blessing of protection",
+        [6940] = "sacrifice",
+        [86659] = "guardian of ancient kings",
+        [31850] = "ardent defender",
+        [204018] = "spellwarding",
+        [642] = "divine shield",
+        [31884] = "avenging wrath",
+        [216331] = "avenging crusader",
+        [105809] = "holy avenger",
+        [853] = "hammer of justice",
+        [20066] = "repentance"
+    },
+    ["PRIEST"] = {
+        [8122] = "psychic scream",
+        [10060] = "power infusion",
+        [15286] = "vampiric embrace",
+        [32375] = "massdispel",
+        [33206] = "pain suppression",
+        [34433] = "shadowfiend",
+        [47536] = "rapture",
+        [47788] = "guardian spirit",
+        [62618] = "barrier",
+        [64843] = "divine hymn",
+        [64901] = "symbol of hope",
+        [73325] = "leap of faith",
+        [109964] = "spiritshell",
+        [200183] = "apotheosis",
+        [205369] = "mindbomb",
+        [228260] = "void eruption",
+        [246287] = "evangelism",
+        [265202] = "salvation",
+        [271466] = "luminous barrier",
+        [323673] = "mindgames",
+        [325013] = "boon of the ascended"
+    },
+    ["ROGUE"] = {
+        [76577] = "smoke Bomb",
+
+        [57934] = "tricks of the trade",
+        [2094] = "blind",
+        [31224] = "cloak of shadows",
+        [13750] = "adrenalin rush"
+    },
+    ["SHAMAN"] = {
+        [16191] = "manatide",
+        [98008] = "spiritlink-totem",
+        [108280] = "healing tide",
+        [2825] = "bloodlust",
+        [32182] = "heroism",
+        [192077] = "windrush-totem",
+        [8143] = "tremor totem",
+        [207399] = "ancestral protection",
+        [198838] = "earthenshield-totem",
+        [192058] = "lightningsurge-totem",
+        [320674] = "chainharvest",
+        [328923] = "fae transfusion",
+        [326059] = "primordial wave",
+        [324386] = "vesper-totem",
+
+        [114052] = "ascendance",
+        [79206] = "spiritwalker",
+        [51514] = "hex",
+        [108271] = "Astralshift"
+    },
+    ["WARLOCK"] = {
+        [20707] = "soulstone",
+        [30283] = "shadowfury",
+        [111771] = "gateway",
+        [5782] = "fear"
+    },
+    ["WARRIOR"] = {
+        [97462] = "rallying cry",
+        [1160] = "demoralizing shout",
+        [228920] = "ravager",
+        [46968] = "shockwave",
+
+        [871] = "shieldwall",
+        [12975] = "laststand",
+        [118038] = "die by the sword",
+        [190456] = "ignore pain",
+        [2565] = "shieldblock",
+        [5246] = "intimidating shout",
+        [23920] = "spell reflection"
+    },
+    ["general"] = {
+        [20594] = "stoneform",
+        [107079] = "quaking palm",
+        [58984] = "shadowmeld",
+        [178207] = "drums",
+        [323436] = "purify soul",
+    }
+}
+
+local interruptList = {
+    [19647] = "countered!", -- Spell Lock
+    [2139] = "countered!", -- Counter Spell
+    [1766] = "countered!", -- Kick
+    [6552] = "countered!", -- Pummel
+    [47528] = "countered!", -- Mind Freeze
+    [96231] = "countered!", -- Rebuke
+    [93985] = "countered!", -- Skull Bash
+    [97547] = "countered!", -- Solar Beam
+    [57994] = "countered!", -- Wind Shear
+    [116705] = "countered!", -- Spear Hand Strike
+    [113287] = "countered!", -- Symbiosis Solar Beam
+    [147362] = "countered!", -- Counter Shot
+    [34490] = "countered!", -- Silencing Shot
+    [183752] = "countered!", -- Consume Magic
+    [187707] = "countered!" -- Muzzle
+}
+
+function addon:GetAllSpellIds()
+    local spells = {}
+    for _, v in pairs(spellList) do
+        for k, v in pairs(v) do
+            spells[k] = v
+        end
+    end
+    return spells
+end
+
+function addon:GetSpellIdsByClass(name)
+    return spellList[name]
+end
+
+function addon:GetInterruptSpellIds()
+    local spells = {}
+    for k, v in pairs(interruptList) do
+        spells[k] = v
+    end
+    return spells
 end
 
