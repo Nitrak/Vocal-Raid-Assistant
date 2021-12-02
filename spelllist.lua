@@ -88,7 +88,8 @@ local spellList = {
         [122783] = "diffuse magic",
         [115176] = "zen meditation",
         [325197] = "invoke chiji",
-        [115078] = "paralysis"
+        [115078] = "paralysis",
+        [326860] = "Fallen Order"
     },
     ["PALADIN"] = {
         [31821] = "aura mastery",
