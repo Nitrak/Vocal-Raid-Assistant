@@ -7,6 +7,12 @@ VRA.AC = LibStub("AceConfig-3.0")
 VRA.ACD = LibStub("AceConfigDialog-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
 
+local tostring = tostring
+local profile = {}
+local throttleTime
+local interruptList = {}
+local filter = 0
+
 local defaults = {
     profile = {
         general = {
@@ -87,11 +93,8 @@ local defaults = {
     }
 }
 
-local profile = {}
-local throttledSpells = {}
-local interruptList = {}
-local filter = 0
-local tostring = tostring
+
+
 
 function VRA:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("VocalRaidAssistantDB", defaults, true)

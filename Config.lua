@@ -236,7 +236,7 @@ local function GetGeneralOptions()
                         min = 0,
                         step = 0.5,
                         name = L["Throttle"],
-                        desc = L["The minimum interval of each alert"],
+                        desc = L["The minimum interval between two alerts"],
                         order = 4
                     }
                 }
