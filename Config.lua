@@ -228,7 +228,13 @@ local function GetGeneralOptions()
                         name = L["Soundpack"],
                         desc = L["Soundpack Options"],
                         values = soundpacks,
-                        order = 2
+                        order = 1
+                    },
+                    playButton = {
+                        type = 'execute',
+                        name = L["Test"],
+                        func = function() addon:playSpell("98008") end,
+                        order = 2,
                     },
                     throttle = {
                         type = 'range',
@@ -237,7 +243,7 @@ local function GetGeneralOptions()
                         step = 0.5,
                         name = L["Throttle"],
                         desc = L["The minimum interval between two alerts"],
-                        order = 4
+                        order = 3
                     }
                 }
             }
