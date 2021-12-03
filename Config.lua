@@ -167,7 +167,7 @@ local function GetGeneralOptions()
                     },
                     instance = {
                         type = 'toggle',
-                        name = L["Instance"],
+                        name = L["M+"],
                         disabled = function()
                             return profile.general.enabledArea.all
                         end,
@@ -246,61 +246,80 @@ local function GetGeneralOptions()
 end
 
 local function GetAbilitiesOption()
-    return {
+    local instanceTypes = {
+        ["none"] = { display = L["World"], order = 1 },
+        ["party"] = { display = L["M+"], order = 2 },
+        ["raid"] = { display = L["Raid"], order = 3 },
+        ["pvp"] = { display = L["Battleground"], order = 4 },
+        ["arena"] = { display = L["Arena"], order = 5 },
+    }
+
+    local abilityOptions = {
         type = "group",
         name = L["Abilities"],
         childGroups = "tab",
-        get = function(info)
-            return profile.enabledSpells[info[#info]]
-        end,
-        set = function(info, val)
-            profile.enabledSpells[info[#info]] = val
-            if (val == true) then
-                addon:playSpell(info[#info])
-            end
-        end,
-        args = {
-            interrupts = {
-                type = "group",
-                name = L["Interrupts"],
-                inline = true,
-                get = function()
-                    return profile.enableInterrupts
-                end,
-                set = function(info, val)
-                    profile.enableInterrupts = val
-                end,
-                args = {
-                    toggleInterrupts = {
-                        type = "toggle",
-                        name = L["Interrupts"],
-                        desc = L["Play sound on interrupts"]
+        args = {}
+    }
+
+    for k, v in pairs(instanceTypes) do
+        abilityOptions.args[k] = {
+            type = "group",
+            name = v.display,
+            order = v.order,
+            get = function(info)
+                return profile.zoneConfig[k].enabledSpells[info[#info]]
+            end,
+            set = function(info, val)
+                profile.zoneConfig[k].enabledSpells[info[#info]] = val
+                if (val == true) then
+                    addon:playSpell(info[#info])
+                end
+            end,
+            args = {
+                interrupts = {
+                    type = "group",
+                    name = L["Interrupts"],
+                    inline = true,
+                    order = 1,
+                    get = function()
+                        return profile.zoneConfig[k].enableInterrupts
+                    end,
+                    set = function(info, val)
+                        profile.zoneConfig[k].enableInterrupts = val
+                    end,
+                    args = {
+                        toggleInterrupts = {
+                            type = "toggle",
+                            name = L["Interrupts"],
+                            desc = L["Play sound on interrupts"]
+                        }
                     }
-                }
-            },
-            -- tabbed
-            classAbilities = {
-                type = "group",
-                name = L["Spells By Class"],
-                order = 1,
-                args = createClassSpellOptions()
-            },
-            general = {
-                type = "group",
-                name = L["General Spells"],
-                order = 2,
-                args = {
-                    generalOptions = {
-                        type = 'group',
-                        inline = true,
-                        name = L["General"],
-                        order = i,
-                        args = createOptionsForClass("general")
+                },
+                classAbilities = {
+                    type = "group",
+                    name = "",
+                    inline = true,
+                    order = 2,
+                    args = createClassSpellOptions()
+                },
+                general = {
+                    type = "group",
+                    name = L["General Spells"],
+                    inline = true,
+                    order = 3,
+                    args = {
+                        generalOptions = {
+                            type = 'group',
+                            inline = true,
+                            name = L["General"],
+                            args = createOptionsForClass("general")
+                        }
                     }
                 }
             }
         }
-    }
+    end
+    return abilityOptions
 end
 
 function addon:InitOptions()

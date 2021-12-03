@@ -7,7 +7,6 @@ local spellList = {
         [61999] = "Raise Ally!",
         [108199] = "Gorefiend's Grasp!",
         [315443] = "Abomination Limb!",
-
         [48792] = "Icebound",
         [49028] = "dancing runeweapon",
         [55233] = "vampiric blood",
@@ -27,7 +26,6 @@ local spellList = {
         [202138] = "sigil of chains",
         [329554] = "fodder to the flame",
         [206491] = "nemesis",
-
         [198589] = "blur",
         [217832] = "imprison",
         [204021] = "fiery brand",
@@ -46,7 +44,6 @@ local spellList = {
         [323764] = "convoke",
         [205636] = "force of nature",
         [323546] = "ravenous frenzy",
-
         [102342] = "ironbark",
         [22812] = "barkskin",
         [61336] = "survival instincts",
@@ -68,7 +65,6 @@ local spellList = {
     ["MAGE"] = {
         [80353] = "timewarp",
         [321507] = "touch of the magi",
-
         [118] = "polymorph",
         [12472] = "icy veins",
         [12042] = "arcane power",
@@ -96,7 +92,6 @@ local spellList = {
         [633] = "lay on hands",
         [316958] = "ashen hallow",
         [304971] = "divine toll",
-
         [1022] = "blessing of protection",
         [6940] = "sacrifice",
         [86659] = "guardian of ancient kings",
@@ -134,7 +129,6 @@ local spellList = {
     },
     ["ROGUE"] = {
         [76577] = "smoke Bomb",
-
         [57934] = "tricks of the trade",
         [2094] = "blind",
         [31224] = "cloak of shadows",
@@ -155,7 +149,6 @@ local spellList = {
         [328923] = "fae transfusion",
         [326059] = "primordial wave",
         [324386] = "vesper-totem",
-
         [114052] = "ascendance",
         [79206] = "spiritwalker",
         [51514] = "hex",
@@ -172,7 +165,6 @@ local spellList = {
         [1160] = "demoralizing shout",
         [228920] = "ravager",
         [46968] = "shockwave",
-
         [871] = "shieldwall",
         [12975] = "laststand",
         [118038] = "die by the sword",
