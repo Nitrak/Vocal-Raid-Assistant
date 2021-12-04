@@ -180,6 +180,14 @@ local function GetGeneralOptions()
                             return profile.general.enabledArea.all
                         end,
                         order = 6
+                    },
+                    scenario = {
+                        type = 'toggle',
+                        name = L["Scenario"],
+                        disabled = function()
+                            return profile.general.enabledArea.all
+                        end,
+                        order = 7
                     }
                 }
             },
@@ -258,6 +266,7 @@ local function GetAbilitiesOption()
         ["raid"] = { display = L["Raid"], order = 3 },
         ["pvp"] = { display = L["Battleground"], order = 4 },
         ["arena"] = { display = L["Arena"], order = 5 },
+        ["scenario"] = { display = L["Scenario"], order = 6 }
     }
 
     local abilityOptions = {

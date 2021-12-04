@@ -110,7 +110,11 @@ local defaults = {
             ["raid"] = {
                 enableInterrupts = true,
                 enabledSpells = defaultSpells,
-            }, 
+            },
+            ["scenario"] = {
+                enableInterrupts = true,
+                enabledSpells = defaultSpells
+            } 
         }
     }
 }

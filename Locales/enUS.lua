@@ -35,5 +35,6 @@ L["General Spells"] = "General Spells"
 L["Interrupts"] = "Interrupts"
 L["Play sound on interrupts"] = "Play sound on interrupts"
 L["Test"] = "Test"
+L["Scenario"] = "Scenario"
 
 
