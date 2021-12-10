@@ -337,6 +337,23 @@ local function GetAbilitiesOption()
     return abilityOptions
 end
 
+local function getSpellOption(info)
+    local name = info[#info]
+    return addon.db.profile.spells[name]
+end
+
+local function setSpellOption(info, value)
+    local name = info[#info]
+    addon.db.profile.spells[name] = value
+    if value then
+        PlaySoundFile("Interface\\Addons\\" .. vradb.path .. "\\" .. name .. ".ogg", "Master");
+    end
+end
+
+function addon:RefreshOptions(database)
+    profile = database.profile
+end
+
 function addon:InitOptions()
     profile = addon.db.profile
 
@@ -349,22 +366,5 @@ function addon:InitOptions()
     self.ACD:AddToBlizOptions("Vocal Raid Assistant - General", "General", "VocalRaidAssistant")
     self.ACD:AddToBlizOptions("Vocal Raid Assistant - Abilities", "Abilities", "VocalRaidAssistant")
     self.ACD:AddToBlizOptions("Vocal Raid Assistant - Profiles", "Profiles", "VocalRaidAssistant")
-end
-
-function addon:RefreshOptions(database)
-    profile = database.profile
-end
-
-local function getSpellOption(info)
-    local name = info[#info]
-    return addon.db.profile.spells[name]
-end
-
-local function setSpellOption(info, value)
-    local name = info[#info]
-    addon.db.profile.spells[name] = value
-    if value then
-        PlaySoundFile("Interface\\Addons\\" .. vradb.path .. "\\" .. name .. ".ogg", "Master");
-    end
 end
 
