@@ -164,7 +164,7 @@ local function GetGeneralOptions()
                     },
                     instance = {
                         type = 'toggle',
-                        name = L["M+"],
+                        name = L["Instance / M+"],
                         disabled = function()
                             return profile.general.enabledArea.all
                         end,
@@ -203,14 +203,12 @@ local function GetGeneralOptions()
                 args = {
                     player = {
                         type = 'toggle',
-                        name = L["Player"],
-                        desc = L["My own spells"],
+                        name = L["My own abilities"],
                         order = 1
                     },
                     grouporraid = {
                         type = 'toggle',
-                        name = L["Group or Raid Group"],
-                        desc = L["Spells cast within my group"],
+                        name = L["Party member abilities"],
                         order = 2
                     }
                 }
@@ -247,7 +245,7 @@ local function GetGeneralOptions()
                         min = 0,
                         step = 0.5,
                         name = L["Throttle"],
-                        desc = L["The minimum interval between two alerts"],
+                        desc = L["The minimum interval between two alerts in seconds"],
                         order = 3
                     }
                 }
@@ -259,7 +257,7 @@ end
 local function GetAbilitiesOption()
     local instanceTypes = {
         ["none"] = { display = L["World"], value = "field", order = 1 },
-        ["party"] = { display = L["M+"], value = "instance", order = 2 },
+        ["party"] = { display = L["Instance / M+"], value = "instance", order = 2 },
         ["raid"] = { display = L["Raid"], value = "raidinstance", order = 3 },
         ["pvp"] = { display = L["Battleground"], value = "battleground", order = 4 },
         ["arena"] = { display = L["Arena"], value = "arena", order = 5 },
