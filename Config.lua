@@ -100,8 +100,9 @@ local function GetMainOptions()
             },
             discord = {
                 order = 3,
-                type = "description",
-                name = L["Discord"]
+                type = "input",
+                name = L["Discord"],
+                get = function() return "https://discord.gg/UZMzqap" end,
             }
         }
     }
@@ -257,12 +258,12 @@ end
 
 local function GetAbilitiesOption()
     local instanceTypes = {
-        ["none"] = { display = L["World"], order = 1 },
-        ["party"] = { display = L["M+"], order = 2 },
-        ["raid"] = { display = L["Raid"], order = 3 },
-        ["pvp"] = { display = L["Battleground"], order = 4 },
-        ["arena"] = { display = L["Arena"], order = 5 },
-        ["scenario"] = { display = L["Scenario"], order = 6 }
+        ["none"] = { display = L["World"], value = "field", order = 1 },
+        ["party"] = { display = L["M+"], value = "instance", order = 2 },
+        ["raid"] = { display = L["Raid"], value = "raidinstance", order = 3 },
+        ["pvp"] = { display = L["Battleground"], value = "battleground", order = 4 },
+        ["arena"] = { display = L["Arena"], value = "arena", order = 5 },
+        ["scenario"] = { display = L["Scenario"], value = "scenario", order = 6 }
     }
 
     local abilityOptions = {
@@ -285,6 +286,12 @@ local function GetAbilitiesOption()
                 if (val == true) then
                     addon:playSpell(info[#info])
                 end
+            end,
+            disabled = function()
+                if profile.general.enabledArea.all == true then
+                    return false
+                end
+                return profile.general.enabledArea[v.value] ~= true
             end,
             args = {
                 interrupts = {
