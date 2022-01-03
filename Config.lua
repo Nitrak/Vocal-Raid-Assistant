@@ -16,7 +16,7 @@ local soundpacks = {
 }
 
 local borderlessCoords = {0.07, 0.93, 0.07, 0.93}
-local function spellOption(order, spellID)
+local function spellOption(spellID)
     local spellname, _, icon = GetSpellInfo(spellID)
     local desc = GetSpellDescription(spellID)
     if (spellname ~= nil) then
@@ -26,13 +26,11 @@ local function spellOption(order, spellID)
             imageCoords = borderlessCoords,
             name = spellname,
             desc = desc,
-            order = order
         }
     else
         return {
             type = 'toggle',
             name = "unknown spell, id:" .. spellID,
-            order = order
         }
     end
 end
@@ -41,10 +39,8 @@ local function createOptionsForClass(class)
     local spellList = addon:GetSpellIdsByClass(class)
     local args = {}
     if (spellList ~= nil) then
-        local i = 1
         for spellID, _ in pairs(spellList) do
-            args[tostring(spellID)] = spellOption(i, spellID)
-            i = i + 1
+            args[tostring(spellID)] = spellOption(spellID)
         end
     end
     return args
