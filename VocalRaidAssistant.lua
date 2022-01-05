@@ -65,12 +65,18 @@ local defaultSpells = {
     ["316958"] = true,
 }
 
+VRA.defaultSpells = defaultSpells
+
 local defaults = {
     profile = {
         general = {
-            enabledArea = {
-                instance = true,
-                raidinstance = true
+            area = {
+                arena = { spells = defaultSpells },
+                none = { spells = defaultSpells },
+                party = { enabled = true, enableInterrupts = true, spells = defaultSpells },
+                raid = { enabled = true, enableInterrupts = true, spells = defaultSpells },
+                pvp = { spells = defaultSpells },
+                scenario = { spells = defaultSpells }
             },
             watchFor = 6 -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID,
         },
@@ -78,34 +84,36 @@ local defaults = {
             soundpack = "en-US-SaraNeural",
             throttle = 0.5
         },
-        zoneConfig = {
-            ["none"] = {
-                enableInterrupts = true,
-                enabledSpells = defaultSpells,
-            },
-            ["pvp"] = {
-                enableInterrupts = true,
-                enabledSpells = defaultSpells,
-            },
-            ["arena"] = {
-                enableInterrupts = true,
-                enabledSpells = defaultSpells,
-            },
-            ["party"] = {
-                enableInterrupts = true,
-                enabledSpells = defaultSpells,
-            },
-            ["raid"] = {
-                enableInterrupts = true,
-                enabledSpells = defaultSpells,
-            },
-            ["scenario"] = {
-                enableInterrupts = true,
-                enabledSpells = defaultSpells
-            } 
-        }
     }
 }
+
+function VRA:InitializeOptions()
+	self:RegisterChatCommand("vra", "ChatCommand")
+	local optionsFrame = CreateFrame("Frame", nil, UIParent)
+	optionsFrame.name = "VocalRaidAssistant"
+
+    local title = optionsFrame:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
+	title:SetPoint("TOPLEFT", 16, -16)
+	title:SetText("Vocal Raid Assistant")
+
+    local context = optionsFrame:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
+	context:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -8)
+	context:SetText(VRA.L["Type /vra open the option panel"])
+	
+    local button = CreateFrame("BUTTON", nil, optionsFrame, "UIPanelButtonTemplate")
+	button:SetText("Options")
+	button:SetSize(177,24)
+	button:SetPoint('TOPLEFT', optionsFrame, 'TOPLEFT', 20, -55)
+	button:SetScript("OnClick", function(self)
+		HideUIPanel(InterfaceOptionsFrame)
+		HideUIPanel(GameMenuFrame)
+		VRA:ChatCommand()
+	end)
+
+	InterfaceOptions_AddCategory(optionsFrame)
+	self.optionsFrame = optionsFrame
+	self.InitializeOptions = nil
+end
 
 function VRA:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("VocalRaidAssistantDB", defaults, true)
@@ -113,8 +121,8 @@ function VRA:OnInitialize()
     self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
     self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
     profile = self.db.profile
-    self:RegisterChatCommand("vra", "ChatCommand")
-    self:InitOptions()
+    self:InitConfigOptions()
+    self:InitializeOptions()
 
     ---
     interruptList = self.GetInterruptSpellIds()
@@ -126,9 +134,7 @@ function VRA:ChangeProfile()
 end
 
 function VRA:ChatCommand()
-    InterfaceOptionsFrame_OpenToCategory("VocalRaidAssistant")
-    -- Call this a second time to fix a BlizzardUI Bug
-    InterfaceOptionsFrame_OpenToCategory("VocalRaidAssistant")
+    self.ACD:Open("VocalRaidAssistantConfig")
 end
 
 function VRA:OnEnable()
@@ -138,12 +144,7 @@ end
 -- ### Core 
 local function allowedZone()
     local _, currentZoneType = IsInInstance()
-    return (((currentZoneType == "none" and profile.general.enabledArea.all) or
-               (currentZoneType == "pvp" and profile.general.enabledArea.battleground) or
-               (currentZoneType == "arena" and profile.general.enabledArea.arena) or
-               (currentZoneType == "party" and profile.general.enabledArea.instance) or
-               (currentZoneType == "raid" and profile.general.enabledArea.raidinstance) or
-               profile.general.enabledArea.all))
+    return profile.general.area[currentZoneType].enabled
 end
 
 local function allowedSubEvent(event)
@@ -160,8 +161,8 @@ local function isTrottled()
     end
 end
 
-function VRA:playSpell(spellId)
-    local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellId .. ".ogg"
+function VRA:playSpell(spellID)
+    local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
     if soundFile then
         PlaySoundFile(soundFile, "Master")
     end
@@ -177,8 +178,8 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
     
     if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
         local _, instanceType = IsInInstance()
-        if ((event == 'SPELL_CAST_SUCCESS' and profile.zoneConfig[instanceType].enabledSpells[tostring(spellID)] and not isTrottled()) or 
-            (event == 'SPELL_INTERRUPT' and profile.zoneConfig[instanceType].enableInterrupts and interruptList[spellID])) then
+        if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and not isTrottled()) or 
+            (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and interruptList[spellID])) then
                 self:playSpell(spellID)
         end
     end
