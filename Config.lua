@@ -99,7 +99,7 @@ local function clearAllSpells(area)
 end
 
 local mainOptions = {
-    name = "VocalRaidAssistant",
+    name = "Vocal Raid Assistant",
     type = "group",
     args = {
         generalOptions = {
@@ -167,7 +167,6 @@ local mainOptions = {
                     type = 'group',
                     inline = true,
                     name = L["Voice"],
-                    desc = L["Voice Options"],
                     get = function(info)
                         return profile.sound[info[#info]]
                     end,
@@ -179,7 +178,6 @@ local mainOptions = {
                         soundpack = {
                             type = 'select',
                             name = L["Soundpack"],
-                            desc = L["Soundpack Options"],
                             values = soundpacks,
                             order = 1
                         },
@@ -240,8 +238,9 @@ local spells = {
             args = {
                 toggleInterrupts = {
                     type = "toggle",
-                    name = L["Play sound on interrupts"],
+                    name = L["Enable"],
                     desc = L["Play sound on interrupts"],
+                    width = 1.05,
                     get = function(info)
                         return profile.general.area[info[2]].enableInterrupts
                     end,
@@ -300,7 +299,7 @@ for k, v in pairs(zones) do
             },
             enable = {
                 type = "toggle",
-                name = L["Enable area"],
+                name = L["Enable"],
                 order = 1,
                 get = function(info)
                     return profile.general.area[info[2]].enabled
