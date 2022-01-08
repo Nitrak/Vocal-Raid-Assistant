@@ -49,7 +49,6 @@ local spellList = {
         [61336] = "survival instincts",
         [33891] = "incarnation tree", -- resto
         [102558] = "incarnation bear", -- guardian
-        [192081] = "ironfur",
         [29166] = "innervate",
         [33786] = "cyclone"
     },
