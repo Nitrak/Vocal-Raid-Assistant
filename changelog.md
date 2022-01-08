@@ -1,5 +1,11 @@
 # Vocal Raid Assistant
 
+## 2.0.0
+ - Remove Ironfur
+ - Re-add missing "vocailraidassistant" command
+ - add Readme
+
+
 ## 2.0.0(beta)
 - Complete rewrite
 - Added voicepacks
