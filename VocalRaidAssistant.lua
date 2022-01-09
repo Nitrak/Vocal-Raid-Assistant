@@ -89,6 +89,7 @@ local defaults = {
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
+    self:RegisterChatCommand("vocalraidassistant", "ChatCommand")
 	local optionsFrame = CreateFrame("Frame", nil, UIParent)
 	optionsFrame.name = "VocalRaidAssistant"
 
