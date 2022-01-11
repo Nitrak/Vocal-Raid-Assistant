@@ -10,6 +10,7 @@ local filterValues = {
 local soundpacks = {
     ["en-US-AnaNeural"] = "Ana",
     ["en-US-ElizabethNeural"] = "Elizabeth",
+    ["legacy-en-Julie"] = "Julie (Legacy)",
     ["en-US-SaraNeural"] = "Sara",
     ["en-US-EricNeural"] = "Eric",
     ["en-US-GuyNeural"] = "Guy"
@@ -27,14 +28,14 @@ local zones = {
 local borderlessCoords = {0.07, 0.93, 0.07, 0.93}
 local function spellOption(spellID)
     local spellname, _, icon = GetSpellInfo(spellID)
-    local desc = GetSpellDescription(spellID)
+    local description = GetSpellDescription(spellID)
     if (spellname ~= nil) then
         return {
             type = 'toggle',
             image = icon,
             imageCoords = borderlessCoords,
             name = spellname,
-            desc = desc
+            desc = description
         }
     else
         return {

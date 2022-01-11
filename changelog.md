@@ -1,5 +1,10 @@
 # Vocal Raid Assistant
 
+## 2.0.1
+ - Increased announce sound volume
+ - Legacy Voice Pack
+ - Fix spell tooltip
+
 ## 2.0.0
  - Remove Ironfur
  - Re-add missing "vocailraidassistant" command
