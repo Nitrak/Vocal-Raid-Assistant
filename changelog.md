@@ -1,9 +1,21 @@
 # Vocal Raid Assistant
 
 ## 2.0.1
- - Increased announce sound volume
+ - Increase announce sound volume
  - Legacy Voice Pack
  - Fix spell tooltip
+
+ ### Added abilities:
+ - Dark Pact
+ - Unending Resolve
+ - Desperate Prayer
+ - Divine Protection
+ - Feint
+ - Evasion
+ - Crimson Vial
+ - Survival of the Fittest
+ - Ice Block
+ - Mirror Image
 
 ## 2.0.0
  - Remove Ironfur
