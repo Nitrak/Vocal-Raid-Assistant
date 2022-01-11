@@ -149,7 +149,7 @@ local function allowedZone()
 end
 
 local function allowedSubEvent(event)
-    return (event == "SPELL_CAST_SUCCESS" or (event == "SPELL_INTERRUPT" and profile.enableInterrupts))
+    return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
 end
 
 
