@@ -1,4 +1,14 @@
 # Vocal Raid Assistant
+## 2.0.2
+### Changed abilities
+ - Earthen Shield Totem -> Earthen Wall Totem
+ - Lightning Surge Totem -> Capacitor Totem
+
+### Added abilities
+- Invoke Xuen
+- Invoke Niuzao
+- Invoke Yu'lon
+- Invoke Chi-Ji
 
 ## 2.0.1
  - Increase announce sound volume
