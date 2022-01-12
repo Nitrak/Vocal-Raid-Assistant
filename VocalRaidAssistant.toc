@@ -3,7 +3,7 @@
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 2.0.1
+## Version: 2.0.2
 
 embeds.xml
 
