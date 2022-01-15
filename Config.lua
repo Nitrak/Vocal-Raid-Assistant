@@ -27,37 +27,27 @@ local zones = {
 }
 
 StaticPopupDialogs["VRA_IMPORT"] = {
-	text = "Insert export to import",
+	text = "Insert import string",
 	button1 = "Close",
-	--button2 = "No",
 	timeout = 0,
-	OnShow = function (self, data)
-	self.editBox:SetText("")
-	end,
 	OnAccept = function (self, data, data2)
 		importSpellSelection(self.editBox:GetText(),data)
 		popUpSemaphore = false
 	end,
 	hasEditBox = true,
 	whileDead = true,
-	hideOnEscape = true,
 	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 }
 
 StaticPopupDialogs["VRA_EXPORT"] = {
-	text = "Copy the string (Ctrl-A, Ctrl-C)",
+	text = "Export string (Ctrl-C)",
 	button1 = "Close",
-	--button2 = "No",
 	timeout = 0,
-	OnShow = function (self, data)
-	self.editBox:SetText("Some text goes here")
-	end,
 	OnAccept = function (self, data, data2)
 		popUpSemaphore = false
 	end,
 	hasEditBox = true,
 	whileDead = true,
-	hideOnEscape = true,
 	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 }
 
@@ -135,12 +125,14 @@ local function clearAllSpells(area)
     end
 end
 
-function importSpellSelection(importString,area)
+function importSpellSelection(importString, area)
 	local success, importDeserialized = VRA.EXP:Deserialize(importString)
 	if(success) then
 		for k, v in pairs(importDeserialized) do
 			profile.general.area[area].spells[k] = v
 		end
+	else
+		print("Vocal Raid Assistant: Invalid import string.")
 	end
 end
 
@@ -303,6 +295,7 @@ local spells = {
 					if(dialog) then
 						local exportString = VRA.EXP:Serialize(profile.general.area[info[2]].spells)
 						dialog.editBox:SetText(exportString)
+						dialog.editBox:HighlightText()
 					else
 						print("Export failed, please join the Discord and make us aware this failed")
 					end
