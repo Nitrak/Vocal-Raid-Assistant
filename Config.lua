@@ -1,6 +1,7 @@
 local _, addon = ...
 local L = VRA.L
 local profile = {}
+local popUpSemaphore = false
 
 local filterValues = {
     ["player"] = COMBATLOG_OBJECT_AFFILIATION_MINE,
@@ -23,6 +24,41 @@ local zones = {
     ["raid"] = RAIDS,
     ["scenario"] = SCENARIOS,
     ["none"] = BUG_CATEGORY2
+}
+
+StaticPopupDialogs["VRA_IMPORT"] = {
+	text = "Insert export to import",
+	button1 = "Close",
+	--button2 = "No",
+	timeout = 0,
+	OnShow = function (self, data)
+	self.editBox:SetText("")
+	end,
+	OnAccept = function (self, data, data2)
+		importSpellSelection(self.editBox:GetText(),data)
+		popUpSemaphore = false
+	end,
+	hasEditBox = true,
+	whileDead = true,
+	hideOnEscape = true,
+	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+}
+
+StaticPopupDialogs["VRA_EXPORT"] = {
+	text = "Copy the string (Ctrl-A, Ctrl-C)",
+	button1 = "Close",
+	--button2 = "No",
+	timeout = 0,
+	OnShow = function (self, data)
+	self.editBox:SetText("Some text goes here")
+	end,
+	OnAccept = function (self, data, data2)
+		popUpSemaphore = false
+	end,
+	hasEditBox = true,
+	whileDead = true,
+	hideOnEscape = true,
+	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 }
 
 local borderlessCoords = {0.07, 0.93, 0.07, 0.93}
@@ -97,6 +133,15 @@ local function clearAllSpells(area)
     for k, _ in pairs(profile.general.area[area].spells) do
         profile.general.area[area].spells[k] = false
     end
+end
+
+function importSpellSelection(importString,area)
+	local success, importDeserialized = VRA.EXP:Deserialize(importString)
+	if(success) then
+		for k, v in pairs(importDeserialized) do
+			profile.general.area[area].spells[k] = v
+		end
+	end
 end
 
 local mainOptions = {
@@ -231,11 +276,44 @@ local spells = {
             end,
             confirm = true
         },
+		importSelectedSpells = {
+            name = L["Import Spells"],
+            order = 3,
+            type = "execute",
+            func = function(info)
+				if(not popUpSemaphore) then
+					popUpSemaphore = true
+					local dialog = StaticPopup_Show("VRA_IMPORT")
+					if(dialog) then
+						dialog.data = info[2]
+					else
+						print("Import failed, please join the Discord and make us aware this failed")
+					end
+				end
+            end
+        },
+		exportSelectedSpells = {
+            name = L["Export Spells"],
+            order = 4,
+            type = "execute",
+            func = function(info)
+				if(not popUpSemaphore) then
+					popUpSemaphore = true
+					local dialog = StaticPopup_Show("VRA_EXPORT")
+					if(dialog) then
+						local exportString = VRA.EXP:Serialize(profile.general.area[info[2]].spells)
+						dialog.editBox:SetText(exportString)
+					else
+						print("Export failed, please join the Discord and make us aware this failed")
+					end
+				end
+            end
+        },
         interrupts = {
             type = "group",
             name = L["Interrupts"],
             inline = true,
-            order = 3,
+            order = 5,
             args = {
                 toggleInterrupts = {
                     type = "toggle",
