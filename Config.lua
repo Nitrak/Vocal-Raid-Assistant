@@ -28,10 +28,14 @@ local zones = {
 
 StaticPopupDialogs["VRA_IMPORT"] = {
 	text = "Insert import string",
-	button1 = "Close",
+	button1 = "Import",
+	button2 = "Cancel",
 	timeout = 0,
 	OnAccept = function (self, data, data2)
 		importSpellSelection(self.editBox:GetText(),data)
+		popUpSemaphore = false
+	end,
+	OnCancel = function (self, data, data2)
 		popUpSemaphore = false
 	end,
 	hasEditBox = true,
@@ -131,6 +135,7 @@ function importSpellSelection(importString, area)
 		for k, v in pairs(importDeserialized) do
 			profile.general.area[area].spells[k] = v
 		end
+		VRA.ACR:NotifyChange("VocalRaidAssistantConfig")
 	else
 		print("Vocal Raid Assistant: Invalid import string.")
 	end
