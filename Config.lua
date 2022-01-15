@@ -274,7 +274,7 @@ local spells = {
             confirm = true
         },
 		importSelectedSpells = {
-            name = L["Import Spells"],
+            name = L["Import Area"],
             order = 3,
             type = "execute",
             func = function(info)
@@ -290,7 +290,7 @@ local spells = {
             end
         },
 		exportSelectedSpells = {
-            name = L["Export Spells"],
+            name = L["Export Area"],
             order = 4,
             type = "execute",
             func = function(info)
