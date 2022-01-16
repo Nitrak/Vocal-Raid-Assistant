@@ -44,12 +44,15 @@ local priority = {
 	["counterCC"] = L["Counter CC"],
 	["raidMovement"] = L["Raid Movement"],
 	["other"] = OTHER,
+}
+
 local VRA_CHANNEL = {
 	["Master"] = "Master",
 	["SFX"] = "Sound",
 	["Ambience"] = "Ambience",
 	["Music"] = "Music",
-	["Dialog"] = "Dialog"
+	["Dialog"] = "Dialog",
+}
 	
 StaticPopupDialogs["VRA_IMPORT"] = {
 	text = "Insert import string",
