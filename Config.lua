@@ -57,28 +57,20 @@ local function createOptionsForClass(class)
 end
 
 local function setFilterValue(info, val)
-	if(info == "onlyself") then
-		profile.general.onlySelf = val
-	else
-		local filter = filterValues[info]
-		if (filter ~= nil) then
-			if (val) then
-				profile.general.watchFor = bit.bor(profile.general.watchFor, filter)
-			else
-				profile.general.watchFor = bit.band(profile.general.watchFor, bit.bnot(filter))
-			end
+	local filter = filterValues[info]
+	if (filter ~= nil) then
+		if (val) then
+			profile.general.watchFor = bit.bor(profile.general.watchFor, filter)
+		else
+			profile.general.watchFor = bit.band(profile.general.watchFor, bit.bnot(filter))
 		end
 	end
 end
 
 local function getFilterValue(info)
-	if(info == "onlyself") then
-		return profile.general.onlySelf
-	else
-		local filter = filterValues[info]
-		if (filter ~= nil) then
-			return (bit.band(profile.general.watchFor, filter) == filter)
-		end
+	local filter = filterValues[info]
+	if (filter ~= nil) then
+		return (bit.band(profile.general.watchFor, filter) == filter)
 	end
 end
 
@@ -172,7 +164,13 @@ local mainOptions = {
                         },
 						onlyself = {
 							type = 'toggle',
-                            name = L["Buffs on Player Only"],
+                            name = L["Buffs on player only"],
+							get = function(info)
+								return profile.general.onlySelf
+							end,
+							set = function(info, val)
+								profile.general.onlySelf = val
+							end,
                             order = 3
 						},
                     }
