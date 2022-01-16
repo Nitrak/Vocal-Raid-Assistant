@@ -30,5 +30,7 @@ L["Volume"] = "Volume"
 L["Adjusting the voice volume"] = "Adjusting the voice volume"
 L["Output channel"] = "Output channel"
 L["Output channel desc"] = "Select the channel you want abilities to come from"
+L["Import Area"] = "Import Area"
+L["Export Area"] = "Export Area"
 
 
