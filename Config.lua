@@ -1,5 +1,6 @@
 local _, addon = ...
 local L = VRA.L
+local tostring = tostring
 local profile = {}
 local popUpSemaphore = false
 
@@ -26,12 +27,31 @@ local zones = {
     ["none"] = BUG_CATEGORY2
 }
 
+local priority = {
+    ["pvptrinket"] = L["PvP Trinket"],
+	["racial"] = L["Racial Traits"],
+	["trinket"] = INVTYPE_TRINKET,
+	["covenant"] = L["Covenant"],
+	["interrupt"] = LOC_TYPE_INTERRUPT,
+	["dispel"] = DISPELS,
+	["cc"] = L["Crowd Control"],
+	["disarm"] = format("%s, %s, %s",LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
+	["immunity"] = L["Immunity"],
+	["externalDefensive"] = L["External Defensive"],
+	["defensive"] = L["Defensive"],
+	["raidDefensive"] = L["Raid Defensive"],
+	["offensive"] = L["Offensive"],
+	["counterCC"] = L["Counter CC"],
+	["raidMovement"] = L["Raid Movement"],
+	["other"] = OTHER,
+}
+
 local VRA_CHANNEL = {
 	["Master"] = "Master",
 	["SFX"] = "Sound",
 	["Ambience"] = "Ambience",
 	["Music"] = "Music",
-	["Dialog"] = "Dialog"
+	["Dialog"] = "Dialog",
 }
 	
 StaticPopupDialogs["VRA_IMPORT"] = {
@@ -87,8 +107,14 @@ local function createOptionsForClass(class)
     local spellList = addon:GetSpellIdsByClass(class)
     local args = {}
     if (spellList ~= nil) then
-        for spellID, _ in pairs(spellList) do
-            args[tostring(spellID)] = spellOption(spellID)
+        for spellID, v in pairs(spellList) do
+            args[v.type] = args[v.type] or {
+                name = priority[v.type],
+                type = 'group',
+                inline = true,
+                args = {}
+            }
+            args[v.type].args[tostring(spellID)] = spellOption(spellID)
         end
     end
     return args
@@ -487,6 +513,7 @@ end
 function addon:InitConfigOptions()
     profile = addon.db.profile
     mainOptions.args.profiles = self.ACDBO:GetOptionsTable(self.db)
+    addon.LDS:EnhanceOptions(mainOptions.args.profiles, self.db)
     addon.AC:RegisterOptionsTable("VocalRaidAssistantConfig", mainOptions)
     addon.ACD:SetDefaultSize("VocalRaidAssistantConfig", 965, 650)
 end
