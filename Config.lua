@@ -154,13 +154,15 @@ local function restoreDefaultSpells(area)
     for k, v in pairs(addon.defaultSpells) do
         profile.general.area[area].spells[k] = v
     end
+    profile.general.area[area].enableInterrupts = true
 end
 
-local function clearAllSpells(area)
+local function clearAll(area)
     restoreDefaultSpells(area)
     for k, _ in pairs(profile.general.area[area].spells) do
         profile.general.area[area].spells[k] = false
     end
+    profile.general.area[area].enableInterrupts = false
 end
 
 function importSpellSelection(importString, area)
@@ -334,18 +336,53 @@ local spells = {
         return not profile.general.area[info[2]].enabled
     end,
     args = {
+        selectedArea = {
+            name = L["Copy Settings From:"],
+            desc = L["Select the area you want to copy settings from"],
+            order = 1,
+            type = "select",
+            values = function(info)
+                local t = {[''] = "" }
+                for k, v in pairs(zones) do
+                    if k ~= info[2] then
+                        t[k] = v
+                    end
+                end
+                return t
+            end,
+            get = function(info) return profile.general.area[info[2]].copyZone end,
+            set = function(info, val) profile.general.area[info[2]].copyZone = val end,
+        },
+        copySelected = {
+            name = L["Copy"],
+            desc = L["Copy the selected area settings to this area"],
+            order = 2,
+            type = "execute",
+            disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
+            func = function(info) 
+                local t = {}
+                local source = profile.general.area[info[2]].copyZone
+                local sourceTable = profile.general.area[source]
+                for k, v in pairs(sourceTable) do
+                    t[k] = v
+                end
+                profile.general.area[info[2]] = t
+                profile.general.area[info[2]].copyZone = nil
+            end,
+            confirm = function(info) return L["Copy Settings: "] .. zones[profile.general.area[info[2]].copyZone] .. " -> " .. zones[info[2]] end,
+        },
         clearAll = {
             name = L["Clear All"],
-            order = 1,
+            order = 3,
             type = "execute",
             func = function(info)
-                clearAllSpells(info[2])
+                clearAll(info[2])
             end,
             confirm = true
         },
         restoreDefault = {
             name = L["Restore Defaults"],
-            order = 2,
+            order = 4,
             type = "execute",
             func = function(info)
                 restoreDefaultSpells(info[2])
@@ -354,7 +391,7 @@ local spells = {
         },
 		importSelectedSpells = {
             name = L["Import Area"],
-            order = 3,
+            order = 5,
             type = "execute",
             func = function(info)
 				if(not popUpSemaphore) then
@@ -370,7 +407,7 @@ local spells = {
         },
 		exportSelectedSpells = {
             name = L["Export Area"],
-            order = 4,
+            order = 6,
             type = "execute",
             func = function(info)
 				if(not popUpSemaphore) then
@@ -390,7 +427,7 @@ local spells = {
             type = "group",
             name = L["Interrupts"],
             inline = true,
-            order = 5,
+            order = 7,
             args = {
                 toggleInterrupts = {
                     type = "toggle",
