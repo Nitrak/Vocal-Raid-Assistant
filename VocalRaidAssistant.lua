@@ -15,6 +15,7 @@ local profile = {}
 local throttleTime
 local interruptList = {}
 local filter = 0
+local playerDestFlag = COMBATLOG_OBJECT_TARGET+COMBATLOG_OBJECT_TYPE_PLAYER+COMBATLOG_OBJECT_CONTROL_PLAYER+COMBATLOG_OBJECT_REACTION_FRIENDLY+COMBATLOG_OBJECT_AFFILIATION_MINE
 
 local VRA_CHANNEL = {
 	["Master"] = "Master",
@@ -184,6 +185,7 @@ function VRA:playSpell(spellID)
     end
 end
 
+
 function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
     if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone())) then
         return
@@ -195,7 +197,7 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
     if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
         local _, instanceType = IsInInstance()
         if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and not isTrottled()
-		and ((not profile.general.onlySelf) or (profile.general.onlySelf and (destFlags == 66833 or destFlags == -2147483648)))) or 
+		and ((not profile.general.onlySelf) or (profile.general.onlySelf and (destFlags == playerDestFlag or destFlags == -COMBATLOG_OBJECT_NONE)))) or 
             (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and interruptList[spellID])) then
                 self:playSpell(spellID)
         end
