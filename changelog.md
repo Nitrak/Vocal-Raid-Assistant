@@ -1,8 +1,12 @@
 # Vocal Raid Assistant
+## 2.1.0
+- rework spells (add phonetic names)
+- add sub categories to classes
+
 ## 2.0.2
 ### Changed abilities
- - Earthen Shield Totem -> Earthen Wall Totem
- - Lightning Surge Totem -> Capacitor Totem
+- Earthen Shield Totem -> Earthen Wall Totem
+- Lightning Surge Totem -> Capacitor Totem
 
 ### Added abilities
 - Invoke Xuen

@@ -5,13 +5,24 @@ VRA = LibStub("AceAddon-3.0"):NewAddon(addon, addonName, "AceConsole-3.0", "AceE
 VRA.L = LibStub("AceLocale-3.0"):GetLocale(addonName)
 VRA.AC = LibStub("AceConfig-3.0")
 VRA.ACD = LibStub("AceConfigDialog-3.0")
+VRA.ACR = LibStub("AceConfigRegistry-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
+VRA.EXP = LibStub("AceSerializer-3.0")
+VRA.LDS = LibStub('LibDualSpec-1.0')
 
 local tostring = tostring
 local profile = {}
 local throttleTime
 local interruptList = {}
 local filter = 0
+
+local VRA_CHANNEL = {
+	["Master"] = "Master",
+	["SFX"] = "Sound",
+	["Ambience"] = "Ambience",
+	["Music"] = "Music",
+	["Dialog"] = "Dialog"
+}
 
 local defaultSpells = {
     ["217832"] = true,
@@ -82,7 +93,8 @@ local defaults = {
         },
         sound = {
             soundpack = "en-US-SaraNeural",
-            throttle = 0.5
+            throttle = 0.5,
+			channel = "Master"
         },
     }
 }
@@ -113,6 +125,7 @@ function VRA:InitializeOptions()
 
 	InterfaceOptions_AddCategory(optionsFrame)
 	self.optionsFrame = optionsFrame
+	
 	self.InitializeOptions = nil
 end
 
@@ -122,6 +135,8 @@ function VRA:OnInitialize()
     self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
     self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
     profile = self.db.profile
+
+    self.LDS:EnhanceDatabase(self.db, addonName)
     self:InitConfigOptions()
     self:InitializeOptions()
 
@@ -165,7 +180,7 @@ end
 function VRA:playSpell(spellID)
     local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
     if soundFile then
-        PlaySoundFile(soundFile, "Master")
+        PlaySoundFile(soundFile, VRA_CHANNEL[profile.sound.channel])
     end
 end
 

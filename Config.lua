@@ -1,6 +1,8 @@
 local _, addon = ...
 local L = VRA.L
+local tostring = tostring
 local profile = {}
+local popUpSemaphore = false
 
 local filterValues = {
     ["player"] = COMBATLOG_OBJECT_AFFILIATION_MINE,
@@ -23,6 +25,62 @@ local zones = {
     ["raid"] = RAIDS,
     ["scenario"] = SCENARIOS,
     ["none"] = BUG_CATEGORY2
+}
+
+local priority = {
+    ["pvptrinket"] = L["PvP Trinket"],
+	["racial"] = L["Racial Traits"],
+	["trinket"] = INVTYPE_TRINKET,
+	["covenant"] = L["Covenant"],
+	["interrupt"] = LOC_TYPE_INTERRUPT,
+	["dispel"] = DISPELS,
+	["cc"] = L["Crowd Control"],
+	["disarm"] = format("%s, %s, %s",LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
+	["immunity"] = L["Immunity"],
+	["externalDefensive"] = L["External Defensive"],
+	["defensive"] = L["Defensive"],
+	["raidDefensive"] = L["Raid Defensive"],
+	["offensive"] = L["Offensive"],
+	["counterCC"] = L["Counter CC"],
+	["raidMovement"] = L["Raid Movement"],
+	["other"] = OTHER,
+}
+
+local VRA_CHANNEL = {
+	["Master"] = "Master",
+	["SFX"] = "Sound",
+	["Ambience"] = "Ambience",
+	["Music"] = "Music",
+	["Dialog"] = "Dialog",
+}
+	
+StaticPopupDialogs["VRA_IMPORT"] = {
+	text = "Insert import string",
+	button1 = "Import",
+	button2 = "Cancel",
+	timeout = 0,
+	OnAccept = function (self, data, data2)
+		importSpellSelection(self.editBox:GetText(),data)
+		popUpSemaphore = false
+	end,
+	OnCancel = function (self, data, data2)
+		popUpSemaphore = false
+	end,
+	hasEditBox = true,
+	whileDead = true,
+	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+}
+
+StaticPopupDialogs["VRA_EXPORT"] = {
+	text = "Export string (Ctrl-C)",
+	button1 = "Close",
+	timeout = 0,
+	OnAccept = function (self, data, data2)
+		popUpSemaphore = false
+	end,
+	hasEditBox = true,
+	whileDead = true,
+	preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 }
 
 local borderlessCoords = {0.07, 0.93, 0.07, 0.93}
@@ -49,8 +107,14 @@ local function createOptionsForClass(class)
     local spellList = addon:GetSpellIdsByClass(class)
     local args = {}
     if (spellList ~= nil) then
-        for spellID, _ in pairs(spellList) do
-            args[tostring(spellID)] = spellOption(spellID)
+        for spellID, v in pairs(spellList) do
+            args[v.type] = args[v.type] or {
+                name = priority[v.type],
+                type = 'group',
+                inline = true,
+                args = {}
+            }
+            args[v.type].args[tostring(spellID)] = spellOption(spellID)
         end
     end
     return args
@@ -90,13 +154,27 @@ local function restoreDefaultSpells(area)
     for k, v in pairs(addon.defaultSpells) do
         profile.general.area[area].spells[k] = v
     end
+    profile.general.area[area].enableInterrupts = true
 end
 
-local function clearAllSpells(area)
+local function clearAll(area)
     restoreDefaultSpells(area)
     for k, _ in pairs(profile.general.area[area].spells) do
         profile.general.area[area].spells[k] = false
     end
+    profile.general.area[area].enableInterrupts = false
+end
+
+function importSpellSelection(importString, area)
+	local success, importDeserialized = VRA.EXP:Deserialize(importString)
+	if(success) then
+		for k, v in pairs(importDeserialized) do
+			profile.general.area[area].spells[k] = v
+		end
+		VRA.ACR:NotifyChange("VocalRaidAssistantConfig")
+	else
+		print("Vocal Raid Assistant: Invalid import string.")
+	end
 end
 
 local mainOptions = {
@@ -209,7 +287,52 @@ local mainOptions = {
                             name = L["Throttle"],
                             desc = L["The minimum interval between two alerts in seconds"],
                             order = 3
-                        }
+                        },
+						void = {--To ensure channel,volume and enabled is on a new line.
+							type = 'description',
+							name = "",
+							desc = "",
+							order = 4,
+						},
+						channel = {
+							type = 'select',
+							name = L["Output channel"],
+							desc = L["Output channel desc"],
+							values = VRA_CHANNEL,
+							order = 5,
+						},
+						volume = {
+							type = 'range',
+							max = 1,
+							min = 0,
+							step = 0.1,
+							name = L["Volume"],
+							desc = L["Adjusting the voice volume"],
+							set = function (info, value) SetCVar ("Sound_"..profile.sound.channel.."Volume",tostring (value)) end,
+							get = function () return tonumber (GetCVar ("Sound_"..profile.sound.channel.."Volume")) end,
+							order = 6,
+						},
+						channelEnabled = {
+							type = 'toggle',
+							name = function() return profile.sound.channel.." channel" end,
+							width = "double",
+							desc = "Enables or disables channel",
+							set = 	function(info,value)
+								if(profile.sound.channel=="Master") then
+									SetCVar ("Sound_EnableAllSound", (value and 1 or 0))
+								else
+									SetCVar ("Sound_Enable"..profile.sound.channel, (value and 1 or 0))
+								end
+							end,
+							get = 	function()
+								if(profile.sound.channel=="Master") then
+									return tonumber(GetCVar("Sound_EnableAllSound"))==1 and true or false
+								else
+									return tonumber(GetCVar("Sound_Enable"..profile.sound.channel))==1 and true or false
+								end
+							end,
+							order = 7,
+						},
                     }
                 }
             }
@@ -224,29 +347,98 @@ local spells = {
         return not profile.general.area[info[2]].enabled
     end,
     args = {
+        selectedArea = {
+            name = L["Copy Settings From:"],
+            desc = L["Select the area you want to copy settings from"],
+            order = 1,
+            type = "select",
+            values = function(info)
+                local t = {[''] = "" }
+                for k, v in pairs(zones) do
+                    if k ~= info[2] then
+                        t[k] = v
+                    end
+                end
+                return t
+            end,
+            get = function(info) return profile.general.area[info[2]].copyZone end,
+            set = function(info, val) profile.general.area[info[2]].copyZone = val end,
+        },
+        copySelected = {
+            name = L["Copy"],
+            desc = L["Copy the selected area settings to this area"],
+            order = 2,
+            type = "execute",
+            disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
+            func = function(info) 
+                local t = {}
+                local source = profile.general.area[info[2]].copyZone
+                local sourceTable = profile.general.area[source]
+                for k, v in pairs(sourceTable) do
+                    t[k] = v
+                end
+                profile.general.area[info[2]] = t
+                profile.general.area[info[2]].copyZone = nil
+            end,
+            confirm = function(info) return L["Copy Settings: "] .. zones[profile.general.area[info[2]].copyZone] .. " -> " .. zones[info[2]] end,
+        },
         clearAll = {
             name = L["Clear All"],
-            order = 1,
+            order = 3,
             type = "execute",
             func = function(info)
-                clearAllSpells(info[2])
+                clearAll(info[2])
             end,
             confirm = true
         },
         restoreDefault = {
             name = L["Restore Defaults"],
-            order = 2,
+            order = 4,
             type = "execute",
             func = function(info)
                 restoreDefaultSpells(info[2])
             end,
             confirm = true
         },
+		importSelectedSpells = {
+            name = L["Import Area"],
+            order = 5,
+            type = "execute",
+            func = function(info)
+				if(not popUpSemaphore) then
+					popUpSemaphore = true
+					local dialog = StaticPopup_Show("VRA_IMPORT")
+					if(dialog) then
+						dialog.data = info[2]
+					else
+						print("Import failed, please join the Discord and make us aware this failed")
+					end
+				end
+            end
+        },
+		exportSelectedSpells = {
+            name = L["Export Area"],
+            order = 6,
+            type = "execute",
+            func = function(info)
+				if(not popUpSemaphore) then
+					popUpSemaphore = true
+					local dialog = StaticPopup_Show("VRA_EXPORT")
+					if(dialog) then
+						local exportString = VRA.EXP:Serialize(profile.general.area[info[2]].spells)
+						dialog.editBox:SetText(exportString)
+						dialog.editBox:HighlightText()
+					else
+						print("Export failed, please join the Discord and make us aware this failed")
+					end
+				end
+            end
+        },
         interrupts = {
             type = "group",
             name = L["Interrupts"],
             inline = true,
-            order = 3,
+            order = 7,
             args = {
                 toggleInterrupts = {
                     type = "toggle",
@@ -332,6 +524,7 @@ end
 function addon:InitConfigOptions()
     profile = addon.db.profile
     mainOptions.args.profiles = self.ACDBO:GetOptionsTable(self.db)
+    addon.LDS:EnhanceOptions(mainOptions.args.profiles, self.db)
     addon.AC:RegisterOptionsTable("VocalRaidAssistantConfig", mainOptions)
     addon.ACD:SetDefaultSize("VocalRaidAssistantConfig", 965, 650)
 end

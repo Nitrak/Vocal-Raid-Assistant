@@ -1,215 +1,218 @@
 local _, addon = ...
 
--- Info: The strings assigned to the spellIds are only used for external sound file generation script
+-- Info: The strings assigned to name and phonetic_name are only used for external sound file generation script
+-- neural voices use name, legacy sound uses phonetic_name - if present
+-- Shoutout to the OmniCD Devs!
+
 local spellList = {
     ["DEATHKNIGHT"] = {
-        [51052] = "Anti Magic Zone",
-        [61999] = "Raise Ally!",
-        [108199] = "Gorefiend's Grasp!",
-        [315443] = "Abomination Limb!",
-        [48792] = "Icebound",
-        [49028] = "dancing runeweapon",
-        [55233] = "vampiric blood",
-        [48707] = "anti magic shell",
-        [221562] = "asphyxiate",
-        [49576] = "deathgrip",
-        [42650] = "army of the dead",
-        [194844] = "bonestorm",
-        [194679] = "runetap",
-        [219809] = "tombstone"
+        [42650] =  { name = "Army of the Dead", phonetic_name = "", type = "offensive"},
+        [48707] =  { name = "Anti Magic Shell", phonetic_name = "", type = "defensive"},
+        [48792] =  { name = "Icebound", phonetic_name = "", type = "defensive"},
+        [49576] =  { name = "Death Grip", phonetic_name = "", type = "disarm"},
+        [49028] =  { name = "Rune Weapon", phonetic_name = "Rune-Weapon", type = "defensive"}, -- Dancing Rune Weapon
+        [51052] =  { name = "Anti Magic Zone", phonetic_name = "", type = "raidDefensive" },
+        [55233] =  { name = "Vampiric Blood", phonetic_name = "", type = "defensive"},
+        [61999] =  { name = "Raise Ally", phonetic_name = "Raise Alleie", type = "other" },
+        [108199] = { name = "Gorefiend's Grasp", phonetic_name = "", type = "disarm"},
+        [194679] = { name = "Rune Tap", phonetic_name = "", type = "defensive"},
+        [194844] = { name = "Bonestorm", phonetic_name = "", type = "defensive"},
+        [219809] = { name = "Tombstone", phonetic_name = "", type = "defensive"},
+        [221562] = { name = "Asphyxiate", phonetic_name = "", type = "defensive"},
+        [315443] = { name = "Abomination Limb", phonetic_name = "", type = "covenant"},
     },
     ["DEMONHUNTER"] = {
-        [196718] = "darkness",
-        [179057] = "chaosnova",
-        [202137] = "sigil of silence",
-        [207684] = "sigil of misery",
-        [202138] = "sigil of chains",
-        [329554] = "fodder to the flame",
-        [206491] = "nemesis",
-        [198589] = "blur",
-        [217832] = "imprison",
-        [204021] = "fiery brand",
-        [187827] = "metamorphosis",
-        [211881] = "fel eruption"
+        [179057] = { name = "Chaos Nova", phonetic_name = "", type = "cc"},
+        [187827] = { name = "Metamorphosis", phonetic_name = "", type = "defensive"},
+        [196718] = { name = "Darkness", phonetic_name = "", type = "raidDefensive"},
+        [198589] = { name = "Blur", phonetic_name = "", type = "defensive"},
+        [202137] = { name = "Sigil of Silence", phonetic_name = "", type = "disarm"},
+        [202138] = { name = "Sigil of Chains", phonetic_name = "", type = "disarm"},
+        [204021] = { name = "Fiery Brand", phonetic_name = "", type = "defensive"},
+        [206491] = { name = "Nemesis", phonetic_name = "", type = "offensive"},
+        [207684] = { name = "Sigil of Misery", phonetic_name = "", type = "cc"},
+        [211881] = { name = "Fel Eruption", phonetic_name = "", type = "cc"},
+        [217832] = { name = "Imprison", phonetic_name = "", type = "cc"},
+        [329554] = { name = "Fodder to the Flame", phonetic_name = "", type = "covenant"},
     },
     ["DRUID"] = {
-        [740] = "tranquility",
-        [2908] = "soothe",
-        [106898] = "stampeding roar",
-        [77764] = "stampeding roar", -- cat
-        [77761] = "stampeding roar", -- bear
-        [20484] = "rebirth",
-        [197721] = "flourish",
-        [102793] = "ursols vortex",
-        [323764] = "convoke",
-        [205636] = "force of nature",
-        [323546] = "ravenous frenzy",
-        [102342] = "ironbark",
-        [22812] = "barkskin",
-        [61336] = "survival instincts",
-        [33891] = "incarnation tree", -- resto
-        [102558] = "incarnation bear", -- guardian
-        [29166] = "innervate",
-        [33786] = "cyclone"
+        [740] =    { name = "Tranquility", phonetic_name = "", type = "raidDefensive"},
+        [2908] =   { name = "Soothe", phonetic_name = "", type = "other"},
+        [20484] =  { name = "Rebirth", phonetic_name = "", type = "other"},
+        [22812] =  { name = "Barkskin", phonetic_name = "", type = "defensive"},
+        [29166] =  { name = "Innervate", phonetic_name = "Enervaite", type = "other"},
+        [33786] =  { name = "Cyclone", phonetic_name = "", type = "disarm"},
+        [33891] =  { name = "Incarnation: Tree", phonetic_name = "", type = "offensive"}, -- Incarnation: Tree of Life resto
+        [61336] =  { name = "Survival Instincts", phonetic_name = "", type = "defensive"},
+        [77761] =  { name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar bear
+        [77764] =  { name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar cat
+        [102342] = { name = "Iron Bark", phonetic_name = "", type = "externalDefensive"}, 
+        [102558] = { name = "Incarnation: Bear", phonetic_name = "", type = "offensive"}, -- Incarnation: Guardian of Ursoc
+        [102793] = { name = "Vortex", phonetic_name = "Vortex", type = "disarm"}, -- "Ursol's Vortex"
+        [106898] = { name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar
+        [197721] = { name = "Flourish", phonetic_name = "", type = "offensive"},
+        [205636] = { name = "Trees", phonetic_name = "", type = "other"}, -- Force of Nature
+        [323546] = { name = "Ravenous Frenzy", phonetic_name = "", type = "covenant"},
+        [323764] = { name = "Convoke", phonetic_name = "", type = "covenant"}, -- Convoke the Spirits
     },
     ["HUNTER"] = {
-        [264667] = "primalrage",
-        [109248] = "binding shot",
-        [328231] = "wild spirits",
-        [34477] = "misdirection",
-        [53480] = "roar of sacrifice",
-        [187650] = "freezing trap",
-        [193530] = "Aspect of the Wild",
-        [281195] = "Survival of the Fittest",
+        [34477] =  { name = "Misdirection", phonetic_name = "", type = "defensive"},
+        [53480] =  { name = "Roar of Sacrifice", phonetic_name = "", type = "externalDefensive"},
+        [109248] = { name = "Binding Shot", phonetic_name = "", type = "other"},
+        [187650] = { name = "Freezing Trap", phonetic_name = "", type = "cc"},
+        [193530] = { name = "Aspect of the Wild", phonetic_name = "", type = "offensive"},
+        [264667] = { name = "Primal Rage", phonetic_name = "", type = "offensive"},
+        [281195] = { name = "Survival of the Fittest", phonetic_name = "", type = "defensive"},
+        [328231] = { name = "Wild Spirits", phonetic_name = "", type = "covenant"},
     },
     ["MAGE"] = {
-        [80353] = "timewarp",
-        [321507] = "touch of the magi",
-        [118] = "polymorph",
-        [12472] = "icy veins",
-        [12042] = "arcane power",
-        [45438] = "Ice Block",
-        [55342] = "Mirror Image",
-        [86949] = "cauterize",
-        [190319] = "combustion",
-        [110909] = "alter time",
+        [118] =    { name = "Polymorph", phonetic_name = "", type = "cc"},
+        [12042] =  { name = "Arcane Power", phonetic_name = "", type = "offensive"},
+        [12472] =  { name = "Icy Veins", phonetic_name = "", type = "offensive"},
+        [45438] =  { name = "Ice Block", phonetic_name = "", type = "immunity"},
+        [55342] =  { name = "Mirror Image", phonetic_name = "", type = "offensive"},
+        [80353] =  { name = "Time Warp", phonetic_name = "", type = "offensive"},
+        [86949] =  { name = "Cauterize", phonetic_name = "", type = "defensive"},
+        [110909] = { name = "Alter Time", phonetic_name = "", type = "defensive"},
+        [190319] = { name = "Combustion", phonetic_name = "", type = "offensive"},
+        [321507] = { name = "Touch of the Magi", phonetic_name = "", type = "offensive"}, 
     },
     ["MONK"] = {
-        [115310] = "revival",
-        [119381] = "leg sweep",
-        [116844] = "ring of peace",
-        [310454] = "weapons of order",
-        [322109] = "touch of death",
-        [116849] = "life cocoon",
-        [115203] = "fortifying brew",
-        [122278] = "dampen harm",
-        [122783] = "diffuse magic",
-        [123904] = "Invoke Xuen",
-        [132578] = "Invoke Niuzao",
-        [115176] = "zen meditation",
-        [322118] = "Invoke Yu'lon",
-        [325197] = "Invoke Chi-Ji",
-        [115078] = "paralysis",
-        [326860] = "Fallen Order"
+        [115078] = { name = "Paralysis", phonetic_name = "", type = "cc"},
+        [115176] = { name = "Zen Meditation", phonetic_name = "", type = "defensive"},
+        [115203] = { name = "Fortifying Brew", phonetic_name = "", type = "defensive"},
+        [115310] = { name = "Revival", phonetic_name = "", type = "raidDefensive"},
+        [116844] = { name = "Ring of Peace", phonetic_name = "", type = "disarm"},
+        [116849] = { name = "Life Cocoon", phonetic_name = "", type = "externalDefensive"},
+        [119381] = { name = "Leg sweep", phonetic_name = "", type = "cc"},
+        [122278] = { name = "Dampen Harm", phonetic_name = "", type = "defensive"},
+        [122783] = { name = "Diffuse Magic", phonetic_name = "", type = "defensive"},
+        [123904] = { name = "Invoke Xuen", phonetic_name = "Invoke Xuean", type = "offensive"},
+        [132578] = { name = "Invoke Niuzao", phonetic_name = "Invoke Nieuezo", type = "defensive"},
+        [310454] = { name = "Weapons of Order", phonetic_name = "", type = "covenant"},
+        [322109] = { name = "Touch of Death", phonetic_name = "", type = "offensive"},
+        [322118] = { name = "Invoke Yu'lon", phonetic_name = "Invoke Yu loen", type = "offensive"},
+        [325197] = { name = "Invoke Chi-Ji", phonetic_name = "Invoke Chee Ji", type = "offensive"},
+        [326860] = { name = "Fallen Order", phonetic_name = "", type = "covenant"},
     },
     ["PALADIN"] = {
-        [498] = "Divine Protection",
-        [31821] = "aura mastery",
-        [633] = "lay on hands",
-        [316958] = "ashen hallow",
-        [304971] = "divine toll",
-        [1022] = "blessing of protection",
-        [6940] = "sacrifice",
-        [86659] = "guardian of ancient kings",
-        [31850] = "ardent defender",
-        [204018] = "spellwarding",
-        [642] = "divine shield",
-        [31884] = "avenging wrath",
-        [216331] = "avenging crusader",
-        [105809] = "holy avenger",
-        [853] = "hammer of justice",
-        [20066] = "repentance"
+        [498] = { name = "Divine Protection", phonetic_name = "", type = "defensive"},
+        [633] = { name = "Lay on Hands", phonetic_name = "", type = "defensive"},
+        [642] = { name = "Divine Shield", phonetic_name = "", type = "immunity"},
+        [853] = { name = "Hammer of Justice", phonetic_name = "", type = "cc"},
+        [1022] = { name = "Blessing of Protection", phonetic_name = "", type = "externalDefensive"},
+        [6940] = { name = "Sacrifice", phonetic_name = "", type = "externalDefensive"}, -- Blessing of Sacrifice,
+        [20066] = { name = "Repentance", phonetic_name = "", type = "cc"},
+        [31821] = { name = "Aura Mastery", phonetic_name = "", type = "raidDefensive"},
+        [31850] = { name = "Ardent Defender", phonetic_name = "", type = "defensive"},
+        [31884] = { name = "Avenging Wrath", phonetic_name = "", type = "offensive"},
+        [86659] = { name = "Guardian of Ancient Kings", phonetic_name = "", type = "defensive"}, -- Guardian of the Ancient Kings,
+        [105809] = { name = "Holy Avenger", phonetic_name = "", type = "offensive"},
+        [204018] = { name = "Spellwarding", phonetic_name = "", type = "externalDefensive"}, -- Blessing of Spellwarding
+        [216331] = { name = "Avenging Crusader", phonetic_name = "", type = "offensive"},
+        [304971] = { name = "Divine Toll", phonetic_name = "", type = "covenant"},
+        [316958] = { name = "Ashen Hallow", phonetic_name = "", type = "covenant"}, 
     },
     ["PRIEST"] = {
-        [8122] = "psychic scream",
-        [10060] = "power infusion",
-        [15286] = "vampiric embrace",
-        [19236] = "Desperate Prayer",
-        [32375] = "massdispel",
-        [33206] = "pain suppression",
-        [34433] = "shadowfiend",
-        [47536] = "rapture",
-        [47788] = "guardian spirit",
-        [62618] = "barrier",
-        [64843] = "divine hymn",
-        [64901] = "symbol of hope",
-        [73325] = "leap of faith",
-        [109964] = "spiritshell",
-        [200183] = "apotheosis",
-        [205369] = "mindbomb",
-        [228260] = "void eruption",
-        [246287] = "evangelism",
-        [265202] = "salvation",
-        [271466] = "luminous barrier",
-        [323673] = "mindgames",
-        [325013] = "boon of the ascended"
+        [8122] =   { name = "Psychic Scream", phonetic_name = "", type = "cc"},
+        [10060] =  { name = "Power Infusion", phonetic_name = "", type = "offensive"},
+        [15286] =  { name = "Vampiric Embrace", phonetic_name = "", type = "raidDefensive"},
+        [19236] =  { name = "Desperate Prayer", phonetic_name = "", type = "defensive"},
+        [32375] =  { name = "Mass Dispel", phonetic_name = "", type = "dispel"},
+        [33206] =  { name = "Pain Suppression", phonetic_name = "", type = "externalDefensive"},
+        [34433] =  { name = "Shadowfiend", phonetic_name = "", type = "offensive"},
+        [47536] =  { name = "Rapture", phonetic_name = "", type = "offensive"},
+        [47788] =  { name = "Guardian Spirit", phonetic_name = "", type = "externalDefensive"},
+        [62618] =  { name = "Barrier", phonetic_name = "", type = "raidDefensive"}, -- Power Word: Barrier
+        [64843] =  { name = "Divine Hymn", phonetic_name = "", type = "raidDefensive"},  -- Divine Hymn
+        [64901] =  { name = "Symbol of Hope", phonetic_name = "", type = "other"},
+        [73325] =  { name = "Leap of Faith", phonetic_name = "", type = "other"},
+        [109964] = { name = "Spirit Shell", phonetic_name = "", type = "offensive"},
+        [200183] = { name = "Apotheosis", phonetic_name = "", type = "offensive"},
+        [205369] = { name = "Mind Bomb", phonetic_name = "", type = "cc"},
+        [228260] = { name = "Void Eruption", phonetic_name = "", type = "offensive"},
+        [246287] = { name = "Evangelism", phonetic_name = "", type = "offensive"},
+        [265202] = { name = "Salvation", phonetic_name = "", type = "raidDefensive"}, -- Holy Word: Salvation
+        [271466] = { name = "Luminous Barrier", phonetic_name = "", type = "raidDefensive"},
+        [323673] = { name = "Mind Games", phonetic_name = "", type = "covenant"},
+        [325013] = { name = "Boon of the Ascended", phonetic_name = "", type = "covenant"}
     },
     ["ROGUE"] = {
-        [76577] = "smoke Bomb",
-        [57934] = "tricks of the trade",
-        [2094] = "blind",
-        [31224] = "cloak of shadows",
-        [13750] = "adrenalin rush",
-        [1966] = "Feint",
-        [5277] = "Evasion",
-        [185311] = "Crimson Vial",
+        [1966] = { name = "Feint", phonetic_name = "", type = "defensive"},
+        [2094] = { name = "Blind", phonetic_name = "", type = "cc"},
+        [5277] = { name = "Evasion", phonetic_name = "", type = "defensive"},
+        [13750] = { name = "Adrenaline Rush", phonetic_name = "", type = "offensive"},
+        [31224] = { name = "Cloak of Shadows", phonetic_name = "", type = "defensive"},
+        [57934] = { name = "Tricks of the Trade", phonetic_name = "", type = "other"},
+        [76577] = { name = "Shroud", phonetic_name = "", type = "other"}, -- Smoke Bomb,
+        [185311] = { name = "Crimson Vial", phonetic_name = "", type = "defensive"},
     },
     ["SHAMAN"] = {
-        [16191] = "manatide",
-        [98008] = "spiritlink-totem",
-        [108280] = "healing tide",
-        [2825] = "bloodlust",
-        [32182] = "heroism",
-        [192077] = "windrush-totem",
-        [8143] = "tremor totem",
-        [207399] = "ancestral protection",
-        [198838] = "Earthen Wall Totem",
-        [192058] = "Capacitor Totem",
-        [320674] = "chainharvest",
-        [328923] = "fae transfusion",
-        [326059] = "primordial wave",
-        [324386] = "vesper-totem",
-        [114052] = "ascendance",
-        [79206] = "spiritwalker",
-        [51514] = "hex",
-        [108271] = "Astralshift"
+        [2825] =   { name = "Bloodlust", phonetic_name = "", type = "offensive"},
+        [8143] =   { name = "Tremor Totem", phonetic_name = "", type = "counterCC"},
+        [16191] =  { name = "Mana Tide", phonetic_name = "", type = "other"}, -- Mana Tide Totem
+        [32182] =  { name = "Heroism", phonetic_name = "", type = "offensive"},
+        [51514] =  { name = "Hex", phonetic_name = "", type = "cc"},
+        [79206] =  { name = "Spiritwalker", phonetic_name = "", type = "counterCC"}, -- Spiritwalker's Grace
+        [98008] =  { name = "Spirit Link", phonetic_name = "", type = "raidDefensive"}, -- -- Spirit Link Totem
+        [108271] = { name = "Astral Shift", phonetic_name = "", type = "defensive"},
+        [108280] = { name = "Healing Tide", phonetic_name = "", type = "raidDefensive"},  -- Healing Tide Totem,
+        [114052] = { name = "Ascendance", phonetic_name = "", type = "offensive"},
+        [192058] = { name = "Capacitor Totem", phonetic_name = "", type = "cc"},
+        [192077] = { name = "Wind Rush", phonetic_name = "", type = "raidMovement"}, -- Wind Rush Totem
+        [198838] = { name = "Earthen Wall Totem", phonetic_name = "", type = "defensive"},
+        [207399] = { name = "Ancestral Protection", phonetic_name = "", type = "defensive"}, -- Ancestral Protection Totem,
+        [320674] = { name = "Chain Harvest", phonetic_name = "", type = "covenant"},
+        [328923] = { name = "Fae Transfusion", phonetic_name = "Fei Transfusion", type = "covenant"},
+        [326059] = { name = "Primordial Wave", phonetic_name = "", type = "covenant"},
+        [324386] = { name = "Versper Totem", phonetic_name = "", type = "covenant"},       
     },
     ["WARLOCK"] = {
-        [20707] = "soulstone",
-        [30283] = "shadowfury",
-        [104773] = "Unending Resolve",
-        [108416] = "Dark Pact",
-        [111771] = "gateway",
-        [5782] = "fear"
+        [5782] =   { name = "Fear", phonetic_name = "", type = "cc"},
+        [20707] =  { name = "Soulstone", phonetic_name = "Soelstone", type = "other"},
+        [30283] =  { name = "Shadowfury", phonetic_name = "Shadowfurey", type = "cc"},
+        [104773] = { name = "Unending Resolve", phonetic_name = "", type = "defensive"},
+        [108416] = { name = "Dark Pact", phonetic_name = "", type = "defensive"},
+        [111771] = { name = "Gateway", phonetic_name = "", type = "other"}, -- Demonic Gateway
     },
     ["WARRIOR"] = {
-        [97462] = "rallying cry",
-        [1160] = "demoralizing shout",
-        [228920] = "ravager",
-        [46968] = "shockwave",
-        [871] = "shieldwall",
-        [12975] = "laststand",
-        [118038] = "die by the sword",
-        [190456] = "ignore pain",
-        [2565] = "shieldblock",
-        [5246] = "intimidating shout",
-        [23920] = "spell reflection"
+        [871] =    { name = "Shield Wall", phonetic_name = "", type = "defensive"},
+        [1160] =   { name = "Demoralizing Shout", phonetic_name = "", type = "defensive"},
+        [2565] =   { name = "Shield Block", phonetic_name = "", type = "defensive"},
+        [5246] =   { name = "Intimidating Shout", phonetic_name = "", type = "cc"},
+        [12975] =  { name = "Last Stand", phonetic_name = "", type = "defensive"},
+        [23920] =  { name = "Spell Reflection", phonetic_name = "", type = "counterCC"},
+        [46968] =  { name = "Shockwave", phonetic_name = "", type = "offensive"},
+        [97462] =  { name = "Rallying Cry", phonetic_name = "Ralyan Cry", type = "raidDefensive"},
+        [118038] = { name = "Die by the Sword", phonetic_name = "", type = "defensive"},
+        [190456] = { name = "Ignore Pain", phonetic_name = "", type = "defensive"},
+        [228920] = { name = "Ravager", phonetic_name = "", type = "offensive"},
     },
     ["general"] = {
-        [20594] = "stoneform",
-        [107079] = "quaking palm",
-        [58984] = "shadowmeld",
-        [178207] = "drums",
-        [323436] = "purify soul",
+        [20594] =  { name = "Stone Form", phonetic_name = "", type = "racial"},
+        [58984] =  { name = "Shadowmeld", phonetic_name = "", type = "racial"},
+        [107079] = { name = "Quaking Palm", phonetic_name = "", type = "racial"},
+        [178207] = { name = "Drums", phonetic_name = "", type = "offensive"}, -- Drums of Fury
+        [323436] = { name = "Purify Soul", phonetic_name = "", type = "covenant"},
     }
 }
 
 local interruptList = {
-    [19647] = "countered!", -- Spell Lock
-    [2139] = "countered!", -- Counter Spell
-    [1766] = "countered!", -- Kick
-    [6552] = "countered!", -- Pummel
-    [47528] = "countered!", -- Mind Freeze
-    [96231] = "countered!", -- Rebuke
-    [93985] = "countered!", -- Skull Bash
-    [97547] = "countered!", -- Solar Beam
-    [57994] = "countered!", -- Wind Shear
-    [116705] = "countered!", -- Spear Hand Strike
-    [113287] = "countered!", -- Symbiosis Solar Beam
-    [147362] = "countered!", -- Counter Shot
-    [34490] = "countered!", -- Silencing Shot
-    [183752] = "countered!", -- Consume Magic
-    [187707] = "countered!" -- Muzzle
+    [2139] =   { name = "countered!" }, -- Counter Spell
+    [1766] =   { name = "countered!" }, -- Kick
+    [6552] =   { name = "countered!" }, -- Pummel
+    [19647] =  { name = "countered!" }, -- Spell Lock
+    [34490] =  { name = "countered!" }, -- Silencing Shot
+    [47528] =  { name = "countered!" }, -- Mind Freeze
+    [57994] =  { name = "countered!" }, -- Wind Shear
+    [93985] =  { name = "countered!" }, -- Skull Bash
+    [96231] =  { name = "countered!" }, -- Rebuke
+    [97547] =  { name = "countered!" }, -- Solar Beam
+    [113287] = { name = "countered!" }, -- Symbiosis Solar Beam
+    [116705] = { name = "countered!" }, -- Spear Hand Strike
+    [147362] = { name = "countered!" }, -- Counter Shot
+    [183752] = { name = "countered!" }, -- Consume Magic
+    [187707] = { name = "countered!" } -- Muzzle
 }
 
 function addon:GetAllSpellIds()
