@@ -82,7 +82,7 @@ local defaults = {
         },
         sound = {
             soundpack = "en-US-SaraNeural",
-            throttle = 0.5
+            throttle = 0
         },
     }
 }
