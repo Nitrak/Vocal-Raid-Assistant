@@ -32,6 +32,7 @@ local VRA_CHANNEL = {
 	["Ambience"] = "Ambience",
 	["Music"] = "Music",
 	["Dialog"] = "Dialog"
+}
 	
 StaticPopupDialogs["VRA_IMPORT"] = {
 	text = "Insert import string",
