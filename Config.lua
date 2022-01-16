@@ -57,21 +57,29 @@ local function createOptionsForClass(class)
 end
 
 local function setFilterValue(info, val)
-    local filter = filterValues[info]
-    if (filter ~= nil) then
-        if (val) then
-            profile.general.watchFor = bit.bor(profile.general.watchFor, filter)
-        else
-            profile.general.watchFor = bit.band(profile.general.watchFor, bit.bnot(filter))
-        end
-    end
+	if(info == "onlyself") then
+		profile.general.onlySelf = val
+	else
+		local filter = filterValues[info]
+		if (filter ~= nil) then
+			if (val) then
+				profile.general.watchFor = bit.bor(profile.general.watchFor, filter)
+			else
+				profile.general.watchFor = bit.band(profile.general.watchFor, bit.bnot(filter))
+			end
+		end
+	end
 end
 
 local function getFilterValue(info)
-    local filter = filterValues[info]
-    if (filter ~= nil) then
-        return (bit.band(profile.general.watchFor, filter) == filter)
-    end
+	if(info == "onlyself") then
+		return profile.general.onlySelf
+	else
+		local filter = filterValues[info]
+		if (filter ~= nil) then
+			return (bit.band(profile.general.watchFor, filter) == filter)
+		end
+	end
 end
 
 local function getSpellOption(info)
@@ -161,7 +169,12 @@ local mainOptions = {
                             type = 'toggle',
                             name = L["Party member abilities"],
                             order = 2
-                        }
+                        },
+						onlyself = {
+							type = 'toggle',
+                            name = L["Buffs on Player Only"],
+                            order = 3
+						},
                     }
                 },
                 voice = {

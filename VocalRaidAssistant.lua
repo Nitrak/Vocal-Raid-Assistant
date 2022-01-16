@@ -179,7 +179,8 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
     
     if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
         local _, instanceType = IsInInstance()
-        if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and not isTrottled()) or 
+        if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and not isTrottled()
+		and ((not profile.general.onlySelf) or (profile.general.onlySelf and (destFlags == 66833 or destFlags == -2147483648)))) or 
             (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and interruptList[spellID])) then
                 self:playSpell(spellID)
         end
