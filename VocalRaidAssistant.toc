@@ -5,7 +5,7 @@
 ## SavedVariables: VocalRaidAssistantDB
 ## Version: 2.1.0
 
-embeds.xml
+Libs\embeds.xml
 
 Locales\locales.xml
 

@@ -8,6 +8,7 @@ VRA.ACD = LibStub("AceConfigDialog-3.0")
 VRA.ACR = LibStub("AceConfigRegistry-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
 VRA.EXP = LibStub("AceSerializer-3.0")
+VRA.LDS = LibStub('LibDualSpec-1.0')
 
 local tostring = tostring
 local profile = {}
@@ -134,7 +135,8 @@ function VRA:OnInitialize()
     self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
     self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
     profile = self.db.profile
-	
+
+    self.LDS:EnhanceDatabase(self.db, addonName)
     self:InitConfigOptions()
     self:InitializeOptions()
 
