@@ -24,5 +24,9 @@ L["Restore Defaults"] = "Restore Defaults"
 L["Clear All"] = "Clear All"
 L["Open Config"] = "Open Config"
 L["Type /vra open the option panel"] = "Type /vra open the option panel"
+L["Volume"] = "Volume"
+L["Adjusting the voice volume"] = "Adjusting the voice volume"
+L["Output channel"] = "Output channel"
+L["Output channel desc"] = "Select the channel you want abilities to come from"
 
 
