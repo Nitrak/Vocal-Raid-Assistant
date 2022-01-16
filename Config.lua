@@ -310,9 +310,9 @@ local spells = {
         return not profile.general.area[info[2]].enabled
     end,
     args = {
-        selectedZone = {
+        selectedArea = {
             name = L["Copy Settings From:"],
-            desc = L["Select the zone you want to copy settings from"],
+            desc = L["Select the area you want to copy settings from"],
             order = 1,
             type = "select",
             values = function(info)
@@ -329,7 +329,7 @@ local spells = {
         },
         copySelected = {
             name = L["Copy"],
-            desc = L["Copy the selected zone settings to this zone"],
+            desc = L["Copy the selected area settings to this area"],
             order = 2,
             type = "execute",
             disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
