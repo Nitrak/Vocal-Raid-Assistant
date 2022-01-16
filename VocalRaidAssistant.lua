@@ -13,6 +13,14 @@ local throttleTime
 local interruptList = {}
 local filter = 0
 
+local VRA_CHANNEL = {
+	["Master"] = "Master",
+	["SFX"] = "Sound",
+	["Ambience"] = "Ambience",
+	["Music"] = "Music",
+	["Dialog"] = "Dialog"
+}
+
 local defaultSpells = {
     ["217832"] = true,
     ["2825"] = true,
@@ -82,7 +90,8 @@ local defaults = {
         },
         sound = {
             soundpack = "en-US-SaraNeural",
-            throttle = 0.5
+            throttle = 0.5,
+			channel = "Master"
         },
     }
 }
@@ -165,7 +174,7 @@ end
 function VRA:playSpell(spellID)
     local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
     if soundFile then
-        PlaySoundFile(soundFile, "Master")
+        PlaySoundFile(soundFile, VRA_CHANNEL[profile.sound.channel])
     end
 end
 

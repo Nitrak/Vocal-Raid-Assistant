@@ -25,6 +25,14 @@ local zones = {
     ["none"] = BUG_CATEGORY2
 }
 
+local VRA_CHANNEL = {
+	["Master"] = "Master",
+	["SFX"] = "Sound",
+	["Ambience"] = "Ambience",
+	["Music"] = "Music",
+	["Dialog"] = "Dialog"
+}
+
 local borderlessCoords = {0.07, 0.93, 0.07, 0.93}
 local function spellOption(spellID)
     local spellname, _, icon = GetSpellInfo(spellID)
@@ -198,7 +206,52 @@ local mainOptions = {
                             name = L["Throttle"],
                             desc = L["The minimum interval between two alerts in seconds"],
                             order = 3
-                        }
+                        },
+						void = {--To ensure channel,volume and enabled is on a new line.
+								type = 'description',
+								name = "",
+								desc = "",
+								order = 4,
+							},
+						channel = {
+							type = 'select',
+							name = L["Output channel"],
+							desc = L["Output channel desc"],
+							values = VRA_CHANNEL,
+							order = 5,
+						},
+						volume = {
+							type = 'range',
+							max = 1,
+							min = 0,
+							step = 0.1,
+							name = L["Volume"],
+							desc = L["Adjusting the voice volume"],
+							set = function (info, value) SetCVar ("Sound_"..profile.sound.channel.."Volume",tostring (value)) end,
+							get = function () return tonumber (GetCVar ("Sound_"..profile.sound.channel.."Volume")) end,
+							order = 6,
+						},
+						channelEnabled = {
+							type = 'toggle',
+							name = function() return profile.sound.channel.." channel" end,
+							width = "double",
+							desc = "Enables or disables channel",
+							set = 	function(info,value)
+										if(profile.sound.channel=="Master") then
+											SetCVar ("Sound_EnableAllSound", (value and 1 or 0))
+										else
+											SetCVar ("Sound_Enable"..profile.sound.channel, (value and 1 or 0))
+										end
+									end,
+							get = 	function()
+										if(profile.sound.channel=="Master") then
+											return tonumber(GetCVar("Sound_EnableAllSound"))==1 and true or false
+										else
+											return tonumber(GetCVar("Sound_Enable"..profile.sound.channel))==1 and true or false
+										end
+									end,
+							order = 7,
+						},
                     }
                 }
             }
