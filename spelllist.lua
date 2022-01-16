@@ -86,6 +86,7 @@ local spellList = {
         [116849] = { name = "Life Cocoon", phonetic_name = "", type = "externalDefensive"},
         [119381] = { name = "Leg sweep", phonetic_name = "", type = "cc"},
         [122278] = { name = "Dampen Harm", phonetic_name = "", type = "defensive"},
+        [122783] = { name = "Diffuse Magic", phonetic_name = "", type = "defensive"},
         [123904] = { name = "Invoke Xuen", phonetic_name = "Invoke Xuean", type = "offensive"},
         [132578] = { name = "Invoke Niuzao", phonetic_name = "Invoke Nieuezo", type = "defensive"},
         [310454] = { name = "Weapons of Order", phonetic_name = "", type = "covenant"},
@@ -197,7 +198,6 @@ local spellList = {
 }
 
 local interruptList = {
-    
     [2139] =   { name = "countered!" }, -- Counter Spell
     [1766] =   { name = "countered!" }, -- Kick
     [6552] =   { name = "countered!" }, -- Pummel
