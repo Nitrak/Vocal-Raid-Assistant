@@ -249,11 +249,11 @@ local mainOptions = {
                             order = 3
                         },
 						void = {--To ensure channel,volume and enabled is on a new line.
-								type = 'description',
-								name = "",
-								desc = "",
-								order = 4,
-							},
+							type = 'description',
+							name = "",
+							desc = "",
+							order = 4,
+						},
 						channel = {
 							type = 'select',
 							name = L["Output channel"],
@@ -278,19 +278,19 @@ local mainOptions = {
 							width = "double",
 							desc = "Enables or disables channel",
 							set = 	function(info,value)
-										if(profile.sound.channel=="Master") then
-											SetCVar ("Sound_EnableAllSound", (value and 1 or 0))
-										else
-											SetCVar ("Sound_Enable"..profile.sound.channel, (value and 1 or 0))
-										end
-									end,
+								if(profile.sound.channel=="Master") then
+									SetCVar ("Sound_EnableAllSound", (value and 1 or 0))
+								else
+									SetCVar ("Sound_Enable"..profile.sound.channel, (value and 1 or 0))
+								end
+							end,
 							get = 	function()
-										if(profile.sound.channel=="Master") then
-											return tonumber(GetCVar("Sound_EnableAllSound"))==1 and true or false
-										else
-											return tonumber(GetCVar("Sound_Enable"..profile.sound.channel))==1 and true or false
-										end
-									end,
+								if(profile.sound.channel=="Master") then
+									return tonumber(GetCVar("Sound_EnableAllSound"))==1 and true or false
+								else
+									return tonumber(GetCVar("Sound_Enable"..profile.sound.channel))==1 and true or false
+								end
+							end,
 							order = 7,
 						},
                     }
