@@ -5,7 +5,9 @@ VRA = LibStub("AceAddon-3.0"):NewAddon(addon, addonName, "AceConsole-3.0", "AceE
 VRA.L = LibStub("AceLocale-3.0"):GetLocale(addonName)
 VRA.AC = LibStub("AceConfig-3.0")
 VRA.ACD = LibStub("AceConfigDialog-3.0")
+VRA.ACR = LibStub("AceConfigRegistry-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
+VRA.EXP = LibStub("AceSerializer-3.0")
 
 local tostring = tostring
 local profile = {}
@@ -122,6 +124,7 @@ function VRA:InitializeOptions()
 
 	InterfaceOptions_AddCategory(optionsFrame)
 	self.optionsFrame = optionsFrame
+	
 	self.InitializeOptions = nil
 end
 
@@ -131,6 +134,7 @@ function VRA:OnInitialize()
     self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
     self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
     profile = self.db.profile
+	
     self:InitConfigOptions()
     self:InitializeOptions()
 
