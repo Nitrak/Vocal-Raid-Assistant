@@ -316,13 +316,13 @@ local spells = {
             order = 1,
             type = "select",
             values = function(info)
-                local tmpzones = {}
+                local t = {[''] = "" }
                 for k, v in pairs(zones) do
                     if k ~= info[2] then
-                        tmpzones[k] = v
+                        t[k] = v
                     end
                 end
-                return tmpzones
+                return t
             end,
             get = function(info) return profile.general.area[info[2]].copyZone end,
             set = function(info, val) profile.general.area[info[2]].copyZone = val end,
@@ -332,7 +332,7 @@ local spells = {
             desc = L["Copy the selected zone settings to this zone"],
             order = 2,
             type = "execute",
-            disabled = function(info) return not profile.general.area[info[2]].copyZone end,
+            disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
             func = function(info) 
                 local t = {}
                 local source = profile.general.area[info[2]].copyZone
