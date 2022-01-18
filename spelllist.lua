@@ -206,6 +206,7 @@ local spellList = {
         [329840] =  { name = "Blood-Spattered Scale", phonetic_name = "", type = "trinket"}, -- Blood-Spattered Scale 179331
         [344907] =  { name = "Splintered Heart", phonetic_name = "", type = "trinket"}, -- Splintered Heart of Al'ar 184018
         [345801] =  { name = "Soulletting Ruby", phonetic_name = "", type = "trinket"}, -- Soulletting Ruby 178809
+		[348139] = 	{ name = "Divine Bell", phonetic_name = "", type = "trinket" }, -- Instructor's Divine Bell 184842
         [358712] =  { name = "Aegis", phonetic_name = "", type = "trinket"}, -- Shard of Annhylde's Aegis 186424
     }
 }
