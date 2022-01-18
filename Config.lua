@@ -464,19 +464,27 @@ for i = 1, MAX_CLASSES do
     }
 end
 
-spells.args.general = {
-    name = L["General"],
-    desc = L["General Spells"],
-    type = "group",
-    order = 1,
-    get = function(info)
-        return getSpellOption(info)
-    end,
-    set = function(info, val)
-        setSpellOption(info, val)
-    end,
-    args = createOptionsForClass("general")
+local additionalSpellCategories = {
+    ["TRINKET"] = "Trinket",
+    ["GENERAL"] = "General"
 }
+
+for k, v in pairs(additionalSpellCategories) do
+    local i = 1
+    spells.args[k] = {
+        name = L[v],
+        order = i,
+        type = "group",
+        get = function(info)
+            return getSpellOption(info)
+        end,
+        set = function(info, val)
+            setSpellOption(info, val)
+        end,
+        args = createOptionsForClass(k)
+    }
+    i = i + 1
+end
 
 for k, v in pairs(zones) do
     mainOptions.args.abilitiesOptions.args[k] = {
