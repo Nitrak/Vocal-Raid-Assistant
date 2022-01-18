@@ -46,7 +46,7 @@ local spellList = {
         [61336] =  { name = "Survival Instincts", phonetic_name = "", type = "defensive"},
         [77761] =  { name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar bear
         [77764] =  { name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar cat
-        [102342] = { name = "Iron Bark", phonetic_name = "", type = "externalDefensive"}, 
+        [102342] = { name = "Iron Bark", phonetic_name = "", type = "externalDefensive"},
         [102558] = { name = "Incarnation: Bear", phonetic_name = "", type = "offensive"}, -- Incarnation: Guardian of Ursoc
         [102793] = { name = "Vortex", phonetic_name = "Vortex", type = "disarm"}, -- "Ursol's Vortex"
         [106898] = { name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar
@@ -75,7 +75,7 @@ local spellList = {
         [86949] =  { name = "Cauterize", phonetic_name = "", type = "defensive"},
         [110909] = { name = "Alter Time", phonetic_name = "", type = "defensive"},
         [190319] = { name = "Combustion", phonetic_name = "", type = "offensive"},
-        [321507] = { name = "Touch of the Magi", phonetic_name = "", type = "offensive"}, 
+        [321507] = { name = "Touch of the Magi", phonetic_name = "", type = "offensive"},
     },
     ["MONK"] = {
         [115078] = { name = "Paralysis", phonetic_name = "", type = "cc"},
@@ -111,7 +111,7 @@ local spellList = {
         [204018] = { name = "Spellwarding", phonetic_name = "", type = "externalDefensive"}, -- Blessing of Spellwarding
         [216331] = { name = "Avenging Crusader", phonetic_name = "", type = "offensive"},
         [304971] = { name = "Divine Toll", phonetic_name = "", type = "covenant"},
-        [316958] = { name = "Ashen Hallow", phonetic_name = "", type = "covenant"}, 
+        [316958] = { name = "Ashen Hallow", phonetic_name = "", type = "covenant"},
     },
     ["PRIEST"] = {
         [8122] =   { name = "Psychic Scream", phonetic_name = "", type = "cc"},
@@ -165,7 +165,7 @@ local spellList = {
         [320674] = { name = "Chain Harvest", phonetic_name = "", type = "covenant"},
         [328923] = { name = "Fae Transfusion", phonetic_name = "Fei Transfusion", type = "covenant"},
         [326059] = { name = "Primordial Wave", phonetic_name = "", type = "covenant"},
-        [324386] = { name = "Versper Totem", phonetic_name = "", type = "covenant"},       
+        [324386] = { name = "Versper Totem", phonetic_name = "", type = "covenant"},
     },
     ["WARLOCK"] = {
         [5782] =   { name = "Fear", phonetic_name = "", type = "cc"},
