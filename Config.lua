@@ -53,7 +53,7 @@ local VRA_CHANNEL = {
 	["Music"] = "Music",
 	["Dialog"] = "Dialog",
 }
-	
+
 StaticPopupDialogs["VRA_IMPORT"] = {
 	text = "Insert import string",
 	button1 = "Import",
@@ -121,21 +121,21 @@ local function createOptionsForClass(class)
 end
 
 local function setFilterValue(info, val)
-    local filter = filterValues[info]
-    if (filter ~= nil) then
-        if (val) then
-            profile.general.watchFor = bit.bor(profile.general.watchFor, filter)
-        else
-            profile.general.watchFor = bit.band(profile.general.watchFor, bit.bnot(filter))
-        end
-    end
+	local filter = filterValues[info]
+	if (filter ~= nil) then
+		if (val) then
+			profile.general.watchFor = bit.bor(profile.general.watchFor, filter)
+		else
+			profile.general.watchFor = bit.band(profile.general.watchFor, bit.bnot(filter))
+		end
+	end
 end
 
 local function getFilterValue(info)
-    local filter = filterValues[info]
-    if (filter ~= nil) then
-        return (bit.band(profile.general.watchFor, filter) == filter)
-    end
+	local filter = filterValues[info]
+	if (filter ~= nil) then
+		return (bit.band(profile.general.watchFor, filter) == filter)
+	end
 end
 
 local function getSpellOption(info)
@@ -239,7 +239,19 @@ local mainOptions = {
                             type = 'toggle',
                             name = L["Party member abilities"],
                             order = 2
-                        }
+                        },
+						onlyself = {
+							type = 'toggle',
+                            name = L["OnlySelfExternalsName"],
+							desc = L["OnlySelfExternalsDesc"],
+							get = function(info)
+								return profile.general.onlySelf
+							end,
+							set = function(info, val)
+								profile.general.onlySelf = val
+							end,
+                            order = 3
+						},
                     }
                 },
                 voice = {
@@ -359,7 +371,7 @@ local spells = {
             order = 2,
             type = "execute",
             disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
-            func = function(info) 
+            func = function(info)
                 local t = {}
                 local source = profile.general.area[info[2]].copyZone
                 local sourceTable = profile.general.area[source]
