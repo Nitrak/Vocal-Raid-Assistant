@@ -53,7 +53,7 @@ local VRA_CHANNEL = {
 	["Music"] = "Music",
 	["Dialog"] = "Dialog",
 }
-	
+
 StaticPopupDialogs["VRA_IMPORT"] = {
 	text = "Insert import string",
 	button1 = "Import",
@@ -370,7 +370,7 @@ local spells = {
             order = 2,
             type = "execute",
             disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
-            func = function(info) 
+            func = function(info)
                 local t = {}
                 local source = profile.general.area[info[2]].copyZone
                 local sourceTable = profile.general.area[source]
