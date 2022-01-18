@@ -242,7 +242,8 @@ local mainOptions = {
                         },
 						onlyself = {
 							type = 'toggle',
-                            name = L["Buffs on player only"],
+                            name = L["OnlySelfExternalsName"],
+							desc = L["OnlySelfExternalsDesc"],
 							get = function(info)
 								return profile.general.onlySelf
 							end,
