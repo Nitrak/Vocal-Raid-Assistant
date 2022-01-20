@@ -188,12 +188,26 @@ local spellList = {
         [190456] = { name = "Ignore Pain", phonetic_name = "", type = "defensive"},
         [228920] = { name = "Ravager", phonetic_name = "", type = "offensive"},
     },
-    ["general"] = {
+    ["GENERAL"] = {
         [20594] =  { name = "Stone Form", phonetic_name = "", type = "racial"},
         [58984] =  { name = "Shadowmeld", phonetic_name = "", type = "racial"},
         [107079] = { name = "Quaking Palm", phonetic_name = "", type = "racial"},
         [178207] = { name = "Drums", phonetic_name = "", type = "offensive"}, -- Drums of Fury
         [323436] = { name = "Purify Soul", phonetic_name = "", type = "covenant"},
+    },
+    ["TRINKET"] = {
+        -- pvp
+        [196029] =  { name = "Relentless Brooch", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Relentless Brooch 181335
+        [336135] =  { name = "Sigil of Adaptation", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Sigil of Adaptation  181816
+        [336126] =  { name = "Medallion", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Medallion 181333
+        [345228] =  { name = "Badge of Ferocity", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Badge of Ferocity 175921
+        [345231] =  { name = "Emblem", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Emblem 178447
+        -- pve
+        [329840] =  { name = "Blood-Spattered Scale", phonetic_name = "", type = "trinket"}, -- Blood-Spattered Scale 179331
+        [344907] =  { name = "Splintered Heart", phonetic_name = "", type = "trinket"}, -- Splintered Heart of Al'ar 184018
+        [345801] =  { name = "Soulletting Ruby", phonetic_name = "", type = "trinket"}, -- Soulletting Ruby 178809
+		[348139] = 	{ name = "Divine Bell", phonetic_name = "", type = "trinket" }, -- Instructor's Divine Bell 184842
+        [358712] =  { name = "Aegis", phonetic_name = "", type = "trinket"}, -- Shard of Annhylde's Aegis 186424
     }
 }
 
