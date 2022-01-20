@@ -189,24 +189,24 @@ end
 
 local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
 local function checkSpellTarget(destFlags, destGUID)
-    return destGUID == '' or (bit.band(destFlags, targetTypePlayer) > 0 and destGUID == UnitGUID("player"))
+	return destGUID == '' or (bit.band(destFlags, targetTypePlayer) > 0 and destGUID == UnitGUID("player"))
 end
 
 function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone())) then
-    return
-  end
+	return
+	end
 
-  local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName,
-        destFlags, destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
-  
-  if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
-    local _, instanceType = IsInInstance()
-    if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and not isTrottled()
-    and ((not profile.general.onlySelf) or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)))) or 
-    (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and interruptList[spellID])) then
-      self:playSpell(spellID)
-      end
-  end
+	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName,
+		destFlags, destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
+	
+	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
+	local _, instanceType = IsInInstance()
+	if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and not isTrottled()
+	and ((not profile.general.onlySelf) or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)))) or 
+	(event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and interruptList[spellID])) then
+		self:playSpell(spellID)
+		end
+	end
 end
 
