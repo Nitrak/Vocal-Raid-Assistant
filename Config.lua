@@ -19,12 +19,12 @@ local soundpacks = {
 }
 
 local zones = {
-    ["arena"] = ARENA,
-    ["pvp"] = BATTLEGROUNDS,
-    ["party"] = DUNGEONS,
-    ["raid"] = RAIDS,
-    ["scenario"] = SCENARIOS,
-    ["none"] = BUG_CATEGORY2
+    ["party"] = { name = DUNGEONS, order = 1 },
+    ["raid"] = { name = RAIDS, order = 2 },
+	["none"] = { name = BUG_CATEGORY2, order = 3 },
+	["arena"] = { name = ARENA, order = 4 },
+	["pvp"] = { name = BATTLEGROUNDS, order = 5 },
+    ["scenario"] = { name = SCENARIOS, order = 6 },
 }
 
 local priority = {
@@ -178,46 +178,44 @@ function importSpellSelection(importString, area)
 end
 
 local mainOptions = {
-    name = "Vocal Raid Assistant",
+	name = "Vocal Raid Assistant",
     type = "group",
     args = {
         generalOptions = {
-            name = "Vocal Raid Assistant",
+            name = L["General"],
             type = "group",
             order = 1,
             args = {
                 title = {
                     name = "|cffffd200" .. "Vocal Raid Assistant",
-                    order = 0,
+                    order = 1,
                     type = "description",
                     fontSize = "large",
                 },
                 about = {
-                    order = 1,
+                    order = 2,
                     type = "description",
                     name = L["Credits"]
                 },
                 version = {
-                    order = 2,
+                    order = 3,
                     type = "description",
                     name = "Version: " .. addon.version
                 },
-                discord = {
-                    order = 3,
+				discord = {
+                    order = 4,
                     type = "input",
                     name = L["Discord"],
                     get = function()
                         return "https://discord.gg/UZMzqap"
                     end
-                }
-            }
-        },
-        abilitiesOptions = {
-            name = L["Abilities"],
-            type = "group",
-            order = 2,
-            args = {
-                watchFor = {
+                },
+				linebreak = {
+					order = 5,
+					type = 'description',
+					name = '\n\n'
+				},
+				watchFor = {
                     type = 'group',
                     inline = true,
                     name = L["Alert for"],
@@ -228,7 +226,7 @@ local mainOptions = {
                     set = function(info, val)
                         setFilterValue(info[#info], val)
                     end,
-                    order = 1,
+                    order = 6,
                     args = {
                         player = {
                             type = 'toggle',
@@ -264,7 +262,7 @@ local mainOptions = {
                     set = function(info, val)
                         profile.sound[info[#info]] = val
                     end,
-                    order = 2,
+                    order = 7,
                     args = {
                         soundpack = {
                             type = 'select',
@@ -289,7 +287,7 @@ local mainOptions = {
                             desc = L["The minimum interval between two alerts in seconds"],
                             order = 3
                         },
-						void = {--To ensure channel,volume and enabled is on a new line.
+						void = { -- To ensure channel, volume and enabled is on a new line.
 							type = 'description',
 							name = "",
 							desc = "",
@@ -338,6 +336,13 @@ local mainOptions = {
                 }
             }
         },
+        abilitiesOptions = {
+            name = L["Abilities"],
+            type = "group",
+            order = 2,
+			childGroups = "tab",
+            args = {}
+        },
     }
 }
 
@@ -357,7 +362,7 @@ local spells = {
                 local t = {[''] = "" }
                 for k, v in pairs(zones) do
                     if k ~= info[2] then
-                        t[k] = v
+                        t[k] = v.name
                     end
                 end
                 return t
@@ -381,7 +386,7 @@ local spells = {
                 profile.general.area[info[2]] = t
                 profile.general.area[info[2]].copyZone = nil
             end,
-            confirm = function(info) return L["Copy Settings: "] .. zones[profile.general.area[info[2]].copyZone] .. " -> " .. zones[info[2]] end,
+            confirm = function(info) return L["Copy Settings: "] .. zones[profile.general.area[info[2]].copyZone].name .. " -> " .. zones[info[2]].name end,
         },
         clearAll = {
             name = L["Clear All"],
@@ -492,16 +497,11 @@ spells.args.general = {
 
 for k, v in pairs(zones) do
     mainOptions.args.abilitiesOptions.args[k] = {
-        name = v,
+        name = v.name,
         type = "group",
         childGroups = "tab",
+		order = v.order,
         args = {
-            title = {
-                name = v,
-                order = 0,
-                type = "description",
-                fontSize = "large"
-            },
             enable = {
                 type = "toggle",
                 name = L["Enable"],
