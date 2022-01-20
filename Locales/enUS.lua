@@ -1,7 +1,7 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("VocalRaidAssistant", "enUS", true)
 if not L then return end
 
-L["Credits"] = "Author: Nitrak, |cff0070daKyy|r of Blackrock"
+L["Credits"] = "\nAuthors: |cfffff486Nitrak|r of Kazzak and |cff0070ddKyy|r of Blackrock"
 L["Discord"] = "Discord"
 L['PVE Voice Alert'] = "PVE Voice Alert"
 L["Profiles"] = "Profiles"
