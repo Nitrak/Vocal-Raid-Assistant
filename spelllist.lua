@@ -11,8 +11,8 @@ local spellList = {
 		[48707] =	{ name = "Anti Magic Shell", phonetic_name = "", type = "defensive"},
 		[48743] =	{ name = "Death Pact", phonetic_name = "", type = "defensive"},
 		[48792] =	{ name = "Icebound", phonetic_name = "", type = "defensive"},
-		[49039] =	{ name = "Lichborne", phonetic_name = "", type = "other"},
-		[49206] =	{ name = "Summon Gargolye", phonetic_name = "", type = "offensive"},
+		[49039] =	{ name = "Lichborne", phonetic_name = "Litchborne", type = "other"},
+		[49206] =	{ name = "Summon Gargoyle", phonetic_name = "", type = "offensive"},
 		[49576] =	{ name = "Death Grip", phonetic_name = "", type = "disarm"},
 		[49028] =	{ name = "Rune Weapon", phonetic_name = "Rune-Weapon", type = "defensive"}, -- Dancing Rune Weapon
 		[51052] =	{ name = "Anti Magic Zone", phonetic_name = "", type = "raidDefensive" },
@@ -28,7 +28,7 @@ local spellList = {
 		[207289] =	{ name = "Unholy Assault", phonetic_name = "", type = "offensive"},
 		[219809] =	{ name = "Tombstone", phonetic_name = "", type = "defensive"},
 		[221562] =	{ name = "Asphyxiate", phonetic_name = "", type = "defensive"},
-		[279302] =	{ name = "Frostwyrm's Fury", phonetic_name = "", type = "offensive"},
+		[279302] =	{ name = "Frostwyrm's Fury", phonetic_name = "Frostwerm's Fury", type = "offensive"},
 		[315443] =	{ name = "Abomination Limb", phonetic_name = "", type = "covenant"},
 		[327574] =	{ name = "Sacrificial Pact", phonetic_name = "", type = "defensive"},
 	},
@@ -39,7 +39,7 @@ local spellList = {
 		[196718] =	{ name = "Darkness", phonetic_name = "", type = "raidDefensive"},
 		[198589] =	{ name = "Blur", phonetic_name = "", type = "defensive"},
 		[202137] =	{ name = "Sigil of Silence", phonetic_name = "", type = "disarm"},
-		[202138] =	{ name = "Sigil of Chains", phonetic_name = "", type = "disarm"},
+		[202138] =	{ name = "Chains", phonetic_name = "", type = "disarm"},
 		[209258] =	{ name = "Last Resort", phonetic_name = "", type = "defensive"},
 		[204021] =	{ name = "Fiery Brand", phonetic_name = "", type = "defensive"},
 		[205604] =	{ name = "Reverse Magic", phonetic_name = "", type = "counterCC"},
@@ -165,7 +165,7 @@ local spellList = {
 		[633] =		{ name = "Lay on Hands", phonetic_name = "", type = "defensive"},
 		[642] =		{ name = "Divine Shield", phonetic_name = "", type = "immunity"},
 		[853] =		{ name = "Hammer of Justice", phonetic_name = "", type = "cc"},
-		[1022] = 	{ name = "Blessing of Protection", phonetic_name = "", type = "externalDefensive"},
+		[1022] = 	{ name = "Protection", phonetic_name = "", type = "externalDefensive"},
 		[6940] = 	{ name = "Sacrifice", phonetic_name = "", type = "externalDefensive"}, -- Blessing of Sacrifice,
 		[20066] =	{ name = "Repentance", phonetic_name = "", type = "cc"},
 		[31821] =	{ name = "Aura Mastery", phonetic_name = "", type = "raidDefensive"},
@@ -321,8 +321,7 @@ local interruptList = {
 	[116705] =		{ name = "countered!" }, -- Spear Hand Strike
 	[147362] =		{ name = "countered!" }, -- Counter Shot
 	[183752] =		{ name = "countered!" }, -- Consume Magic
-	[187707] =		{ name = "countered!" }, -- Muzzle
-	[308491] =		{ name = "countered!" } -- Countershot
+	[187707] =		{ name = "countered!" } -- Muzzle
 }
 
 function addon:GetAllSpellIds()
