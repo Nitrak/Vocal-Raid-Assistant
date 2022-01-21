@@ -19,12 +19,12 @@ local soundpacks = {
 }
 
 local zones = {
-	["arena"] = ARENA,
-	["pvp"] = BATTLEGROUNDS,
-	["party"] = DUNGEONS,
-	["raid"] = RAIDS,
-	["scenario"] = SCENARIOS,
-	["none"] = BUG_CATEGORY2
+	["raid"] = { name = RAIDS, order = 1 },
+    ["party"] = { name = DUNGEONS, order = 2 },
+	["none"] = { name = BUG_CATEGORY2, order = 3 },
+	["arena"] = { name = ARENA, order = 4 },
+	["pvp"] = { name = BATTLEGROUNDS, order = 5 },
+    ["scenario"] = { name = SCENARIOS, order = 6 },
 }
 
 local priority = {
@@ -179,67 +179,65 @@ end
 
 local mainOptions = {
 	name = "Vocal Raid Assistant",
-	type = "group",
-	args = {
-		generalOptions = {
-			name = "Vocal Raid Assistant",
-			type = "group",
-			order = 1,
-			args = {
-				title = {
-					name = "|cffffd200" .. "Vocal Raid Assistant",
-					order = 0,
-					type = "description",
-					fontSize = "large",
-				},
-				about = {
-					order = 1,
-					type = "description",
-					name = L["Credits"]
-				},
-				version = {
-					order = 2,
-					type = "description",
-					name = "Version: " .. addon.version
-				},
+    type = "group",
+    args = {
+        generalOptions = {
+            name = L["General"],
+            type = "group",
+            order = 1,
+            args = {
+                title = {
+                    name = "|cffffd200" .. "Vocal Raid Assistant",
+                    order = 1,
+                    type = "description",
+                    fontSize = "large",
+                },
+                about = {
+                    order = 2,
+                    type = "description",
+                    name = L["Credits"]
+                },
+                version = {
+                    order = 3,
+                    type = "description",
+                    name = "Version: " .. addon.version
+                },
 				discord = {
-					order = 3,
-					type = "input",
-					name = L["Discord"],
-					get = function()
-						return "https://discord.gg/UZMzqap"
-					end
-				}
-			}
-		},
-		abilitiesOptions = {
-			name = L["Abilities"],
-			type = "group",
-			order = 2,
-			args = {
+                    order = 4,
+                    type = "input",
+                    name = L["Discord"],
+                    get = function()
+                        return "https://discord.gg/UZMzqap"
+                    end
+                },
+				linebreak = {
+					order = 5,
+					type = 'description',
+					name = '\n\n'
+				},
 				watchFor = {
-					type = 'group',
-					inline = true,
-					name = L["Alert for"],
-					desc = L["VRA should alert you for"],
-					get = function(info)
-						return getFilterValue(info[#info])
-					end,
-					set = function(info, val)
-						setFilterValue(info[#info], val)
-					end,
-					order = 1,
-					args = {
-						player = {
-							type = 'toggle',
-							name = L["My own abilities"],
-							order = 1
-						},
-						grouporraid = {
-							type = 'toggle',
-							name = L["Party member abilities"],
-							order = 2
-						},
+                    type = 'group',
+                    inline = true,
+                    name = L["Alert for"],
+                    desc = L["VRA should alert you for"],
+                    get = function(info)
+                        return getFilterValue(info[#info])
+                    end,
+                    set = function(info, val)
+                        setFilterValue(info[#info], val)
+                    end,
+                    order = 6,
+                    args = {
+                        player = {
+                            type = 'toggle',
+                            name = L["My own abilities"],
+                            order = 1
+                        },
+                        grouporraid = {
+                            type = 'toggle',
+                            name = L["Party member abilities"],
+                            order = 2
+                        },
 						onlyself = {
 							type = 'toggle',
 							name = L["OnlySelfExternalsName"],
@@ -289,7 +287,44 @@ local mainOptions = {
 							desc = L["The minimum interval between two alerts in seconds"],
 							order = 3
 						},
-						void = {--To ensure channel,volume and enabled is on a new line.
+                    }
+                },
+                voice = {
+                    type = 'group',
+                    inline = true,
+                    name = L["Voice"],
+                    get = function(info)
+                        return profile.sound[info[#info]]
+                    end,
+                    set = function(info, val)
+                        profile.sound[info[#info]] = val
+                    end,
+                    order = 7,
+                    args = {
+                        soundpack = {
+                            type = 'select',
+                            name = L["Soundpack"],
+                            values = soundpacks,
+                            order = 1
+                        },
+                        playButton = {
+                            type = 'execute',
+                            name = L["Test"],
+                            func = function()
+                                addon:playSpell("98008")
+                            end,
+                            order = 2
+                        },
+                        throttle = {
+                            type = 'range',
+                            max = 60,
+                            min = 0,
+                            step = 0.5,
+                            name = L["Throttle"],
+                            desc = L["The minimum interval between two alerts in seconds"],
+                            order = 3
+                        },
+						void = { -- To ensure channel, volume and enabled is on a new line.
 							type = 'description',
 							name = "",
 							desc = "",
@@ -334,73 +369,80 @@ local mainOptions = {
 							end,
 							order = 7,
 						},
-					}
-				}
-			}
-		},
-	}
+                    }
+                }
+            }
+        },
+        abilitiesOptions = {
+            name = L["Abilities"],
+            type = "group",
+            order = 2,
+			childGroups = "tab",
+            args = {}
+        },
+    }
 }
 
 local spells = {
-	name = L["Abilities"],
-	type = "group",
-	disabled = function(info)
-		return not profile.general.area[info[2]].enabled
-	end,
-	args = {
-		selectedArea = {
-			name = L["Copy Settings From:"],
-			desc = L["Select the area you want to copy settings from"],
-			order = 1,
-			type = "select",
-			values = function(info)
-				local t = {[''] = "" }
-				for k, v in pairs(zones) do
-					if k ~= info[2] then
-						t[k] = v
-					end
-				end
-				return t
-			end,
-			get = function(info) return profile.general.area[info[2]].copyZone end,
-			set = function(info, val) profile.general.area[info[2]].copyZone = val end,
-		},
-		copySelected = {
-			name = L["Copy"],
-			desc = L["Copy the selected area settings to this area"],
-			order = 2,
-			type = "execute",
-			disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
-			func = function(info)
-				local t = {}
-				local source = profile.general.area[info[2]].copyZone
-				local sourceTable = profile.general.area[source]
-				for k, v in pairs(sourceTable) do
-					t[k] = v
-				end
-				profile.general.area[info[2]] = t
-				profile.general.area[info[2]].copyZone = nil
-			end,
-			confirm = function(info) return L["Copy Settings: "] .. zones[profile.general.area[info[2]].copyZone] .. " -> " .. zones[info[2]] end,
-		},
-		clearAll = {
-			name = L["Clear All"],
-			order = 3,
-			type = "execute",
-			func = function(info)
-				clearAll(info[2])
-			end,
-			confirm = true
-		},
-		restoreDefault = {
-			name = L["Restore Defaults"],
-			order = 4,
-			type = "execute",
-			func = function(info)
-				restoreDefaultSpells(info[2])
-			end,
-			confirm = true
-		},
+    name = L["Abilities"],
+    type = "group",
+    disabled = function(info)
+        return not profile.general.area[info[2]].enabled
+    end,
+    args = {
+        selectedArea = {
+            name = L["Copy Settings From:"],
+            desc = L["Select the area you want to copy settings from"],
+            order = 1,
+            type = "select",
+            values = function(info)
+                local t = {[''] = "" }
+                for k, v in pairs(zones) do
+                    if k ~= info[2] then
+                        t[k] = v.name
+                    end
+                end
+                return t
+            end,
+            get = function(info) return profile.general.area[info[2]].copyZone end,
+            set = function(info, val) profile.general.area[info[2]].copyZone = val end,
+        },
+        copySelected = {
+            name = L["Copy"],
+            desc = L["Copy the selected area settings to this area"],
+            order = 2,
+            type = "execute",
+            disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
+            func = function(info)
+                local t = {}
+                local source = profile.general.area[info[2]].copyZone
+                local sourceTable = profile.general.area[source]
+                for k, v in pairs(sourceTable) do
+                    t[k] = v
+                end
+                profile.general.area[info[2]] = t
+                profile.general.area[info[2]].copyZone = nil
+            end,
+            confirm = function(info) return L["Copy Settings: "] .. zones[profile.general.area[info[2]].copyZone].name .. " -> " .. zones[info[2]].name end,
+        },
+        clearAll = {
+            name = L["Clear All"],
+            order = 3,
+            type = "execute",
+            func = function(info)
+                clearAll(info[2])
+            end,
+            confirm = true
+        },
+        restoreDefault = {
+            name = L["Restore Defaults"],
+            order = 4,
+            type = "execute",
+            func = function(info)
+                restoreDefaultSpells(info[2])
+            end,
+            confirm = true
+        },
 		importSelectedSpells = {
 			name = L["Import Area"],
 			order = 5,
@@ -499,31 +541,26 @@ for k, v in pairs(additionalSpellCategories) do
 end
 
 for k, v in pairs(zones) do
-	mainOptions.args.abilitiesOptions.args[k] = {
-		name = v,
-		type = "group",
-		childGroups = "tab",
-		args = {
-			title = {
-				name = v,
-				order = 0,
-				type = "description",
-				fontSize = "large"
-			},
-			enable = {
-				type = "toggle",
-				name = L["Enable"],
-				order = 1,
-				get = function(info)
-					return profile.general.area[info[2]].enabled
-				end,
-				set = function(info, val)
-					profile.general.area[info[2]].enabled = val
-				end
-			},
-			spells = spells
-		}
-	}
+    mainOptions.args.abilitiesOptions.args[k] = {
+        name = v.name,
+        type = "group",
+        childGroups = "tab",
+		order = v.order,
+        args = {
+            enable = {
+                type = "toggle",
+                name = L["Enable"],
+                order = 1,
+                get = function(info)
+                    return profile.general.area[info[2]].enabled
+                end,
+                set = function(info, val)
+                    profile.general.area[info[2]].enabled = val
+                end
+            },
+            spells = spells
+        }
+    }
 end
 
 function addon:RefreshOptions(database)
