@@ -252,43 +252,6 @@ local mainOptions = {
 						},
 					}
 				},
-				voice = {
-					type = 'group',
-					inline = true,
-					name = L["Voice"],
-					get = function(info)
-						return profile.sound[info[#info]]
-					end,
-					set = function(info, val)
-						profile.sound[info[#info]] = val
-					end,
-					order = 2,
-					args = {
-						soundpack = {
-							type = 'select',
-							name = L["Soundpack"],
-							values = soundpacks,
-							order = 1
-						},
-						playButton = {
-							type = 'execute',
-							name = L["Test"],
-							func = function()
-								addon:playSpell("98008")
-							end,
-							order = 2
-						},
-						throttle = {
-							type = 'range',
-							max = 60,
-							min = 0,
-							step = 0.5,
-							name = L["Throttle"],
-							desc = L["The minimum interval between two alerts in seconds"],
-							order = 3
-						},
-                    }
-                },
                 voice = {
                     type = 'group',
                     inline = true,
