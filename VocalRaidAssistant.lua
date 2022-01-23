@@ -98,7 +98,7 @@ end
 function VRA:playSpell(spellID)
 	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
 	if soundFile then
-		local success = PlaySoundFile(soundFile, VRA_CHANNEL[profile.sound.channel])
+		local success = PlaySoundFile(soundFile, addon.SOUND_CHANNEL[profile.sound.channel])
 		if not success then
 			print(format("VRA - Missing soundfile for configured spell: %s", GetSpellInfo(spellID)))
 		end
