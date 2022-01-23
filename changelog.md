@@ -1,8 +1,12 @@
 # Vocal Raid Assistant
+## 2.1.0
+- rework spells (add phonetic names)
+- add sub categories to classes
+
 ## 2.0.2
 ### Changed abilities
- - Earthen Shield Totem -> Earthen Wall Totem
- - Lightning Surge Totem -> Capacitor Totem
+- Earthen Shield Totem -> Earthen Wall Totem
+- Lightning Surge Totem -> Capacitor Totem
 
 ### Added abilities
 - Invoke Xuen
@@ -38,32 +42,32 @@
 - Added voicepacks
 - Removed remaining legacy feature fragments
 
-## 1.6.7 
+## 1.6.7
 - Code cleanup
 - Added spell icon for custom abilties
 - Combustion
 - Alter Time
 - Power Infusion
 
-## 1.6.6 
+## 1.6.6
 - Removed CD bar tracking, added enable/disable for custom sounds and code cleanup.
 
-## 1.6.5 
+## 1.6.5
 - Added abilities
 - Force of Nature
 
 ## 1.6.4 Changelog
 
 ### Added abilities
-- Boon of the Ascended 
+- Boon of the Ascended
 - Convoke the Spirits
-- Ashen Hallow 
+- Ashen Hallow
 - Chain Harvest
 - Mindgames
 - Fae Transfusion
 - Primordial Wave
 - Weapons of Order
-- Divine Toll 
+- Divine Toll
 - Vesper Totem
 - Fae Guardians
 - Fodder to the Flame
@@ -107,9 +111,9 @@
 - Moved Innervate to Individual Buff
 - Moved Aegies of Light to Special Ability
 ### Added Abilities (On/Off by default):
-- Sigil of Silence (On) 
+- Sigil of Silence (On)
 - Sigil of Misery (On)
-- Sigil of Chains (On) 
+- Sigil of Chains (On)
 - Ring of Peace (On)
 - Shadowfiend-Disc (Off
 - Evangelism (Off)
@@ -132,17 +136,17 @@
 - Imprison (On)
 - Quaking Palm (On)
 
-## 1.4.4 
+## 1.4.4
 ### Removed debug statement.
 
-## 1.4.3 
+## 1.4.3
 ### Fixed incorrect function call.
 
-## 1.4.2 
+## 1.4.2
 - Made functioning with new event system.
 - Added Holy Word: Salvation
 
-## 1.4.1 
+## 1.4.1
 ### Version fix
 
 ## 1.4.0
@@ -152,32 +156,32 @@
 ## 1.3.9
 - Added Demonic Gateway
 
-## 1.3.8 
+## 1.3.8
 - Changed Hand of Protection to Protection.
 - Added Drums of Fury to defaults for Offensive Buff Bar
 
 ## 1.3.7
-### Removed few spells: 
+### Removed few spells:
 - Removed Bristling Fur, as it is not longer a mitigation cooldown
 - Removed Vigilance as it is no longer in the game
 - Removed empty classes.
 - Added some fixes for bars from spells cast by yourself on yourself.
 
-## 1.3.6 
+## 1.3.6
 - Added Mind Bomb
 
-## 1.3.5 
+## 1.3.5
 - Added AoE stun abilities for making Mythic Plus easier.
 - Fixed volume on Gift of the Queen
 - Enabled the ability to disable Darkness
 - You are now able to MOVE the Defensive Buff Bar
 - You are now able to reset the position of the bars if they somehow managed to escape your screen!
 
-## 1.3.4 
+## 1.3.4
 - Added interrupt announcing for Demon Hunters and Survival Hunter.
 - Fixed missing name entry for Demon Hunters
 
-## 1.3.3 
+## 1.3.3
 - Updated spells to match legion cooldowns.
 ### Added abilities:
 - Blood Mirror
@@ -213,15 +217,15 @@
 - Ravager
 - Shield Block
 
-## 1.3.2 
+## 1.3.2
 - Hotfix to work for LEGION. Will update fully soon.
 
-## 1.3.1 
+## 1.3.1
 - Fixed bug where bars would show for spells you cast yourself
 - Fixed error when using new profile until a reload is done
 - Added Reload of UI after profile swap to sort inconsistencies
 
-## 1.3.0 
+## 1.3.0
 - Reimplemented bar system
 - Sorted out logic such that bars will only exist within your own group
 - Still need to fix issue that bars are not correctly reset after boss kill/reset.
@@ -229,10 +233,10 @@
 - Aspect of the Fox
 - Amplify Magic
 
-## 1.2.2 
+## 1.2.2
 - Small bugfix - stopped calling method that does not exist
 
-## 1.2.1 
+## 1.2.1
 - Small logical bugfix so player will not hear own cast on tanks
 ### Added abilities:
 - Nature's Vigil
@@ -259,7 +263,7 @@
 - Disabling specific bars now work once more!
 - Fixed various bugs including spells cast of party accidentally getting shown on bars (Now only show on bars if cast out of raid with raid setting on if player is affected)
 
-## 1.1.1 
+## 1.1.1
 - Added more options for when VRA should be enabled
 ### Added abilities:
 - Anti-Magic Shell
@@ -286,7 +290,7 @@
 - Fixed a bug where you could not move the Cooldownbar
 - Now cooldowns that reset on boss kill/wipe will be reset on Cooldownbar
 
-## 1.0.8 
+## 1.0.8
 - Fixed a bug where Interrupting enemy target would not activate the proper sound
 - Added option to customize spells shown on ALL the bars!
 - Fixed a nil error that occurred when X-Realm cast specific buffs
@@ -294,7 +298,7 @@
 - Only Buff On Tanks now require TANK role to be set
 - Fixed incorrect cooldown on Tranquility for resto druids (Require Healing role set!)
 
-## 1.0.7 
+## 1.0.7
 - Fixed bug where tanks would not hear buffs cast on self if \"tanks only\" was selected
 - Added personal defensive buffs applications to show on defensive buff bar
 - Recompiled several voice-files to make voice level more even and fixed a few spelling errors
@@ -302,7 +306,7 @@
 - Unholy Frenzy
 - Roar of Sacrifice
 
-## 1.0.6 
+## 1.0.6
  - Fixed \"nil\" bar error that would occur in rare situations
  - Added class color to progress bars
  - Added ability to see \"pulsing\" cooldown bars for low cooldown remaining
@@ -310,7 +314,7 @@
  ### Added abilities:
  - Shattering Throw
 
-## 1.0.5 
+## 1.0.5
 - Added Cooldown Bar
 - Added Defensive Buff Bar
 - Added Offensive Buff Bar (NOTE: All the bar's will receive further updates)
@@ -331,21 +335,21 @@
 - Last Stand
 - Demoralizing Shout
 
-## 1.0.4 
+## 1.0.4
 - Added \"Individual Buff\" feature
 ### Added abilities:
 - Soulstone
 - Raise Ally
 - Rebirth
 
-## 1.0.3 
+## 1.0.3
 - Added \"Buffs on Tank\" only feature
 - Added \"Only Check Raid Group\" feature
 ### Added abilities:
 - Iron Bark
 - Vampiric Embrace
 
-## 1.0.2 
+## 1.0.2
 - Improved menu utility
 - Removed Load Configuration and now load on default
 ### Added abilities:
