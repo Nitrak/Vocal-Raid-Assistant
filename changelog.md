@@ -1,7 +1,15 @@
 # Vocal Raid Assistant
+
 ## 2.1.0
-- rework spells (add phonetic names)
-- add sub categories to classes
+- reworked spells (add phonetic names)
+- added sub categories to classes
+- added import/export functionality
+- added copy feature between areas
+- added dual-spec functionality
+- reworked interface
+- added support for trinkets
+- added ability to hear externals only on yourself
+- recreated sound-files to adjust volume and clarity
 
 ## 2.0.2
 ### Changed abilities
