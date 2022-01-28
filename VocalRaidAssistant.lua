@@ -57,9 +57,6 @@ function VRA:OnInitialize()
 	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
 	self:InitializeOptions()
-
-	---
-	interruptList = self.GetInterruptSpellIds()
 end
 
 function VRA:ChangeProfile()
@@ -118,11 +115,14 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName,
 		destFlags, destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
 
+	-- apply spell correction (e.g. hex and polymorh change the spellID)
+	spellID = addon.spellCorrections[spellID] or spellID
+
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
 	local _, instanceType = IsInInstance()
 	if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and not isTrottled()
 	and ((not profile.general.onlySelf) or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)))) or
-	(event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and interruptList[spellID])) then
+	(event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and addon.interruptList[spellID])) then
 		self:playSpell(spellID)
 		end
 	end

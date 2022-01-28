@@ -306,7 +306,7 @@ local spellList = {
 	}
 }
 
-local interruptList = {
+addon.interruptList = {
 	[2139] =		{ name = "countered!" }, -- Counter Spell
 	[1766] =		{ name = "countered!" }, -- Kick
 	[6552] =		{ name = "countered!" }, -- Pummel
@@ -324,6 +324,29 @@ local interruptList = {
 	[187707] =		{ name = "countered!" } -- Muzzle
 }
 
+addon.spellCorrections = {
+	-- Shaman Hex
+	[162624] = 51514, -- Tome of Hex: Wicker Mongrel
+	[172405] = 51514, -- Tome of Hex: Living Honey
+	[210873] = 51514, -- Tome of Hex: Compy
+	[211004] = 51514, -- Tome of Hex: Spider
+	[211010] = 51514, -- Tome of Hex: Snake
+	[211015] = 51514, -- Tome of Hex: Cockroach
+	[269352] = 51514, -- Tome of Hex: Skeletal Hatchling
+	[277778] = 51514, -- Tome of Hex: Zandalari Tendonripper
+	-- Mage Polymorph
+	[28271] = 118, -- Tome of Polymorph: Turtle
+	[28272] = 118, -- Polymorph: Pig
+	[61305] = 118, -- Tome of Polymorph: Black Cat
+	[61721] = 118, -- Tome of Polymorph: Rabbit
+	[126819] = 118, -- Tome of Polymorph: Porcupine
+	[161353] = 118, -- Tome of Polymorph: Polar Bear Cub
+	[161354] = 118, -- Tome of Polymorph: Monkey
+	[277787] = 118, -- Tome of Polymorph: Direhorn
+	[277792] = 118, -- Tome of Polymorph: Bumblebee
+	[321395] = 118, -- Polymorph: Maw Rat
+}
+
 function addon:GetAllSpellIds()
 	local spells = {}
 	for _, v in pairs(spellList) do
@@ -336,13 +359,5 @@ end
 
 function addon:GetSpellIdsByClass(name)
 	return spellList[name]
-end
-
-function addon:GetInterruptSpellIds()
-	local spells = {}
-	for k, v in pairs(interruptList) do
-		spells[k] = v
-	end
-	return spells
 end
 
