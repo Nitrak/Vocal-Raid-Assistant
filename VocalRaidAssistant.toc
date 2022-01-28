@@ -10,5 +10,6 @@ Libs\embeds.xml
 Locales\locales.xml
 
 VocalRaidAssistant.lua
+Constants.lua
 SpellList.lua
 Config.lua
