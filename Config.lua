@@ -1,58 +1,10 @@
-local _, addon = ...
+local addonName, addon = ...
 local L = VRA.L
+
 local tostring = tostring
 local profile = {}
 local popUpSemaphore = false
 
-local filterValues = {
-	["player"] = COMBATLOG_OBJECT_AFFILIATION_MINE,
-	["grouporraid"] = bit.bor(COMBATLOG_OBJECT_AFFILIATION_PARTY, COMBATLOG_OBJECT_AFFILIATION_RAID)
-}
-
-local soundpacks = {
-	["en-US-AnaNeural"] = "Ana",
-	["en-US-ElizabethNeural"] = "Elizabeth",
-	["legacy-en-Julie"] = "Julie (Legacy)",
-	["en-US-SaraNeural"] = "Sara",
-	["en-US-EricNeural"] = "Eric",
-	["en-US-GuyNeural"] = "Guy"
-}
-
-local zones = {
-	["raid"] = { name = RAIDS, order = 1 },
-    ["party"] = { name = DUNGEONS, order = 2 },
-	["none"] = { name = BUG_CATEGORY2, order = 3 },
-	["arena"] = { name = ARENA, order = 4 },
-	["pvp"] = { name = BATTLEGROUNDS, order = 5 },
-    ["scenario"] = { name = SCENARIOS, order = 6 },
-}
-
-local priority = {
-	["pvptrinket"] = L["PvP Trinket"],
-	["racial"] = L["Racial Traits"],
-	["trinket"] = INVTYPE_TRINKET,
-	["covenant"] = L["Covenant"],
-	["interrupt"] = LOC_TYPE_INTERRUPT,
-	["dispel"] = DISPELS,
-	["cc"] = L["Crowd Control"],
-	["disarm"] = format("%s, %s, %s",LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
-	["immunity"] = L["Immunity"],
-	["externalDefensive"] = L["External Defensive"],
-	["defensive"] = L["Defensive"],
-	["raidDefensive"] = L["Raid Defensive"],
-	["offensive"] = L["Offensive"],
-	["counterCC"] = L["Counter CC"],
-	["raidMovement"] = L["Raid Movement"],
-	["other"] = OTHER,
-}
-
-local VRA_CHANNEL = {
-	["Master"] = "Master",
-	["SFX"] = "Sound",
-	["Ambience"] = "Ambience",
-	["Music"] = "Music",
-	["Dialog"] = "Dialog",
-}
 
 StaticPopupDialogs["VRA_IMPORT"] = {
 	text = "Insert import string",
@@ -109,7 +61,7 @@ local function createOptionsForClass(class)
 	if (spellList ~= nil) then
 		for spellID, v in pairs(spellList) do
 			args[v.type] = args[v.type] or {
-				name = priority[v.type],
+				name = addon.PRIORITY[v.type],
 				type = 'group',
 				inline = true,
 				args = {}
@@ -121,7 +73,7 @@ local function createOptionsForClass(class)
 end
 
 local function setFilterValue(info, val)
-	local filter = filterValues[info]
+	local filter = addon.FILTER_VALUES[info]
 	if (filter ~= nil) then
 		if (val) then
 			profile.general.watchFor = bit.bor(profile.general.watchFor, filter)
@@ -132,7 +84,7 @@ local function setFilterValue(info, val)
 end
 
 local function getFilterValue(info)
-	local filter = filterValues[info]
+	local filter = addon.FILTER_VALUES[info]
 	if (filter ~= nil) then
 		return (bit.band(profile.general.watchFor, filter) == filter)
 	end
@@ -151,7 +103,7 @@ end
 
 local function restoreDefaultSpells(area)
 	profile.general.area[area].spells = {}
-	for k, v in pairs(addon.defaultSpells) do
+	for k, v in pairs(addon.DEFAULT_SPELLS) do
 		profile.general.area[area].spells[k] = v
 	end
 	profile.general.area[area].enableInterrupts = true
@@ -166,12 +118,12 @@ local function clearAll(area)
 end
 
 function importSpellSelection(importString, area)
-	local success, importDeserialized = VRA.EXP:Deserialize(importString)
+	local success, importDeserialized = addon.EXP:Deserialize(importString)
 	if(success) then
 		for k, v in pairs(importDeserialized) do
 			profile.general.area[area].spells[k] = v
 		end
-		VRA.ACR:NotifyChange("VocalRaidAssistantConfig")
+		addon.ACR:NotifyChange("VocalRaidAssistantConfig")
 	else
 		print("Vocal Raid Assistant: Invalid import string.")
 	end
@@ -179,65 +131,87 @@ end
 
 local mainOptions = {
 	name = "Vocal Raid Assistant",
-    type = "group",
-    args = {
-        generalOptions = {
-            name = L["General"],
-            type = "group",
-            order = 1,
-            args = {
-                title = {
-                    name = "|cffffd200" .. "Vocal Raid Assistant",
-                    order = 1,
-                    type = "description",
-                    fontSize = "large",
-                },
-                about = {
-                    order = 2,
-                    type = "description",
-                    name = L["Credits"]
-                },
-                version = {
-                    order = 3,
-                    type = "description",
-                    name = "Version: " .. addon.version
-                },
+	type = "group",
+	args = {
+		generalOptions = {
+			name = L["General"],
+			type = "group",
+			order = 1,
+			args = {
+				title = {
+					name = "|cffffd200" .. "Vocal Raid Assistant",
+					order = 1,
+					type = "description",
+					fontSize = "large",
+				},
+				about = {
+					order = 2,
+					type = "description",
+					name = L["Credits"]
+				},
+				version = {
+					order = 3,
+					type = "description",
+					name = "Version: " .. addon.version
+				},
 				discord = {
-                    order = 4,
-                    type = "input",
-                    name = L["Discord"],
-                    get = function()
-                        return "https://discord.gg/UZMzqap"
-                    end
-                },
-				linebreak = {
+					order = 4,
+					type = "input",
+					name = L["Discord"],
+					get = function()
+						return "https://discord.gg/UZMzqap"
+					end
+				},
+				linebreak1 = {
 					order = 5,
+					type = 'description',
+					name = ''
+				},
+				minimapIcon = {
+					order = 6,
+					type = "toggle",
+					name = L["Minimap Icon"],
+					get = function()
+						return not profile.general.minimap.hide
+					end,
+					set = function(info, val)
+						profile.general.minimap.hide = not val
+						if profile.general.minimap.hide then
+							VRA.ICON:Hide(addonName)
+						else
+							VRA.ICON:Show(addonName)
+						end
+					end
+					
+				},
+				linebreak2 = {
+					order = 7,
 					type = 'description',
 					name = '\n\n'
 				},
 				watchFor = {
-                    type = 'group',
-                    inline = true,
-                    name = L["Alert for"],
-                    desc = L["VRA should alert you for"],
-                    get = function(info)
-                        return getFilterValue(info[#info])
-                    end,
-                    set = function(info, val)
-                        setFilterValue(info[#info], val)
-                    end,
-                    order = 6,
-                    args = {
-                        player = {
-                            type = 'toggle',
-                            name = L["My own abilities"],
-                            order = 1
-                        },
-                        grouporraid = {
-                            type = 'toggle',
-                            name = L["Party member abilities"],
-                            order = 2
-                        },
+					type = 'group',
+					inline = true,
+					name = L["Alert for"],
+					desc = L["VRA should alert you for"],
+					get = function(info)
+						return getFilterValue(info[#info])
+					end,
+					set = function(info, val)
+						setFilterValue(info[#info], val)
+					end,
+					order = 8,
+					args = {
+						player = {
+							type = 'toggle',
+							name = L["My own abilities"],
+							order = 1
+						},
+						grouporraid = {
+							type = 'toggle',
+							name = L["Party member abilities"],
+							order = 2
+						},
 						onlyself = {
 							type = 'toggle',
 							name = L["OnlySelfExternalsName"],
@@ -262,12 +236,12 @@ local mainOptions = {
 					set = function(info, val)
 						profile.sound[info[#info]] = val
 					end,
-					order = 2,
+					order = 9,
 					args = {
 						soundpack = {
 							type = 'select',
 							name = L["Soundpack"],
-							values = soundpacks,
+							values = addon.SOUND_PACKS,
 							order = 1
 						},
 						playButton = {
@@ -287,43 +261,6 @@ local mainOptions = {
 							desc = L["The minimum interval between two alerts in seconds"],
 							order = 3
 						},
-                    }
-                },
-                voice = {
-                    type = 'group',
-                    inline = true,
-                    name = L["Voice"],
-                    get = function(info)
-                        return profile.sound[info[#info]]
-                    end,
-                    set = function(info, val)
-                        profile.sound[info[#info]] = val
-                    end,
-                    order = 7,
-                    args = {
-                        soundpack = {
-                            type = 'select',
-                            name = L["Soundpack"],
-                            values = soundpacks,
-                            order = 1
-                        },
-                        playButton = {
-                            type = 'execute',
-                            name = L["Test"],
-                            func = function()
-                                addon:playSpell("98008")
-                            end,
-                            order = 2
-                        },
-                        throttle = {
-                            type = 'range',
-                            max = 60,
-                            min = 0,
-                            step = 0.5,
-                            name = L["Throttle"],
-                            desc = L["The minimum interval between two alerts in seconds"],
-                            order = 3
-                        },
 						void = { -- To ensure channel, volume and enabled is on a new line.
 							type = 'description',
 							name = "",
@@ -334,7 +271,7 @@ local mainOptions = {
 							type = 'select',
 							name = L["Output channel"],
 							desc = L["Output channel desc"],
-							values = VRA_CHANNEL,
+							values = addon.SOUND_CHANNEL,
 							order = 5,
 						},
 						volume = {
@@ -369,80 +306,80 @@ local mainOptions = {
 							end,
 							order = 7,
 						},
-                    }
-                }
-            }
-        },
-        abilitiesOptions = {
-            name = L["Abilities"],
-            type = "group",
-            order = 2,
+					}
+				}
+			}
+		},
+		abilitiesOptions = {
+			name = L["Abilities"],
+			type = "group",
+			order = 2,
 			childGroups = "tab",
-            args = {}
-        },
-    }
+			args = {}
+		},
+	}
 }
 
 local spells = {
-    name = L["Abilities"],
-    type = "group",
-    disabled = function(info)
-        return not profile.general.area[info[2]].enabled
-    end,
-    args = {
-        selectedArea = {
-            name = L["Copy Settings From:"],
-            desc = L["Select the area you want to copy settings from"],
-            order = 1,
-            type = "select",
-            values = function(info)
-                local t = {[''] = "" }
-                for k, v in pairs(zones) do
-                    if k ~= info[2] then
-                        t[k] = v.name
-                    end
-                end
-                return t
-            end,
-            get = function(info) return profile.general.area[info[2]].copyZone end,
-            set = function(info, val) profile.general.area[info[2]].copyZone = val end,
-        },
-        copySelected = {
-            name = L["Copy"],
-            desc = L["Copy the selected area settings to this area"],
-            order = 2,
-            type = "execute",
-            disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
-            func = function(info)
-                local t = {}
-                local source = profile.general.area[info[2]].copyZone
-                local sourceTable = profile.general.area[source]
-                for k, v in pairs(sourceTable) do
-                    t[k] = v
-                end
-                profile.general.area[info[2]] = t
-                profile.general.area[info[2]].copyZone = nil
-            end,
-            confirm = function(info) return L["Copy Settings: "] .. zones[profile.general.area[info[2]].copyZone].name .. " -> " .. zones[info[2]].name end,
-        },
-        clearAll = {
-            name = L["Clear All"],
-            order = 3,
-            type = "execute",
-            func = function(info)
-                clearAll(info[2])
-            end,
-            confirm = true
-        },
-        restoreDefault = {
-            name = L["Restore Defaults"],
-            order = 4,
-            type = "execute",
-            func = function(info)
-                restoreDefaultSpells(info[2])
-            end,
-            confirm = true
-        },
+	name = L["Abilities"],
+	type = "group",
+	disabled = function(info)
+		return not profile.general.area[info[2]].enabled
+	end,
+	args = {
+		selectedArea = {
+			name = L["Copy Settings From:"],
+			desc = L["Select the area you want to copy settings from"],
+			order = 1,
+			type = "select",
+			values = function(info)
+				local t = {[''] = "" }
+				for k, v in pairs(addon.ZONES) do
+					if k ~= info[2] then
+						t[k] = v.name
+					end
+				end
+				return t
+			end,
+			get = function(info) return profile.general.area[info[2]].copyZone end,
+			set = function(info, val) profile.general.area[info[2]].copyZone = val end,
+		},
+		copySelected = {
+			name = L["Copy"],
+			desc = L["Copy the selected area settings to this area"],
+			order = 2,
+			type = "execute",
+			disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
+			func = function(info)
+				local t = {}
+				local source = profile.general.area[info[2]].copyZone
+				local sourceTable = profile.general.area[source]
+				for k, v in pairs(sourceTable) do
+					t[k] = v
+				end
+				profile.general.area[info[2]] = t
+				profile.general.area[info[2]].copyZone = nil
+			end,
+			confirm = function(info) return L["Copy Settings: "] .. addon.ZONES[profile.general.area[info[2]].copyZone].name .. " -> " .. addon.ZONES[info[2]].name end,
+		},
+		clearAll = {
+			name = L["Clear All"],
+			order = 3,
+			type = "execute",
+			func = function(info)
+				clearAll(info[2])
+			end,
+			confirm = true
+		},
+		restoreDefault = {
+			name = L["Restore Defaults"],
+			order = 4,
+			type = "execute",
+			func = function(info)
+				restoreDefaultSpells(info[2])
+			end,
+			confirm = true
+		},
 		importSelectedSpells = {
 			name = L["Import Area"],
 			order = 5,
@@ -540,27 +477,27 @@ for k, v in pairs(additionalSpellCategories) do
 	i = i + 1
 end
 
-for k, v in pairs(zones) do
-    mainOptions.args.abilitiesOptions.args[k] = {
-        name = v.name,
-        type = "group",
-        childGroups = "tab",
+for k, v in pairs(addon.ZONES) do
+	mainOptions.args.abilitiesOptions.args[k] = {
+		name = v.name,
+		type = "group",
+		childGroups = "tab",
 		order = v.order,
-        args = {
-            enable = {
-                type = "toggle",
-                name = L["Enable"],
-                order = 1,
-                get = function(info)
-                    return profile.general.area[info[2]].enabled
-                end,
-                set = function(info, val)
-                    profile.general.area[info[2]].enabled = val
-                end
-            },
-            spells = spells
-        }
-    }
+		args = {
+			enable = {
+				type = "toggle",
+				name = L["Enable"],
+				order = 1,
+				get = function(info)
+					return profile.general.area[info[2]].enabled
+				end,
+				set = function(info, val)
+					profile.general.area[info[2]].enabled = val
+				end
+			},
+			spells = spells
+		}
+	}
 end
 
 function addon:RefreshOptions(database)
