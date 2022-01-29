@@ -9,18 +9,18 @@ VRA.ACR = LibStub("AceConfigRegistry-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
 VRA.EXP = LibStub("AceSerializer-3.0")
 VRA.LDS = LibStub('LibDualSpec-1.0')
+VRA.ICON = LibStub("LibDBIcon-1.0")
+VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
 
 local tostring = tostring
 local profile = {}
 local throttleTime
-local interruptList = {}
-local filter = 0
 
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
 	self:RegisterChatCommand("vocalraidassistant", "ChatCommand")
-	local optionsFrame = CreateFrame("Frame", nil, UIParent)
+	local optionsFrame = CreateFrame("Frame", "VRAOptionsFrame", UIParent)
 	optionsFrame.name = "VocalRaidAssistant"
 
 	local title = optionsFrame:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
@@ -53,6 +53,20 @@ function VRA:OnInitialize()
 	self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
 	profile = self.db.profile
+	
+	--Minimap Icon and Broker
+	local MyLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
+	type = "launcher",
+	icon = "Interface\\COMMON\\VoiceChat-Speaker",
+	OnClick = function(clickedframe, button)
+		self:ChatCommand()
+	end,
+	OnTooltipShow = function(tooltip)
+		  tooltip:SetText(VRA.L["VRANAME"])
+		  tooltip:Show()
+	 end,
+	})
+	VRA.ICON:Register(addonName, MyLDB, profile.general.minimap)
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
@@ -65,7 +79,11 @@ function VRA:ChangeProfile()
 end
 
 function VRA:ChatCommand()
-	self.ACD:Open("VocalRaidAssistantConfig")
+	if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
+		self.ACD:Close("VocalRaidAssistantConfig")
+	else
+		self.ACD:Open("VocalRaidAssistantConfig")
+	end
 end
 
 function VRA:OnEnable()

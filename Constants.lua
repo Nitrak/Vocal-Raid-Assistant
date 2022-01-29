@@ -67,7 +67,8 @@ addon.DEFAULTS = {
 				pvp = { spells = defaultSpells },
 				scenario = { spells = defaultSpells }
 			},
-			watchFor = 6 -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID,
+			watchFor = 6, -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
+			minimap = {}
 		},
 		sound = {
 			soundpack = "en-US-SaraNeural",
@@ -101,11 +102,11 @@ addon.FILTER_VALUES = {
 
 addon.ZONES = {
 	["raid"] = { name = RAIDS, order = 1 },
-    ["party"] = { name = DUNGEONS, order = 2 },
+	["party"] = { name = DUNGEONS, order = 2 },
 	["none"] = { name = BUG_CATEGORY2, order = 3 },
 	["arena"] = { name = ARENA, order = 4 },
 	["pvp"] = { name = BATTLEGROUNDS, order = 5 },
-    ["scenario"] = { name = SCENARIOS, order = 6 },
+	["scenario"] = { name = SCENARIOS, order = 6 },
 }
 
 addon.PRIORITY = {
