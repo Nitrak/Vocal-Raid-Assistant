@@ -58,7 +58,7 @@ function VRA:OnInitialize()
 	profile = self.db.profile
 	
 	--Minimap Icon and Broker
-	MyLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
+	local MyLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
 	type = "launcher",
 	icon = "Interface\\COMMON\\VoiceChat-Speaker",
 	OnClick = function(clickedframe, button)
@@ -69,7 +69,8 @@ function VRA:OnInitialize()
           tooltip:Show()
      end,
 	})
-	VRA.ICON:Register("MyLDB", MyLDB, self.db.profile.minimapIconTable)
+	if not VRALDBIconDB then VRALDBIconDB = {} end
+	VRA.ICON:Register(addonName, MyLDB, VRALDBIconDB)
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
@@ -82,12 +83,10 @@ function VRA:ChangeProfile()
 end
 
 function VRA:ChatCommand()
-	if VRAOptionsFrame and VRAOptionsFrame:IsShown() then
+	if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
 		self.ACD:Close("VocalRaidAssistantConfig")
-		VRAOptionsFrame:Hide()--Used for trigger only
 	else
 		self.ACD:Open("VocalRaidAssistantConfig")
-		VRAOptionsFrame:Show()--Used for trigger only
 	end
 end
 

@@ -2,7 +2,7 @@
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
-## SavedVariables: VocalRaidAssistantDB
+## SavedVariables: VocalRaidAssistantDB,VRALDBIconDB
 ## Version: 2.1.1
 
 Libs\embeds.xml

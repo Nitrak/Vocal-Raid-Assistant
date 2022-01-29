@@ -1,4 +1,4 @@
-local _, addon = ...
+local addonName, addon = ...
 local L = VRA.L
 
 local tostring = tostring
@@ -162,8 +162,30 @@ local mainOptions = {
                         return "https://discord.gg/UZMzqap"
                     end
                 },
-				linebreak = {
+				linebreak1 = {
 					order = 5,
+					type = 'description',
+					name = ''
+				},
+				minimapIcon = {
+                    order = 6,
+                    type = "toggle",
+                    name = L["Minimap Icon"],
+                    get = function()
+                        return not VRALDBIconDB.hide
+                    end,
+					set = function(info, val)
+                        VRALDBIconDB.hide = not val
+						if VRALDBIconDB.hide then
+							VRA.ICON:Hide(addonName)
+						else
+							VRA.ICON:Show(addonName)
+						end
+                    end
+					
+                },
+				linebreak2 = {
+					order = 7,
 					type = 'description',
 					name = '\n\n'
 				},
@@ -178,7 +200,7 @@ local mainOptions = {
                     set = function(info, val)
                         setFilterValue(info[#info], val)
                     end,
-                    order = 6,
+                    order = 8,
                     args = {
                         player = {
                             type = 'toggle',
@@ -214,7 +236,7 @@ local mainOptions = {
                     set = function(info, val)
                         profile.sound[info[#info]] = val
                     end,
-                    order = 7,
+                    order = 9,
                     args = {
                         soundpack = {
                             type = 'select',
