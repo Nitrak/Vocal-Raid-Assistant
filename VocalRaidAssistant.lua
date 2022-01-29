@@ -23,7 +23,6 @@ function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
 	self:RegisterChatCommand("vocalraidassistant", "ChatCommand")
 	local optionsFrame = CreateFrame("Frame", "VRAOptionsFrame", UIParent)
-	optionsFrame:Hide()
 	optionsFrame.name = "VocalRaidAssistant"
 
 	local title = optionsFrame:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
