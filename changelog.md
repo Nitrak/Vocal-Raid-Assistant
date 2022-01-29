@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 2.2.0
+- added minimap button
+- variations of Polymorph and Hex are now also tracked properly
+
 ## 2.1.0
 - reworked spells (add phonetic names)
 - added sub categories to classes
