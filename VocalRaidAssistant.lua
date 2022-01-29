@@ -15,8 +15,6 @@ VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
 local tostring = tostring
 local profile = {}
 local throttleTime
-local interruptList = {}
-local filter = 0
 
 
 function VRA:InitializeOptions()
@@ -64,9 +62,9 @@ function VRA:OnInitialize()
 		self:ChatCommand()
 	end,
 	OnTooltipShow = function(tooltip)
-          tooltip:SetText(VRA.L["VRANAME"])
-          tooltip:Show()
-     end,
+		  tooltip:SetText(VRA.L["VRANAME"])
+		  tooltip:Show()
+	 end,
 	})
 	VRA.ICON:Register(addonName, MyLDB, profile.general.minimap)
 
