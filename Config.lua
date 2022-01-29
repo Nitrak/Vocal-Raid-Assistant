@@ -172,11 +172,11 @@ local mainOptions = {
                     type = "toggle",
                     name = L["Minimap Icon"],
                     get = function()
-                        return not VRALDBIconDB.hide
+                        return not profile.general.minimap.hide
                     end,
 					set = function(info, val)
-                        VRALDBIconDB.hide = not val
-						if VRALDBIconDB.hide then
+                        profile.general.minimap.hide = not val
+						if profile.general.minimap.hide then
 							VRA.ICON:Hide(addonName)
 						else
 							VRA.ICON:Show(addonName)

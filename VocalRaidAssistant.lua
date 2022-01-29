@@ -68,8 +68,7 @@ function VRA:OnInitialize()
           tooltip:Show()
      end,
 	})
-	if not VRALDBIconDB then VRALDBIconDB = {} end
-	VRA.ICON:Register(addonName, MyLDB, VRALDBIconDB)
+	VRA.ICON:Register(addonName, MyLDB, profile.general.minimap)
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()

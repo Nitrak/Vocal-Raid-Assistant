@@ -67,7 +67,8 @@ addon.DEFAULTS = {
 				pvp = { spells = defaultSpells },
 				scenario = { spells = defaultSpells }
 			},
-			watchFor = 6 -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID,
+			watchFor = 6, -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
+			minimap = {}
 		},
 		sound = {
 			soundpack = "en-US-SaraNeural",
