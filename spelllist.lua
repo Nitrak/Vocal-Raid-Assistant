@@ -247,7 +247,7 @@ local spellList = {
 		[320674] =	{ name = "Chain Harvest", phonetic_name = "", type = "covenant"},
 		[328923] =	{ name = "Fae Transfusion", phonetic_name = "Fei Transfusion", type = "covenant"},
 		[326059] =	{ name = "Primordial Wave", phonetic_name = "", type = "covenant"},
-		[324386] =	{ name = "Versper Totem", phonetic_name = "", type = "covenant"},
+		[324386] =	{ name = "Vesper Totem", phonetic_name = "", type = "covenant"},
 	},
 	["WARLOCK"] = {
 		[1122] =	{ name = "Infernal", phonetic_name = "", type = "offensive"}, -- Summon Infernal
