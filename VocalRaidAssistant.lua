@@ -58,12 +58,13 @@ function VRA:OnInitialize()
 	local MyLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
 	type = "launcher",
 	icon = "Interface\\COMMON\\VoiceChat-Speaker",
+	iconCoords = {-0.45, 1, -0.05, 1},
 	OnClick = function(clickedframe, button)
 		self:ChatCommand()
 	end,
 	OnTooltipShow = function(tooltip)
-		  tooltip:SetText(VRA.L["VRANAME"])
-		  tooltip:Show()
+			tooltip:SetText(VRA.L["VRANAME"])
+			tooltip:Show()
 	 end,
 	})
 	VRA.ICON:Register(addonName, MyLDB, profile.general.minimap)

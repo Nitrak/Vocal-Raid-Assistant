@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.2.2
+- Minor fixes
+
 ## 2.2.1
 - Fixed Vesper pronunciation
 
