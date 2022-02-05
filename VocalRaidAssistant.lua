@@ -48,26 +48,24 @@ function VRA:InitializeOptions()
 end
 
 function VRA:OnInitialize()
-	self.db = LibStub("AceDB-3.0"):New("VocalRaidAssistantDB", addon.DEFAULTS, true)
+	self.db = LibStub("AceDB-3.0"):New("VocalRaidAssistantDB", addon.DEFAULTS)
 	self.db.RegisterCallback(self, "OnProfileChanged", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
 	profile = self.db.profile
-	
-	--Minimap Icon and Broker
-	local MyLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
-	type = "launcher",
-	icon = "Interface\\COMMON\\VoiceChat-Speaker",
-	iconCoords = {-0.45, 1, -0.05, 1},
-	OnClick = function(clickedframe, button)
-		self:ChatCommand()
-	end,
-	OnTooltipShow = function(tooltip)
-			tooltip:SetText(VRA.L["VRANAME"])
-			tooltip:Show()
-	 end,
-	})
-	VRA.ICON:Register(addonName, MyLDB, profile.general.minimap)
+
+	-- Minimap Icon and Broker
+	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
+
+	-- Config cleanup
+	if profile['version'] == nil or profile['version'] < 2 then
+		for key, _ in pairs(profile) do
+			if addon.DEFAULTS.profile[key] == nil then
+				profile[key] = nil
+			end
+		end
+		profile.version = 2
+	end
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
