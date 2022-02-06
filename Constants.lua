@@ -1,7 +1,6 @@
 local _, addon = ...
 local L = addon.L
 
-
 local defaultSpells = {
 	["217832"] = true,
 	["2825"] = true,
@@ -51,7 +50,7 @@ local defaultSpells = {
 	["30283"] = false,
 	["115078"] = true,
 	["51052"] = true,
-	["316958"] = true,
+	["316958"] = true
 }
 
 addon.DEFAULT_SPELLS = defaultSpells
@@ -60,12 +59,28 @@ addon.DEFAULTS = {
 	profile = {
 		general = {
 			area = {
-				arena = { spells = defaultSpells },
-				none = { spells = defaultSpells },
-				party = { enabled = true, enableInterrupts = true, spells = defaultSpells },
-				raid = { enabled = true, enableInterrupts = true, spells = defaultSpells },
-				pvp = { spells = defaultSpells },
-				scenario = { spells = defaultSpells }
+				arena = {
+					spells = defaultSpells
+				},
+				none = {
+					spells = defaultSpells
+				},
+				party = {
+					enabled = true,
+					enableInterrupts = true,
+					spells = defaultSpells
+				},
+				raid = {
+					enabled = true,
+					enableInterrupts = true,
+					spells = defaultSpells
+				},
+				pvp = {
+					spells = defaultSpells
+				},
+				scenario = {
+					spells = defaultSpells
+				}
 			},
 			watchFor = 6, -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
 			minimap = {}
@@ -74,7 +89,7 @@ addon.DEFAULTS = {
 			soundpack = "en-US-SaraNeural",
 			throttle = 0,
 			channel = "Master"
-		},
+		}
 	}
 }
 
@@ -101,12 +116,30 @@ addon.FILTER_VALUES = {
 }
 
 addon.ZONES = {
-	["raid"] = { name = RAIDS, order = 1 },
-	["party"] = { name = DUNGEONS, order = 2 },
-	["none"] = { name = BUG_CATEGORY2, order = 3 },
-	["arena"] = { name = ARENA, order = 4 },
-	["pvp"] = { name = BATTLEGROUNDS, order = 5 },
-	["scenario"] = { name = SCENARIOS, order = 6 },
+	["raid"] = {
+		name = RAIDS,
+		order = 1
+	},
+	["party"] = {
+		name = DUNGEONS,
+		order = 2
+	},
+	["none"] = {
+		name = BUG_CATEGORY2,
+		order = 3
+	},
+	["arena"] = {
+		name = ARENA,
+		order = 4
+	},
+	["pvp"] = {
+		name = BATTLEGROUNDS,
+		order = 5
+	},
+	["scenario"] = {
+		name = SCENARIOS,
+		order = 6
+	}
 }
 
 addon.PRIORITY = {
@@ -117,7 +150,7 @@ addon.PRIORITY = {
 	["interrupt"] = LOC_TYPE_INTERRUPT,
 	["dispel"] = DISPELS,
 	["cc"] = L["Crowd Control"],
-	["disarm"] = format("%s, %s, %s",LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
+	["disarm"] = format("%s, %s, %s", LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
 	["immunity"] = L["Immunity"],
 	["externalDefensive"] = L["External Defensive"],
 	["defensive"] = L["Defensive"],
@@ -125,5 +158,18 @@ addon.PRIORITY = {
 	["offensive"] = L["Offensive"],
 	["counterCC"] = L["Counter CC"],
 	["raidMovement"] = L["Raid Movement"],
-	["other"] = OTHER,
+	["other"] = OTHER
+}
+
+addon.ICONCONFIG = {
+	type = "launcher",
+	icon = "Interface\\COMMON\\VoiceChat-Speaker",
+	iconCoords = {-0.45, 1, -0.05, 1},
+	OnClick = function(clickedframe, button)
+		addon:ChatCommand()
+	end,
+	OnTooltipShow = function(tooltip)
+		tooltip:SetText(L["VRANAME"])
+		tooltip:Show()
+	end
 }

@@ -16,7 +16,6 @@ local tostring = tostring
 local profile = {}
 local throttleTime
 
-
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
 	self:RegisterChatCommand("vocalraidassistant", "ChatCommand")
@@ -33,7 +32,7 @@ function VRA:InitializeOptions()
 
 	local button = CreateFrame("BUTTON", nil, optionsFrame, "UIPanelButtonTemplate")
 	button:SetText("Options")
-	button:SetSize(177,24)
+	button:SetSize(177, 24)
 	button:SetPoint('TOPLEFT', optionsFrame, 'TOPLEFT', 20, -55)
 	button:SetScript("OnClick", function(self)
 		HideUIPanel(InterfaceOptionsFrame)
@@ -48,26 +47,26 @@ function VRA:InitializeOptions()
 end
 
 function VRA:OnInitialize()
-	self.db = LibStub("AceDB-3.0"):New("VocalRaidAssistantDB", addon.DEFAULTS, true)
+	self.db = LibStub("AceDB-3.0"):New("VocalRaidAssistantDB", addon.DEFAULTS)
 	self.db.RegisterCallback(self, "OnProfileChanged", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
 	profile = self.db.profile
-	
-	--Minimap Icon and Broker
-	local MyLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
-	type = "launcher",
-	icon = "Interface\\COMMON\\VoiceChat-Speaker",
-	iconCoords = {-0.45, 1, -0.05, 1},
-	OnClick = function(clickedframe, button)
-		self:ChatCommand()
-	end,
-	OnTooltipShow = function(tooltip)
-			tooltip:SetText(VRA.L["VRANAME"])
-			tooltip:Show()
-	 end,
-	})
-	VRA.ICON:Register(addonName, MyLDB, profile.general.minimap)
+
+	-- Minimap Icon and Broker
+	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
+
+	-- Config cleanup
+	for k, v in pairs(self.db.profiles) do
+		if v['version'] == nil or v['version'] < 2 then
+			for key, _ in pairs(v) do
+				if addon.DEFAULTS.profile[key] == nil then
+					v[key] = nil
+				end
+			end
+			v.version = 2
+		end
+	end
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
@@ -101,7 +100,6 @@ local function allowedSubEvent(event)
 	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
 end
 
-
 local function isTrottled()
 	if (throttleTime == nil or GetTime() > throttleTime) then
 		throttleTime = GetTime() + profile.sound.throttle
@@ -112,7 +110,8 @@ local function isTrottled()
 end
 
 function VRA:playSpell(spellID)
-	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
+	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID ..
+									".ogg"
 	if soundFile then
 		local success = PlaySoundFile(soundFile, addon.SOUND_CHANNEL[profile.sound.channel])
 		if not success then
@@ -128,21 +127,23 @@ end
 
 function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone())) then
-	return
+		return
 	end
 
-	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName,
-		destFlags, destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
+	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
+					destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
 
 	-- apply spell correction (e.g. hex and polymorh change the spellID)
 	spellID = addon.spellCorrections[spellID] or spellID
 
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
-	local _, instanceType = IsInInstance()
-	if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and not isTrottled()
-	and ((not profile.general.onlySelf) or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)))) or
-	(event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and addon.interruptList[spellID])) then
-		self:playSpell(spellID)
+		local _, instanceType = IsInInstance()
+		if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and
+						not isTrottled() and
+						((not profile.general.onlySelf) or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)))) or
+						(event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and
+										addon.interruptList[spellID])) then
+			self:playSpell(spellID)
 		end
 	end
 end
