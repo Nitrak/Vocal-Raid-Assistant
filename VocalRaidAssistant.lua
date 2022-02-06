@@ -57,13 +57,15 @@ function VRA:OnInitialize()
 	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
 
 	-- Config cleanup
-	if profile['version'] == nil or profile['version'] < 2 then
-		for key, _ in pairs(profile) do
-			if addon.DEFAULTS.profile[key] == nil then
-				profile[key] = nil
+	for k, v in pairs(self.db.profiles) do
+		if v['version'] == nil or v['version'] < 2 then
+			for key, _ in pairs(v) do
+				if addon.DEFAULTS.profile[key] == nil then
+					v[key] = nil
+				end
 			end
+			v.version = 2
 		end
-		profile.version = 2
 	end
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
