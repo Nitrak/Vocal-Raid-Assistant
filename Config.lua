@@ -375,7 +375,7 @@ local spells = {
 			end,
 			confirm = function(info)
 				return L["Copy Settings: "] .. addon.ZONES[profile.general.area[info[2]].copyZone].name .. " -> " ..
-								       addon.ZONES[info[2]].name
+										addon.ZONES[info[2]].name
 			end
 		},
 		clearAll = {
