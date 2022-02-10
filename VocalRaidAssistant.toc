@@ -4,6 +4,9 @@
 ## Author: Nitrak
 ## SavedVariables: VocalRaidAssistantDB
 ## Version: 2.2.2
+## X-Curse-Project-ID: 83086
+## X-WoWI-ID: 22983
+## X-Wago-ID: kRNLr8Ko
 
 Libs\embeds.xml
 
