@@ -1,0 +1,4 @@
+package-as: Vocal-Raid-Assistant
+
+ignore:
+  - .editorconfig
