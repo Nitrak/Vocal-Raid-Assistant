@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.2.3
+- Fixed incorrect soundfile for Resonating Arrow
+
 ## 2.2.2
 - Minor fixes
 
