@@ -5,34 +5,33 @@ local tostring = tostring
 local profile = {}
 local popUpSemaphore = false
 
-
 StaticPopupDialogs["VRA_IMPORT"] = {
 	text = "Insert import string",
 	button1 = "Import",
 	button2 = "Cancel",
 	timeout = 0,
-	OnAccept = function (self, data, data2)
-		importSpellSelection(self.editBox:GetText(),data)
+	OnAccept = function(self, data, data2)
+		importSpellSelection(self.editBox:GetText(), data)
 		popUpSemaphore = false
 	end,
-	OnCancel = function (self, data, data2)
+	OnCancel = function(self, data, data2)
 		popUpSemaphore = false
 	end,
 	hasEditBox = true,
 	whileDead = true,
-	preferredIndex = 3,	-- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+	preferredIndex = 3 -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 }
 
 StaticPopupDialogs["VRA_EXPORT"] = {
 	text = "Export string (Ctrl-C)",
 	button1 = "Close",
 	timeout = 0,
-	OnAccept = function (self, data, data2)
+	OnAccept = function(self, data, data2)
 		popUpSemaphore = false
 	end,
 	hasEditBox = true,
 	whileDead = true,
-	preferredIndex = 3,	-- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
+	preferredIndex = 3 -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 }
 
 local borderlessCoords = {0.07, 0.93, 0.07, 0.93}
@@ -119,7 +118,7 @@ end
 
 function importSpellSelection(importString, area)
 	local success, importDeserialized = addon.EXP:Deserialize(importString)
-	if(success) then
+	if (success) then
 		for k, v in pairs(importDeserialized) do
 			profile.general.area[area].spells[k] = v
 		end
@@ -142,7 +141,7 @@ local mainOptions = {
 					name = "|cffffd200" .. "Vocal Raid Assistant",
 					order = 1,
 					type = "description",
-					fontSize = "large",
+					fontSize = "large"
 				},
 				about = {
 					order = 2,
@@ -182,7 +181,7 @@ local mainOptions = {
 							VRA.ICON:Show(addonName)
 						end
 					end
-					
+
 				},
 				linebreak2 = {
 					order = 7,
@@ -223,7 +222,7 @@ local mainOptions = {
 								profile.general.onlySelf = val
 							end,
 							order = 3
-						},
+						}
 					}
 				},
 				voice = {
@@ -265,14 +264,14 @@ local mainOptions = {
 							type = 'description',
 							name = "",
 							desc = "",
-							order = 4,
+							order = 4
 						},
 						channel = {
 							type = 'select',
 							name = L["Output channel"],
 							desc = L["Output channel desc"],
 							values = addon.SOUND_CHANNEL,
-							order = 5,
+							order = 5
 						},
 						volume = {
 							type = 'range',
@@ -281,31 +280,37 @@ local mainOptions = {
 							step = 0.1,
 							name = L["Volume"],
 							desc = L["Adjusting the voice volume"],
-							set = function (info, value) SetCVar ("Sound_"..profile.sound.channel.."Volume",tostring (value)) end,
-							get = function () return tonumber (GetCVar ("Sound_"..profile.sound.channel.."Volume")) end,
-							order = 6,
+							set = function(info, value)
+								SetCVar("Sound_" .. profile.sound.channel .. "Volume", tostring(value))
+							end,
+							get = function()
+								return tonumber(GetCVar("Sound_" .. profile.sound.channel .. "Volume"))
+							end,
+							order = 6
 						},
 						channelEnabled = {
 							type = 'toggle',
-							name = function() return profile.sound.channel.." channel" end,
+							name = function()
+								return profile.sound.channel .. " channel"
+							end,
 							width = "double",
 							desc = "Enables or disables channel",
-							set = 	function(info,value)
-								if(profile.sound.channel=="Master") then
-									SetCVar ("Sound_EnableAllSound", (value and 1 or 0))
+							set = function(info, value)
+								if (profile.sound.channel == "Master") then
+									SetCVar("Sound_EnableAllSound", (value and 1 or 0))
 								else
-									SetCVar ("Sound_Enable"..profile.sound.channel, (value and 1 or 0))
+									SetCVar("Sound_Enable" .. profile.sound.channel, (value and 1 or 0))
 								end
 							end,
-							get = 	function()
-								if(profile.sound.channel=="Master") then
-									return tonumber(GetCVar("Sound_EnableAllSound"))==1 and true or false
+							get = function()
+								if (profile.sound.channel == "Master") then
+									return tonumber(GetCVar("Sound_EnableAllSound")) == 1 and true or false
 								else
-									return tonumber(GetCVar("Sound_Enable"..profile.sound.channel))==1 and true or false
+									return tonumber(GetCVar("Sound_Enable" .. profile.sound.channel)) == 1 and true or false
 								end
 							end,
-							order = 7,
-						},
+							order = 7
+						}
 					}
 				}
 			}
@@ -316,7 +321,7 @@ local mainOptions = {
 			order = 2,
 			childGroups = "tab",
 			args = {}
-		},
+		}
 	}
 }
 
@@ -333,7 +338,9 @@ local spells = {
 			order = 1,
 			type = "select",
 			values = function(info)
-				local t = {[''] = "" }
+				local t = {
+					[''] = ""
+				}
 				for k, v in pairs(addon.ZONES) do
 					if k ~= info[2] then
 						t[k] = v.name
@@ -341,15 +348,21 @@ local spells = {
 				end
 				return t
 			end,
-			get = function(info) return profile.general.area[info[2]].copyZone end,
-			set = function(info, val) profile.general.area[info[2]].copyZone = val end,
+			get = function(info)
+				return profile.general.area[info[2]].copyZone
+			end,
+			set = function(info, val)
+				profile.general.area[info[2]].copyZone = val
+			end
 		},
 		copySelected = {
 			name = L["Copy"],
 			desc = L["Copy the selected area settings to this area"],
 			order = 2,
 			type = "execute",
-			disabled = function(info) return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == '' end,
+			disabled = function(info)
+				return not profile.general.area[info[2]].copyZone or profile.general.area[info[2]].copyZone == ''
+			end,
 			func = function(info)
 				local t = {}
 				local source = profile.general.area[info[2]].copyZone
@@ -360,7 +373,10 @@ local spells = {
 				profile.general.area[info[2]] = t
 				profile.general.area[info[2]].copyZone = nil
 			end,
-			confirm = function(info) return L["Copy Settings: "] .. addon.ZONES[profile.general.area[info[2]].copyZone].name .. " -> " .. addon.ZONES[info[2]].name end,
+			confirm = function(info)
+				return L["Copy Settings: "] .. addon.ZONES[profile.general.area[info[2]].copyZone].name .. " -> " ..
+										addon.ZONES[info[2]].name
+			end
 		},
 		clearAll = {
 			name = L["Clear All"],
@@ -385,10 +401,10 @@ local spells = {
 			order = 5,
 			type = "execute",
 			func = function(info)
-				if(not popUpSemaphore) then
+				if (not popUpSemaphore) then
 					popUpSemaphore = true
 					local dialog = StaticPopup_Show("VRA_IMPORT")
-					if(dialog) then
+					if (dialog) then
 						dialog.data = info[2]
 					else
 						print("Import failed, please join the Discord and make us aware this failed")
@@ -401,10 +417,10 @@ local spells = {
 			order = 6,
 			type = "execute",
 			func = function(info)
-				if(not popUpSemaphore) then
+				if (not popUpSemaphore) then
 					popUpSemaphore = true
 					local dialog = StaticPopup_Show("VRA_EXPORT")
-					if(dialog) then
+					if (dialog) then
 						local exportString = VRA.EXP:Serialize(profile.general.area[info[2]].spells)
 						dialog.editBox:SetText(exportString)
 						dialog.editBox:HighlightText()
