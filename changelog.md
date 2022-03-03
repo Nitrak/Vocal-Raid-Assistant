@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.2.5
+- Autopackaging libs (No end-user change)
+
 ## 2.2.4
 - Repackaged
 
