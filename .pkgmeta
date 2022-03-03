@@ -18,3 +18,5 @@ externals:
 
 ignore:
   - .editorconfig
+
+enable-nolib-creation: no
