@@ -8,7 +8,7 @@
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
 
-Libs\embeds.xml
+embeds.xml
 
 Locales\locales.xml
 
