@@ -20,3 +20,5 @@ ignore:
   - .editorconfig
 
 enable-nolib-creation: no
+
+manual-changelog: changelog.md
