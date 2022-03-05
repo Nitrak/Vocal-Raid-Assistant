@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.2.6
+- Fixed double-changelog causing extract errors
+
 ## 2.2.5
 - Autopackaging libs (No end-user change)
 
