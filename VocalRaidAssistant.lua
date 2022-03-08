@@ -114,7 +114,7 @@ function VRA:playSpell(spellID)
 									".ogg"
 	if soundFile then
 		local success = PlaySoundFile(soundFile, addon.SOUND_CHANNEL[profile.sound.channel])
-		if not success then
+		if not success and GetCVar("Sound_EnableAllSound") ~= "0" then
 			print(format("VRA - Missing soundfile for configured spell: %s", GetSpellInfo(spellID)))
 		end
 	end
