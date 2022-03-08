@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.2.7
+- Fixed errornous output when sound was disabled
+
 ## 2.2.6
 - Fixed double-changelog causing extract errors
 
