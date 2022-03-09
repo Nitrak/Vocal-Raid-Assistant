@@ -71,7 +71,8 @@ function VRA:OnInitialize()
 
 	if not pcall(ConfigCleanup,self.db) then
 		print(VRA.L["Config Cleaning Error Message"])
-		return
+		self.db:ResetDB("Default")
+		ConfigCleanup(self.db)
 	end
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
