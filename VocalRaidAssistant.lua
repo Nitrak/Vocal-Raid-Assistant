@@ -48,13 +48,13 @@ end
 
 local function ConfigCleanup(db)
 	for k, v in pairs(db.profiles) do
-		if v['version'] == nil or v['version'] < 2 then
+		if v['version'] == nil or v['version'] < addon.DATABASE_VERSION then
 			for key, _ in pairs(v) do
 				if addon.DEFAULTS.profile[key] == nil then
 					v[key] = nil
 				end
 			end
-			v.version = 2
+			v.version = addon.DATABASE_VERSION
 		end
 	end
 end
@@ -68,11 +68,9 @@ function VRA:OnInitialize()
 
 	-- Minimap Icon and Broker
 	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
-
 	if not pcall(ConfigCleanup,self.db) then
 		print(VRA.L["Config Cleaning Error Message"])
 		self.db:ResetDB("Default")
-		ConfigCleanup(self.db)
 	end
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
