@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+##2.2.8
+- Added error message ingame when Config is corrupt and needs to be deleted.
+
 ## 2.2.7
 - Fixed errornous output when sound was disabled
 
