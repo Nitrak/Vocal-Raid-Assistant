@@ -46,6 +46,19 @@ function VRA:InitializeOptions()
 	self.InitializeOptions = nil
 end
 
+local function ConfigCleanup(db)
+	for k, v in pairs(db.profiles) do
+		if v['version'] == nil or v['version'] < addon.DATABASE_VERSION then
+			for key, _ in pairs(v) do
+				if addon.DEFAULTS.profile[key] == nil then
+					v[key] = nil
+				end
+			end
+			v.version = addon.DATABASE_VERSION
+		end
+	end
+end
+
 function VRA:OnInitialize()
 	self.db = LibStub("AceDB-3.0"):New("VocalRaidAssistantDB", addon.DEFAULTS)
 	self.db.RegisterCallback(self, "OnProfileChanged", "ChangeProfile")
@@ -55,17 +68,9 @@ function VRA:OnInitialize()
 
 	-- Minimap Icon and Broker
 	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
-
-	-- Config cleanup
-	for k, v in pairs(self.db.profiles) do
-		if v['version'] == nil or v['version'] < 2 then
-			for key, _ in pairs(v) do
-				if addon.DEFAULTS.profile[key] == nil then
-					v[key] = nil
-				end
-			end
-			v.version = 2
-		end
+	if not pcall(ConfigCleanup,self.db) then
+		print(VRA.L["Config Cleaning Error Message"])
+		self.db:ResetDB("Default")
 	end
 
 	self.LDS:EnhanceDatabase(self.db, addonName)
