@@ -12,6 +12,22 @@ VRA.LDS = LibStub('LibDualSpec-1.0')
 VRA.ICON = LibStub("LibDBIcon-1.0")
 VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
 
+local L = GetLocale()
+local locales = {
+	ruRU = "Russian (ruRU)",
+	itIT = "Italian (itIT)",
+	koKR = "Korean (koKR)",
+	esES = "Spanish (esES)",
+	esMX = "Spanish (esMX)",
+	deDE = "German (deDE)",
+	ptBR = "Portuguese (ptBR)",
+	frFR = "French (frFR)",
+	--zhCN = "Chinese (zhCN)",
+}
+if locales[L] then
+	print(string.format("Vocal Raid Assistant is missing translations for %s. Can you help? Visit https://t.ly/U7fH or ask us on Discord for more info.",locales[L]))
+end
+
 local tostring = tostring
 local profile = {}
 local throttleTime
