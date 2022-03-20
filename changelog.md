@@ -1,7 +1,12 @@
 # Vocal Raid Assistant
 
+## 2.2.9
+- Cleaned up localization for enUS
+- Added support for Chinese localization (Thanks nanjuekaien1)
+- Made it easier to support VRA's localization for French (frFR), Italian (itIT), Korean (koKR), Chinese (zhCN), Spanish (esES), Spanish (esMX), German (deDE), Portuguese (ptBR) and Russian (ruRU)
+
 ## 2.2.8
-- Added error message ingame when Config is corrupt and needs to be deleted.
+- Added error message ingame when Config is corrupt and needs to be deleted
 
 ## 2.2.7
 - Fixed errornous output when sound was disabled
