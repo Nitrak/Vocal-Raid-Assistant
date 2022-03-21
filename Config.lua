@@ -83,7 +83,6 @@ local function setFilterValue(info, val)
 			profile.general.watchFor = bit.band(profile.general.watchFor, bit.bnot(filter))
 		end
 	end
-	WagoAnalytics:Switch("Hear own abilities",profile.general.watchFor == 1)
 end
 
 local function getFilterValue(info)
@@ -179,7 +178,6 @@ local mainOptions = {
 					end,
 					set = function(info, val)
 						profile.general.minimap.hide = not val
-						WagoAnalytics:Switch("Minimap Button", not profile.general.minimap.hide)
 						if profile.general.minimap.hide then
 							VRA.ICON:Hide(addonName)
 						else
@@ -225,7 +223,6 @@ local mainOptions = {
 							end,
 							set = function(info, val)
 								profile.general.onlySelf = val
-								WagoAnalytics:Switch("Only self", profile.general.onlySelf)
 							end,
 							order = 3
 						}
