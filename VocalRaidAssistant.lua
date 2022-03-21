@@ -11,6 +11,7 @@ VRA.EXP = LibStub("AceSerializer-3.0")
 VRA.LDS = LibStub('LibDualSpec-1.0')
 VRA.ICON = LibStub("LibDBIcon-1.0")
 VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
+VRA.WAGO = LibStub("WagoAnalytics"):Register("kRNLr8Ko")
 
 local L = GetLocale()
 local locales = {
@@ -92,6 +93,15 @@ function VRA:OnInitialize()
 	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
 	self:InitializeOptions()
+	
+	--Soundpack logging
+	for k,v in pairs(addon.SOUND_PACKS) do
+		VRA.WAGO:Switch("SP: "..v,k == profile.sound.soundpack)
+	end
+	--Sound channel logging
+	for k,v in pairs(addon.SOUND_CHANNEL) do
+		VRA.WAGO:Switch("SC: "..v,k == profile.sound.channel)
+	end
 end
 
 function VRA:ChangeProfile()
