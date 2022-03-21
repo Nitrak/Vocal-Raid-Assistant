@@ -3,7 +3,8 @@ if not L then return end
 
 --L["Abilities"] = "Abilities"
 --L["Adjusting the voice volume"] = "Adjusting the voice volume"
---L["Alert for"] = "Alert for"---L["Ambience"] = "Ambience"
+--L["Alert for"] = "Alert for"
+--L["Ambience"] = "Ambience"
 --L["Cancel"] = "Cancel"
 --L["Clear All"] = "Clear All"
 --L["Close"] = "Close"
