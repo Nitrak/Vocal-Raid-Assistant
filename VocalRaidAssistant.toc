@@ -9,7 +9,6 @@
 ## X-Wago-ID: kRNLr8Ko
 ## OptionalDependencies: WagoAnalytics
 
-libs/WagoAnalytics/Shim.lua
 embeds.xml
 
 Locales\locales.xml
