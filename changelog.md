@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.2.10
+- Added anonymous Wago Analytics for development purposes. It will track stuff such as voice pack selected, what channel you hear abilities through etc. This is FULLY OPTIONAL and is only tracking if both WagoApp is installed AND you have opted-in through their setting "Help addon developers"
+
 ## 2.2.9
 - Cleaned up localization for enUS
 - Added support for Chinese localization (Thanks nanjuekaien1)
