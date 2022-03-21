@@ -106,11 +106,11 @@ addon.SOUND_PACKS = {
 }
 
 addon.SOUND_CHANNEL = {
-	["Master"] = "Master",
-	["SFX"] = "Sound",
-	["Ambience"] = "Ambience",
-	["Music"] = "Music",
-	["Dialog"] = "Dialog"
+	["Master"] = L["Master"],
+	["SFX"] = L["Sound"],
+	["Ambience"] = L["Ambience"],
+	["Music"] = L["Music"],
+	["Dialog"] = L["Dialog"]
 }
 
 addon.FILTER_VALUES = {

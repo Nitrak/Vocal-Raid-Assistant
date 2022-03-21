@@ -25,7 +25,7 @@ local locales = {
 	--zhCN = "Chinese (zhCN)",
 }
 if locales[L] then
-	print(string.format("Vocal Raid Assistant is missing translations for %s. Can you help? Visit https://t.ly/U7fH or ask us on Discord for more info.",locales[L]))
+	print(string.format("Vocal Raid Assistant is missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
 end
 
 local tostring = tostring
