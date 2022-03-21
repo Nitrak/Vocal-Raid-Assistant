@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local L = VRA.L
+local WagoAnalytics = VRA.WAGO
 
 local tostring = tostring
 local profile = {}
@@ -13,6 +14,7 @@ StaticPopupDialogs["VRA_IMPORT"] = {
 	OnAccept = function(self, data, data2)
 		importSpellSelection(self.editBox:GetText(), data)
 		popUpSemaphore = false
+		WagoAnalytics:IncrementCounter("Import String")
 	end,
 	OnCancel = function(self, data, data2)
 		popUpSemaphore = false
@@ -28,6 +30,7 @@ StaticPopupDialogs["VRA_EXPORT"] = {
 	timeout = 0,
 	OnAccept = function(self, data, data2)
 		popUpSemaphore = false
+		WagoAnalytics:IncrementCounter("Export String")
 	end,
 	hasEditBox = true,
 	whileDead = true,
@@ -80,6 +83,7 @@ local function setFilterValue(info, val)
 			profile.general.watchFor = bit.band(profile.general.watchFor, bit.bnot(filter))
 		end
 	end
+	WagoAnalytics:Switch("Hear own abilities",profile.general.watchFor == 1)
 end
 
 local function getFilterValue(info)
@@ -175,6 +179,7 @@ local mainOptions = {
 					end,
 					set = function(info, val)
 						profile.general.minimap.hide = not val
+						WagoAnalytics:Switch("Minimap Button", not profile.general.minimap.hide)
 						if profile.general.minimap.hide then
 							VRA.ICON:Hide(addonName)
 						else
@@ -220,6 +225,7 @@ local mainOptions = {
 							end,
 							set = function(info, val)
 								profile.general.onlySelf = val
+								WagoAnalytics:Switch("Only self", profile.general.onlySelf)
 							end,
 							order = 3
 						}
@@ -372,6 +378,7 @@ local spells = {
 				end
 				profile.general.area[info[2]] = t
 				profile.general.area[info[2]].copyZone = nil
+				WagoAnalytics:IncrementCounter("Copy Settings")
 			end,
 			confirm = function(info)
 				return L["Copy Settings: "] .. addon.ZONES[profile.general.area[info[2]].copyZone].name .. " -> " ..
