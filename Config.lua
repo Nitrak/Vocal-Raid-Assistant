@@ -6,9 +6,9 @@ local profile = {}
 local popUpSemaphore = false
 
 StaticPopupDialogs["VRA_IMPORT"] = {
-	text = "Insert import string",
-	button1 = "Import",
-	button2 = "Cancel",
+	text = L["Insert import string"],
+	button1 = L["Import"],
+	button2 = L["Cancel"],
 	timeout = 0,
 	OnAccept = function(self, data, data2)
 		importSpellSelection(self.editBox:GetText(), data)
@@ -23,8 +23,8 @@ StaticPopupDialogs["VRA_IMPORT"] = {
 }
 
 StaticPopupDialogs["VRA_EXPORT"] = {
-	text = "Export string (Ctrl-C)",
-	button1 = "Close",
+	text = L["Export string (Ctrl-C)"],
+	button1 = L["Close"],
 	timeout = 0,
 	OnAccept = function(self, data, data2)
 		popUpSemaphore = false
@@ -49,7 +49,7 @@ local function spellOption(spellID)
 	else
 		return {
 			type = 'toggle',
-			name = "unknown spell, id:" .. spellID
+			name = L["unknown spell, id:"] .. spellID
 		}
 	end
 end
@@ -294,7 +294,7 @@ local mainOptions = {
 								return profile.sound.channel .. " channel"
 							end,
 							width = "double",
-							desc = "Enables or disables channel",
+							desc = L["Enables or disables channel"],
 							set = function(info, value)
 								if (profile.sound.channel == "Master") then
 									SetCVar("Sound_EnableAllSound", (value and 1 or 0))
