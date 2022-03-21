@@ -76,6 +76,27 @@ local function ConfigCleanup(db)
 	end
 end
 
+--- Function to aggregate analytics for boolean settings
+-- Instead of monitoring every change made, once a client loads in or
+-- a reload has occurred the settings will be logged if the player
+-- has opted into the Wago Analytics in the WagoApp.
+local function VRAAnalytics(addon, profile)
+	--Soundpack
+	for k,v in pairs(addon.SOUND_PACKS) do
+		VRA.WAGO:Switch("SP: "..v,k == profile.sound.soundpack)
+	end
+	
+	--Sound channel
+	for k,v in pairs(addon.SOUND_CHANNEL) do
+		VRA.WAGO:Switch("SC: "..v,k == profile.sound.channel)
+	end
+	
+	--Settings
+	VRA.WAGO:Switch("Hear own abilities",profile.general.watchFor == 1)
+	VRA.WAGO:Switch("Minimap Button", not profile.general.minimap.hide)
+	VRA.WAGO:Switch("Only self", profile.general.onlySelf)
+end
+
 function VRA:OnInitialize()
 	self.db = LibStub("AceDB-3.0"):New("VocalRaidAssistantDB", addon.DEFAULTS)
 	self.db.RegisterCallback(self, "OnProfileChanged", "ChangeProfile")
@@ -94,14 +115,7 @@ function VRA:OnInitialize()
 	self:InitConfigOptions()
 	self:InitializeOptions()
 	
-	--Soundpack logging
-	for k,v in pairs(addon.SOUND_PACKS) do
-		VRA.WAGO:Switch("SP: "..v,k == profile.sound.soundpack)
-	end
-	--Sound channel logging
-	for k,v in pairs(addon.SOUND_CHANNEL) do
-		VRA.WAGO:Switch("SC: "..v,k == profile.sound.channel)
-	end
+	VRAAnalytics(addon,profile)
 end
 
 function VRA:ChangeProfile()
