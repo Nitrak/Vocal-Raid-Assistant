@@ -293,6 +293,7 @@ local spellList = {
 		[178207] =	{ name = "Drums", phonetic_name = "", type = "offensive"}, -- Drums of Fury
 		[323436] =	{ name = "Purify Soul", phonetic_name = "", type = "covenant"},
 		[324631] =	{ name = "Fleshcraft", phonetic_name = "", type = "covenant"},
+		[348477] =	{ name = "Engineer Battleress", phonetic_name = "Engineer Battelress", type = "other"},
 	},
 	["TRINKET"] = {
 		-- pvp
