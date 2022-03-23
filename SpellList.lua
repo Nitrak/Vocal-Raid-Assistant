@@ -236,6 +236,7 @@ local spellList = {
 		[79206] =	{ name = "Spiritwalker", phonetic_name = "", type = "counterCC"}, -- Spiritwalker's Grace
 		[98008] =	{ name = "Spirit Link", phonetic_name = "", type = "raidDefensive"}, -- -- Spirit Link Totem
 		[108271] =	{ name = "Astral Shift", phonetic_name = "", type = "defensive"},
+		[108281] =	{ name = "Ancestral Guidance", phonetic_name = "Ancestral Guiadence", type = "defensive"},
 		[108280] =	{ name = "Healing Tide", phonetic_name = "", type = "raidDefensive"},	-- Healing Tide Totem,
 		[114052] =	{ name = "Ascendance", phonetic_name = "", type = "offensive"},
 		[191634] =	{ name = "Stormkeeper", phonetic_name = "", type = "offensive"},
