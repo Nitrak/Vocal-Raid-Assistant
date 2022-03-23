@@ -165,10 +165,10 @@ addon.PRIORITY = {
 }
 
 addon.CATEGORY = {
-	["covenant"] = L["Covenant"],
 	["pvptrinket"] = L["PvP Trinket"],
 	["racial"] = L["Racial Traits"],
 	["trinket"] = INVTYPE_TRINKET,
+	["covenant"] = L["Covenant"],
 	["interrupt"] = LOC_TYPE_INTERRUPT,
 	["dispel"] = DISPELS,
 	["cc"] = L["Crowd Control"],
