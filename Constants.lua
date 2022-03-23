@@ -148,19 +148,19 @@ addon.ZONES = {
 addon.PRIORITY = {
 	"covenant",
 	"racial",
-	"trinket",
-	"pvptrinket",
 	"interrupt",
-	"dispel",
-	"cc",
-	"disarm",
-	"immunity",
+	"raidDefensive",
 	"externalDefensive",
 	"defensive",
-	"raidDefensive",
+	"immunity",
 	"offensive",
+	"dispel",
+	"cc",
 	"counterCC",
+	"disarm",
 	"raidMovement",
+	"trinket",
+	"pvptrinket",
 	"other"
 }
 
