@@ -241,6 +241,7 @@ local spellList = {
 		[191634] =	{ name = "Stormkeeper", phonetic_name = "", type = "offensive"},
 		[192058] =	{ name = "Capacitor Totem", phonetic_name = "", type = "cc"},
 		[192077] =	{ name = "Wind Rush", phonetic_name = "", type = "raidMovement"}, -- Wind Rush Totem
+		[198103] =  { name = "Earth Elemental", phonetic_name = "", type = "other" },
 		[198838] =	{ name = "Earthen Wall Totem", phonetic_name = "", type = "defensive"},
 		[207399] =	{ name = "Ancestral Protection", phonetic_name = "", type = "defensive"}, -- Ancestral Protection Totem,
 		[320137] =	{ name = "Stormkeeper", phonetic_name = "", type = "offensive"},
