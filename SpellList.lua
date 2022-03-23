@@ -56,7 +56,7 @@ local spellList = {
 	},
 	["DRUID"] = {
 		[740] =		{ name = "Tranquility", phonetic_name = "", type = "raidDefensive"},
-		[2908] =	{ name = "Soothe", phonetic_name = "", type = "other"},
+		[2908] =	{ name = "Soothe", phonetic_name = "", type = "dispel"},
 		[5211] =	{ name = "Bash", phonetic_name = "", type = "cc"}, -- Mighty Bash
 		[20484] =	{ name = "Rebirth", phonetic_name = "", type = "other"},
 		[22812] =	{ name = "Barkskin", phonetic_name = "", type = "defensive"},
@@ -211,13 +211,14 @@ local spellList = {
 		[319952] =	{ name = "Madness", phonetic_name = "", type = "offensive"}, -- Surrender to Madness
 		[323673] =	{ name = "Mind Games", phonetic_name = "", type = "covenant"},
 		[324724] =	{ name = "Unholy Nova", phonetic_name = "", type = "covenant"},
-		[325013] =	{ name = "Boon of the Ascended", phonetic_name = "", type = "covenant"}
+		[325013] =	{ name = "Boon of the Ascended", phonetic_name = "", type = "covenant"},
 		[327661] =	{ name = "Fae Guardians", phonetic_name = "Fei Guardians", type = "covenant"}
 	},
 	["ROGUE"] = {
 		[1966] =	{ name = "Feint", phonetic_name = "", type = "defensive"},
 		[2094] =	{ name = "Blind", phonetic_name = "", type = "cc"},
 		[5277] =	{ name = "Evasion", phonetic_name = "", type = "defensive"},
+		[5938] =	{ name = "Shiv", phonetic_name = "", type = "dispel"},
 		[13750] =	{ name = "Adrenaline Rush", phonetic_name = "", type = "offensive"},
 		[31224] =	{ name = "Cloak of Shadows", phonetic_name = "", type = "defensive"},
 		[51690] =	{ name = "Killing Spree", phonetic_name = "", type = "offensive"},

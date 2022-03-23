@@ -160,7 +160,7 @@ function VRA:playSpell(spellID)
 	if soundFile then
 		local success = PlaySoundFile(soundFile, addon.SOUND_CHANNEL[profile.sound.channel])
 		if not success and GetCVar("Sound_EnableAllSound") ~= "0" then
-			print(format("VRA - Missing soundfile for configured spell: %s", GetSpellInfo(spellID)))
+			print(format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID),profile.sound.soundpack))
 		end
 	end
 end
