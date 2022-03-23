@@ -212,6 +212,7 @@ local spellList = {
 		[323673] =	{ name = "Mind Games", phonetic_name = "", type = "covenant"},
 		[324724] =	{ name = "Unholy Nova", phonetic_name = "", type = "covenant"},
 		[325013] =	{ name = "Boon of the Ascended", phonetic_name = "", type = "covenant"}
+		[327661] =	{ name = "Fae Guardians", phonetic_name = "Fei Guardians", type = "covenant"}
 	},
 	["ROGUE"] = {
 		[1966] =	{ name = "Feint", phonetic_name = "", type = "defensive"},
