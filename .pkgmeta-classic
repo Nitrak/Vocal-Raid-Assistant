@@ -2,7 +2,6 @@ package-as: VocalRaidAssistant
 
 externals:
   Libs/LibStub: https://repos.wowace.com/wow/libstub/trunk
-  Libs/LibDualSpec-1.0: git://git.wowace.com/wow/libdualspec-1-0/mainline.git
   Libs/LibDataBroker-1-1: https://repos.wowace.com/wow/libdatabroker-1-1
   Libs/CallbackHandler-1.0: https://repos.wowace.com/wow/callbackhandler/trunk/CallbackHandler-1.0
   Libs/AceAddon-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceAddon-3.0
@@ -19,14 +18,14 @@ externals:
 
 ignore:
   - .editorconfig
-  - SpellList-Classic.lua
+  - SpellList.lua
   - SpellList-BCC.lua
-  - VocalRaidAssistant-Classic.toc
+  - VocalRaidAssistant.toc
   - VocalRaidAssistant-BCC.toc
-  - Constants-Classic.toc
-  - Constants-BCC.toc
-  - Helper-Classic.toc
-  - Helper-BCC.toc
+  - Constants.lua
+  - Constants-BCC.lua
+  - Helper.lua
+  - Helper-BCC.lua
 
 enable-nolib-creation: no
 

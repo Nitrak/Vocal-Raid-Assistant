@@ -1,4 +1,4 @@
-## Interface: 90200
+## Interface-BCC: 20504
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
@@ -14,7 +14,7 @@ embeds.xml
 Locales\locales.xml
 
 VocalRaidAssistant.lua
-Constants.lua
-SpellList.lua
+Constants-BCC.lua
+SpellList-BCC.lua
 Config.lua
-Helper.lua
+Helper-BCC.lua

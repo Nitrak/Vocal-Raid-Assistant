@@ -7,6 +7,12 @@ on:
     tags:
       - '*'
 
+env:
+    CF_API_KEY: ${{ secrets.CF_API_KEY }}
+    WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
+    WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+    GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,8 +25,14 @@ jobs:
 
       - name: Package
         uses: BigWigsMods/packager@master
-        env:
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
-          WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
-          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
-          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+        
+          
+      - name: Package Classic
+        uses: BigWigsMods/packager@master
+        with:
+          args: -g classic -m .pkgmeta-classic
+          
+      - name: Package BCC
+        uses: BigWigsMods/packager@master
+        with:
+          args: -g bc -m .pkgmeta-bc
