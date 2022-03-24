@@ -26,11 +26,12 @@ jobs:
       - name: Package
         uses: BigWigsMods/packager@master
         
+          
       - name: Package Classic
         uses: BigWigsMods/packager@master
         with:
           args: -g classic -m .pkgmeta-classic
-        
+          
       - name: Package BCC
         uses: BigWigsMods/packager@master
         with:
