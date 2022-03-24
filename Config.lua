@@ -74,7 +74,7 @@ local function createOptionsForClass(class)
 			args[v.type] = args[v.type] or {
 				name = addon.CATEGORY[v.type],
 				type = 'group',
-				order = indexOf(addon.PRIORITY,v.type),
+				order = indexOf(addon.CATEGORY_SORT_ORDER,v.type),
 				inline = true,
 				args = {}
 			}

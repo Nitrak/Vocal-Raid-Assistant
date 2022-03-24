@@ -145,7 +145,7 @@ addon.ZONES = {
 	}
 }
 
-addon.PRIORITY = {
+addon.CATEGORY_SORT_ORDER = {
 	"covenant",
 	"racial",
 	"interrupt",
