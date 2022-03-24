@@ -6,6 +6,15 @@ local tostring = tostring
 local profile = {}
 local popUpSemaphore = false
 
+local function indexOf(array, value)
+    for i, v in ipairs(array) do
+        if v == value then
+            return i
+        end
+    end
+    return nil
+end
+
 StaticPopupDialogs["VRA_IMPORT"] = {
 	text = L["Insert import string"],
 	button1 = L["Import"],
@@ -63,8 +72,9 @@ local function createOptionsForClass(class)
 	if (spellList ~= nil) then
 		for spellID, v in pairs(spellList) do
 			args[v.type] = args[v.type] or {
-				name = addon.PRIORITY[v.type],
+				name = addon.CATEGORY[v.type],
 				type = 'group',
+				order = indexOf(addon.CATEGORY_SORT_ORDER,v.type),
 				inline = true,
 				args = {}
 			}
