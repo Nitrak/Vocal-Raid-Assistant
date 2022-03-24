@@ -159,7 +159,8 @@ addon.CATEGORY_SORT_ORDER = {
 	"counterCC",
 	"disarm",
 	"raidMovement",
-	"trinket",
+	"trinket-offensive",
+	"trinket-defensive",
 	"pvptrinket",
 	"other"
 }
@@ -167,7 +168,8 @@ addon.CATEGORY_SORT_ORDER = {
 addon.CATEGORY = {
 	["pvptrinket"] = L["PvP Trinket"],
 	["racial"] = L["Racial Traits"],
-	["trinket"] = INVTYPE_TRINKET,
+	["trinket-defensive"] = L["Defensive"].." "..INVTYPE_TRINKET,
+	["trinket-offensive"] = L["Offensive"].." "..INVTYPE_TRINKET,
 	["covenant"] = L["Covenant"],
 	["interrupt"] = LOC_TYPE_INTERRUPT,
 	["dispel"] = DISPELS,

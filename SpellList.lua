@@ -299,11 +299,11 @@ local spellList = {
 		[345228] =	{ name = "Badge of Ferocity", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Badge of Ferocity 175921
 		[345231] =	{ name = "Emblem", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Emblem 178447
 		-- pve
-		[329840] =	{ name = "Blood-Spattered Scale", phonetic_name = "", type = "trinket"}, -- Blood-Spattered Scale 179331
-		[344907] =	{ name = "Splintered Heart", phonetic_name = "", type = "trinket"}, -- Splintered Heart of Al'ar 184018
-		[345801] =	{ name = "Soulletting Ruby", phonetic_name = "", type = "trinket"}, -- Soulletting Ruby 178809
-		[348139] = 	{ name = "Divine Bell", phonetic_name = "", type = "trinket" }, -- Instructor's Divine Bell 184842
-		[358712] =	{ name = "Aegis", phonetic_name = "", type = "trinket"}, -- Shard of Annhylde's Aegis 186424
+		[329840] =	{ name = "Blood-Spattered Scale", phonetic_name = "", type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
+		[344907] =	{ name = "Splintered Heart", phonetic_name = "", type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
+		[345801] =	{ name = "Soulletting Ruby", phonetic_name = "", type = "trinket-defensive"}, -- Soulletting Ruby 178809
+		[348139] = 	{ name = "Divine Bell", phonetic_name = "", type = "trinket-offensive" }, -- Instructor's Divine Bell 184842
+		[358712] =	{ name = "Aegis", phonetic_name = "", type = "trinket-defensive"}, -- Shard of Annhylde's Aegis 186424
 	}
 }
 
