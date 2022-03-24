@@ -1,9 +1,9 @@
-## Interface: 90200
+## Interface-Classic: 11402
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 2.2.10
+## Version: 2.3.0
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
@@ -14,7 +14,7 @@ embeds.xml
 Locales\locales.xml
 
 VocalRaidAssistant.lua
-Constants.lua
-SpellList.lua
+Constants-Classic.lua
+SpellList-Classic.lua
 Config.lua
-Helper.lua
+Helper-Classic.lua
