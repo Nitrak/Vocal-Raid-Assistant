@@ -537,9 +537,7 @@ end
 function addon:InitConfigOptions()
 	profile = addon.db.profile
 	mainOptions.args.profiles = self.ACDBO:GetOptionsTable(self.db)
-	if(not self:IsClassic() and not self:IsBCC()) then
-		addon.LDS:EnhanceOptions(mainOptions.args.profiles, self.db)
-	end
+	addon.LDS:EnhanceOptions(mainOptions.args.profiles, self.db)
 	addon.AC:RegisterOptionsTable("VocalRaidAssistantConfig", mainOptions)
 	addon.ACD:SetDefaultSize("VocalRaidAssistantConfig", 965, 650)
 end

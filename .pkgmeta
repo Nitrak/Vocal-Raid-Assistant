@@ -19,14 +19,6 @@ externals:
 
 ignore:
   - .editorconfig
-  - SpellList-Classic.lua
-  - SpellList-BCC.lua
-  - VocalRaidAssistant-Classic.toc
-  - VocalRaidAssistant-BCC.toc
-  - Constants-Classic.toc
-  - Constants-BCC.toc
-  - Helper-Classic.toc
-  - Helper-BCC.toc
 
 enable-nolib-creation: no
 

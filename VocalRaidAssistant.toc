@@ -17,4 +17,3 @@ VocalRaidAssistant.lua
 Constants.lua
 SpellList.lua
 Config.lua
-Helper.lua

@@ -8,7 +8,7 @@ VRA.ACD = LibStub("AceConfigDialog-3.0")
 VRA.ACR = LibStub("AceConfigRegistry-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
 VRA.EXP = LibStub("AceSerializer-3.0")
-VRA.LDS = nil
+VRA.LDS = LibStub('LibDualSpec-1.0')
 VRA.ICON = LibStub("LibDBIcon-1.0")
 VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
 VRA.WAGO = LibStub("WagoAnalytics"):Register("kRNLr8Ko")
@@ -111,11 +111,7 @@ function VRA:OnInitialize()
 		self.db:ResetDB("Default")
 	end
 
-	if(not self:IsClassic() and not self:IsBCC()) then
-		self.LDS = LibStub('LibDualSpec-1.0')
-		self.LDS:EnhanceDatabase(self.db, addonName)
-	end
-
+	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
 	self:InitializeOptions()
 	
