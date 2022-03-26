@@ -365,7 +365,7 @@ function addon:GetAllSpellIds()
 	return spells
 end
 
-function addon:GetSpellIdsByClass(name)
-	return spellList[name]
+function addon:GetSpellEntries(category)
+	return spellList[category]
 end
 

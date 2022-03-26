@@ -66,8 +66,8 @@ local function spellOption(spellID)
 	end
 end
 
-local function createOptionsForClass(class)
-	local spellList = addon:GetSpellIdsByClass(class)
+local function createOptionsForCategory(category)
+	local spellList = addon:GetSpellEntries(category)
 	local args = {}
 	if (spellList ~= nil) then
 		for spellID, v in pairs(spellList) do
@@ -127,6 +127,23 @@ local function clearAll(area)
 		profile.general.area[area].spells[k] = false
 	end
 	profile.general.area[area].enableInterrupts = false
+end
+
+local function createSpellCategory(category, name, icon, order)
+	return {
+		icon = nil or icon,
+		iconCoords = (icon ~= nil) and borderlessCoords or nil,
+		name = name,
+		order = nil or order,
+		type = "group",
+		get = function(info)
+			return getSpellOption(info)
+		end,
+		set = function(info, val)
+			setSpellOption(info, val)
+		end,
+		args = createOptionsForCategory(category)
+	}
 end
 
 function importSpellSelection(importString, area)
@@ -467,44 +484,21 @@ local spells = {
 	}
 }
 
-for i = 1, MAX_CLASSES do
-	local class = CLASS_SORT_ORDER[i]
-	local name = LOCALIZED_CLASS_NAMES_MALE[class]
-	spells.args[class] = {
-		icon = "Interface\\Icons\\ClassIcon_" .. class,
-		iconCoords = borderlessCoords,
-		name = name,
-		type = "group",
-		get = function(info)
-			return getSpellOption(info)
-		end,
-		set = function(info, val)
-			setSpellOption(info, val)
-		end,
-		args = createOptionsForClass(class)
-	}
-end
 
 local additionalSpellCategories = {
-	["TRINKET"] = "Trinket",
-	["GENERAL"] = "General"
+	["TRINKET"] = L["Trinket"],
+	["GENERAL"] = L["General"],
 }
 
 for k, v in pairs(additionalSpellCategories) do
-	local i = 1
-	spells.args[k] = {
-		name = L[v],
-		order = i,
-		type = "group",
-		get = function(info)
-			return getSpellOption(info)
-		end,
-		set = function(info, val)
-			setSpellOption(info, val)
-		end,
-		args = createOptionsForClass(k)
-	}
-	i = i + 1
+	spells.args[k] = createSpellCategory(k, v, nil, 0)
+end
+
+for i = 1, MAX_CLASSES do
+	local class = CLASS_SORT_ORDER[i]
+	local name = LOCALIZED_CLASS_NAMES_MALE[class]
+	local icon = "Interface\\Icons\\ClassIcon_" .. class
+	spells.args[class] = createSpellCategory(class, name, icon, i)
 end
 
 for k, v in pairs(addon.ZONES) do
