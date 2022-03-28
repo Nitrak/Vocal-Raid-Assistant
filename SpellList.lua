@@ -310,6 +310,7 @@ addon.interruptList = {
 	[2139] =		{ name = "countered!" }, -- Counter Spell
 	[1766] =		{ name = "countered!" }, -- Kick
 	[6552] =		{ name = "countered!" }, -- Pummel
+	[15487] =		{ name = "countered!" }, -- 沉默
 	[19647] =		{ name = "countered!" }, -- Spell Lock
 	[34490] =		{ name = "countered!" }, -- Silencing Shot
 	[47528] =		{ name = "countered!" }, -- Mind Freeze
