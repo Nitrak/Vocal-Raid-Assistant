@@ -486,8 +486,8 @@ local spells = {
 
 
 local additionalSpellCategories = {
-	["TRINKET"] = L["Trinket"],
-	["GENERAL"] = L["General"],
+	["TRINKET"] = INVTYPE_TRINKET,
+	["GENERAL"] = L["General Spells"],
 }
 
 for k, v in pairs(additionalSpellCategories) do
