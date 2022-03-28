@@ -259,7 +259,7 @@ local mainOptions = {
 						playButton = {
 							type = 'execute',
 							name = L["Test"],
-							func = function
+							func = function()
 								addon:playSpell("740")
 							end,
 							order = 2
