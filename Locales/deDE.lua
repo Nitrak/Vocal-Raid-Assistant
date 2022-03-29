@@ -55,7 +55,6 @@ L["Select the area you want to copy settings from"] = "Zone auswählen, deren Ei
 L["The minimum interval between two alerts in seconds"] = "Das minimale Interval zwischen zwei verschiedenen Sounds in Sekunden"
 L["Throttle"] = "Begrenzen"
 --L["Throttle"] = "Throttle"
---L["Trinket"] = "Trinket"
 L["Type /vra open the option panel"] = "Gib /vra ein, um das Konfigurationsmenü zu öffnen"
 L["unknown spell, id:"] = "Unbekannter Zauber, Id:"
 L["Voice"] = "Stimme"
