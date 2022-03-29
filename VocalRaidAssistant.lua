@@ -15,8 +15,8 @@ VRA.WAGO = LibStub("WagoAnalytics"):Register("kRNLr8Ko")
 
 local L = GetLocale()
 local locales = {
-	ruRU = "Russian (ruRU)",
-	itIT = "Italian (itIT)",
+	--ruRU = "Russian (ruRU)",
+	--itIT = "Italian (itIT)",
 	koKR = "Korean (koKR)",
 	esES = "Spanish (esES)",
 	esMX = "Spanish (esMX)",
@@ -87,7 +87,14 @@ local function VRAAnalytics(addon, profile)
 	end
 	
 	--Sound channel
-	for k,v in pairs(addon.SOUND_CHANNEL) do
+	local soundChannels = {
+		["Master"] = "Master",
+		["SFX"] = "Sound",
+		["Ambience"] = "Ambience",
+		["Music"] = "Music",
+		["Dialog"] = "Dialog"
+	}
+	for k,v in pairs(soundChannels) do
 		VRA.WAGO:Switch("SC: "..v,k == profile.sound.channel)
 	end
 	
