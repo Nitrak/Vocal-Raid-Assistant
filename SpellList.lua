@@ -211,12 +211,14 @@ local spellList = {
 		[319952] =	{ name = "Madness", phonetic_name = "", type = "offensive"}, -- Surrender to Madness
 		[323673] =	{ name = "Mind Games", phonetic_name = "", type = "covenant"},
 		[324724] =	{ name = "Unholy Nova", phonetic_name = "", type = "covenant"},
-		[325013] =	{ name = "Boon of the Ascended", phonetic_name = "", type = "covenant"}
+		[325013] =	{ name = "Boon of the Ascended", phonetic_name = "", type = "covenant"},
+		[327661] =	{ name = "Fae Guardians", phonetic_name = "", type = "covenant"}, --法夜守护者
 	},
 	["ROGUE"] = {
 		[1966] =	{ name = "Feint", phonetic_name = "", type = "defensive"},
 		[2094] =	{ name = "Blind", phonetic_name = "", type = "cc"},
 		[5277] =	{ name = "Evasion", phonetic_name = "", type = "defensive"},
+		[5938] =	{ name = "Shiv", phonetic_name = "", type = "offensive"}, --毒刃
 		[13750] =	{ name = "Adrenaline Rush", phonetic_name = "", type = "offensive"},
 		[31224] =	{ name = "Cloak of Shadows", phonetic_name = "", type = "defensive"},
 		[51690] =	{ name = "Killing Spree", phonetic_name = "", type = "offensive"},
@@ -237,10 +239,12 @@ local spellList = {
 		[98008] =	{ name = "Spirit Link", phonetic_name = "", type = "raidDefensive"}, -- -- Spirit Link Totem
 		[108271] =	{ name = "Astral Shift", phonetic_name = "", type = "defensive"},
 		[108280] =	{ name = "Healing Tide", phonetic_name = "", type = "raidDefensive"},	-- Healing Tide Totem,
+		[108281] =	{ name = "Ancestral Guidance", phonetic_name = "", type = "other"},  --先祖指引
 		[114052] =	{ name = "Ascendance", phonetic_name = "", type = "offensive"},
 		[191634] =	{ name = "Stormkeeper", phonetic_name = "", type = "offensive"},
 		[192058] =	{ name = "Capacitor Totem", phonetic_name = "", type = "cc"},
 		[192077] =	{ name = "Wind Rush", phonetic_name = "", type = "raidMovement"}, -- Wind Rush Totem
+		[198103] =	{ name = "Earth Elemental", phonetic_name = "", type = "other"}, -- 土元素
 		[198838] =	{ name = "Earthen Wall Totem", phonetic_name = "", type = "defensive"},
 		[207399] =	{ name = "Ancestral Protection", phonetic_name = "", type = "defensive"}, -- Ancestral Protection Totem,
 		[320137] =	{ name = "Stormkeeper", phonetic_name = "", type = "offensive"},
@@ -289,6 +293,7 @@ local spellList = {
 		[178207] =	{ name = "Drums", phonetic_name = "", type = "offensive"}, -- Drums of Fury
 		[323436] =	{ name = "Purify Soul", phonetic_name = "", type = "covenant"},
 		[324631] =	{ name = "Fleshcraft", phonetic_name = "", type = "covenant"},
+		[348477] =	{ name = "Disposable Spectrophasic Reanimator", phonetic_name = "", type = "offensive"},  --复生装置
 	},
 	["TRINKET"] = {
 		-- pvp
