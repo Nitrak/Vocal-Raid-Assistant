@@ -53,7 +53,6 @@ if not L then return end
 --L["Test"] = "Test"
 --L["The minimum interval between two alerts in seconds"] = "The minimum interval between two alerts in seconds"
 --L["Throttle"] = "Throttle"
---L["Throttle"] = "Throttle"
 --L["Type /vra open the option panel"] = "Type /vra open the option panel"
 --L["unknown spell, id:"] = "unknown spell, id:"
 --L["Voice"] = "Voice"
