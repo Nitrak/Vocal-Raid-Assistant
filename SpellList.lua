@@ -56,7 +56,7 @@ local spellList = {
 	},
 	["DRUID"] = {
 		[740] =		{ name = "Tranquility", phonetic_name = "", type = "raidDefensive"},
-		[2908] =	{ name = "Soothe", phonetic_name = "", type = "other"},
+		[2908] =	{ name = "Soothe", phonetic_name = "", type = "dispel"},
 		[5211] =	{ name = "Bash", phonetic_name = "", type = "cc"}, -- Mighty Bash
 		[20484] =	{ name = "Rebirth", phonetic_name = "", type = "other"},
 		[22812] =	{ name = "Barkskin", phonetic_name = "", type = "defensive"},
@@ -67,7 +67,7 @@ local spellList = {
 		[50334] =	{ name = "Berserk", phonetic_name = "", type = "offensive"},
 		[61336] =	{ name = "Survival Instincts", phonetic_name = "", type = "defensive"},
 		[77761] =	{ name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar bear
-		[77764] =	{ name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar cat
+		-- [77764] =	{ name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar cat
 		[78675] =	{ name = "Solar Beam", phonetic_name = "", type = "interrupt"},
 		[80313] =	{ name = "Pulverize", phonetic_name = "", type = "defensive"},
 		[102342] =	{ name = "Iron Bark", phonetic_name = "", type = "externalDefensive"},
@@ -77,7 +77,7 @@ local spellList = {
 		[106951] =	{ name = "Berserk", phonetic_name = "", type = "offensive"},
 		[108238] =	{ name = "Renewal", phonetic_name = "", type = "defensive"},
 		[155835] =	{ name = "Bristling Fur", phonetic_name = "", type = "defensive"},
-		[106898] =	{ name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar
+		-- [106898] =	{ name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar
 		[194223] =	{ name = "Celestial Alignment", phonetic_name = "", type = "offensive"},
 		[197721] =	{ name = "Flourish", phonetic_name = "", type = "offensive"},
 		[202246] =	{ name = "Overrun", phonetic_name = "", type = "cc"},
@@ -211,12 +211,14 @@ local spellList = {
 		[319952] =	{ name = "Madness", phonetic_name = "", type = "offensive"}, -- Surrender to Madness
 		[323673] =	{ name = "Mind Games", phonetic_name = "", type = "covenant"},
 		[324724] =	{ name = "Unholy Nova", phonetic_name = "", type = "covenant"},
-		[325013] =	{ name = "Boon of the Ascended", phonetic_name = "", type = "covenant"}
+		[325013] =	{ name = "Boon of the Ascended", phonetic_name = "", type = "covenant"},
+		[327661] =	{ name = "Fae Guardians", phonetic_name = "Fei Guardians", type = "covenant"}
 	},
 	["ROGUE"] = {
 		[1966] =	{ name = "Feint", phonetic_name = "", type = "defensive"},
 		[2094] =	{ name = "Blind", phonetic_name = "", type = "cc"},
 		[5277] =	{ name = "Evasion", phonetic_name = "", type = "defensive"},
+		[5938] =	{ name = "Shiv", phonetic_name = "", type = "dispel"},
 		[13750] =	{ name = "Adrenaline Rush", phonetic_name = "", type = "offensive"},
 		[31224] =	{ name = "Cloak of Shadows", phonetic_name = "", type = "defensive"},
 		[51690] =	{ name = "Killing Spree", phonetic_name = "", type = "offensive"},
@@ -236,11 +238,13 @@ local spellList = {
 		[79206] =	{ name = "Spiritwalker", phonetic_name = "", type = "counterCC"}, -- Spiritwalker's Grace
 		[98008] =	{ name = "Spirit Link", phonetic_name = "", type = "raidDefensive"}, -- -- Spirit Link Totem
 		[108271] =	{ name = "Astral Shift", phonetic_name = "", type = "defensive"},
+		[108281] =	{ name = "Ancestral Guidance", phonetic_name = "Ancestral Guiadence", type = "defensive"},
 		[108280] =	{ name = "Healing Tide", phonetic_name = "", type = "raidDefensive"},	-- Healing Tide Totem,
 		[114052] =	{ name = "Ascendance", phonetic_name = "", type = "offensive"},
 		[191634] =	{ name = "Stormkeeper", phonetic_name = "", type = "offensive"},
 		[192058] =	{ name = "Capacitor Totem", phonetic_name = "", type = "cc"},
 		[192077] =	{ name = "Wind Rush", phonetic_name = "", type = "raidMovement"}, -- Wind Rush Totem
+		[198103] =  { name = "Earth Elemental", phonetic_name = "", type = "other" },
 		[198838] =	{ name = "Earthen Wall Totem", phonetic_name = "", type = "defensive"},
 		[207399] =	{ name = "Ancestral Protection", phonetic_name = "", type = "defensive"}, -- Ancestral Protection Totem,
 		[320137] =	{ name = "Stormkeeper", phonetic_name = "", type = "offensive"},
@@ -289,6 +293,7 @@ local spellList = {
 		[178207] =	{ name = "Drums", phonetic_name = "", type = "offensive"}, -- Drums of Fury
 		[323436] =	{ name = "Purify Soul", phonetic_name = "", type = "covenant"},
 		[324631] =	{ name = "Fleshcraft", phonetic_name = "", type = "covenant"},
+		[348477] =	{ name = "Reanimator", phonetic_name = "Re-animator", type = "other"},
 	},
 	["TRINKET"] = {
 		-- pvp
@@ -298,18 +303,19 @@ local spellList = {
 		[345228] =	{ name = "Badge of Ferocity", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Badge of Ferocity 175921
 		[345231] =	{ name = "Emblem", phonetic_name = "", type = "pvptrinket" }, -- Sinful Gladiator's Emblem 178447
 		-- pve
-		[329840] =	{ name = "Blood-Spattered Scale", phonetic_name = "", type = "trinket"}, -- Blood-Spattered Scale 179331
-		[344907] =	{ name = "Splintered Heart", phonetic_name = "", type = "trinket"}, -- Splintered Heart of Al'ar 184018
-		[345801] =	{ name = "Soulletting Ruby", phonetic_name = "", type = "trinket"}, -- Soulletting Ruby 178809
-		[348139] = 	{ name = "Divine Bell", phonetic_name = "", type = "trinket" }, -- Instructor's Divine Bell 184842
-		[358712] =	{ name = "Aegis", phonetic_name = "", type = "trinket"}, -- Shard of Annhylde's Aegis 186424
+		[329840] =	{ name = "Blood-Spattered Scale", phonetic_name = "", type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
+		[344907] =	{ name = "Splintered Heart", phonetic_name = "", type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
+		[345801] =	{ name = "Soulletting Ruby", phonetic_name = "", type = "trinket-defensive"}, -- Soulletting Ruby 178809
+		[348139] = 	{ name = "Divine Bell", phonetic_name = "", type = "trinket-offensive" }, -- Instructor's Divine Bell 184842
+		[358712] =	{ name = "Aegis", phonetic_name = "", type = "trinket-defensive"}, -- Shard of Annhylde's Aegis 186424
 	}
 }
 
 addon.interruptList = {
-	[2139] =		{ name = "countered!" }, -- Counter Spell
 	[1766] =		{ name = "countered!" }, -- Kick
+	[2139] =		{ name = "countered!" }, -- Counter Spell
 	[6552] =		{ name = "countered!" }, -- Pummel
+	[15487] = 		{ name = "countered!" }, -- Silence
 	[19647] =		{ name = "countered!" }, -- Spell Lock
 	[34490] =		{ name = "countered!" }, -- Silencing Shot
 	[47528] =		{ name = "countered!" }, -- Mind Freeze
@@ -345,6 +351,9 @@ addon.spellCorrections = {
 	[277787] = 118, -- Tome of Polymorph: Direhorn
 	[277792] = 118, -- Tome of Polymorph: Bumblebee
 	[321395] = 118, -- Polymorph: Maw Rat
+	-- Druid Roar
+	[77764] = 77761, -- Roar: Cat form
+	[106898] = 77761 -- Roar: General
 }
 
 function addon:GetAllSpellIds()
@@ -357,7 +366,7 @@ function addon:GetAllSpellIds()
 	return spells
 end
 
-function addon:GetSpellIdsByClass(name)
-	return spellList[name]
+function addon:GetSpellEntries(category)
+	return spellList[category]
 end
 

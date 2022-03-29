@@ -145,10 +145,31 @@ addon.ZONES = {
 	}
 }
 
-addon.PRIORITY = {
+addon.CATEGORY_SORT_ORDER = {
+	"covenant",
+	"racial",
+	"interrupt",
+	"raidDefensive",
+	"externalDefensive",
+	"defensive",
+	"immunity",
+	"offensive",
+	"dispel",
+	"cc",
+	"counterCC",
+	"disarm",
+	"raidMovement",
+	"trinket-offensive",
+	"trinket-defensive",
+	"pvptrinket",
+	"other"
+}
+
+addon.CATEGORY = {
 	["pvptrinket"] = L["PvP Trinket"],
 	["racial"] = L["Racial Traits"],
-	["trinket"] = INVTYPE_TRINKET,
+	["trinket-defensive"] = L["Defensive"].." "..INVTYPE_TRINKET,
+	["trinket-offensive"] = L["Offensive"].." "..INVTYPE_TRINKET,
 	["covenant"] = L["Covenant"],
 	["interrupt"] = LOC_TYPE_INTERRUPT,
 	["dispel"] = DISPELS,
