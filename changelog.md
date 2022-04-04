@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.3.1
+- Added localization for zhTW
+
 ## 2.3.0
 - Made category order consistent and sorted to make more sense
 - Added German, Russian and Italian localization
