@@ -18,14 +18,7 @@ externals:
 
 ignore:
   - .editorconfig
-  - SpellList.lua
-  - SpellList-Classic.lua
-  - VocalRaidAssistant.toc
-  - VocalRaidAssistant-Classic.toc
-  - Constants.lua
-  - Constants-Classic.lua
-  - Helper.lua
-  - Helper-Classic.lua
+  - Libs/LibDualSpec-1.0
 
 enable-nolib-creation: no
 
