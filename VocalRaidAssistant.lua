@@ -15,8 +15,8 @@ VRA.WAGO = LibStub("WagoAnalytics"):Register("kRNLr8Ko")
 
 local L = GetLocale()
 local locales = {
-	ruRU = "Russian (ruRU)",
-	itIT = "Italian (itIT)",
+	--ruRU = "Russian (ruRU)",
+	--itIT = "Italian (itIT)",
 	koKR = "Korean (koKR)",
 	esES = "Spanish (esES)",
 	esMX = "Spanish (esMX)",
@@ -24,6 +24,7 @@ local locales = {
 	ptBR = "Portuguese (ptBR)",
 	frFR = "French (frFR)",
 	--zhCN = "Chinese (zhCN)",
+	--zhTW = "Chinese (zhTW)",
 }
 if locales[L] then
 	print(string.format("Vocal Raid Assistant is missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
@@ -87,7 +88,14 @@ local function VRAAnalytics(addon, profile)
 	end
 	
 	--Sound channel
-	for k,v in pairs(addon.SOUND_CHANNEL) do
+	local soundChannels = {
+		["Master"] = "Master",
+		["SFX"] = "Sound",
+		["Ambience"] = "Ambience",
+		["Music"] = "Music",
+		["Dialog"] = "Dialog"
+	}
+	for k,v in pairs(soundChannels) do
 		VRA.WAGO:Switch("SC: "..v,k == profile.sound.channel)
 	end
 	
@@ -164,7 +172,7 @@ function VRA:playSpell(spellID)
 	if soundFile then
 		local success = PlaySoundFile(soundFile, addon.SOUND_CHANNEL[profile.sound.channel])
 		if not success and GetCVar("Sound_EnableAllSound") ~= "0" then
-			print(format("VRA - Missing soundfile for configured spell: %s", GetSpellInfo(spellID)))
+			print(format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID),profile.sound.soundpack))
 		end
 	end
 end

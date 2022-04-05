@@ -1,5 +1,17 @@
 # Vocal Raid Assistant
 
+## 2.3.1
+- Added localization for zhTW
+
+## 2.3.0
+- Made category order consistent and sorted to make more sense
+- Added German, Russian and Italian localization
+- Removed duplicate Roar for Druids
+- Added spells: Shiv, Ancestral Guidance, Earth Elemental, Fae Guardians, Disposable Spectrophasic Reanimnator (Engineer Combat Ressurrect)
+- Added Priest's Silence to the Interrupt list
+- Split trinkets into sub-categories: Offensive Trinket, Defensive Trinket and PVP Trinket
+- Fixed analytics on sound-channel to be language agnostic
+
 ## 2.2.10
 - Added anonymous Wago Analytics for development purposes. It will track stuff such as voice pack selected, what channel you hear abilities through etc. This is FULLY OPTIONAL and is only tracking if both WagoApp is installed AND you have opted-in through their setting "Help addon developers"
 
