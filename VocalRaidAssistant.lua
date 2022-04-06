@@ -209,7 +209,6 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 			addon.IsSpellSupported(spellID)) then
 				self:playSpell(spellID)
 		elseif (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts) then
-			print('COUNTER')
 			self:playSpell('countered')
 		end
 	end
