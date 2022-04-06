@@ -189,10 +189,13 @@ local spellCorrectionsClassic = {
 
 addon.spellCorrections = spellCorrectionsRetail
 --[===[@non-version-retail@
+spellCorrectionsRetail = nil
 --@version-classic@
+spellCorrectionsBCC = nil
 addon.spellCorrections = spellCorrectionsClassic
 --@end-version-classic@
 --@version-bcc@
+spellCorrectionsClassic = nil
 addon.spellCorrections = spellCorrectionsBCC
 --@end-version-bcc@
 --@end-non-version-retail@]===]

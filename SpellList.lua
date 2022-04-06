@@ -469,12 +469,14 @@ local spellListClassic = {
 local spellList = spellListRetail
 
 --[===[@non-version-retail@
+spellListRetail = nil
 --@version-classic@
 spellList = spellListClassic
+spellListBCC = nil
 --@end-version-classic@
 --@version-bcc@
 spellList = spellListBCC
-addon.spellCorrections =
+spellListClassic = nil
 --@end-version-bcc@
 --@end-non-version-retail@]===]
 
