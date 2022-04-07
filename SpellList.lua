@@ -150,7 +150,6 @@ local spellList = {
 		[137639] =	{ name = "Storm, Earth, and Fire", phonetic_name = "", type = "offensive"},
 		[152173] =	{ name = "Serenity", phonetic_name = "", type = "offensive"},
 		[197908] =	{ name = "Mana Tea", phonetic_name = "", type = "other"},
-		[243435] =	{ name = "Fortifying Brew", phonetic_name = "", type = "defensive"},
 		[310454] =	{ name = "Weapons of Order", phonetic_name = "", type = "covenant"},
 		[322109] =	{ name = "Touch of Death", phonetic_name = "", type = "offensive"},
 		[322118] =	{ name = "Invoke Yu'lon", phonetic_name = "Invoke Yu loen", type = "offensive"},
@@ -353,7 +352,9 @@ addon.spellCorrections = {
 	[321395] = 118, -- Polymorph: Maw Rat
 	-- Druid Roar
 	[77764] = 77761, -- Roar: Cat form
-	[106898] = 77761 -- Roar: General
+	[106898] = 77761, -- Roar: General
+	-- Fortifying Brew
+	[243435] = 115203 -- Mistweaver
 }
 
 function addon:GetAllSpellIds()
