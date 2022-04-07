@@ -86,7 +86,7 @@ local function VRAAnalytics(addon, profile)
 	for k,v in pairs(addon.SOUND_PACKS) do
 		VRA.WAGO:Switch("SP: "..v,k == profile.sound.soundpack)
 	end
-	
+
 	--Sound channel
 	local soundChannels = {
 		["Master"] = "Master",
@@ -98,7 +98,7 @@ local function VRAAnalytics(addon, profile)
 	for k,v in pairs(soundChannels) do
 		VRA.WAGO:Switch("SC: "..v,k == profile.sound.channel)
 	end
-	
+
 	--Settings
 	VRA.WAGO:Switch("Hear own abilities",profile.general.watchFor == 1)
 	VRA.WAGO:Switch("Minimap Button", not profile.general.minimap.hide)
@@ -122,7 +122,7 @@ function VRA:OnInitialize()
 	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
 	self:InitializeOptions()
-	
+
 	VRAAnalytics(addon,profile)
 end
 
@@ -165,10 +165,19 @@ end
 function VRA:playSpell(spellID)
 	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID ..
 									".ogg"
+
+	local channel = profile.sound.channel
 	if soundFile then
-		local success = PlaySoundFile(soundFile, addon.SOUND_CHANNEL[profile.sound.channel])
-		if not success and GetCVar("Sound_EnableAllSound") ~= "0" then
-			print(format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID),profile.sound.soundpack))
+		local success = PlaySoundFile(soundFile, channel)
+		if not success then
+			local cvar_name ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
+			if GetCVar("Sound_EnableAllSound") == "0" then
+				print('VRA - Can not play sounds, your gamesound (Master channel) is disabled')
+			elseif GetCVar(cvar_name) == "0" then
+				print(format("VRA - Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel))
+			else
+				print(format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack))
+			end
 		end
 	end
 end
