@@ -311,25 +311,6 @@ local spellList = {
 	}
 }
 
-addon.interruptList = {
-	[1766] =		{ name = "countered!" }, -- Kick
-	[2139] =		{ name = "countered!" }, -- Counter Spell
-	[6552] =		{ name = "countered!" }, -- Pummel
-	[15487] = 		{ name = "countered!" }, -- Silence
-	[19647] =		{ name = "countered!" }, -- Spell Lock
-	[34490] =		{ name = "countered!" }, -- Silencing Shot
-	[47528] =		{ name = "countered!" }, -- Mind Freeze
-	[57994] =		{ name = "countered!" }, -- Wind Shear
-	[93985] =		{ name = "countered!" }, -- Skull Bash
-	[96231] =		{ name = "countered!" }, -- Rebuke
-	[97547] =		{ name = "countered!" }, -- Solar Beam
-	[113287] =		{ name = "countered!" }, -- Symbiosis Solar Beam
-	[116705] =		{ name = "countered!" }, -- Spear Hand Strike
-	[147362] =		{ name = "countered!" }, -- Counter Shot
-	[183752] =		{ name = "countered!" }, -- Consume Magic
-	[187707] =		{ name = "countered!" } -- Muzzle
-}
-
 addon.spellCorrections = {
 	-- Shaman Hex
 	[162624] = 51514, -- Tome of Hex: Wicker Mongrel
@@ -355,6 +336,10 @@ addon.spellCorrections = {
 	[77764] = 77761, -- Roar: Cat form
 	[106898] = 77761 -- Roar: General
 }
+
+function addon:IsSpellSupported(spellID)
+	return spellList[spellID] ~= nil
+end
 
 function addon:GetAllSpellIds()
 	local spells = {}
