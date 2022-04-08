@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 2.3.2
+- Added support for The Burning Crusade and Classic
+- Made error-output more clear when sound-channels are disabled
+
 ## 2.3.1
 - Added localization for zhTW
 
