@@ -8,10 +8,14 @@ VRA.ACD = LibStub("AceConfigDialog-3.0")
 VRA.ACR = LibStub("AceConfigRegistry-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
 VRA.EXP = LibStub("AceSerializer-3.0")
-VRA.LDS = LibStub('LibDualSpec-1.0')
+VRA.LDS = nil
 VRA.ICON = LibStub("LibDBIcon-1.0")
 VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
 VRA.WAGO = LibStub("WagoAnalytics"):Register("kRNLr8Ko")
+
+local tostring = tostring
+local profile = {}
+local throttleTime
 
 local L = GetLocale()
 local locales = {
@@ -30,9 +34,6 @@ if locales[L] then
 	print(string.format("Vocal Raid Assistant is missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
 end
 
-local tostring = tostring
-local profile = {}
-local throttleTime
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
@@ -65,14 +66,26 @@ function VRA:InitializeOptions()
 end
 
 local function ConfigCleanup(db)
+	if (db.profiles.version == addon.DATABASE_VERSION) then
+		return
+	end
 	for k, v in pairs(db.profiles) do
-		if v['version'] == nil or v['version'] < addon.DATABASE_VERSION then
+		if v['version'] == nil or v['version'] ~= addon.DATABASE_VERSION then
 			for key, _ in pairs(v) do
 				if addon.DEFAULTS.profile[key] == nil then
 					v[key] = nil
 				end
 			end
 			v.version = addon.DATABASE_VERSION
+		end
+	end
+	for zone, _ in pairs(addon.ZONES) do
+		for spellID, _ in pairs(addon.GetAllSpellIds()) do
+			-- remove invalid spells in config
+			if addon.IsSpellSupported(spellID) == nil then
+				db.profiles.general.area[zone].spells[tostring(spellID)] = nil
+				print(format("VRA - removed unsupported spell %s from config", spellID))
+			end
 		end
 	end
 end
@@ -86,7 +99,7 @@ local function VRAAnalytics(addon, profile)
 	for k,v in pairs(addon.SOUND_PACKS) do
 		VRA.WAGO:Switch("SP: "..v,k == profile.sound.soundpack)
 	end
-	
+
 	--Sound channel
 	local soundChannels = {
 		["Master"] = "Master",
@@ -98,7 +111,7 @@ local function VRAAnalytics(addon, profile)
 	for k,v in pairs(soundChannels) do
 		VRA.WAGO:Switch("SC: "..v,k == profile.sound.channel)
 	end
-	
+
 	--Settings
 	VRA.WAGO:Switch("Hear own abilities",profile.general.watchFor == 1)
 	VRA.WAGO:Switch("Minimap Button", not profile.general.minimap.hide)
@@ -114,15 +127,19 @@ function VRA:OnInitialize()
 
 	-- Minimap Icon and Broker
 	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
-	if not pcall(ConfigCleanup,self.db) then
+	if not pcall(ConfigCleanup, self.db) then
 		print(VRA.L["Config Cleaning Error Message"])
 		self.db:ResetDB("Default")
 	end
 
-	self.LDS:EnhanceDatabase(self.db, addonName)
+	if(not self:IsClassic() and not self:IsBCC()) then
+		self.LDS = LibStub('LibDualSpec-1.0')
+		self.LDS:EnhanceDatabase(self.db, addonName)
+	end
+
 	self:InitConfigOptions()
 	self:InitializeOptions()
-	
+
 	VRAAnalytics(addon,profile)
 end
 
@@ -167,7 +184,7 @@ function VRA:playSpell(spellID)
 									".ogg"
 	if soundFile then
 		local success = PlaySoundFile(soundFile, addon.SOUND_CHANNEL[profile.sound.channel])
-		if not success and GetCVar("Sound_EnableAllSound") ~= "0" then
+		if not success and GetCVar("Sound_EnableAllSound") ~= "0" and spellID ~= 'countered' then
 			print(format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID),profile.sound.soundpack))
 		end
 	end
@@ -191,12 +208,13 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
 		local _, instanceType = IsInInstance()
-		if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and
-						not isTrottled() and
-						((not profile.general.onlySelf) or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)))) or
-						(event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and
-										addon.interruptList[spellID])) then
-			self:playSpell(spellID)
+		if (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and
+			not isTrottled() and
+			(not profile.general.onlySelf or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
+			addon.IsSpellSupported(spellID)) then
+				self:playSpell(spellID)
+		elseif (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts) then
+			self:playSpell('countered')
 		end
 	end
 end
