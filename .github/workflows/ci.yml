@@ -24,3 +24,23 @@ jobs:
           WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
           WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Package Classic
+        uses: BigWigsMods/packager@master
+        with:
+          args: -g classic -m .pkgmeta-classic
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Package BCC
+        uses: BigWigsMods/packager@master
+        with:
+          args: -g bc -m .pkgmeta-bc
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}

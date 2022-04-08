@@ -8,10 +8,14 @@ VRA.ACD = LibStub("AceConfigDialog-3.0")
 VRA.ACR = LibStub("AceConfigRegistry-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
 VRA.EXP = LibStub("AceSerializer-3.0")
-VRA.LDS = LibStub('LibDualSpec-1.0')
+VRA.LDS = nil
 VRA.ICON = LibStub("LibDBIcon-1.0")
 VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
 VRA.WAGO = LibStub("WagoAnalytics"):Register("kRNLr8Ko")
+
+local tostring = tostring
+local profile = {}
+local throttleTime
 
 local L = GetLocale()
 local locales = {
@@ -30,9 +34,6 @@ if locales[L] then
 	print(string.format("Vocal Raid Assistant is missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
 end
 
-local tostring = tostring
-local profile = {}
-local throttleTime
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
@@ -131,7 +132,11 @@ function VRA:OnInitialize()
 		self.db:ResetDB("Default")
 	end
 
-	self.LDS:EnhanceDatabase(self.db, addonName)
+	if(not self:IsClassic() and not self:IsBCC()) then
+		self.LDS = LibStub('LibDualSpec-1.0')
+		self.LDS:EnhanceDatabase(self.db, addonName)
+	end
+
 	self:InitConfigOptions()
 	self:InitializeOptions()
 
