@@ -38,7 +38,7 @@ jobs:
       - name: Package BCC
         uses: BigWigsMods/packager@master
         with:
-          args: -g bc -m .pkgmeta-bc
+          args: -g bcc -m .pkgmeta-bc
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
