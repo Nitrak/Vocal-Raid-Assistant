@@ -311,7 +311,6 @@ local spellListRetail = {
 	}
 }
 
-
 local spellListBCC = {
 	["DRUID"] = {
 		[740] =	{ name = "Tranquility", phonetic_name = "", type = "raidDefensive"},
@@ -480,6 +479,9 @@ spellListClassic = nil
 --@end-version-bcc@
 --@end-non-version-retail@]===]
 
+function addon:IsSpellSupported(spellID)
+	return spellList[spellID] ~= nil
+end
 
 function addon:GetAllSpellIds()
 	local spells = {}

@@ -53,7 +53,7 @@ local defaultSpells = {
 	["316958"] = true
 }
 
-addon.DATABASE_VERSION = 2
+addon.DATABASE_VERSION = 3
 
 addon.DEFAULT_SPELLS = defaultSpells
 
@@ -92,7 +92,6 @@ addon.DEFAULTS = {
 			throttle = 0,
 			channel = "Master"
 		},
-		version = addon.DATABASE_VERSION
 	}
 }
 
