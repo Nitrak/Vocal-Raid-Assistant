@@ -197,3 +197,5 @@ addon.ICONCONFIG = {
 		tooltip:Show()
 	end
 }
+
+addon.MSG_DELAY_SECONDS = 15

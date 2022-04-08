@@ -31,8 +31,12 @@ if locales[L] then
 end
 
 local tostring = tostring
+local GetTime = GetTime
 local profile = {}
-local throttleTime
+local throttleTime = {
+	['sound'] = GetTime(),
+	['msg'] = GetTime()
+}
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
@@ -153,30 +157,32 @@ local function allowedSubEvent(event)
 	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
 end
 
-local function isTrottled()
-	if (throttleTime == nil or GetTime() > throttleTime) then
-		throttleTime = GetTime() + profile.sound.throttle
+local function isThrottled(type)
+	local now = GetTime()
+	if now > throttleTime[type] then
+		throttleTime[type] = now + ((type == 'sound') and profile.sound.throttle or addon.MSG_DELAY_SECONDS)
 		return false
-	else
-		return true
 	end
+	return true
 end
 
 function VRA:playSpell(spellID)
-	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID ..
-									".ogg"
-
+	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
 	local channel = profile.sound.channel
 	if soundFile then
 		local success = PlaySoundFile(soundFile, channel)
 		if not success then
-			local cvar_name ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
+			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
+			local errorMsg = nil
 			if GetCVar("Sound_EnableAllSound") == "0" then
-				print('VRA - Can not play sounds, your gamesound (Master channel) is disabled')
-			elseif GetCVar(cvar_name) == "0" then
-				print(format("VRA - Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel))
+				errorMsg = format('VRA - Can not play sounds, your gamesound (Master channel) is disabled')
+			elseif GetCVar(cvarName) == "0" then
+				errorMsg = format("VRA - Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
 			else
-				print(format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack))
+				errorMsg = format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack)
+			end
+			if errorMsg and not isThrottled('msg') then
+				print(errorMsg)
 			end
 		end
 	end
@@ -201,10 +207,10 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
 		local _, instanceType = IsInInstance()
 		if ((event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and
-						not isTrottled() and
-						((not profile.general.onlySelf) or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)))) or
-						(event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and
-										addon.interruptList[spellID])) then
+			(not profile.general.onlySelf or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
+			not isThrottled('sound'))
+			or
+				event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts and addon.interruptList[spellID]) then
 			self:playSpell(spellID)
 		end
 	end
