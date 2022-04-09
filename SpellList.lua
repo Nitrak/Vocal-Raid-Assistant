@@ -480,7 +480,14 @@ spellListClassic = nil
 --@end-non-version-retail@]===]
 
 function addon:IsSpellSupported(spellID)
-	return spellList[spellID] ~= nil
+	for k, v in pairs(spellList) do
+		for i, j in pairs(v) do
+			if i == spellID then
+				return true
+			end
+		end
+	end
+	return false
 end
 
 function addon:GetAllSpellIds()

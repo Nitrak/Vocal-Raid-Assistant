@@ -154,7 +154,7 @@ function importSpellSelection(importString, area)
 		end
 		addon.ACR:NotifyChange("VocalRaidAssistantConfig")
 	else
-		print("Vocal Raid Assistant: Invalid import string.")
+		addon:prettyPrint("Vocal Raid Assistant: Invalid import string.")
 	end
 end
 
@@ -438,7 +438,7 @@ local spells = {
 					if (dialog) then
 						dialog.data = info[2]
 					else
-						print("Import failed, please join the Discord and make us aware this failed")
+						addon:prettyPrint("Import failed, please join the Discord and make us aware this failed")
 					end
 				end
 			end
@@ -456,7 +456,7 @@ local spells = {
 						dialog.editBox:SetText(exportString)
 						dialog.editBox:HighlightText()
 					else
-						print("Export failed, please join the Discord and make us aware this failed")
+						addon:prettyPrint("Export failed, please join the Discord and make us aware this failed")
 					end
 				end
 			end
@@ -477,6 +477,9 @@ local spells = {
 					end,
 					set = function(info, val)
 						profile.general.area[info[2]].enableInterrupts = val
+						if val then
+							addon:playSpell("Countered")
+						end
 					end
 				}
 			}

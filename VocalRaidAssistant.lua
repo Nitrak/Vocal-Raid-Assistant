@@ -13,10 +13,6 @@ VRA.ICON = LibStub("LibDBIcon-1.0")
 VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
 VRA.WAGO = LibStub("WagoAnalytics"):Register("kRNLr8Ko")
 
-local tostring = tostring
-local profile = {}
-local throttleTime
-
 local L = GetLocale()
 local locales = {
 	--ruRU = "Russian (ruRU)",
@@ -31,9 +27,16 @@ local locales = {
 	--zhTW = "Chinese (zhTW)",
 }
 if locales[L] then
-	print(string.format("Vocal Raid Assistant is missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
+	addon:prettyPrint(string.format("Missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
 end
 
+local tostring = tostring
+local GetTime = GetTime
+local profile = {}
+local throttleTime = {
+	['sound'] = GetTime(),
+	['msg'] = GetTime()
+}
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
@@ -82,9 +85,9 @@ local function ConfigCleanup(db)
 	for zone, _ in pairs(addon.ZONES) do
 		for spellID, _ in pairs(addon.GetAllSpellIds()) do
 			-- remove invalid spells in config
-			if addon.IsSpellSupported(spellID) == nil then
+			if addon:IsSpellSupported(spellID) == nil then
 				db.profiles.general.area[zone].spells[tostring(spellID)] = nil
-				print(format("VRA - removed unsupported spell %s from config", spellID))
+				addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
 			end
 		end
 	end
@@ -128,7 +131,7 @@ function VRA:OnInitialize()
 	-- Minimap Icon and Broker
 	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
 	if not pcall(ConfigCleanup, self.db) then
-		print(VRA.L["Config Cleaning Error Message"])
+		addon:prettyPrint(VRA.L["Config Cleaning Error Message"])
 		self.db:ResetDB("Default")
 	end
 
@@ -170,22 +173,33 @@ local function allowedSubEvent(event)
 	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
 end
 
-local function isTrottled()
-	if (throttleTime == nil or GetTime() > throttleTime) then
-		throttleTime = GetTime() + profile.sound.throttle
+local function isThrottled(type)
+	local now = GetTime()
+	if now > throttleTime[type] then
+		throttleTime[type] = now + ((type == 'sound') and profile.sound.throttle or addon.MSG_DELAY_SECONDS)
 		return false
-	else
-		return true
 	end
+	return true
 end
 
 function VRA:playSpell(spellID)
-	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID ..
-									".ogg"
+	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
+	local channel = profile.sound.channel
 	if soundFile then
-		local success = PlaySoundFile(soundFile, addon.SOUND_CHANNEL[profile.sound.channel])
-		if not success and GetCVar("Sound_EnableAllSound") ~= "0" and spellID ~= 'countered' then
-			print(format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID),profile.sound.soundpack))
+		local success = PlaySoundFile(soundFile, channel)
+		if not success then
+			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
+			local errorMsg = nil
+			if GetCVar("Sound_EnableAllSound") == "0" then
+				errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
+			elseif GetCVar(cvarName) == "0" then
+				errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
+			else
+				errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack)
+			end
+			if errorMsg and not isThrottled('msg') then
+				addon:prettyPrint(errorMsg)
+			end
 		end
 	end
 end
@@ -205,14 +219,12 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 
 	-- apply spell correction (e.g. hex and polymorh change the spellID)
 	spellID = addon.spellCorrections[spellID] or spellID
-
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
 		local _, instanceType = IsInInstance()
 		if (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and
-			not isTrottled() and
-			(not profile.general.onlySelf or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
-			addon.IsSpellSupported(spellID)) then
-				self:playSpell(spellID)
+				(not profile.general.onlySelf or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
+				not isThrottled('sound') and addon:IsSpellSupported(spellID)) then
+			self:playSpell(spellID)
 		elseif (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts) then
 			self:playSpell('countered')
 		end
