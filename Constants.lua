@@ -197,4 +197,4 @@ addon.ICONCONFIG = {
 	end
 }
 
-addon.MSG_DELAY_SECONDS = 15
+addon.MSG_DELAY_SECONDS = 60
