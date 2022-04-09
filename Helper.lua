@@ -28,7 +28,7 @@ function addon:IsCorrectVersion()
   return intendedWoWProject == WOW_PROJECT_ID
 end
 
-local function prettyPrint(...)
+function addon:prettyPrint(...)
   print("|c00ff0000Vocal Raid Assistant:|r ", ...)
 end
 
@@ -44,5 +44,5 @@ local wrongTargetMessage = "This version of VRA was packaged for World of Warcra
                               " contact their support for further assistance and reinstall VRA manually."
 
 if not addon.IsCorrectVersion() then --Wait 10 seconds then error message
-  C_Timer.After(10, function() prettyPrint(wrongTargetMessage) end)
+  C_Timer.After(10, function() addon:prettyPrint(wrongTargetMessage) end)
 end
