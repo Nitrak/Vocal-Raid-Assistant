@@ -342,7 +342,7 @@ local spellListBCC = {
 		[1022] = 	{ name = "Protection", phonetic_name = "", type = "externalDefensive"},
 		[6940] = 	{ name = "Sacrifice", phonetic_name = "", type = "externalDefensive"}, -- Blessing of Sacrifice,
 		[20066] =	{ name = "Repentance", phonetic_name = "", type = "cc"},
-		--TODO[31842] =	{ name = "Divine Illumination", phonetic_name = "", type = "other"},
+		[31842] =	{ name = "Divine Illumination", phonetic_name = "", type = "other"},
 	},
 	["PRIEST"] = {
 		[8122] =	{ name = "Psychic Scream", phonetic_name = "", type = "cc"},
@@ -363,7 +363,7 @@ local spellListBCC = {
 		[2825] =	{ name = "Bloodlust", phonetic_name = "", type = "offensive"},
 		[8143] =	{ name = "Tremor Totem", phonetic_name = "", type = "counterCC"},
 		[16191] =	{ name = "Mana Tide", phonetic_name = "", type = "other"}, -- Mana Tide Totem
-		--TODO[30823] =	{ name = "Shamanistic Rage", phonetic_name = "", type = "defensive"},
+		[30823] =	{ name = "Shamanistic Rage", phonetic_name = "", type = "defensive"},
 		[32182] =	{ name = "Heroism", phonetic_name = "", type = "offensive"},
 	},
 	["WARLOCK"] = {
@@ -378,7 +378,7 @@ local spellListBCC = {
 		[871] =		{ name = "Shield Wall", phonetic_name = "", type = "defensive"},
 		[1161] =	{ name = "Challenging Shout", phonetic_name = "", type = "other"},
 		[1719] =	{ name = "Recklessness", phonetic_name = "", type = "offensive"},
-		--TODO[20230] =	{ name = "Retaliation", phonetic_name = "", type = "offensive"},
+		[20230] =	{ name = "Retaliation", phonetic_name = "", type = "offensive"},
 		[2565] =	{ name = "Shield Block", phonetic_name = "", type = "defensive"},
 		[5246] =	{ name = "Intimidating Shout", phonetic_name = "", type = "cc"},
 		[12975] =	{ name = "Last Stand", phonetic_name = "", type = "defensive"},
@@ -450,7 +450,7 @@ local spellListClassic = {
 		[871] =		{ name = "Shield Wall", phonetic_name = "", type = "defensive"},
 		[1161] =	{ name = "Challenging Shout", phonetic_name = "", type = "other"},
 		[1719] =	{ name = "Recklessness", phonetic_name = "", type = "offensive"},
-		--TODO[20230] =	{ name = "Retaliation", phonetic_name = "", type = "offensive"},
+		[20230] =	{ name = "Retaliation", phonetic_name = "", type = "offensive"},
 		[2565] =	{ name = "Shield Block", phonetic_name = "", type = "defensive"},
 		[5246] =	{ name = "Intimidating Shout", phonetic_name = "", type = "cc"},
 		[12975] =	{ name = "Last Stand", phonetic_name = "", type = "defensive"},
