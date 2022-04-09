@@ -1,19 +1,27 @@
 ## Interface: 90200
+## Interface-BCC: 20504
+## Interface-Classic: 11402
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 2.3.1
+## Version: 2.3.2
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
 ## OptionalDependencies: WagoAnalytics
 
 embeds.xml
+# Client version specific
+#@version-retail@
+# Libs\LibDualSpec-1.0\LibDualSpec-1.0.lua
+#@end-version-retail@
 
 Locales\locales.xml
 
 VocalRaidAssistant.lua
 Constants.lua
 SpellList.lua
+SpellCorrections.lua
 Config.lua
+Helper.lua
