@@ -477,7 +477,7 @@ local spells = {
 					end,
 					set = function(info, val)
 						profile.general.area[info[2]].enableInterrupts = val
-						if (val == true) then
+						if val then
 							addon:playSpell("Countered")
 						end
 					end
