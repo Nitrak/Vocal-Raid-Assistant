@@ -27,7 +27,7 @@ local locales = {
 	--zhTW = "Chinese (zhTW)",
 }
 if locales[L] then
-	print(string.format("Vocal Raid Assistant is missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
+	addon:prettyPrint(string.format("Missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
 end
 
 local tostring = tostring
@@ -87,7 +87,7 @@ local function ConfigCleanup(db)
 			-- remove invalid spells in config
 			if addon:IsSpellSupported(spellID) == nil then
 				db.profiles.general.area[zone].spells[tostring(spellID)] = nil
-				print(format("VRA - removed unsupported spell %s from config", spellID))
+				addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
 			end
 		end
 	end
@@ -131,7 +131,7 @@ function VRA:OnInitialize()
 	-- Minimap Icon and Broker
 	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
 	if not pcall(ConfigCleanup, self.db) then
-		print(VRA.L["Config Cleaning Error Message"])
+		addon:prettyPrint(VRA.L["Config Cleaning Error Message"])
 		self.db:ResetDB("Default")
 	end
 
@@ -191,14 +191,14 @@ function VRA:playSpell(spellID)
 			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
 			local errorMsg = nil
 			if GetCVar("Sound_EnableAllSound") == "0" then
-				errorMsg = format('VRA - Can not play sounds, your gamesound (Master channel) is disabled')
+				errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
 			elseif GetCVar(cvarName) == "0" then
-				errorMsg = format("VRA - Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
+				errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
 			else
-				errorMsg = format("VRA - Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack)
+				errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack)
 			end
 			if errorMsg and not isThrottled('msg') then
-				print(errorMsg)
+				addon:prettyPrint(errorMsg)
 			end
 		end
 	end
