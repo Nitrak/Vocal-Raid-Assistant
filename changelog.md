@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.3.3
+- Added some missing spells to Classic and TBC
+
 ## 2.3.2
 - Added support for The Burning Crusade and Classic
 - Made error-output more clear when sound-channels are disabled
