@@ -101,7 +101,9 @@ addon.SOUND_PACKS = {
 	["legacy-en-Julie"] = "Julie (Legacy)",
 	["en-US-SaraNeural"] = "Sara",
 	["en-US-EricNeural"] = "Eric",
-	["en-US-GuyNeural"] = "Guy"
+	["en-US-GuyNeural"] = "Guy",
+	["cn-male"] = L["cn (male)"],
+	["cn-women"] = L["cn (women)"]
 }
 
 addon.SOUND_CHANNEL = {
