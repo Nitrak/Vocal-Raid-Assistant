@@ -27,7 +27,8 @@ local locales = {
 	--zhTW = "Chinese (zhTW)",
 }
 if locales[L] then
-	addon:prettyPrint(string.format("Missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.",locales[L]))
+	local msg = string.format("Missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.", locales[L])
+	C_Timer.After(30, function() addon:prettyPrint(msg) end)
 end
 
 local tostring = tostring

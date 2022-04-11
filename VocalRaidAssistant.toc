@@ -19,9 +19,11 @@ embeds.xml
 
 Locales\locales.xml
 
+Helper.lua
 VocalRaidAssistant.lua
 Constants.lua
 SpellList.lua
 SpellCorrections.lua
 Config.lua
-Helper.lua
+
+
