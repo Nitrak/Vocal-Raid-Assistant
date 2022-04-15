@@ -206,7 +206,6 @@ end
 
 
 local function playSpell(spellID)
-	print('playspell', spellID)
 	local channel = profile.sound.channel
 	local player = registeredSoundpacks[profile.sound.soundpack]
 	if player then
