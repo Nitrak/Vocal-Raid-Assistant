@@ -26,14 +26,18 @@ local locales = {
 	--zhCN = "Chinese (zhCN)",
 	--zhTW = "Chinese (zhTW)",
 }
+
 if locales[L] then
 	local msg = string.format("Missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.", locales[L])
 	C_Timer.After(30, function() addon:prettyPrint(msg) end)
 end
 
 local tostring = tostring
+local pairs = pairs
 local GetTime = GetTime
+
 local profile = {}
+local registeredSoundpacks = {}
 local throttleTime = {
 	['sound'] = GetTime(),
 	['msg'] = GetTime()
@@ -67,6 +71,23 @@ function VRA:InitializeOptions()
 	self.optionsFrame = optionsFrame
 
 	self.InitializeOptions = nil
+end
+
+function VRA:RegisterSoundpack(name, player)
+	if registeredSoundpacks[name] then
+		error('Soundpack already exist!')
+	elseif type(player) ~= "function" then
+		error('Check soundpacks callback!')
+	end
+	registeredSoundpacks[name] = player
+end
+
+function VRA:GetRegisteredSoundpacks()
+	local t = {}
+	for k,_ in pairs(registeredSoundpacks) do
+		t[k] = k
+	end
+	return t
 end
 
 local function ConfigCleanup(db)
@@ -136,7 +157,7 @@ function VRA:OnInitialize()
 		self.db:ResetDB("Default")
 	end
 
-	if(not self:IsClassic() and not self:IsBCC()) then
+	if(self:IsRetail()) then
 		self.LDS = LibStub('LibDualSpec-1.0')
 		self.LDS:EnhanceDatabase(self.db, addonName)
 	end
@@ -183,11 +204,13 @@ local function isThrottled(type)
 	return true
 end
 
-function VRA:playSpell(spellID)
-	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
+
+local function playSpell(spellID)
+	print('playspell', spellID)
 	local channel = profile.sound.channel
-	if soundFile then
-		local success = PlaySoundFile(soundFile, channel)
+	local player = registeredSoundpacks[profile.sound.soundpack]
+	if player then
+		local success = player(spellID, channel)
 		if not success then
 			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
 			local errorMsg = nil
@@ -204,6 +227,12 @@ function VRA:playSpell(spellID)
 		end
 	end
 end
+
+function VRA:playSpell(spellID)
+	playSpell(spellID)
+end
+
+
 
 local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
 local function checkSpellTarget(destFlags, destGUID)
@@ -225,9 +254,9 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 		if (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and
 				(not profile.general.onlySelf or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
 				not isThrottled('sound') and addon:IsSpellSupported(spellID)) then
-			self:playSpell(spellID)
+				playSpell(spellID)
 		elseif (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts) then
-			self:playSpell('countered')
+				playSpell('countered')
 		end
 	end
 end

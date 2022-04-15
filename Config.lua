@@ -270,7 +270,7 @@ local mainOptions = {
 						soundpack = {
 							type = 'select',
 							name = L["Soundpack"],
-							values = addon.SOUND_PACKS,
+							values = function() return VRA:GetRegisteredSoundpacks() end,
 							order = 1
 						},
 						playButton = {
