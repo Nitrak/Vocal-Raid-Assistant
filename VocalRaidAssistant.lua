@@ -183,12 +183,12 @@ local function isThrottled(type)
 	return true
 end
 
-function VRA:playSpell(spellID)
+function VRA:playSpell(spellID,isTest)
 	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
 	local channel = profile.sound.channel
 	if soundFile then
 		local success = PlaySoundFile(soundFile, channel)
-		if not success then
+		if not success and isTest then
 			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
 			local errorMsg = nil
 			if GetCVar("Sound_EnableAllSound") == "0" then

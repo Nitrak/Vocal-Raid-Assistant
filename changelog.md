@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.3.4
+- Changed error message about sound-channel disabled to the test button
+
 ## 2.3.3
 - Added some missing spells to Classic and TBC
 

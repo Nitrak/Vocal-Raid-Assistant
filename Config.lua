@@ -277,7 +277,7 @@ local mainOptions = {
 							type = 'execute',
 							name = L["Test"],
 							func = function()
-								addon:playSpell("740")
+								addon:playSpell("740",true)
 							end,
 							order = 2
 						},
