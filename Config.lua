@@ -461,15 +461,15 @@ local spells = {
 				end
 			end
 		},
-		interrupts = {
+		specials = {
 			type = "group",
-			name = L["Interrupts"],
+			name = L["Specials"],
 			inline = true,
 			order = 7,
 			args = {
 				toggleInterrupts = {
 					type = "toggle",
-					name = L["Enable"],
+					name = L["Interrupts"],
 					desc = L["Play sound on interrupts"],
 					width = 1.05,
 					get = function(info)
@@ -479,6 +479,21 @@ local spells = {
 						profile.general.area[info[2]].enableInterrupts = val
 						if val then
 							addon:playSpell("Countered")
+						end
+					end
+				},
+				toggleTaunts = {
+					type = "toggle",
+					name = L["Taunts"],
+					desc = L["Play sound on taunts"],
+					width = 1.05,
+					get = function(info)
+						return profile.general.area[info[2]].enableTaunts
+					end,
+					set = function(info, val)
+						profile.general.area[info[2]].enableTaunts = val
+						if val then
+							addon:playSpell("Taunt")
 						end
 					end
 				}

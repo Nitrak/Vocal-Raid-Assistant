@@ -397,7 +397,7 @@ local spellListBCC = {
 
 local spellListClassic = {
 	["DRUID"] = {
-		[740] =	{ name = "Tranquility", phonetic_name = "", type = "raidDefensive"},
+		[740] =		{ name = "Tranquility", phonetic_name = "", type = "raidDefensive"},
 		[5211] =	{ name = "Bash", phonetic_name = "", type = "cc"},
 		[20484] =	{ name = "Rebirth", phonetic_name = "", type = "other"},
 		[22812] =	{ name = "Barkskin", phonetic_name = "", type = "defensive"},
@@ -478,6 +478,16 @@ spellList = spellListBCC
 spellListClassic = nil
 --@end-version-bcc@
 --@end-non-version-retail@]===]
+
+addon.tauntList = {
+	[355]		= true,	-- Warrior:			Taunt
+	[6795]		= true,	-- Druid:			Growl	
+	[51399]		= true,	-- Death Knight:	Death Grip
+	[56222]		= true,	-- Death Knight:	Dark Command
+	[62124]		= true,	-- Paladin:			Hand of Reckoning
+	[115546]	= true,	-- Monk:			Provoke
+	[185245]	= true	-- Demon Hunter:	Torment
+}
 
 function addon:IsSpellSupported(spellID)
 	for k, v in pairs(spellList) do
