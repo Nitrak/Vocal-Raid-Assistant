@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.3.5
+- Added ability to track Taunts - Audio will be "Taunted" to differentiate it from other voice packs that tells you to Taunt
+
 ## 2.3.4
 - Changed error message about sound-channel disabled to the test button
 
