@@ -233,7 +233,7 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 		elseif (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts) then
 			self:playSpell('countered')
 		elseif (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID]) then
-			self:playSpell('taunt')
+			self:playSpell('taunted')
 		end
 	end
 end

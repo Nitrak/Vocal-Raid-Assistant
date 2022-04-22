@@ -478,7 +478,7 @@ local spells = {
 					set = function(info, val)
 						profile.general.area[info[2]].enableInterrupts = val
 						if val then
-							addon:playSpell("Countered")
+							addon:playSpell("countered")
 						end
 					end
 				},
@@ -493,7 +493,7 @@ local spells = {
 					set = function(info, val)
 						profile.general.area[info[2]].enableTaunts = val
 						if val then
-							addon:playSpell("Taunt")
+							addon:playSpell("taunted")
 						end
 					end
 				}
