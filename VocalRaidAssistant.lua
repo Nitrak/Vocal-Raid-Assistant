@@ -28,7 +28,7 @@ local locales = {
 }
 
 if locales[L] then
-	local msg = string.format("Missing translations for %s. Can you help? Visit https://t.ly/VRA-LOCAL or ask us on Discord for more info.", locales[L])
+	local msg = string.format("Missing translations for %s. Can you help? Visit https://tinyurl.com/VRA-LOCAL or ask us on Discord for more info.", locales[L])
 	C_Timer.After(30, function() addon:prettyPrint(msg) end)
 end
 
@@ -214,9 +214,13 @@ local function playSpell(spellID)
 			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
 			local errorMsg = nil
 			if GetCVar("Sound_EnableAllSound") == "0" then
-				errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
+				if isTest then
+					errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
+				end
 			elseif GetCVar(cvarName) == "0" then
-				errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
+				if isTest then
+					errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
+				end
 			else
 				errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack)
 			end
@@ -256,6 +260,9 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 				playSpell(spellID)
 		elseif (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts) then
 				playSpell('countered')
+			self:playSpell('countered')
+		elseif (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID]) then
+			self:playSpell('taunted')
 		end
 	end
 end
