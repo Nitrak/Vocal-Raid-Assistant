@@ -481,7 +481,7 @@ spellListClassic = nil
 
 addon.tauntList = {
 	[355]		= true,	-- Warrior:			Taunt
-	[6795]		= true,	-- Druid:			Growl	
+	[6795]		= true,	-- Druid:			Growl
 	[51399]		= true,	-- Death Knight:	Death Grip
 	[56222]		= true,	-- Death Knight:	Dark Command
 	[62124]		= true,	-- Paladin:			Hand of Reckoning
@@ -489,25 +489,21 @@ addon.tauntList = {
 	[185245]	= true	-- Demon Hunter:	Torment
 }
 
-function addon:IsSpellSupported(spellID)
+local allSupportedSpells = {}
+do
 	for k, v in pairs(spellList) do
 		for i, j in pairs(v) do
-			if i == spellID then
-				return true
-			end
+			allSupportedSpells[i] = true
 		end
 	end
-	return false
+end
+
+function addon:IsSpellSupported(spellID)
+	return allSupportedSpells[spellID] ~= nil
 end
 
 function addon:GetAllSpellIds()
-	local spells = {}
-	for _, v in pairs(spellList) do
-		for k, v in pairs(v) do
-			spells[k] = v
-		end
-	end
-	return spells
+	return allSupportedSpells
 end
 
 function addon:GetSpellEntries(category)
