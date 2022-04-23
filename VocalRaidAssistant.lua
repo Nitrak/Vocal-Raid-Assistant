@@ -205,34 +205,32 @@ local function isThrottled(type)
 end
 
 
-local function playSpell(spellID)
+local function playSpell(spellID, isTest)
 	local channel = profile.sound.channel
 	local player = registeredSoundpacks[profile.sound.soundpack]
+	local errorMsg = nil
 	if player then
 		local success = player(spellID, channel)
-		if not success then
+		if not success and isTest then
 			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
-			local errorMsg = nil
 			if GetCVar("Sound_EnableAllSound") == "0" then
-				if isTest then
-					errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
-				end
+				errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
 			elseif GetCVar(cvarName) == "0" then
-				if isTest then
-					errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
-				end
+				errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
 			else
-				errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack)
-			end
-			if errorMsg and not isThrottled('msg') then
-				addon:prettyPrint(errorMsg)
+				errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID) or spellID, profile.sound.soundpack)
 			end
 		end
+	else
+		errorMsg = "Can not play sounds - No voicepack is installed or configured!"
+	end
+	if errorMsg and not isThrottled('msg') then
+		addon:prettyPrint(errorMsg)
 	end
 end
 
-function VRA:playSpell(spellID)
-	playSpell(spellID)
+function VRA:playSpell(spellID, isTest)
+	playSpell(spellID, isTest)
 end
 
 
@@ -257,12 +255,11 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 		if (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and
 				(not profile.general.onlySelf or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
 				not isThrottled('sound') and addon:IsSpellSupported(spellID)) then
-				playSpell(spellID)
+				self:playSpell(spellID)
 		elseif (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts) then
-				playSpell('countered')
-			self:playSpell('countered')
+				self:playSpell('countered')
 		elseif (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID]) then
-			self:playSpell('taunted')
+				self:playSpell('taunted')
 		end
 	end
 end

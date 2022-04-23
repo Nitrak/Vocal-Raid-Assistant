@@ -109,7 +109,7 @@ end
 local function setSpellOption(info, val)
 	profile.general.area[info[2]].spells[info[#info]] = val
 	if (val == true) then
-		addon:playSpell(info[#info])
+		addon:playSpell(info[#info], true)
 	end
 end
 
