@@ -489,15 +489,17 @@ addon.tauntList = {
 	[185245]	= true	-- Demon Hunter:	Torment
 }
 
+local allSupportedSpells = {}
+do
+    for k, v in pairs(spellList) do
+        for i, j in pairs(v) do
+            allSupportedSpells[i] = true
+        end
+    end
+end
+
 function addon:IsSpellSupported(spellID)
-	for k, v in pairs(spellList) do
-		for i, j in pairs(v) do
-			if i == spellID then
-				return true
-			end
-		end
-	end
-	return false
+    return allSupportedSpells[spellID] ~= nil
 end
 
 function addon:GetAllSpellIds()
