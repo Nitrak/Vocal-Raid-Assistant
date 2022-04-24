@@ -46,3 +46,6 @@ local wrongTargetMessage = "This version of VRA was packaged for World of Warcra
 if not addon.IsCorrectVersion() then --Wait 10 seconds then error message
   C_Timer.After(10, function() addon:prettyPrint(wrongTargetMessage) end)
 end
+
+--Delayed info that multiple sound-packages are available
+C_Timer.After(30, function() addon:prettyPrint("Additional soundpacks available on your favorite addon client - Just search for \"Vocal Raid Assistant\"") end)

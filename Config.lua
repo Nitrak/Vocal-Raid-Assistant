@@ -339,6 +339,17 @@ local mainOptions = {
 								end
 							end,
 							order = 7
+						},
+						additionalVoicePacksTitle = {
+							order = 8,
+							type = "description",
+							name = "|cffffd200" .. "Soundpacks",
+							fontSize = "large"
+						},
+						additionalVoicePacks = {
+							order = 9,
+							type = "description",
+							name = "Additional soundpacks available on your favorite addon client - Just search for \"Vocal Raid Assistant\".\n\nOfficially supported sound packages:\n - Vocal Raid Assistant - Ana Sound Pack\n - Vocal Raid Assistant - Elizabeth Sound Pack\n - Vocal Raid Assistant - Eric Sound Pack\n - Vocal Raid Assistant - Guy Sound Pack\n - Vocal Raid Assistant - Julie (Legacy) Sound Pack"
 						}
 					}
 				}

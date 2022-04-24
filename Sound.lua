@@ -42,12 +42,16 @@ local function playSpell(spellID, isTest)
 			return
 		end
 		local success = player(spellID, channel)
-		if not success and isTest then
+		if not success then
 			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
 			if GetCVar("Sound_EnableAllSound") == "0" then
-				errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
+				if isTest then
+					errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
+				end
 			elseif GetCVar(cvarName) == "0" then
-				errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
+				if isTest then
+					errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
+				end
 			else
 				errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID) or spellID, addon.profile.sound.soundpack)
 			end
