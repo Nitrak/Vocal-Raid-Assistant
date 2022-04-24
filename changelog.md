@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.3.6
+- Optimized spell lookup time
+
 ## 2.3.5
 - Added ability to track Taunts - Audio will be "Taunted" to differentiate it from other voice packs that tells you to Taunt
 
