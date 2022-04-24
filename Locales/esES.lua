@@ -51,7 +51,7 @@ if not L then return end
 --L["Restore Defaults"] = "Restore Defaults"
 --L["Select the area you want to copy settings from"] = "Select the area you want to copy settings from"
 --L["Sound"] = "Sound"
---L["Soundpack"] = "Soundpack"
+--L["Sound pack"] = "Sound pack"
 --L["Specials"] = "Specials"
 --L["Taunts"] = "Taunts"
 --L["Test"] = "Test"

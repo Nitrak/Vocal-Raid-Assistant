@@ -269,7 +269,7 @@ local mainOptions = {
 						soundpack = {
 							type = 'select',
 							width = 1.3,
-							name = L["Soundpack"],
+							name = L["Sound pack"],
 							values = function() return VRA:GetRegisteredSoundpacks() end,
 							order = 1
 						},
@@ -389,10 +389,18 @@ local mainOptions = {
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-julie-sound-pack"
 							end
 						},
-						additionalVoicePacks = {
+						VPSara = {
 							order = 6,
+							type = "input",
+							name = "Vocal Raid Assistant - Sara",
+							get = function()
+								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack"
+							end
+						},
+						additionalVoicePacks = {
+							order = 7,
 							type = "description",
-							name = "\nAdditional soundpacks may be available on your favorite addon client - Try searching for \"Vocal Raid Assistant\""
+							name = "\nAdditional sound packs may be available on your favorite addon client - Try searching for \"Vocal Raid Assistant\""
 						},
 					}
 				}
