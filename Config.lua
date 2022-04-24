@@ -341,17 +341,59 @@ local mainOptions = {
 							end,
 							order = 7
 						},
-						additionalVoicePacksTitle = {
-							order = 8,
-							type = "description",
-							name = "|cffffd200" .. "Soundpacks",
-							fontSize = "large"
+					}
+				},
+				soundPacksConfig = {
+					type = 'group',
+					inline = true,
+					name = "Officially supported sound packs",
+					order = 10,
+					args = {
+						VPAna = {
+							order = 1,
+							type = "input",
+							name = "Vocal Raid Assistant - Ana",
+							get = function()
+								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack"
+							end
+						},
+						VPElizabeth = {
+							order = 2,
+							type = "input",
+							name = "Vocal Raid Assistant - Elizabeth",
+							get = function()
+								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack"
+							end
+						},
+						VPEric = {
+							order = 3,
+							type = "input",
+							name = "Vocal Raid Assistant - Eric",
+							get = function()
+								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack"
+							end
+						},
+						VPGuy = {
+							order = 4,
+							type = "input",
+							name = "Vocal Raid Assistant - Guy",
+							get = function()
+								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-guy-sound-pack"
+							end
+						},
+						VPJulie = {
+							order = 5,
+							type = "input",
+							name = "Vocal Raid Assistant - Julie",
+							get = function()
+								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-julie-sound-pack"
+							end
 						},
 						additionalVoicePacks = {
-							order = 9,
+							order = 6,
 							type = "description",
-							name = "Additional soundpacks available on your favorite addon client - Just search for \"Vocal Raid Assistant\".\n\nOfficially supported sound packages:\n - Vocal Raid Assistant - Ana Sound Pack\n - Vocal Raid Assistant - Elizabeth Sound Pack\n - Vocal Raid Assistant - Eric Sound Pack\n - Vocal Raid Assistant - Guy Sound Pack\n - Vocal Raid Assistant - Julie (Legacy) Sound Pack"
-						}
+							name = "\nAdditional soundpacks may be available on your favorite addon client - Try searching for \"Vocal Raid Assistant\""
+						},
 					}
 				}
 			}

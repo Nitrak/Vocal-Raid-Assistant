@@ -67,3 +67,27 @@ end
 function addon:playSpell(spellID, isTest)
 	playSpell(spellID, isTest)
 end
+
+function addon:verifySoundPack()
+	local nSP = next(registeredSoundpacks)
+	--NO SOUND PACKS INSTALLED
+	if nSP == nil then
+		addon.profile.sound.soundpack = nil
+		local noPackErrorMsg = "WARNING - No Sound Packs installed/active!\nPlease check /VRA for more info!"
+		addon:prettyPrint(noPackErrorMsg)
+		C_Timer.After(30, function() addon:prettyPrint(noPackErrorMsg) end)
+		return
+	end
+	
+	--Check if registered sound pack is valid
+	local foundPack = false
+	for k,_ in pairs(registeredSoundpacks) do
+		if k == addon.profile.sound.soundpack then
+			foundPack = true
+		end
+	end
+	--If config sound pack is not found or is nil select a valid (first valid)
+	if not foundPack or addon.profile.sound.soundpack == nil then
+		addon.profile.sound.soundpack = select(1,nSP)
+	end
+end
