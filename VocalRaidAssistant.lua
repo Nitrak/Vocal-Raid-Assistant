@@ -160,6 +160,9 @@ end
 
 function VRA:OnEnable()
 	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+	if addon.profile.sound.soundpack == nil then
+		addon.profile.sound.soundpack = select(1,next(addon:GetRegisteredSoundpacks()))
+	end
 end
 
 -- ### Core
