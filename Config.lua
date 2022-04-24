@@ -268,6 +268,7 @@ local mainOptions = {
 					args = {
 						soundpack = {
 							type = 'select',
+							width = 1.3,
 							name = L["Soundpack"],
 							values = function() return VRA:GetRegisteredSoundpacks() end,
 							order = 1
