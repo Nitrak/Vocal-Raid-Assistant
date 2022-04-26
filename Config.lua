@@ -66,18 +66,36 @@ local function spellOption(spellID)
 end
 
 local function createOptionsForCategory(category)
-	local spellList = addon:GetSpellEntries(category)
 	local args = {}
-	if (spellList ~= nil) then
-		for spellID, v in pairs(spellList) do
-			args[v.type] = args[v.type] or {
-				name = addon.CATEGORY[v.type],
-				type = 'group',
-				order = indexOf(addon.CATEGORY_SORT_ORDER,v.type),
-				inline = true,
-				args = {}
-			}
-			args[v.type].args[tostring(spellID)] = spellOption(spellID)
+	if category == "All Active" then
+		local spellList = addon:GetFullSpellListNoCategories()
+		if (spellList ~= nil) then
+			for category, x in pairs(spellList) do
+				for spellID, v in pairs(x) do
+					args[v] = args[v] or {
+						name = addon.CATEGORY[v],
+						type = 'group',
+						order = indexOf(addon.CATEGORY_SORT_ORDER,v),
+						inline = true,
+						args = {}
+					}
+					args[v].args[tostring(spellID)] = spellOption(spellID)
+				end
+			end
+		end
+	else
+		local spellList = addon:GetSpellEntries(category)
+		if (spellList ~= nil) then
+			for spellID, v in pairs(spellList) do
+				args[v.type] = args[v.type] or {
+					name = addon.CATEGORY[v.type],
+					type = 'group',
+					order = indexOf(addon.CATEGORY_SORT_ORDER,v.type),
+					inline = true,
+					args = {}
+				}
+				args[v.type].args[tostring(spellID)] = spellOption(spellID)
+			end
 		end
 	end
 	return args
@@ -140,6 +158,9 @@ local function createSpellCategory(category, name, icon, order)
 		end,
 		set = function(info, val)
 			setSpellOption(info, val)
+		end,
+		hidden = function(info)
+			return category == "All Active" and tonumber(info[#info]) ~= nil and not getSpellOption(info)
 		end,
 		args = createOptionsForCategory(category)
 	}
@@ -565,6 +586,7 @@ local spells = {
 
 
 local additionalSpellCategories = {
+	["All Active"] = "All Active",
 	["TRINKET"] = INVTYPE_TRINKET,
 	["GENERAL"] = L["General Spells"],
 }
