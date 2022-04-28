@@ -513,15 +513,8 @@ end
 function addon:GetFullSpellListNoCategories()
 	local tempTable = {}
 	for category,x in pairs(spellList) do
-		for _,v in pairs(x) do
-			if tempTable[v.type] == nil then
-				tempTable[v.type] = {}
-			end
-		end
-	end
-	for category,x in pairs(spellList) do
 		for spellID, v in pairs(x) do
-			tempTable[v.type][spellID] = v.type
+			table.insert(tempTable, { [spellID] =  v.type })
 		end
 	end
 	return tempTable

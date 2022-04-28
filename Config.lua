@@ -84,9 +84,9 @@ local function createOptionsForCategory(category)
 			end
 		end
 	else
-		local spellList = addon:GetSpellEntries(category)
-		if (spellList ~= nil) then
-			for spellID, v in pairs(spellList) do
+		local spellEntries = addon:GetSpellEntries(category)
+		if (spellEntries ~= nil) then
+			for spellID, v in pairs(spellEntries) do
 				args[v.type] = args[v.type] or {
 					name = addon.CATEGORY[v.type],
 					type = 'group',
