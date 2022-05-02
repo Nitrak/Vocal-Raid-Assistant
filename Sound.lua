@@ -41,20 +41,8 @@ local function playSpell(spellID, isTest)
 		if isThrottled('sound') then
 			return
 		end
-		local success = player(spellID, channel)
-		if not success then
-			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
-			if GetCVar("Sound_EnableAllSound") == "0" then
-				if isTest then
-					errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
-				end
-			elseif GetCVar(cvarName) == "0" then
-				if isTest then
-					errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
-				end
-			else
-				errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID) or spellID, addon.profile.sound.soundpack)
-			end
+		if not player(spellID, channel) then
+			errorMsg = addon:ErrorPlayer(spellID, channel, isTest)
 		end
 	else
 		errorMsg = "Can not play sounds - No voicepack is installed or configured!"
@@ -89,6 +77,12 @@ function addon:verifySoundPack()
 	--If config sound pack is not found or is nil select a valid (first valid)
 	if not foundPack or addon.profile.sound.soundpack == nil then
 		addon.profile.sound.soundpack = select(1,nSP)
+	end
+end
+
+function addon:PlayTestSoundFile(name)
+	if not PlaySoundFile(format("Interface\\AddOns\\" .. addonName .. "\\TestSounds\\%s.ogg", name), addon.profile.sound.channel) then
+		addon:prettyPrint(addon:ErrorPlayer("", addon.profile.sound.channel, true))
 	end
 end
 

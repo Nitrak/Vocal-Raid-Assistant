@@ -212,9 +212,9 @@ local mainOptions = {
 					end
 				},
 				linebreak1 = {
-					order = 5,
 					type = 'description',
-					name = ''
+					name = '',
+					order = 5
 				},
 				minimapIcon = {
 					order = 6,
@@ -234,9 +234,9 @@ local mainOptions = {
 
 				},
 				linebreak2 = {
-					order = 7,
 					type = 'description',
-					name = '\n\n'
+					name = '\n\n',
+					order = 7
 				},
 				watchFor = {
 					type = 'group',
@@ -292,6 +292,7 @@ local mainOptions = {
 							width = 1.3,
 							name = L["Sound pack"],
 							values = function() return VRA:GetRegisteredSoundpacks() end,
+							width = "normal",
 							order = 1
 						},
 						playButton = {
@@ -300,6 +301,7 @@ local mainOptions = {
 							func = function()
 								addon:playSpell("740",true)
 							end,
+							width = "half",
 							order = 2
 						},
 						throttle = {
@@ -371,57 +373,114 @@ local mainOptions = {
 					order = 10,
 					args = {
 						VPAna = {
-							order = 1,
 							type = "input",
 							name = "Vocal Raid Assistant - Ana",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack"
-							end
+							end,
+							order = 1
+						},
+						playButtonAna = {
+							type = 'execute',
+							name = L["Test"],
+							func = function()
+								addon:PlayTestSoundFile("Ana")
+							end,
+							width = "half",
+							order = 2
+						},
+						linebreak3 = {
+							type = 'description',
+							name = '\n\n',
+							order = 3
 						},
 						VPElizabeth = {
-							order = 2,
 							type = "input",
 							name = "Vocal Raid Assistant - Elizabeth",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack"
-							end
+							end,
+							order = 4
+						},
+						playButtonElizabeth= {
+							type = 'execute',
+							name = L["Test"],
+							func = function()
+								addon:PlayTestSoundFile("Elizabeth")
+							end,
+							width = "half",
+							order = 5
+						},
+						linebreak4 = {
+							type = 'description',
+							name = '\n\n',
+							order = 6
 						},
 						VPEric = {
-							order = 3,
 							type = "input",
 							name = "Vocal Raid Assistant - Eric",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack"
-							end
+							end,
+							order = 7
+						},
+						playButtonEric= {
+							type = 'execute',
+							name = L["Test"],
+							func = function()
+								addon:PlayTestSoundFile("Eric")
+							end,
+							width = "half",
+							order = 8
+						},
+						linebreak5 = {
+							type = 'description',
+							name = '\n\n',
+							order = 9
 						},
 						VPGuy = {
-							order = 4,
 							type = "input",
 							name = "Vocal Raid Assistant - Guy",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-guy-sound-pack"
-							end
+							end,
+							order = 10
 						},
-						VPJulie = {
-							order = 5,
-							type = "input",
-							name = "Vocal Raid Assistant - Julie",
-							get = function()
-								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-julie-sound-pack"
-							end
+						playButtonGuy= {
+							type = 'execute',
+							name = L["Test"],
+							func = function()
+								addon:PlayTestSoundFile("Guy")
+							end,
+							width = "half",
+							order = 11
+						},
+						linebreak6 = {
+							type = 'description',
+							name = '\n\n',
+							order = 12
 						},
 						VPSara = {
-							order = 6,
 							type = "input",
 							name = "Vocal Raid Assistant - Sara",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack"
-							end
+							end,
+							order = 13
+						},
+						playButtonSara= {
+							type = 'execute',
+							name = L["Test"],
+							func = function()
+								addon:PlayTestSoundFile("Sara")
+							end,
+							width = "half",
+							order = 14
 						},
 						additionalVoicePacks = {
-							order = 7,
 							type = "description",
-							name = "\nAdditional sound packs may be available on your favorite addon client - Try searching for \"Vocal Raid Assistant\""
+							name = "\nAdditional sound packs may be available on your favorite addon client - Try searching for \"Vocal Raid Assistant\"",
+							order = 15
 						},
 					}
 				}
