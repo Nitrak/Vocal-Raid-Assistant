@@ -306,9 +306,9 @@ local mainOptions = {
 						},
 						throttle = {
 							type = 'range',
-							max = 60,
+							max = 2,
 							min = 0,
-							step = 0.5,
+							step = 0.1,
 							name = L["Throttle"],
 							desc = L["The minimum interval between two alerts in seconds"],
 							order = 3
