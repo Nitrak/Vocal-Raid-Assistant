@@ -6,8 +6,10 @@ local throttleTime = {
 	['sound'] = GetTime(),
 	['msg'] = GetTime()
 }
+local numberOfRegisteredSoundPacks = 0
 
 function addon:RegisterSoundpack(name, player)
+	numberOfRegisteredSoundPacks = numberOfRegisteredSoundPacks + 1
 	if registeredSoundpacks[name] then
 		error('Sound pack already exist!')
 	elseif type(player) ~= "function" then
@@ -22,6 +24,15 @@ function addon:GetRegisteredSoundpacks()
 		t[k] = k
 	end
 	return t
+end
+
+function addon:CheckSoundPackExist(name)
+	for k,_ in pairs(registeredSoundpacks) do
+		if k == name then
+			return true
+		end
+	end
+	return false
 end
 
 local function isThrottled(type)
@@ -57,14 +68,14 @@ function addon:playSpell(spellID, isTest)
 end
 
 function addon:verifySoundPack()
-	local nSP = next(registeredSoundpacks)
-	--NO SOUND PACKS INSTALLED
-	if nSP == nil then
+	if numberOfRegisteredSoundPacks == 0 then --NO SOUND PACKS INSTALLED
 		addon.profile.sound.soundpack = nil
 		local noPackErrorMsg = "WARNING - No sound packs installed/active!\nPlease check /VRA for more info!"
 		addon:prettyPrint(noPackErrorMsg)
-		C_Timer.After(30, function() addon:prettyPrint(noPackErrorMsg) end)
+		C_Timer.After(20, function() addon:prettyPrint(noPackErrorMsg) end)
 		return
+	elseif numberOfRegisteredSoundPacks == 1 then --ONE SOUND PACKS INSTALLED
+		C_Timer.After(30, function() addon:prettyPrint("Additional sound packs available on your favorite addon client - Just search for \"Vocal Raid Assistant\"") end)
 	end
 	
 	--Check if registered sound pack is valid
@@ -85,6 +96,3 @@ function addon:PlayTestSoundFile(name)
 		addon:prettyPrint(addon:ErrorPlayer("", addon.profile.sound.channel, true))
 	end
 end
-
---Delayed info that multiple sound-packages are available
-C_Timer.After(30, function() addon:prettyPrint("Additional sound packs available on your favorite addon client - Just search for \"Vocal Raid Assistant\"") end)

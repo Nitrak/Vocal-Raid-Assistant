@@ -369,7 +369,7 @@ local mainOptions = {
 				soundPacksConfig = {
 					type = 'group',
 					inline = true,
-					name = "Officially supported sound packs",
+					name = "Officially supported sound packs not yet installed/active",
 					order = 10,
 					args = {
 						VPAna = {
@@ -377,6 +377,9 @@ local mainOptions = {
 							name = "Vocal Raid Assistant - Ana",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack"
+							end,
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Ana")
 							end,
 							order = 1
 						},
@@ -387,11 +390,17 @@ local mainOptions = {
 								addon:PlayTestSoundFile("Ana")
 							end,
 							width = "half",
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Ana")
+							end,
 							order = 2
 						},
 						linebreak3 = {
 							type = 'description',
-							name = '\n\n',
+							name = '',
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Ana")
+							end,
 							order = 3
 						},
 						VPElizabeth = {
@@ -399,6 +408,9 @@ local mainOptions = {
 							name = "Vocal Raid Assistant - Elizabeth",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack"
+							end,
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Elizabeth")
 							end,
 							order = 4
 						},
@@ -409,11 +421,17 @@ local mainOptions = {
 								addon:PlayTestSoundFile("Elizabeth")
 							end,
 							width = "half",
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Elizabeth")
+							end,
 							order = 5
 						},
 						linebreak4 = {
 							type = 'description',
-							name = '\n\n',
+							name = '',
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Elizabeth")
+							end,
 							order = 6
 						},
 						VPEric = {
@@ -421,6 +439,9 @@ local mainOptions = {
 							name = "Vocal Raid Assistant - Eric",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack"
+							end,
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Eric")
 							end,
 							order = 7
 						},
@@ -431,11 +452,17 @@ local mainOptions = {
 								addon:PlayTestSoundFile("Eric")
 							end,
 							width = "half",
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Eric")
+							end,
 							order = 8
 						},
 						linebreak5 = {
 							type = 'description',
-							name = '\n\n',
+							name = '',
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Eric")
+							end,
 							order = 9
 						},
 						VPGuy = {
@@ -443,6 +470,9 @@ local mainOptions = {
 							name = "Vocal Raid Assistant - Guy",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-guy-sound-pack"
+							end,
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Guy")
 							end,
 							order = 10
 						},
@@ -453,11 +483,17 @@ local mainOptions = {
 								addon:PlayTestSoundFile("Guy")
 							end,
 							width = "half",
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Guy")
+							end,
 							order = 11
 						},
 						linebreak6 = {
 							type = 'description',
-							name = '\n\n',
+							name = '',
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Guy")
+							end,
 							order = 12
 						},
 						VPSara = {
@@ -465,6 +501,9 @@ local mainOptions = {
 							name = "Vocal Raid Assistant - Sara",
 							get = function()
 								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack"
+							end,
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Sara")
 							end,
 							order = 13
 						},
@@ -475,11 +514,14 @@ local mainOptions = {
 								addon:PlayTestSoundFile("Sara")
 							end,
 							width = "half",
+							hidden = function()
+								return addon:CheckSoundPackExist("VRA_EN_Sara")
+							end,
 							order = 14
 						},
 						additionalVoicePacks = {
 							type = "description",
-							name = "\nAdditional sound packs may be available on your favorite addon client - Try searching for \"Vocal Raid Assistant\"",
+							name = "Additional sound packs may be available on your favorite addon client - Try searching for \"Vocal Raid Assistant\".\nMake sure at least one sound pack is enabled.",
 							order = 15
 						},
 					}
