@@ -43,3 +43,4 @@ Sounds/desktop.ini
 Libs/*
 !Libs/WagoAnalytics/#
 .release
+desktop.ini

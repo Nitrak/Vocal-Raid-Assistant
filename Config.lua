@@ -521,7 +521,7 @@ local mainOptions = {
 						},
 						additionalVoicePacks = {
 							type = "description",
-							name = "Additional sound packs may be available on your favorite addon client - Try searching for \"Vocal Raid Assistant\".\nMake sure at least one sound pack is enabled.",
+							name = L["Additional Voicepacks"],
 							order = 15
 						},
 					}

@@ -93,7 +93,7 @@ function addon:verifySoundPack()
 end
 
 function addon:PlayTestSoundFile(name)
-	if not PlaySoundFile(format("Interface\\AddOns\\" .. addonName .. "\\TestSounds\\%s.ogg", name), addon.profile.sound.channel) then
+	if not PlaySoundFile(format("Interface\\AddOns\\" .. addonName .. "\\Media\\%s.ogg", name), addon.profile.sound.channel) then
 		addon:prettyPrint(addon:ErrorPlayer("", addon.profile.sound.channel, true))
 	end
 end
