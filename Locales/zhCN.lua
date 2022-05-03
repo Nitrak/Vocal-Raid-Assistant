@@ -2,6 +2,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("VocalRaidAssistant", "zhCN")
 if not L then return end
 
 L["Abilities"] = "技能"
+--L["Additional Voicepacks"] = "Additional sound packs available on your favorite addon client - Just search for \"Vocal Raid Assistant\""
 L["Adjusting the voice volume"] = "调节音量"
 L["Alert for"] = "警报"
 L["Ambience"] = "环境音"

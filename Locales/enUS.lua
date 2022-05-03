@@ -2,6 +2,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("VocalRaidAssistant", "enUS", true)
 if not L then return end
 
 L["Abilities"] = "Abilities"
+L["Additional Voicepacks"] = "Additional sound packs available on your favorite addon client - Just search for \"Vocal Raid Assistant\""
 L["Adjusting the voice volume"] = "Adjusting the voice volume"
 L["Alert for"] = "Alert for"
 L["Ambience"] = "Ambience"
@@ -37,8 +38,8 @@ L["Master"] = "Master"
 L["Minimap Icon"] = "Minimap Icon"
 L["Music"] = "Music"
 L["My own abilities"] = "My own abilities"
---L["No Voicepack"] = "Can not play sounds - No voicepack is installed or configured!"
---L["No Voicepack Warning"] = "WARNING - No sound packs installed/active!\nPlease check /VRA for more info!"
+L["No Voicepack"] = "Can not play sounds - No voicepack is installed or configured!"
+L["No Voicepack Warning"] = "WARNING - No sound packs installed/active!\nPlease check /VRA for more info!"
 L["Offensive"] = "Offensive"
 L["OnlySelfExternalsDesc"] = "Enable this to ONLY hear externals when they are cast on you and not your party/raid members (e.g. Power Infusion, Ironbark etc.)"
 L["OnlySelfExternalsName"] = "Only externals on you"

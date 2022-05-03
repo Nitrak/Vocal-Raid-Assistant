@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local L = addon.L
 
 local registeredSoundpacks = {}
 local GetTime = GetTime
@@ -75,7 +76,7 @@ function addon:verifySoundPack()
 		C_Timer.After(20, function() addon:prettyPrint(noPackErrorMsg) end)
 		return
 	elseif numberOfRegisteredSoundPacks == 1 then --ONE SOUND PACKS INSTALLED
-		C_Timer.After(30, function() addon:prettyPrint("Additional sound packs available on your favorite addon client - Just search for \"Vocal Raid Assistant\"") end)
+		C_Timer.After(30, function() addon:prettyPrint(L["Additional Voicepacks"]) end)
 	end
 	
 	--Check if registered sound pack is valid
