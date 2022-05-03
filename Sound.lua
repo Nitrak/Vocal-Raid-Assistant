@@ -56,7 +56,7 @@ local function playSpell(spellID, isTest)
 			errorMsg = addon:ErrorPlayer(spellID, channel, isTest)
 		end
 	else
-		errorMsg = "Can not play sounds - No voicepack is installed or configured!"
+		errorMsg = L["No Voicepack"]
 	end
 	if errorMsg and not isThrottled('msg') then
 		addon:prettyPrint(errorMsg)
