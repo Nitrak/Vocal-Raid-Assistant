@@ -70,7 +70,7 @@ end
 function addon:verifySoundPack()
 	if numberOfRegisteredSoundPacks == 0 then --NO SOUND PACKS INSTALLED
 		addon.profile.sound.soundpack = nil
-		local noPackErrorMsg = "WARNING - No sound packs installed/active!\nPlease check /VRA for more info!"
+		local noPackErrorMsg = L["No Voicepack Warning"]
 		addon:prettyPrint(noPackErrorMsg)
 		C_Timer.After(20, function() addon:prettyPrint(noPackErrorMsg) end)
 		return

@@ -38,6 +38,7 @@ if not L then return end
 --L["Music"] = "Music"
 --L["My own abilities"] = "My own abilities"
 --L["No Voicepack"] = "Can not play sounds - No voicepack is installed or configured!"
+--L["No Voicepack Warning"] = "WARNING - No sound packs installed/active!\nPlease check /VRA for more info!"
 --L["Offensive"] = "Offensive"
 --L["OnlySelfExternalsDesc"] = "Enable this to ONLY hear externals when they are cast on you and not your party/raid members (e.g. Power Infusion, Ironbark etc.)"
 --L["OnlySelfExternalsName"] = "Only externals on you"
