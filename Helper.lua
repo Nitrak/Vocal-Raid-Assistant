@@ -38,6 +38,22 @@ local intendedWoWProjectName = {
   [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "The Burning Crusade Classic"
 }
 
+function addon:ErrorPlayer(spellID, channel, isTest)
+	local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
+	if GetCVar("Sound_EnableAllSound") == "0" then
+		if isTest then
+			errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
+		end
+	elseif GetCVar(cvarName) == "0" then
+		if isTest then
+			errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
+		end
+	else
+		errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID) or spellID, addon.profile.sound.soundpack)
+	end
+	return errorMsg
+end
+
 local wrongTargetMessage = "This version of VRA was packaged for World of Warcraft " .. intendedWoWProjectName[intendedWoWProject] ..
                               ". Please install the " .. intendedWoWProjectName[WOW_PROJECT_ID] ..
                               " version instead.\nIf you are using an addon manager, then" ..

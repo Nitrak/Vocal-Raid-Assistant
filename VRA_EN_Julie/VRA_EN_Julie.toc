@@ -1,0 +1,11 @@
+## Interface: 90200
+## Interface-BCC: 20504
+## Interface-Classic: 11402
+## Title: VRA_EN_Julie
+## Notes: VoicePack for Vocal Raid Assistant Addon
+## Dependencies: VocalRaidAssistant
+## Author: The VRA Team
+## Version: 0.0.9
+
+VRA_EN_Julie.lua
+

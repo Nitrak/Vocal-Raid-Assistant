@@ -19,7 +19,12 @@ externals:
 
 ignore:
   - .editorconfig
+  - spellNames.json
+  - VRA_EN_Julie
 
 enable-nolib-creation: no
 
 manual-changelog: changelog.md
+
+move-folders:
+  VocalRaidAssistant/VRA_EN_Julie: VRA_EN_Julie

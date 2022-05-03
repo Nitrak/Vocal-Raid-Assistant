@@ -2,6 +2,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("VocalRaidAssistant", "esMX")
 if not L then return end
 
 --L["Abilities"] = "Abilities"
+--L["Additional Voicepacks"] = "Additional sound packs available on your favorite addon client - Just search for \"Vocal Raid Assistant\""
 --L["Adjusting the voice volume"] = "Adjusting the voice volume"
 --L["Alert for"] = "Alert for"---L["Ambience"] = "Ambience"
 --L["Cancel"] = "Cancel"
@@ -17,6 +18,7 @@ if not L then return end
 --L["Credits"] = "\nAuthors: |cfffff486Nitrak|r of Kazzak and |cff0070ddKyy|r of Blackrock"
 --L["Crowd Control"] = "Crowd Control"
 --L["Defensive"] = "Defensive"
+--L["Demo"] = "Demo"
 --L["Dialog"] = "Dialog"
 --L["Discord"] = "Discord"
 --L["Enable"] = "Enable"
@@ -35,6 +37,8 @@ if not L then return end
 --L["Minimap Icon"] = "Minimap Icon"
 --L["Music"] = "Music"
 --L["My own abilities"] = "My own abilities"
+--L["No Voicepack"] = "Can not play sounds - No voicepack is installed or configured!"
+--L["No Voicepack Warning"] = "WARNING - No sound packs installed/active!\nPlease check /VRA for more info!"
 --L["Offensive"] = "Offensive"
 --L["OnlySelfExternalsDesc"] = "Enable this to ONLY hear externals when they are cast on you and not your party/raid members (e.g. Power Infusion, Ironbark etc.)"
 --L["OnlySelfExternalsName"] = "Only externals on you"
@@ -50,7 +54,7 @@ if not L then return end
 --L["Restore Defaults"] = "Restore Defaults"
 --L["Select the area you want to copy settings from"] = "Select the area you want to copy settings from"
 --L["Sound"] = "Sound"
---L["Soundpack"] = "Soundpack"
+--L["Sound pack"] = "Sound pack"
 --L["Specials"] = "Specials"
 --L["Taunts"] = "Taunts"
 --L["Test"] = "Test"

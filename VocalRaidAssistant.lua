@@ -26,18 +26,15 @@ local locales = {
 	--zhCN = "Chinese (zhCN)",
 	--zhTW = "Chinese (zhTW)",
 }
+
 if locales[L] then
 	local msg = string.format("Missing translations for %s. Can you help? Visit https://tinyurl.com/VRA-LOCAL or ask us on Discord for more info.", locales[L])
 	C_Timer.After(30, function() addon:prettyPrint(msg) end)
 end
 
 local tostring = tostring
+local pairs = pairs
 local GetTime = GetTime
-local profile = {}
-local throttleTime = {
-	['sound'] = GetTime(),
-	['msg'] = GetTime()
-}
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
@@ -68,6 +65,8 @@ function VRA:InitializeOptions()
 
 	self.InitializeOptions = nil
 end
+
+
 
 local function ConfigCleanup(db)
 	if (db.profiles.version == addon.DATABASE_VERSION) then
@@ -117,7 +116,7 @@ local function VRAAnalytics(addon, profile)
 	end
 
 	--Settings
-	VRA.WAGO:Switch("Hear own abilities",profile.general.watchFor == 1)
+	VRA.WAGO:Switch("Hear own abilities", profile.general.watchFor == 1)
 	VRA.WAGO:Switch("Minimap Button", not profile.general.minimap.hide)
 	VRA.WAGO:Switch("Only self", profile.general.onlySelf)
 end
@@ -127,16 +126,16 @@ function VRA:OnInitialize()
 	self.db.RegisterCallback(self, "OnProfileChanged", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
-	profile = self.db.profile
+	self.profile = self.db.profile
 
 	-- Minimap Icon and Broker
-	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), profile.general.minimap)
+	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), self.profile.general.minimap)
 	if not pcall(ConfigCleanup, self.db) then
 		addon:prettyPrint(VRA.L["Config Cleaning Error Message"])
 		self.db:ResetDB("Default")
 	end
 
-	if(not self:IsClassic() and not self:IsBCC()) then
+	if(self:IsRetail()) then
 		self.LDS = LibStub('LibDualSpec-1.0')
 		self.LDS:EnhanceDatabase(self.db, addonName)
 	end
@@ -144,12 +143,11 @@ function VRA:OnInitialize()
 	self:InitConfigOptions()
 	self:InitializeOptions()
 
-	VRAAnalytics(addon,profile)
+	VRAAnalytics(addon, self.profile)
 end
 
 function VRA:ChangeProfile()
-	profile = self.db.profile
-	self:RefreshOptions(self.db)
+	self.profile = self.db.profile
 end
 
 function VRA:ChatCommand()
@@ -162,52 +160,19 @@ end
 
 function VRA:OnEnable()
 	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+	addon:verifySoundPack()
 end
 
 -- ### Core
 local function allowedZone()
 	local _, currentZoneType = IsInInstance()
-	return profile.general.area[currentZoneType].enabled
+	return addon.profile.general.area[currentZoneType].enabled
 end
 
 local function allowedSubEvent(event)
 	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
 end
 
-local function isThrottled(type)
-	local now = GetTime()
-	if now > throttleTime[type] then
-		throttleTime[type] = now + ((type == 'sound') and profile.sound.throttle or addon.MSG_DELAY_SECONDS)
-		return false
-	end
-	return true
-end
-
-function VRA:playSpell(spellID,isTest)
-	local soundFile = "Interface\\AddOns\\VocalRaidAssistant\\Sounds\\" .. profile.sound.soundpack .. "\\" .. spellID .. ".ogg"
-	local channel = profile.sound.channel
-	if soundFile then
-		local success = PlaySoundFile(soundFile, channel)
-		if not success then
-			local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
-			local errorMsg = nil
-			if GetCVar("Sound_EnableAllSound") == "0" then
-				if isTest then
-					errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
-				end
-			elseif GetCVar(cvarName) == "0" then
-				if isTest then
-					errorMsg = format("Can not play sounds, you configured VRA to play sounds via channel \"%s\", but %s channel is disabled.", channel, channel)
-				end
-			else
-				errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID), profile.sound.soundpack)
-			end
-			if errorMsg and not isThrottled('msg') then
-				addon:prettyPrint(errorMsg)
-			end
-		end
-	end
-end
 
 local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
 local function checkSpellTarget(destFlags, destGUID)
@@ -224,17 +189,18 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 
 	-- apply spell correction (e.g. hex and polymorh change the spellID)
 	spellID = addon.spellCorrections[spellID] or spellID
-	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, profile.general.watchFor) > 0)) then
+	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
 		local _, instanceType = IsInInstance()
-		if (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].spells[tostring(spellID)] and
-				(not profile.general.onlySelf or (profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
-				not isThrottled('sound') and addon:IsSpellSupported(spellID)) then
-			self:playSpell(spellID)
-		elseif (event == 'SPELL_INTERRUPT' and profile.general.area[instanceType].enableInterrupts) then
-			self:playSpell('countered')
-		elseif (event == 'SPELL_CAST_SUCCESS' and profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID]) then
-			self:playSpell('taunted')
+		if (event == 'SPELL_CAST_SUCCESS') then
+			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
+				(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
+				addon:IsSpellSupported(spellID) then
+					self:playSpell(spellID)
+			elseif self.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID] then
+				self:playSpell('taunted')
+			end
+		elseif (event == 'SPELL_INTERRUPT' and self.profile.general.area[instanceType].enableInterrupts) then
+				self:playSpell('countered')
 		end
 	end
 end
-

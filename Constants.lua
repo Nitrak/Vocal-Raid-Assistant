@@ -88,7 +88,6 @@ addon.DEFAULTS = {
 			minimap = {}
 		},
 		sound = {
-			soundpack = "en-US-SaraNeural",
 			throttle = 0,
 			channel = "Master"
 		},
