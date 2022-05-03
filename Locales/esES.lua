@@ -18,6 +18,7 @@ if not L then return end
 --L["Credits"] = "\nAuthors: |cfffff486Nitrak|r of Kazzak and |cff0070ddKyy|r of Blackrock"
 --L["Crowd Control"] = "Crowd Control"
 --L["Defensive"] = "Defensive"
+--L["Demo"] = "Demo"
 --L["Dialog"] = "Dialog"
 --L["Discord"] = "Discord"
 --L["Enable"] = "Enable"

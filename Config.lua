@@ -385,7 +385,7 @@ local mainOptions = {
 						},
 						playButtonAna = {
 							type = 'execute',
-							name = L["Test"],
+							name = L["Demo"],
 							func = function()
 								addon:PlayTestSoundFile("Ana")
 							end,
@@ -416,7 +416,7 @@ local mainOptions = {
 						},
 						playButtonElizabeth= {
 							type = 'execute',
-							name = L["Test"],
+							name = L["Demo"],
 							func = function()
 								addon:PlayTestSoundFile("Elizabeth")
 							end,
@@ -447,7 +447,7 @@ local mainOptions = {
 						},
 						playButtonEric= {
 							type = 'execute',
-							name = L["Test"],
+							name = L["Demo"],
 							func = function()
 								addon:PlayTestSoundFile("Eric")
 							end,
@@ -478,7 +478,7 @@ local mainOptions = {
 						},
 						playButtonGuy= {
 							type = 'execute',
-							name = L["Test"],
+							name = L["Demo"],
 							func = function()
 								addon:PlayTestSoundFile("Guy")
 							end,
@@ -509,7 +509,7 @@ local mainOptions = {
 						},
 						playButtonSara= {
 							type = 'execute',
-							name = L["Test"],
+							name = L["Demo"],
 							func = function()
 								addon:PlayTestSoundFile("Sara")
 							end,
