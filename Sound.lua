@@ -7,10 +7,8 @@ local throttleTime = {
 	['sound'] = GetTime(),
 	['msg'] = GetTime()
 }
-local numberOfRegisteredSoundPacks = 0
 
 function addon:RegisterSoundpack(name, player)
-	numberOfRegisteredSoundPacks = numberOfRegisteredSoundPacks + 1
 	if registeredSoundpacks[name] then
 		error('Sound pack already exist!')
 	elseif type(player) ~= "function" then
@@ -25,15 +23,6 @@ function addon:GetRegisteredSoundpacks()
 		t[k] = k
 	end
 	return t
-end
-
-function addon:CheckSoundPackExist(name)
-	for k,_ in pairs(registeredSoundpacks) do
-		if k == name then
-			return true
-		end
-	end
-	return false
 end
 
 local function isThrottled(type)
@@ -54,7 +43,7 @@ local function playSpell(spellID, isTest)
 			return
 		end
 		if not player(spellID, channel) then
-			errorMsg = addon:ErrorPlayer(spellID, channel, isTest)
+			errorMsg = addon:determinePlayerError(spellID, channel, isTest)
 		end
 	else
 		errorMsg = L["No Voicepack"]
@@ -69,31 +58,23 @@ function addon:playSpell(spellID, isTest)
 end
 
 function addon:verifySoundPack()
-	if numberOfRegisteredSoundPacks == 0 then --NO SOUND PACKS INSTALLED
+	local countInstalledSoundPacks = 0
+	for k, v in pairs(registeredSoundpacks) do
+		countInstalledSoundPacks = countInstalledSoundPacks + 1
+	end
+
+	if countInstalledSoundPacks == 0 then --NO SOUND PACKS INSTALLED
 		addon.profile.sound.soundpack = nil
 		local noPackErrorMsg = L["No Voicepack Warning"]
 		addon:prettyPrint(noPackErrorMsg)
 		C_Timer.After(20, function() addon:prettyPrint(noPackErrorMsg) end)
 		return
-	elseif numberOfRegisteredSoundPacks == 1 then --ONE SOUND PACKS INSTALLED
+	elseif countInstalledSoundPacks == 1 then --ONE SOUND PACKS INSTALLED
 		C_Timer.After(30, function() addon:prettyPrint(L["Additional Voicepacks"]) end)
 	end
-	
-	--Check if registered sound pack is valid
-	local foundPack = false
-	for k,_ in pairs(registeredSoundpacks) do
-		if k == addon.profile.sound.soundpack then
-			foundPack = true
-		end
-	end
-	--If config sound pack is not found or is nil select a valid (first valid)
-	if not foundPack or addon.profile.sound.soundpack == nil then
-		addon.profile.sound.soundpack = select(1,next(registeredSoundpacks))
-	end
-end
 
-function addon:PlayTestSoundFile(name)
-	if not PlaySoundFile(format("Interface\\AddOns\\" .. addonName .. "\\Media\\%s.ogg", name), addon.profile.sound.channel) then
-		addon:prettyPrint(addon:ErrorPlayer("", addon.profile.sound.channel, true))
+	--If config sound pack is not found or is nil select a valid (first valid)
+	if not addon.profile.sound.soundpack or registeredSoundpacks[addon.profile.sound.soundpack] == nil then
+		addon.profile.sound.soundpack = select(1,next(registeredSoundpacks))
 	end
 end
