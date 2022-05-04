@@ -687,7 +687,7 @@ local spells = {
 
 
 local additionalSpellCategories = {
-	["All Active"] = "All Active",
+	["All Active"] = L["All Active"],
 	["TRINKET"] = INVTYPE_TRINKET,
 	["GENERAL"] = L["General Spells"],
 }
