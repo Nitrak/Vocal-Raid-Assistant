@@ -55,6 +55,7 @@ local spellListRetail = {
 		[329554] =	{ name = "Fodder to the Flame", phonetic_name = "", type = "covenant"},
 	},
 	["DRUID"] = {
+		[99] =	    { name = "Incapacitating Roar", phonetic_name = "", type = "cc"}, --夺魂咆哮
 		[740] =		{ name = "Tranquility", phonetic_name = "", type = "raidDefensive"},
 		[2908] =	{ name = "Soothe", phonetic_name = "", type = "dispel"},
 		[5211] =	{ name = "Bash", phonetic_name = "", type = "cc"}, -- Mighty Bash
@@ -282,6 +283,7 @@ local spellListRetail = {
 		[46968] =	{ name = "Shockwave", phonetic_name = "", type = "offensive"},
 		[64382] =	{ name = "Shattering Throw", phonetic_name = "", type = "other"},
 		[97462] =	{ name = "Rallying Cry", phonetic_name = "Ralyan Cry", type = "raidDefensive"},
+		[107570] =	{ name = "Storm Bolt", phonetic_name = "", type = "cc"},  --风暴之锤
 		[118038] =	{ name = "Die by the Sword", phonetic_name = "", type = "defensive"},
 		[190456] =	{ name = "Ignore Pain", phonetic_name = "", type = "defensive"},
 		[228920] =	{ name = "Ravager", phonetic_name = "", type = "offensive"},
