@@ -169,10 +169,14 @@ local function allowedZone()
 	return addon.profile.general.area[currentZoneType].enabled
 end
 
+local function combatPlayCheck()
+	local _, currentZoneType = IsInInstance()
+	return addon.profile.general.area[currentZoneType].combatOnly and not UnitAffectingCombat("player")
+end
+
 local function allowedSubEvent(event)
 	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
 end
-
 
 local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
 local function checkSpellTarget(destFlags, destGUID)
@@ -180,7 +184,7 @@ local function checkSpellTarget(destFlags, destGUID)
 end
 
 function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
-	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone())) then
+	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone())) or combatPlayCheck() then
 		return
 	end
 
@@ -191,18 +195,16 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	spellID = addon.spellCorrections[spellID] or spellID
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
 		local _, instanceType = IsInInstance()
-		if not self.profile.general.area[instanceType].combatOnly or UnitAffectingCombat("player") then
-			if (event == 'SPELL_CAST_SUCCESS') then
-				if self.profile.general.area[instanceType].spells[tostring(spellID)] and
-					(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
-					addon:IsSpellSupported(spellID) then
-						self:playSpell(spellID)
-				elseif self.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID] then
-					self:playSpell('taunted')
-				end
-			elseif (event == 'SPELL_INTERRUPT' and self.profile.general.area[instanceType].enableInterrupts) then
-					self:playSpell('countered')
+		if (event == 'SPELL_CAST_SUCCESS') then
+			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
+				(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
+				addon:IsSpellSupported(spellID) then
+					self:playSpell(spellID)
+			elseif self.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID] then
+				self:playSpell('taunted')
 			end
+		elseif (event == 'SPELL_INTERRUPT' and self.profile.general.area[instanceType].enableInterrupts) then
+				self:playSpell('countered')
 		end
 	end
 end
