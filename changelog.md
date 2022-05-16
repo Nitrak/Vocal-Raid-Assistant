@@ -1,6 +1,6 @@
 # Vocal Raid Assistant
 
-## 2.3.7
+## 2.4.0
 - Split the included sound packs into separate addons (Default packaged with Vocal Raid Assistant is Julie (Legacy)). You can find the sound packs on your favorite WoW Addon Client!
 - Ana (https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack)
 - Elizabeth (https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack)
