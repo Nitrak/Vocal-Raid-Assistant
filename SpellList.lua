@@ -328,7 +328,7 @@ local spellListRetail = {
 		[107079] =	{ name = "Quaking Palm", phonetic_name = "", type = "racial"},
 		[178207] =	{ name = "Drums", phonetic_name = "", type = "offensive"}, -- Drums of Fury
 		[300728] =	{ name = "Door of Shadows", phonetic_name = "", type = "covenant"},
-		[310143] =	{ name = "Soulshape", phonetic_name = "Soelshape", type = "covenant"}, --TODO: Check variations https://www.wowhead.com/spell=310143/soulshape
+		[310143] =	{ name = "Soulshape", phonetic_name = "Soelshape", type = "covenant"},
 		[323436] =	{ name = "Purify Soul", phonetic_name = "", type = "covenant"},
 		[324631] =	{ name = "Fleshcraft", phonetic_name = "", type = "covenant"},
 		[324739] =	{ name = "Summon Steward", phonetic_name = "", type = "covenant"},
