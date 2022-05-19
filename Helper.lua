@@ -38,8 +38,9 @@ local intendedWoWProjectName = {
   [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "The Burning Crusade Classic"
 }
 
-function addon:ErrorPlayer(spellID, channel, isTest)
+function addon:determinePlayerError(spellID, channel, isTest)
 	local cvarName ='Sound_Enable'..(channel == "Sound" and 'SFX' or channel)
+	local errorMsg = ""
 	if GetCVar("Sound_EnableAllSound") == "0" then
 		if isTest then
 			errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')
@@ -62,3 +63,4 @@ local wrongTargetMessage = "This version of VRA was packaged for World of Warcra
 if not addon.IsCorrectVersion() then --Wait 10 seconds then error message
   C_Timer.After(10, function() addon:prettyPrint(wrongTargetMessage) end)
 end
+

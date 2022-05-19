@@ -3,6 +3,7 @@ local L = VRA.L
 local WagoAnalytics = VRA.WAGO
 
 local tostring = tostring
+local pairs = pairs
 local popUpSemaphore = false
 
 local function indexOf(array, value)
@@ -292,7 +293,6 @@ local mainOptions = {
 							width = 1.3,
 							name = L["Sound pack"],
 							values = function() return VRA:GetRegisteredSoundpacks() end,
-							width = "normal",
 							order = 1
 						},
 						playButton = {
@@ -371,159 +371,8 @@ local mainOptions = {
 					inline = true,
 					name = "Officially supported sound packs not yet installed/active",
 					order = 10,
+					width = "half",
 					args = {
-						VPAna = {
-							type = "input",
-							name = "Vocal Raid Assistant - Ana",
-							get = function()
-								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack"
-							end,
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Ana")
-							end,
-							order = 1
-						},
-						playButtonAna = {
-							type = 'execute',
-							name = L["Demo"],
-							func = function()
-								addon:PlayTestSoundFile("Ana")
-							end,
-							width = "half",
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Ana")
-							end,
-							order = 2
-						},
-						linebreak3 = {
-							type = 'description',
-							name = '',
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Ana")
-							end,
-							order = 3
-						},
-						VPElizabeth = {
-							type = "input",
-							name = "Vocal Raid Assistant - Elizabeth",
-							get = function()
-								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack"
-							end,
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Elizabeth")
-							end,
-							order = 4
-						},
-						playButtonElizabeth= {
-							type = 'execute',
-							name = L["Demo"],
-							func = function()
-								addon:PlayTestSoundFile("Elizabeth")
-							end,
-							width = "half",
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Elizabeth")
-							end,
-							order = 5
-						},
-						linebreak4 = {
-							type = 'description',
-							name = '',
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Elizabeth")
-							end,
-							order = 6
-						},
-						VPEric = {
-							type = "input",
-							name = "Vocal Raid Assistant - Eric",
-							get = function()
-								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack"
-							end,
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Eric")
-							end,
-							order = 7
-						},
-						playButtonEric= {
-							type = 'execute',
-							name = L["Demo"],
-							func = function()
-								addon:PlayTestSoundFile("Eric")
-							end,
-							width = "half",
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Eric")
-							end,
-							order = 8
-						},
-						linebreak5 = {
-							type = 'description',
-							name = '',
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Eric")
-							end,
-							order = 9
-						},
-						VPGuy = {
-							type = "input",
-							name = "Vocal Raid Assistant - Guy",
-							get = function()
-								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-guy-sound-pack"
-							end,
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Guy")
-							end,
-							order = 10
-						},
-						playButtonGuy= {
-							type = 'execute',
-							name = L["Demo"],
-							func = function()
-								addon:PlayTestSoundFile("Guy")
-							end,
-							width = "half",
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Guy")
-							end,
-							order = 11
-						},
-						linebreak6 = {
-							type = 'description',
-							name = '',
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Guy")
-							end,
-							order = 12
-						},
-						VPSara = {
-							type = "input",
-							name = "Vocal Raid Assistant - Sara",
-							get = function()
-								return "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack"
-							end,
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Sara")
-							end,
-							order = 13
-						},
-						playButtonSara= {
-							type = 'execute',
-							name = L["Demo"],
-							func = function()
-								addon:PlayTestSoundFile("Sara")
-							end,
-							width = "half",
-							hidden = function()
-								return addon:CheckSoundPackExist("VRA_EN_Sara")
-							end,
-							order = 14
-						},
-						additionalVoicePacks = {
-							type = "description",
-							name = L["Additional Voicepacks"],
-							order = 15
-						},
 					}
 				}
 			}
@@ -537,6 +386,64 @@ local mainOptions = {
 		}
 	}
 }
+
+local officialSoundPacks = {
+	["Ana"] = { displayName = "Vocal Raid Assistant - Ana", name = "VRA_EN_Ana", demoFileName = "Ana", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack" },
+	["Elizabeth"] = { displayName = "Vocal Raid Assistant - Elizabeth", name = "VRA_EN_Elizabeth", demoFileName = "Elizabeth", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack" },
+	["Eric"] = { displayName = "Vocal Raid Assistant - Eric", name = "VRA_EN_Eric", demoFileName = "Eric", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack" },
+	["Guy"] = { displayName = "Vocal Raid Assistant - Guy", name = "VRA_EN_Guy", demoFileName = "Guy", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack" },
+	["Sara"] = { displayName = "Vocal Raid Assistant - Sara", name = "VRA_EN_Sara", demoFileName = "Sara", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack" }
+}
+
+do
+	local order = 1
+
+	for k, v in pairs(officialSoundPacks) do
+		local isHidden = select(4, GetAddOnInfo(v.name)) -- name, title, notes, enabled, loadable, reason, security
+		local link = {
+			type = "input",
+			name = v.displayName,
+			get = function()
+				return v.link
+			end,
+			hidden = isHidden,
+			width = 1.5,
+			order = order
+		}
+		local playButton = {
+			type = 'execute',
+			name = L["Demo"],
+			func = function()
+				if not PlaySoundFile(format("Interface\\AddOns\\VocalRaidAssistant\\Media\\%s.ogg", v.demoFileName), addon.profile.sound.channel) then
+					addon:prettyPrint(addon:determinePlayerError("", addon.profile.sound.channel, true))
+				end
+			end,
+			width = "half",
+			hidden = isHidden,
+			order = order + 1
+		}
+		local lineBreak = {
+			type = 'description',
+			name = '',
+			hidden = isHidden,
+			order = order + 2
+		}
+
+		mainOptions.args.generalOptions.args.soundPacksConfig.args[k.."link"] = link
+		mainOptions.args.generalOptions.args.soundPacksConfig.args[k.."button"] = playButton
+		mainOptions.args.generalOptions.args.soundPacksConfig.args[k.."break"] = lineBreak
+
+		order = order + 3
+	end
+
+	mainOptions.args.generalOptions.args.soundPacksConfig.args["addition"] = {
+		type = "description",
+		name = L["Additional Voicepacks"],
+		order = order
+	}
+end
+
+officialSoundPacks = nil
 
 local spells = {
 	name = L["Abilities"],
@@ -692,38 +599,40 @@ local additionalSpellCategories = {
 	["GENERAL"] = L["General Spells"],
 }
 
-for k, v in pairs(additionalSpellCategories) do
-	spells.args[k] = createSpellCategory(k, v, nil, 0)
-end
+do
+	for k, v in pairs(additionalSpellCategories) do
+		spells.args[k] = createSpellCategory(k, v, nil, 0)
+	end
 
-for i = 1, MAX_CLASSES do
-	local class = CLASS_SORT_ORDER[i]
-	local name = LOCALIZED_CLASS_NAMES_MALE[class]
-	local icon = "Interface\\Icons\\ClassIcon_" .. class
-	spells.args[class] = createSpellCategory(class, name, icon, i)
-end
+	for i = 1, MAX_CLASSES do
+		local class = CLASS_SORT_ORDER[i]
+		local name = LOCALIZED_CLASS_NAMES_MALE[class]
+		local icon = "Interface\\Icons\\ClassIcon_" .. class
+		spells.args[class] = createSpellCategory(class, name, icon, i)
+	end
 
-for k, v in pairs(addon.ZONES) do
-	mainOptions.args.abilitiesOptions.args[k] = {
-		name = v.name,
-		type = "group",
-		childGroups = "tab",
-		order = v.order,
-		args = {
-			enable = {
-				type = "toggle",
-				name = L["Enable"],
-				order = 1,
-				get = function(info)
-					return addon.profile.general.area[info[2]].enabled
-				end,
-				set = function(info, val)
-					addon.profile.general.area[info[2]].enabled = val
-				end
-			},
-			spells = spells
+	for k, v in pairs(addon.ZONES) do
+		mainOptions.args.abilitiesOptions.args[k] = {
+			name = v.name,
+			type = "group",
+			childGroups = "tab",
+			order = v.order,
+			args = {
+				enable = {
+					type = "toggle",
+					name = L["Enable"],
+					order = 1,
+					get = function(info)
+						return addon.profile.general.area[info[2]].enabled
+					end,
+					set = function(info, val)
+						addon.profile.general.area[info[2]].enabled = val
+					end
+				},
+				spells = spells
+			}
 		}
-	}
+	end
 end
 
 function addon:InitConfigOptions()
