@@ -99,7 +99,7 @@ end
 -- has opted into the Wago Analytics in the WagoApp.
 local function VRAAnalytics(addon, profile)
 	--Soundpack
-	for k,v in pairs(addon.SOUND_PACKS) do
+	for k,v in pairs(addon:GetRegisteredSoundpacks()) do
 		VRA.WAGO:Switch("SP: "..v,k == profile.sound.soundpack)
 	end
 
@@ -142,8 +142,6 @@ function VRA:OnInitialize()
 
 	self:InitConfigOptions()
 	self:InitializeOptions()
-
-	VRAAnalytics(addon, self.profile)
 end
 
 function VRA:ChangeProfile()
@@ -161,6 +159,7 @@ end
 function VRA:OnEnable()
 	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	addon:verifySoundPack()
+	VRAAnalytics(addon, self.profile)
 end
 
 -- ### Core

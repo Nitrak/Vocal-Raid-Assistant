@@ -29,7 +29,10 @@ local spellListRetail = {
 		[219809] =	{ name = "Tombstone", phonetic_name = "", type = "defensive"},
 		[221562] =	{ name = "Asphyxiate", phonetic_name = "", type = "defensive"},
 		[279302] =	{ name = "Frostwyrm's Fury", phonetic_name = "Frostwerm's Fury", type = "offensive"},
+		[311648] =	{ name = "Swarming Mist", phonetic_name = "", type = "covenant"},
+		[312202] =	{ name = "Shackle the Unworthy", phonetic_name = "", type = "covenant"},
 		[315443] =	{ name = "Abomination Limb", phonetic_name = "", type = "covenant"},
+		[324128] =	{ name = "Death's Due", phonetic_name = "", type = "covenant"},
 		[327574] =	{ name = "Sacrificial Pact", phonetic_name = "", type = "defensive"},
 	},
 	["DEMONHUNTER"] = {
@@ -51,7 +54,10 @@ local spellListRetail = {
 		[211881] =	{ name = "Fel Eruption", phonetic_name = "", type = "cc"},
 		[212084] =	{ name = "Fel Devastation", phonetic_name = "", type = "offensive"},
 		[217832] =	{ name = "Imprison", phonetic_name = "", type = "cc"},
+		[306830] =	{ name = "Elysian Decree", phonetic_name = "Elesian Decree", type = "covenant"},
+		[317009] =	{ name = "Sinful Brand", phonetic_name = "", type = "covenant"},
 		[320341] =	{ name = "Bulk Extraction", phonetic_name = "", type = "defensive"},
+		[323639] =	{ name = "The Hunt", phonetic_name = "", type = "covenant"},
 		[329554] =	{ name = "Fodder to the Flame", phonetic_name = "", type = "covenant"},
 	},
 	["DRUID"] = {
@@ -88,7 +94,14 @@ local spellListRetail = {
 		[305497] =	{ name = "Thorns", phonetic_name = "", type = "defensive"},
 		[323546] =	{ name = "Ravenous Frenzy", phonetic_name = "", type = "covenant"},
 		[323764] =	{ name = "Convoke", phonetic_name = "", type = "covenant"}, -- Convoke the Spirits
+		[325727] =	{ name = "Adaptive Swarm", phonetic_name = "", type = "covenant"},
+		[327022] =	{ name = "Kindred Empowerment", phonetic_name = "", type = "covenant"}, --Kindred Spirits empowerment
+		[327037] =	{ name = "Kindred Protection", phonetic_name = "", type = "covenant"}, --Kindred Spirits empowerment
+		[327071] =	{ name = "Kindred Focus", phonetic_name = "", type = "covenant"}, --Kindred Spirits empowerment
 		[329042] =	{ name = "Emerald Slumber", phonetic_name = "", type = "other"},
+		[338142] =	{ name = "Lone Empowerment", phonetic_name = "", type = "covenant"}, --Kindred Spirits solo empowerment
+		[338018] =	{ name = "Lone Protection", phonetic_name = "", type = "covenant"}, --Kindred Spirits solo empowerment
+		[338035] =	{ name = "Lone Meditation", phonetic_name = "", type = "covenant"}, --Kindred Spirits solo empowerment
 		[354654] =	{ name = "Grove Protection", phonetic_name = "", type = "defensive"},
 	},
 	["HUNTER"] = {
@@ -111,6 +124,8 @@ local spellListRetail = {
 		[288613] =	{ name = "Trueshot", phonetic_name = "", type = "offensive"},
 		[308491] =	{ name = "Resonating Arrow", phonetic_name = "", type = "covenant"},
 		[321530] =	{ name = "Bloodshed", phonetic_name = "", type = "offensive"},
+		[324149] =	{ name = "Flayed Shot", phonetic_name = "", type = "covenant"},
+		[325028] =	{ name = "Death Chakram", phonetic_name = "", type = "covenant"},
 		[328231] =	{ name = "Wild Spirits", phonetic_name = "", type = "covenant"},
 	},
 	["MAGE"] = {
@@ -127,6 +142,7 @@ local spellListRetail = {
 		[198144] =	{ name = "Ice Form", phonetic_name = "", type = "offensive"},
 		[235313] =	{ name = "Blazing Barrier", phonetic_name = "", type = "defensive"},
 		[235450] =	{ name = "Prismatic Barrier", phonetic_name = "", type = "defensive"},
+		[307443] =	{ name = "Radiant Spark", phonetic_name = "", type = "covenant"},
 		[314791] =	{ name = "Shifting Power", phonetic_name = "", type = "covenant"},
 		[314793] =	{ name = "Mirrors of Torment", phonetic_name = "", type = "covenant"},
 		[321507] =	{ name = "Touch of the Magi", phonetic_name = "", type = "offensive"},
@@ -160,6 +176,7 @@ local spellListRetail = {
 		[325197] =	{ name = "Invoke Chi-Ji", phonetic_name = "Invoke Chee Ji", type = "offensive"},
 		[325216] =	{ name = "Bonedust Brew", phonetic_name = "", type = "covenant"},
 		[326860] =	{ name = "Fallen Order", phonetic_name = "", type = "covenant"},
+		[327104] =	{ name = "Faeline Stomp", phonetic_name = "", type = "covenant"},
 	},
 	["PALADIN"] = {
 		[498] =		{ name = "Divine Protection", phonetic_name = "", type = "defensive"},
@@ -182,6 +199,11 @@ local spellListRetail = {
 		[231895] =	{ name = "Crusade", phonetic_name = "", type = "offensive"},
 		[304971] =	{ name = "Divine Toll", phonetic_name = "", type = "covenant"},
 		[316958] =	{ name = "Ashen Hallow", phonetic_name = "", type = "covenant"},
+		[328204] =	{ name = "Vanquisher's Hammer", phonetic_name = "", type = "covenant"},
+		[328281] =	{ name = "Blessing of Winter", phonetic_name = "", type = "covenant"},
+		[328282] =	{ name = "Blessing of Spring", phonetic_name = "", type = "covenant"},
+		[328620] =	{ name = "Blessing of Summer", phonetic_name = "", type = "covenant"},
+		[328622] =	{ name = "Blessing of Autumn", phonetic_name = "", type = "covenant"},
 		[327193] =	{ name = "Moment of Glory", phonetic_name = "", type = "offensive"},
 	},
 	["PRIEST"] = {
@@ -229,6 +251,10 @@ local spellListRetail = {
 		[114018] =	{ name = "Shroud", phonetic_name = "", type = "other"}, -- Shroud of Consealment
 		[121471] =	{ name = "Shadow Blades", phonetic_name = "", type = "offensive"},
 		[185311] =	{ name = "Crimson Vial", phonetic_name = "", type = "defensive"},
+		[323547] =	{ name = "Echoing Reprimand", phonetic_name = "", type = "covenant"},
+		[323654] =	{ name = "Flagellation", phonetic_name = "", type = "covenant"},
+		[328305] =	{ name = "Sepsis", phonetic_name = "", type = "covenant"},
+		[328547] =	{ name = "Serrated Bone Spike", phonetic_name = "", type = "covenant"},
 	},
 	["SHAMAN"] = {
 		[2825] =	{ name = "Bloodlust", phonetic_name = "", type = "offensive"},
@@ -270,6 +296,10 @@ local spellListRetail = {
 		[205180] =	{ name = "Darkglare", phonetic_name = "", type = "offensive"}, -- Summon Darkglare
 		[265187] =	{ name = "Demonic Tyrant", phonetic_name = "", type = "offensive"}, -- Summon Demonic Tyrant
 		[333889] =	{ name = "Fel Domination", phonetic_name = "", type = "offensive"},
+		[312321] =	{ name = "Scouring Tithe", phonetic_name = "", type = "covenant"},
+		[321792] =	{ name = "Impending Catastrophe", phonetic_name = "", type = "covenant"},
+		[325289] =	{ name = "Decimating Bolt", phonetic_name = "", type = "covenant"},
+		[325640] =	{ name = "Soul Rot", phonetic_name = "", type = "covenant"},
 	},
 	["WARRIOR"] = {
 		[871] =		{ name = "Shield Wall", phonetic_name = "", type = "defensive"},
@@ -285,16 +315,24 @@ local spellListRetail = {
 		[97462] =	{ name = "Rallying Cry", phonetic_name = "Ralyan Cry", type = "raidDefensive"},
 		[107570] =	{ name = "Storm Bolt", phonetic_name = "", type = "cc"},
 		[118038] =	{ name = "Die by the Sword", phonetic_name = "", type = "defensive"},
+		[184364] =	{ name = "Enraged Regeneration", phonetic_name = "", type = "defensive"},
 		[190456] =	{ name = "Ignore Pain", phonetic_name = "", type = "defensive"},
 		[228920] =	{ name = "Ravager", phonetic_name = "", type = "offensive"},
+		[307865] =	{ name = "Spear of Bastion", phonetic_name = "", type = "covenant"},
+		[317349] =	{ name = "Condemn", phonetic_name = "", type = "covenant"},
+		[324143] =	{ name = "Conqueror's Banner", phonetic_name = "", type = "covenant"},
+		[325886] =	{ name = "Ancient Aftershock", phonetic_name = "", type = "covenant"},
 	},
 	["GENERAL"] = {
 		[20594] =	{ name = "Stone Form", phonetic_name = "", type = "racial"},
 		[58984] =	{ name = "Shadowmeld", phonetic_name = "", type = "racial"},
 		[107079] =	{ name = "Quaking Palm", phonetic_name = "", type = "racial"},
 		[178207] =	{ name = "Drums", phonetic_name = "", type = "offensive"}, -- Drums of Fury
+		[300728] =	{ name = "Door of Shadows", phonetic_name = "", type = "covenant"},
+		[310143] =	{ name = "Soulshape", phonetic_name = "Soelshape", type = "covenant"},
 		[323436] =	{ name = "Purify Soul", phonetic_name = "", type = "covenant"},
 		[324631] =	{ name = "Fleshcraft", phonetic_name = "", type = "covenant"},
+		[324739] =	{ name = "Summon Steward", phonetic_name = "", type = "covenant"},
 		[348477] =	{ name = "Reanimator", phonetic_name = "Re-animator", type = "other"},
 	},
 	["TRINKET"] = {
