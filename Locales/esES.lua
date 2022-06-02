@@ -10,6 +10,8 @@ if not L then return end
 --L["Cancel"] = "Cancel"
 --L["Clear All"] = "Clear All"
 --L["Close"] = "Close"
+--L["Combat only"] = "Combat only"
+--L["Combat only description"] = "Only hear abilities while you are in combat"
 --L["Config Cleaning Error Message"] = "Vocal Raid Assistant:\nInvalid Config, settings reset."
 --L["Copy Settings From:"] = "Copy Settings From:"
 --L["Copy Settings: "] = "Copy Settings: "

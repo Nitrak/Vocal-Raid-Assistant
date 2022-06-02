@@ -315,6 +315,7 @@ local spellListRetail = {
 		[97462] =	{ name = "Rallying Cry", phonetic_name = "Ralyan Cry", type = "raidDefensive"},
 		[107570] =	{ name = "Storm Bolt", phonetic_name = "", type = "cc"},
 		[118038] =	{ name = "Die by the Sword", phonetic_name = "", type = "defensive"},
+		[184364] =	{ name = "Enraged Regeneration", phonetic_name = "", type = "defensive"},
 		[190456] =	{ name = "Ignore Pain", phonetic_name = "", type = "defensive"},
 		[228920] =	{ name = "Ravager", phonetic_name = "", type = "offensive"},
 		[307865] =	{ name = "Spear of Bastion", phonetic_name = "", type = "covenant"},

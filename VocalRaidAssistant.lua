@@ -163,15 +163,17 @@ function VRA:OnEnable()
 end
 
 -- ### Core
-local function allowedZone()
-	local _, currentZoneType = IsInInstance()
-	return addon.profile.general.area[currentZoneType].enabled
+local function allowedZone(instanceType)
+	return addon.profile.general.area[instanceType].enabled
+end
+
+local function combatPlayCheck(instanceType)
+	return addon.profile.general.area[instanceType].combatOnly and not UnitAffectingCombat("player")
 end
 
 local function allowedSubEvent(event)
 	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
 end
-
 
 local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
 local function checkSpellTarget(destFlags, destGUID)
@@ -179,7 +181,8 @@ local function checkSpellTarget(destFlags, destGUID)
 end
 
 function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
-	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone())) then
+	local _, instanceType = IsInInstance()
+	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType))) or combatPlayCheck(instanceType) then
 		return
 	end
 
@@ -189,7 +192,6 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	-- apply spell correction (e.g. hex and polymorh change the spellID)
 	spellID = addon.spellCorrections[spellID] or spellID
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
-		local _, instanceType = IsInInstance()
 		if (event == 'SPELL_CAST_SUCCESS') then
 			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
 				(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
