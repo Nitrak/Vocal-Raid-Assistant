@@ -1,6 +1,9 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("VocalRaidAssistant", "zhCN")
 if not L then return end
 
+--  zhCN client: (NGA-男爵凯恩)
+--  Last update: 2022/06/03
+
 L["Abilities"] = "技能"
 L["Additional Voicepacks"] = "您最喜欢的VRA插件也提供其他语种的语音包 - 只需在curseforge上搜索 \"Vocal Raid Assistant\""
 L["Adjusting the voice volume"] = "调节音量"
