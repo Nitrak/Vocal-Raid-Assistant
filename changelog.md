@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.4.2
+- Added option to only track abilities in combat
+
 ## 2.4.1
 - Added missing Covenant abilities and Storm Bolt and Incapacitating Roar
 
