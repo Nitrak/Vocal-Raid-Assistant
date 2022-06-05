@@ -69,8 +69,6 @@ function addon:verifySoundPack()
 		addon:prettyPrint(noPackErrorMsg)
 		C_Timer.After(20, function() addon:prettyPrint(noPackErrorMsg) end)
 		return
-	elseif countInstalledSoundPacks == 1 then --ONE SOUND PACKS INSTALLED
-		C_Timer.After(30, function() addon:prettyPrint(L["Additional Voicepacks"]) end)
 	end
 
 	--If config sound pack is not found or is nil select a valid (first valid)

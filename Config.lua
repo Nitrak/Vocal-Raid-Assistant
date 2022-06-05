@@ -1,6 +1,5 @@
 local addonName, addon = ...
 local L = VRA.L
-local WagoAnalytics = VRA.WAGO
 
 local tostring = tostring
 local pairs = pairs
@@ -23,7 +22,6 @@ StaticPopupDialogs["VRA_IMPORT"] = {
 	OnAccept = function(self, data, data2)
 		importSpellSelection(self.editBox:GetText(), data)
 		popUpSemaphore = false
-		WagoAnalytics:IncrementCounter("Import String")
 	end,
 	OnCancel = function(self, data, data2)
 		popUpSemaphore = false
@@ -39,7 +37,6 @@ StaticPopupDialogs["VRA_EXPORT"] = {
 	timeout = 0,
 	OnAccept = function(self, data, data2)
 		popUpSemaphore = false
-		WagoAnalytics:IncrementCounter("Export String")
 	end,
 	hasEditBox = true,
 	whileDead = true,
@@ -492,7 +489,6 @@ local spells = {
 				end
 				addon.profile.general.area[info[2]] = t
 				addon.profile.general.area[info[2]].copyZone = nil
-				WagoAnalytics:IncrementCounter("Copy Settings")
 			end,
 			confirm = function(info)
 				return L["Copy Settings: "] .. addon.ZONES[addon.profile.general.area[info[2]].copyZone].name .. " -> " ..
