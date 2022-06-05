@@ -9,7 +9,6 @@
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
-## OptionalDependencies: WagoAnalytics
 
 embeds.xml
 # Client version specific

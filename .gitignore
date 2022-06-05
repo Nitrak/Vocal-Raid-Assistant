@@ -41,6 +41,5 @@ luac.out
 
 Sounds/desktop.ini
 Libs/*
-!Libs/WagoAnalytics/#
 .release
 desktop.ini
