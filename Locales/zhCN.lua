@@ -1,6 +1,9 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("VocalRaidAssistant", "zhCN")
 if not L then return end
 
+--  zhCN client: (NGA-男爵凯恩)
+--  Last update: 2022/06/03
+
 L["Abilities"] = "技能"
 L["Additional Voicepacks"] = "您最喜欢的VRA插件也提供其他语种的语音包 - 只需在curseforge上搜索 \"Vocal Raid Assistant\""
 L["Adjusting the voice volume"] = "调节音量"
@@ -10,8 +13,8 @@ L["Ambience"] = "环境音"
 L["Cancel"] = "取消"
 L["Clear All"] = "全部删除"
 L["Close"] = "关闭"
---L["Combat only"] = "Combat only"
---L["Combat only description"] = "Only hear abilities while you are in combat"
+L["Combat only"] = "战斗中启用"
+L["Combat only description"] = "启用后只有在战斗中才能听到语音"
 L["Config Cleaning Error Message"] = "Vocal Raid Assistant:\n无效配置, 需要重载。"
 L["Copy Settings From:"] = "复制配置至:"
 L["Copy Settings: "] = "复制配置: "
