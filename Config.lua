@@ -199,7 +199,7 @@ local mainOptions = {
 				version = {
 					order = 3,
 					type = "description",
-					name = "Version: " .. addon.version
+					name = L["Version: "] .. addon.version
 				},
 				discord = {
 					order = 4,
@@ -366,7 +366,7 @@ local mainOptions = {
 				soundPacksConfig = {
 					type = 'group',
 					inline = true,
-					name = "Officially supported sound packs not yet installed/active",
+					name = L["Officially supported sound packs not yet installed/active"],
 					order = 10,
 					width = "half",
 					args = {

@@ -2,7 +2,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("VocalRaidAssistant", "zhCN")
 if not L then return end
 
 --  zhCN client: (NGA-男爵凯恩)
---  Last update: 2022/06/03
+--  Last update: 2022/06/05
 
 L["Abilities"] = "技能"
 L["Additional Voicepacks"] = "您最喜欢的VRA插件也提供其他语种的语音包 - 只需在curseforge上搜索 \"Vocal Raid Assistant\""
@@ -47,6 +47,7 @@ L["My own abilities"] = "自己的技能"
 L["No Voicepack"] = "无法播放声音 - 没有安装和选择语音包!"
 L["No Voicepack Warning"] = "警告 - 没有安装/激活任何语音包!\n请输入 /VRA 了解更多信息!"
 L["Offensive"] = "增伤类"
+L["Officially supported sound packs not yet installed/active"] = "官方的各语音包下载地址/演示"
 L["OnlySelfExternalsDesc"] = "启用此选项以仅在对你而非在团队/团队成员施法技能时语音警报(例如:你获得能量灌注、牺牲等)"
 L["OnlySelfExternalsName"] = "你获得的技能"
 L["Output channel desc"] = "选择你语音输出的频道"
@@ -69,6 +70,7 @@ L["The minimum interval between two alerts in seconds"] = "两次语音之间的
 L["Throttle"] = "语音间隔"
 L["Type /vra open the option panel"] = "输入 /vra 打开选项"
 L["unknown spell, id:"] = "未知技能ID:"
+["Version: "] = "版本: "
 L["Voice"] = "语音"
 L["Volume"] = "音量"
 L["VRA should alert you for"] = "VRA 提醒你"
