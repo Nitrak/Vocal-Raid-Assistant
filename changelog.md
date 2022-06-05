@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 2.4.3
+- Removed WagoAnalytics (See 2.2.10)
+- Removed print for additional Voicepacks when one is installed.
+
 ## 2.4.2
 - Added option to only track abilities in combat
 
