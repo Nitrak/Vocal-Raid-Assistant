@@ -74,7 +74,6 @@ local spellListRetail = {
 		[50334] =	{ name = "Berserk", phonetic_name = "", type = "offensive"},
 		[61336] =	{ name = "Survival Instincts", phonetic_name = "", type = "defensive"},
 		[77761] =	{ name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar bear
-		-- [77764] =	{ name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar cat
 		[78675] =	{ name = "Solar Beam", phonetic_name = "", type = "interrupt"},
 		[80313] =	{ name = "Pulverize", phonetic_name = "", type = "defensive"},
 		[102342] =	{ name = "Iron Bark", phonetic_name = "", type = "externalDefensive"},
@@ -84,7 +83,6 @@ local spellListRetail = {
 		[106951] =	{ name = "Berserk", phonetic_name = "", type = "offensive"},
 		[108238] =	{ name = "Renewal", phonetic_name = "", type = "defensive"},
 		[155835] =	{ name = "Bristling Fur", phonetic_name = "", type = "defensive"},
-		-- [106898] =	{ name = "Roar", phonetic_name = "", type = "other"}, -- Stampeding Roar
 		[194223] =	{ name = "Celestial Alignment", phonetic_name = "", type = "offensive"},
 		[197721] =	{ name = "Flourish", phonetic_name = "", type = "offensive"},
 		[202246] =	{ name = "Overrun", phonetic_name = "", type = "cc"},
