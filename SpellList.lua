@@ -135,7 +135,7 @@ local spellListRetail = {
 		[55342] =	{ name = "Mirror Image", phonetic_name = "", type = "offensive"},
 		[80353] =	{ name = "Time Warp", phonetic_name = "", type = "offensive"},
 		[86949] =	{ name = "Cauterize", phonetic_name = "", type = "defensive"},
-		[110909] =	{ name = "Alter Time", phonetic_name = "", type = "defensive"},
+		[342245] =	{ name = "Alter Time", phonetic_name = "", type = "defensive"},
 		[190319] =	{ name = "Combustion", phonetic_name = "", type = "offensive"},
 		[198144] =	{ name = "Ice Form", phonetic_name = "", type = "offensive"},
 		[235313] =	{ name = "Blazing Barrier", phonetic_name = "", type = "defensive"},
