@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.4.4
+- Fixed incorrect spell-ID for Alter Time
+
 ## 2.4.3
 - Removed WagoAnalytics (See 2.2.10)
 - Removed print for additional Voicepacks when one is installed.
