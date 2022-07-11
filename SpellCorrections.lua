@@ -22,6 +22,8 @@ local spellCorrectionsRetail = {
 	[277787] = 118, -- Tome of Polymorph: Direhorn
 	[277792] = 118, -- Tome of Polymorph: Bumblebee
 	[321395] = 118, -- Polymorph: Maw Rat
+	-- Mage Alter Time
+	[108978] = 342245,
 	-- Druid Roar
 	[77764] = 77761, -- Roar: Cat form
 	[106898] = 77761 -- Roar: General
