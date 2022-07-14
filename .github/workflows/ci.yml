@@ -37,6 +37,17 @@ jobs:
           WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Package Wotlkc
+        uses: BigWigsMods/packager@master
+        with:
+          args: -g wotlkc
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+
+
       - name: Package
         uses: BigWigsMods/packager@master
         env:

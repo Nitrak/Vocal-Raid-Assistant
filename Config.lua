@@ -619,6 +619,9 @@ do
 		local class = CLASS_SORT_ORDER[i]
 		local name = LOCALIZED_CLASS_NAMES_MALE[class]
 		local icon = "Interface\\Icons\\ClassIcon_" .. class
+		if(class == "DEATHKNIGHT") then
+			icon = "Interface\\Icons\\spell_deathknight_classicon.png"
+		end
 		spells.args[class] = createSpellCategory(class, name, icon, i)
 	end
 
