@@ -79,6 +79,7 @@
 11426;Ice Barrier
 11958;Ice Block
 12042;Arcane Power
+12323;Piercing Howl
 12472;Icy Veins
 12975;Last Stand
 13750;Adrenaline Rush

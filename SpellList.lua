@@ -305,6 +305,7 @@ local spellListRetail = {
 		[1719] =	{ type = "offensive"},
 		[2565] =	{ type = "defensive"},
 		[5246] =	{ type = "cc"},
+		[12323] = 	{ type = "cc"},
 		[12975] =	{ type = "defensive"},
 		[23920] =	{ type = "counterCC"},
 		[46968] =	{ type = "offensive"},

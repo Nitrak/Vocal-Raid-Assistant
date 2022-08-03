@@ -32,6 +32,7 @@
 11426;Eisbarriere
 11958;Kälteeinbruch
 12042;Arkane Macht
+12323;Durchdringendes Heulen
 12472;Eisige Adern
 12975;Letztes Gefecht
 13750;Adrenalinrausch
