@@ -1,9 +1,6 @@
 local _, addon = ...
 
--- Info: The strings assigned to name and phonetic_name are only used for external sound file generation script
--- neural voices use name, legacy sound uses phonetic_name - if present
 -- Shoutout to the OmniCD Devs!
-
 local spellListRetail = {
 	["DEATHKNIGHT"] = {
 		[42650] =	{ type = "offensive"},
@@ -516,8 +513,6 @@ spellList = spellListBCC
 spellListClassic = nil
 --@end-version-bcc@
 --@end-non-version-retail@]===]
-
-
 
 local allSupportedSpells = {}
 do
