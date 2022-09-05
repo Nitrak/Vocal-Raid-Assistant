@@ -35,7 +35,7 @@ end
 local intendedWoWProjectName = {
   [WOW_PROJECT_MAINLINE] = "Retail",
   [WOW_PROJECT_CLASSIC] = "Classic",
-  [WOW_PROJECT_WRATH_CLASSIC or 5] = "Wrath of the Lich King Classic"
+  [WOW_PROJECT_WRATH_CLASSIC or 11] = "Wrath of the Lich King Classic"
 }
 
 function addon:determinePlayerError(spellID, channel, isTest)
