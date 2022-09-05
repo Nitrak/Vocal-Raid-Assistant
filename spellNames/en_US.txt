@@ -56,6 +56,7 @@
 498;Divine Protection  
 633;Lay on Hands       
 642;Divine Shield      
+724;Lightwell
 740;Tranquility        
 853;Hammer of Justice  
 871;Shield Wall        
@@ -97,6 +98,7 @@
 22812;Barkskin
 22842;Frenzied Regeneration
 23920;Spell Reflection
+23989;Readiness
 29166;Innervate
 30283;Shadowfury
 30823;Shamanistic Rage
@@ -122,6 +124,7 @@
 47568;Empower Rune Weapon
 47585;Dispersion
 47788;Guardian Spirit
+48505;Starfall
 48707;Anti Magic Shell
 48743;Death Pact
 48982;Rune Tap

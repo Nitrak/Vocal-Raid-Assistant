@@ -508,6 +508,7 @@ local spellListClassic = {
 		[20066] =	{ type = "cc"},
 	},
 	["PRIEST"] = {
+		[724] =		{ type = "defensive"},
 		[8122] =	{ type = "cc"},
 		[10060] =	{ type = "offensive"},
 		[19236] =	{ type = "defensive"},
