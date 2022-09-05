@@ -651,7 +651,7 @@ end
 
 function addon:InitConfigOptions()
 	mainOptions.args.profiles = self.ACDBO:GetOptionsTable(self.db)
-	if(not self:IsClassic() and not self:IsBCC()) then
+	if(not self:IsClassic() and not self:IsWotLKC()) then
 		addon.LDS:EnhanceOptions(mainOptions.args.profiles, self.db)
 	end
 	addon.AC:RegisterOptionsTable("VocalRaidAssistantConfig", mainOptions)

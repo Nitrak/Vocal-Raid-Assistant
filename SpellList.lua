@@ -477,90 +477,6 @@ local spellListWotLK = {
 	}
 }
 
-local spellListBCC = {
-	["DRUID"] = {
-		[740] =		{ type = "raidDefensive"},
-		[5211] =	{ type = "cc"},
-		[20484] =	{ type = "other"},
-		[22812] =	{ type = "defensive"},
-		[22842] =	{ type = "defensive"},
-		[29166] =	{ type = "other"},
-		[33786] =	{ type = "disarm"},
-	},
-	["HUNTER"] = {
-		[5384] =	{ type = "other"},
-		[19574] =	{ type = "offensive"},
-		[19577] =	{ type = "cc"},
-		[19801] =	{ type = "dispel"},
-	},
-	["MAGE"] = {
-		[118] =		{ type = "cc"},
-		[11426] =	{ type = "defensive"},
-		[12042] =	{ type = "offensive"},
-		[12472] =	{ type = "offensive"},
-		[11958] =	{ type = "immunity"},
-	},
-	["PALADIN"] = {
-		[642] =		{ type = "immunity"},
-		[498] =		{ type = "defensive"},
-		[633] =		{ type = "defensive"},
-		[853] =		{ type = "cc"},
-		[1022] = 	{ type = "externalDefensive"},
-		[6940] = 	{ type = "externalDefensive"}, -- Blessing of Sacrifice,
-		[20066] =	{ type = "cc"},
-		[31842] =	{ type = "other"},
-	},
-	["PRIEST"] = {
-		[8122] =	{ type = "cc"},
-		[10060] =	{ type = "offensive"},
-		[19236] =	{ type = "defensive"},
-		[32375] =	{ type = "dispel"},
-		[33206] =	{ type = "externalDefensive"},
-		[34433] =	{ type = "offensive"},
-	},
-	["ROGUE"] = {
-		[1966] =	{ type = "defensive"},
-		[2094] =	{ type = "cc"},
-		[5277] =	{ type = "defensive"},
-		[13750] =	{ type = "offensive"},
-		[31224] =	{ type = "defensive"},
-	},
-	["SHAMAN"] = {
-		[2825] =	{ type = "offensive"},
-		[8143] =	{ type = "counterCC"},
-		[16191] =	{ type = "other"}, -- Mana Tide Totem
-		[30823] =	{ type = "defensive"},
-		[32182] =	{ type = "offensive"},
-	},
-	["WARLOCK"] = {
-		[1122] =	{ type = "offensive"}, -- Summon Infernal
-		[5484] =	{ type = "cc"},
-		[5782] =	{ type = "cc"},
-		[20707] =	{ type = "other"},
-		[29893] =	{ type = "other"}, -- Create Soulwell
-		[30283] =	{ type = "cc"},
-	},
-	["WARRIOR"] = {
-		[871] =		{ type = "defensive"},
-		[1161] =	{ type = "other"},
-		[1719] =	{ type = "offensive"},
-		[20230] =	{ type = "offensive"},
-		[2565] =	{ type = "defensive"},
-		[5246] =	{ type = "cc"},
-		[12975] =	{ type = "defensive"},
-		[23920] =	{ type = "counterCC"},
-	},
-	["GENERAL"] = {
-		[20594] =	{ type = "racial"},
-		[20580] =	{ type = "racial"},
-		[35476] =	{ type = "offensive"}, -- Drums of Fury
-	},
-	["TRINKET"] = {
-		-- pvp
-		-- pve
-	}
-}
-
 local spellListClassic = {
 	["DRUID"] = {
 		[740] =		{ type = "raidDefensive"},
@@ -638,20 +554,12 @@ spellListRetail = nil
 
 --@version-classic@
 spellList = spellListClassic
-spellListBCC = nil
 spellListWotLK = nil
 --@end-version-classic@
-
---@version-bcc@
-spellList = spellListBCC
-spellListClassic = nil
-spellListWotLK = nil
---@end-version-bcc@
 
 --@version-wotlkc@
 spellList = spellListWotLK
 spellListClassic = nil
-spellListBCC = nil
 --@end-version-wotlkc@
 
 --@end-non-version-retail@]===]
