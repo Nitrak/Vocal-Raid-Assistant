@@ -347,7 +347,7 @@ local spellListRetail = {
 	}
 }
 
-local spellListWrathC = {
+local spellListWrath = {
 	["DEATHKNIGHT"] = {
 		[42650] =	{ type = "offensive"},
 		[47568] =	{ type = "offensive"},
@@ -555,11 +555,11 @@ spellListRetail = nil
 
 --@version-classic@
 spellList = spellListClassic
-spellListWrathC = nil
+spellListWrath = nil
 --@end-version-classic@
 
 --@version-wrath@
-spellList = spellListWrathC
+spellList = spellListWrath
 spellListClassic = nil
 --@end-version-wrath@
 

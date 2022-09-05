@@ -30,7 +30,7 @@ local spellCorrectionsRetail = {
 }
 
 -- Wrath
-local spellCorrectionsWrathC = {
+local spellCorrectionsWrath = {
 	--- Druid
 	-- Bash
 	[6798] = 5211, -- Rank 2
@@ -204,11 +204,11 @@ spellCorrectionsRetail = nil
 
 --@version-classic@
 addon.spellCorrections = spellCorrectionsClassic
-spellCorrectionsWrathC = nil
+spellCorrectionsWrath = nil
 --@end-version-classic@
 
 --@version-wrath@
-addon.spellCorrections = spellCorrectionsWrathC
+addon.spellCorrections = spellCorrectionsWrath
 spellCorrectionsClassic = nil
 --@end-version-wrath@
 
