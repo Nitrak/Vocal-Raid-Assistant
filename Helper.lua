@@ -16,7 +16,7 @@ function addon:IsClassic()
   return WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
 end
 
-function addon:IsWotLKC()
+function addon:IsWrath()
 	return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC
 end
 

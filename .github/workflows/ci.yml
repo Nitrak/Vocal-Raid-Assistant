@@ -28,10 +28,10 @@ jobs:
           GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
         
 
-      - name: Package Wotlkc
+      - name: Package Wrath
         uses: BigWigsMods/packager@master
         with:
-          args: -g wotlkc
+          args: -g wrath
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
