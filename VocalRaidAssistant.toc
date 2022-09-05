@@ -1,5 +1,5 @@
 ## Interface: 90207
-## Interface-Wotlk: 30400
+## Interface-Wrath: 30400
 ## Interface-Classic: 11402
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
