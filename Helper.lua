@@ -7,9 +7,9 @@ local intendedWoWProject = WOW_PROJECT_MAINLINE
 --@version-classic@
 intendedWoWProject = WOW_PROJECT_CLASSIC
 --@end-version-classic@
---@version-wotlkc@
+--@version-wrath@
 intendedWoWProject = WOW_PROJECT_WRATH_CLASSIC or WOW_PROJECT_MAINLINE
---@end-version-wotlkc@
+--@end-version-wrath@
 --@end-non-version-retail@]===]
 
 function addon:IsClassic()
