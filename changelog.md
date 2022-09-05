@@ -1,6 +1,6 @@
 # Vocal Raid Assistant
 
-## 2.5.1
+## 2.5.0
 - Added support for WotLK Classic
 
 ## 2.4.4
