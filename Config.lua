@@ -619,6 +619,9 @@ do
 		local class = CLASS_SORT_ORDER[i]
 		local name = LOCALIZED_CLASS_NAMES_MALE[class]
 		local icon = "Interface\\Icons\\ClassIcon_" .. class
+		if(class == "DEATHKNIGHT") then
+			icon = "Interface\\Icons\\spell_deathknight_classicon.png"
+		end
 		spells.args[class] = createSpellCategory(class, name, icon, i)
 	end
 
@@ -648,7 +651,7 @@ end
 
 function addon:InitConfigOptions()
 	mainOptions.args.profiles = self.ACDBO:GetOptionsTable(self.db)
-	if(not self:IsClassic() and not self:IsBCC()) then
+	if(not self:IsClassic() and not self:IsWrath()) then
 		addon.LDS:EnhanceOptions(mainOptions.args.profiles, self.db)
 	end
 	addon.AC:RegisterOptionsTable("VocalRaidAssistantConfig", mainOptions)

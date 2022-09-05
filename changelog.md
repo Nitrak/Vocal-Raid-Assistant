@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.5.0
+- Added support for Wrath Classic
+
 ## 2.4.4
 - Fixed incorrect spell-ID for Alter Time
 

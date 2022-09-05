@@ -98,7 +98,8 @@ local spellListRetail = {
 		[338018] =	{ type = "covenant"}, --Kindred Spirits solo empowerment
 		[338035] =	{ type = "covenant"}, --Kindred Spirits solo empowerment
 		[354654] =	{ type = "defensive"},
-	},["HUNTER"] = {
+	},
+	["HUNTER"] = {
 		[5384] =	{ type = "other"},
 		[19574] =	{ type = "offensive"},
 		[19577] =	{ type = "cc"},
@@ -346,7 +347,30 @@ local spellListRetail = {
 	}
 }
 
-local spellListBCC = {
+local spellListWrath = {
+	["DEATHKNIGHT"] = {
+		[42650] =	{ type = "offensive"},
+		[47568] =	{ type = "offensive"},
+		[48707] =	{ type = "defensive"},
+		[48743] =	{ type = "defensive"},
+		[48792] =	{ type = "defensive"},
+		[48982] =	{ type = "defensive"},
+		[49039] =	{ type = "other"},
+		[49206] =	{ type = "offensive"},
+		[49576] =	{ type = "disarm"},
+		[49028] =	{ type = "defensive"}, -- Dancing Rune Weapon
+		[51052] =	{ type = "raidDefensive" },
+		[55233] =	{ type = "defensive"},
+		[61999] =	{ type = "other" },
+
+		[47476] =	{ type = "cc" },
+		[49005] =	{ type = "defensive" },
+		[49016] =	{ type = "offensive" },
+		[51271] =	{ type = "offensive" },
+		[49203] =	{ type = "cc" },
+		[49222] =	{ type = "defensive" },
+
+	},
 	["DRUID"] = {
 		[740] =		{ type = "raidDefensive"},
 		[5211] =	{ type = "cc"},
@@ -354,20 +378,26 @@ local spellListBCC = {
 		[22812] =	{ type = "defensive"},
 		[22842] =	{ type = "defensive"},
 		[29166] =	{ type = "other"},
-		[33786] =	{ type = "disarm"},
+		[33786] =	{ type = "cc"},
+		[48505] =	{ type = "offensive"},
+		[50334] =	{ type = "offensive"},
 	},
 	["HUNTER"] = {
 		[5384] =	{ type = "other"},
 		[19574] =	{ type = "offensive"},
 		[19577] =	{ type = "cc"},
 		[19801] =	{ type = "dispel"},
+		[23989] =	{ type = "offensive"},
+		[34477] =	{ type = "defensive"},
 	},
 	["MAGE"] = {
 		[118] =		{ type = "cc"},
 		[11426] =	{ type = "defensive"},
 		[12042] =	{ type = "offensive"},
 		[12472] =	{ type = "offensive"},
-		[11958] =	{ type = "immunity"},
+		[55342] =	{ type = "offensive"},
+		[44572] =	{ type = "cc"},
+		[45438] =	{ type = "immunity"},
 	},
 	["PALADIN"] = {
 		[642] =		{ type = "immunity"},
@@ -378,14 +408,20 @@ local spellListBCC = {
 		[6940] = 	{ type = "externalDefensive"}, -- Blessing of Sacrifice,
 		[20066] =	{ type = "cc"},
 		[31842] =	{ type = "other"},
+		[54428] =	{ type = "other"},
 	},
 	["PRIEST"] = {
+		[724] =		{ type = "defensive"},
 		[8122] =	{ type = "cc"},
 		[10060] =	{ type = "offensive"},
 		[19236] =	{ type = "defensive"},
 		[32375] =	{ type = "dispel"},
 		[33206] =	{ type = "externalDefensive"},
 		[34433] =	{ type = "offensive"},
+		[47585] =	{ type = "defensive"},
+		[47788] =	{ type = "externalDefensive"},
+		[64843] =	{ type = "raidDefensive"},	-- Divine Hymn
+		[64901] =	{ type = "other"},
 	},
 	["ROGUE"] = {
 		[1966] =	{ type = "defensive"},
@@ -393,6 +429,9 @@ local spellListBCC = {
 		[5277] =	{ type = "defensive"},
 		[13750] =	{ type = "offensive"},
 		[31224] =	{ type = "defensive"},
+		[51690] =	{ type = "offensive"},
+		[51713] =	{ type = "offensive"},
+		[57934] =	{ type = "other"},
 	},
 	["SHAMAN"] = {
 		[2825] =	{ type = "offensive"},
@@ -400,6 +439,8 @@ local spellListBCC = {
 		[16191] =	{ type = "other"}, -- Mana Tide Totem
 		[30823] =	{ type = "defensive"},
 		[32182] =	{ type = "offensive"},
+		[51514] =	{ type = "cc"},
+		[55198] =	{ type = "defensive"},
 	},
 	["WARLOCK"] = {
 		[1122] =	{ type = "offensive"}, -- Summon Infernal
@@ -408,21 +449,27 @@ local spellListBCC = {
 		[20707] =	{ type = "other"},
 		[29893] =	{ type = "other"}, -- Create Soulwell
 		[30283] =	{ type = "cc"},
+		[59672] =	{ type = "defensive"},
 	},
 	["WARRIOR"] = {
 		[871] =		{ type = "defensive"},
 		[1161] =	{ type = "other"},
 		[1719] =	{ type = "offensive"},
-		[20230] =	{ type = "offensive"},
 		[2565] =	{ type = "defensive"},
 		[5246] =	{ type = "cc"},
 		[12975] =	{ type = "defensive"},
+		[20230] =	{ type = "offensive"},
 		[23920] =	{ type = "counterCC"},
+		[46924] =	{ type = "offensive"},
+		[46968] =	{ type = "cc"},
+		[64382] =	{ type = "other"},
+
 	},
 	["GENERAL"] = {
 		[20594] =	{ type = "racial"},
-		[20580] =	{ type = "racial"},
 		[35476] =	{ type = "offensive"}, -- Drums of Fury
+		[58984] =	{ type = "racial"},
+		[59752] =	{ type = "racial"},
 	},
 	["TRINKET"] = {
 		-- pvp
@@ -461,6 +508,7 @@ local spellListClassic = {
 		[20066] =	{ type = "cc"},
 	},
 	["PRIEST"] = {
+		[724] =		{ type = "defensive"},
 		[8122] =	{ type = "cc"},
 		[10060] =	{ type = "offensive"},
 		[19236] =	{ type = "defensive"},
@@ -504,14 +552,17 @@ local spellList = spellListRetail
 
 --[===[@non-version-retail@
 spellListRetail = nil
+
 --@version-classic@
 spellList = spellListClassic
-spellListBCC = nil
+spellListWrath = nil
 --@end-version-classic@
---@version-bcc@
-spellList = spellListBCC
+
+--@version-wrath@
+spellList = spellListWrath
 spellListClassic = nil
---@end-version-bcc@
+--@end-version-wrath@
+
 --@end-non-version-retail@]===]
 
 local allSupportedSpells = {}

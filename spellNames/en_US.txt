@@ -56,6 +56,7 @@
 498;Divine Protection  
 633;Lay on Hands       
 642;Divine Shield      
+724;Lightwell
 740;Tranquility        
 853;Hammer of Justice  
 871;Shield Wall        
@@ -97,6 +98,7 @@
 22812;Barkskin
 22842;Frenzied Regeneration
 23920;Spell Reflection
+23989;Readiness
 29166;Innervate
 30283;Shadowfury
 30823;Shamanistic Rage
@@ -113,26 +115,41 @@
 34477;Misdirection
 35476;Drums
 42650;Army of the Dead
+44572;Deep Freeze
 45438;Ice Block
+46924;Bladestorm
 46968;Shockwave
+47476;Strangulate
 47536;Rapture
 47568;Empower Rune Weapon
 47585;Dispersion
 47788;Guardian Spirit
+48505;Starfall
 48707;Anti Magic Shell
 48743;Death Pact
+48982;Rune Tap
+49005;Mark of Blood
+49016;Unholy Frenzy
 49039;Lichborne
+49203;Hungering Cold
 49206;Summon Gargoyle
+49222;Bone Shield
 49576;Death Grip
 50334;Berserk
 51052;Anti Magic Zone
+51271;Unbreakable Armor
 51514;Hex
 51690;Killing Spree
+51713;Shadow Dance
 53480;Roar of Sacrifice
+54428;Divine Plea
+55198;Tidal Force
 55233;Vampiric Blood
 55342;Mirror Image
+59672;Metamorphosis
 57934;Tricks of the Trade
 58984;Shadowmeld
+59752;Will to Survive
 61336;Survival Instincts
 61999;Raise Ally
 64044;Psychic Horror
