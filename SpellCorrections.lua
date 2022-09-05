@@ -29,8 +29,8 @@ local spellCorrectionsRetail = {
 	[106898] = 77761 -- Roar: General
 }
 
--- WotLK
-local spellCorrectionsWotLKC = {
+-- Wrath
+local spellCorrectionsWrathC = {
 	--- Druid
 	-- Bash
 	[6798] = 5211, -- Rank 2
@@ -204,12 +204,12 @@ spellCorrectionsRetail = nil
 
 --@version-classic@
 addon.spellCorrections = spellCorrectionsClassic
-spellCorrectionsWotLKC = nil
+spellCorrectionsWrathC = nil
 --@end-version-classic@
 
---@version-wotlkc@
-addon.spellCorrections = spellCorrectionsWotLKC
+--@version-wrath@
+addon.spellCorrections = spellCorrectionsWrathC
 spellCorrectionsClassic = nil
---@end-version-wotlkc@
+--@end-version-wrath@
 
 --@end-non-version-retail@]===]
