@@ -2,7 +2,6 @@ local _, addon = ...
 local L = addon.L
 
 local intendedWoWProject = WOW_PROJECT_MAINLINE
-local WOW_PROJECT_WRATH_OF_THE_LICH_KING_CLASSIC = 6 --Todo: Remove when Project ID is added by Blizzard
 
 --[===[@non-version-retail@
 --@version-classic@
@@ -12,7 +11,7 @@ intendedWoWProject = WOW_PROJECT_CLASSIC
 intendedWoWProject = WOW_PROJECT_BURNING_CRUSADE_CLASSIC or WOW_PROJECT_MAINLINE
 --@end-version-bcc@
 --@version-wotlkc@
-intendedWoWProject = WOW_PROJECT_WRATH_OF_THE_LICH_KING_CLASSIC or WOW_PROJECT_MAINLINE
+intendedWoWProject = WOW_PROJECT_WRATH_CLASSIC or WOW_PROJECT_MAINLINE
 --@end-version-wotlkc@
 --@end-non-version-retail@]===]
 
@@ -25,9 +24,7 @@ function addon:IsBCC()
 end
 
 function addon:IsWotLKC()
-  _,_,_,tocversion = GetBuildInfo()
-  return tocversion == 30400 -- Todo: Update to below version when WOTLK PROJECT ID works
-  --return WOW_PROJECT_ID == WOW_PROJECT_WRATH_OF_THE_LICH_KING_CLASSIC
+	return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC
 end
 
 function addon:IsRetail()
@@ -46,7 +43,7 @@ local intendedWoWProjectName = {
   [WOW_PROJECT_MAINLINE] = "Retail",
   [WOW_PROJECT_CLASSIC] = "Classic",
   [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "The Burning Crusade Classic",
-  [WOW_PROJECT_WRATH_OF_THE_LICH_KING_CLASSIC] = "Wrath of the Lich King Classic"
+  [WOW_PROJECT_WRATH_CLASSIC] = "Wrath of the Lich King Classic"
 }
 
 function addon:determinePlayerError(spellID, channel, isTest)

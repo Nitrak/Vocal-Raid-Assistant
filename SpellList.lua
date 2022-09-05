@@ -98,7 +98,8 @@ local spellListRetail = {
 		[338018] =	{ type = "covenant"}, --Kindred Spirits solo empowerment
 		[338035] =	{ type = "covenant"}, --Kindred Spirits solo empowerment
 		[354654] =	{ type = "defensive"},
-	},["HUNTER"] = {
+	},
+	["HUNTER"] = {
 		[5384] =	{ type = "other"},
 		[19574] =	{ type = "offensive"},
 		[19577] =	{ type = "cc"},
@@ -348,127 +349,127 @@ local spellListRetail = {
 
 local spellListWotLK = {
 	["DEATHKNIGHT"] = {
-		[42650] =	{ name = "Army of the Dead", phonetic_name = "", type = "offensive"},
-		[47568] =	{ name = "Empower Rune Weapon", phonetic_name = "", type = "offensive"},
-		[48707] =	{ name = "Anti Magic Shell", phonetic_name = "", type = "defensive"},
-		[48743] =	{ name = "Death Pact", phonetic_name = "", type = "defensive"},
-		[48792] =	{ name = "Icebound", phonetic_name = "", type = "defensive"},
-		[48982] =	{ name = "Rune Tap", phonetic_name = "", type = "defensive"},
-		[49039] =	{ name = "Lichborne", phonetic_name = "Litchborne", type = "other"},
-		[49206] =	{ name = "Summon Gargoyle", phonetic_name = "", type = "offensive"},
-		[49576] =	{ name = "Death Grip", phonetic_name = "", type = "disarm"},
-		[49028] =	{ name = "Rune Weapon", phonetic_name = "Rune-Weapon", type = "defensive"}, -- Dancing Rune Weapon
-		[51052] =	{ name = "Anti Magic Zone", phonetic_name = "", type = "raidDefensive" },
-		[55233] =	{ name = "Vampiric Blood", phonetic_name = "", type = "defensive"},
-		[61999] =	{ name = "Raise Ally", phonetic_name = "Raise Alleie", type = "other" },
-		
-		[47476] =	{ name = "Strangulate", phonetic_name = "", type = "cc" },
-		[49005] =	{ name = "Mark of Blood", phonetic_name = "", type = "defensive" },
-		[49016] =	{ name = "Unholy Frenzy", phonetic_name = "", type = "offensive" },
-		[51271] =	{ name = "Unbreakable Armor", phonetic_name = "", type = "offensive" },
-		[49203] =	{ name = "Hungering Cold", phonetic_name = "", type = "cc" },
-		[49222] =	{ name = "Bone Shield", phonetic_name = "", type = "defensive" },
-		
+		[42650] =	{ type = "offensive"},
+		[47568] =	{ type = "offensive"},
+		[48707] =	{ type = "defensive"},
+		[48743] =	{ type = "defensive"},
+		[48792] =	{ type = "defensive"},
+		[48982] =	{ type = "defensive"},
+		[49039] =	{ type = "other"},
+		[49206] =	{ type = "offensive"},
+		[49576] =	{ type = "disarm"},
+		[49028] =	{ type = "defensive"}, -- Dancing Rune Weapon
+		[51052] =	{ type = "raidDefensive" },
+		[55233] =	{ type = "defensive"},
+		[61999] =	{ type = "other" },
+
+		[47476] =	{ type = "cc" },
+		[49005] =	{ type = "defensive" },
+		[49016] =	{ type = "offensive" },
+		[51271] =	{ type = "offensive" },
+		[49203] =	{ type = "cc" },
+		[49222] =	{ type = "defensive" },
+
 	},
 	["DRUID"] = {
-		[740] =		{ name = "Tranquility", phonetic_name = "", type = "raidDefensive"},
-		[5211] =	{ name = "Bash", phonetic_name = "", type = "cc"},
-		[20484] =	{ name = "Rebirth", phonetic_name = "", type = "other"},
-		[22812] =	{ name = "Barkskin", phonetic_name = "", type = "defensive"},
-		[22842] =	{ name = "Frenzied Regeneration", phonetic_name = "", type = "defensive"},
-		[29166] =	{ name = "Innervate", phonetic_name = "Enervaite", type = "other"},
-		[33786] =	{ name = "Cyclone", phonetic_name = "", type = "cc"},
-		[48505] =	{ name = "Starfall", phonetic_name = "Star fall", type = "offensive"},
-		[50334] =	{ name = "Berserk", phonetic_name = "", type = "offensive"},
+		[740] =		{ type = "raidDefensive"},
+		[5211] =	{ type = "cc"},
+		[20484] =	{ type = "other"},
+		[22812] =	{ type = "defensive"},
+		[22842] =	{ type = "defensive"},
+		[29166] =	{ type = "other"},
+		[33786] =	{ type = "cc"},
+		[48505] =	{ type = "offensive"},
+		[50334] =	{ type = "offensive"},
 	},
 	["HUNTER"] = {
-		[5384] =	{ name = "Feign Death", phonetic_name = "", type = "other"},
-		[19574] =	{ name = "Bestial Wrath", phonetic_name = "", type = "offensive"},
-		[19577] =	{ name = "Intimidation", phonetic_name = "", type = "cc"},
-		[19801] =	{ name = "Tranquilizing Shot", phonetic_name = "", type = "dispel"},
-		[23989] =	{ name = "Readiness", phonetic_name = "", type = "offensive"},
-		[34477] =	{ name = "Misdirection", phonetic_name = "", type = "defensive"},
+		[5384] =	{ type = "other"},
+		[19574] =	{ type = "offensive"},
+		[19577] =	{ type = "cc"},
+		[19801] =	{ type = "dispel"},
+		[23989] =	{ type = "offensive"},
+		[34477] =	{ type = "defensive"},
 	},
 	["MAGE"] = {
-		[118] =		{ name = "Polymorph", phonetic_name = "", type = "cc"},
-		[11426] =	{ name = "Ice Barrier", phonetic_name = "", type = "defensive"},
-		[12042] =	{ name = "Arcane Power", phonetic_name = "", type = "offensive"},
-		[12472] =	{ name = "Icy Veins", phonetic_name = "", type = "offensive"},
-		[55342] =	{ name = "Mirror Image", phonetic_name = "", type = "offensive"},
-		[44572] =	{ name = "Deep Freeze", phonetic_name = "", type = "cc"},
-		[45438] =	{ name = "Ice Block", phonetic_name = "", type = "immunity"},
+		[118] =		{ type = "cc"},
+		[11426] =	{ type = "defensive"},
+		[12042] =	{ type = "offensive"},
+		[12472] =	{ type = "offensive"},
+		[55342] =	{ type = "offensive"},
+		[44572] =	{ type = "cc"},
+		[45438] =	{ type = "immunity"},
 	},
 	["PALADIN"] = {
-		[642] =		{ name = "Divine Shield", phonetic_name = "", type = "immunity"},
-		[498] =		{ name = "Divine Protection", phonetic_name = "", type = "defensive"},
-		[633] =		{ name = "Lay on Hands", phonetic_name = "", type = "defensive"},
-		[853] =		{ name = "Hammer of Justice", phonetic_name = "", type = "cc"},
-		[1022] = 	{ name = "Protection", phonetic_name = "", type = "externalDefensive"},
-		[6940] = 	{ name = "Sacrifice", phonetic_name = "", type = "externalDefensive"}, -- Blessing of Sacrifice,
-		[20066] =	{ name = "Repentance", phonetic_name = "", type = "cc"},
-		[31842] =	{ name = "Divine Illumination", phonetic_name = "", type = "other"},
-		[54428] =	{ name = "Divine Plea", phonetic_name = "", type = "other"},
+		[642] =		{ type = "immunity"},
+		[498] =		{ type = "defensive"},
+		[633] =		{ type = "defensive"},
+		[853] =		{ type = "cc"},
+		[1022] = 	{ type = "externalDefensive"},
+		[6940] = 	{ type = "externalDefensive"}, -- Blessing of Sacrifice,
+		[20066] =	{ type = "cc"},
+		[31842] =	{ type = "other"},
+		[54428] =	{ type = "other"},
 	},
 	["PRIEST"] = {
-		[724] =		{ name = "Lightwell", phonetic_name = "", type = "defensive"},
-		[8122] =	{ name = "Psychic Scream", phonetic_name = "", type = "cc"},
-		[10060] =	{ name = "Power Infusion", phonetic_name = "", type = "offensive"},
-		[19236] =	{ name = "Desperate Prayer", phonetic_name = "", type = "defensive"},
-		[32375] =	{ name = "Mass Dispel", phonetic_name = "", type = "dispel"},
-		[33206] =	{ name = "Pain Suppression", phonetic_name = "", type = "externalDefensive"},
-		[34433] =	{ name = "Shadowfiend", phonetic_name = "", type = "offensive"},
-		[47585] =	{ name = "Dispersion", phonetic_name = "", type = "defensive"},
-		[47788] =	{ name = "Guardian Spirit", phonetic_name = "", type = "externalDefensive"},
-		[64843] =	{ name = "Divine Hymn", phonetic_name = "", type = "raidDefensive"},	-- Divine Hymn
-		[64901] =	{ name = "Hymn of Hope", phonetic_name = "", type = "other"},
+		[724] =		{ type = "defensive"},
+		[8122] =	{ type = "cc"},
+		[10060] =	{ type = "offensive"},
+		[19236] =	{ type = "defensive"},
+		[32375] =	{ type = "dispel"},
+		[33206] =	{ type = "externalDefensive"},
+		[34433] =	{ type = "offensive"},
+		[47585] =	{ type = "defensive"},
+		[47788] =	{ type = "externalDefensive"},
+		[64843] =	{ type = "raidDefensive"},	-- Divine Hymn
+		[64901] =	{ type = "other"},
 	},
 	["ROGUE"] = {
-		[1966] =	{ name = "Feint", phonetic_name = "", type = "defensive"},
-		[2094] =	{ name = "Blind", phonetic_name = "", type = "cc"},
-		[5277] =	{ name = "Evasion", phonetic_name = "", type = "defensive"},
-		[13750] =	{ name = "Adrenaline Rush", phonetic_name = "", type = "offensive"},
-		[31224] =	{ name = "Cloak of Shadows", phonetic_name = "", type = "defensive"},
-		[51690] =	{ name = "Killing Spree", phonetic_name = "", type = "offensive"},
-		[51713] =	{ name = "Shadow Dance", phonetic_name = "", type = "offensive"},
-		[57934] =	{ name = "Tricks of the Trade", phonetic_name = "", type = "other"},
+		[1966] =	{ type = "defensive"},
+		[2094] =	{ type = "cc"},
+		[5277] =	{ type = "defensive"},
+		[13750] =	{ type = "offensive"},
+		[31224] =	{ type = "defensive"},
+		[51690] =	{ type = "offensive"},
+		[51713] =	{ type = "offensive"},
+		[57934] =	{ type = "other"},
 	},
 	["SHAMAN"] = {
-		[2825] =	{ name = "Bloodlust", phonetic_name = "", type = "offensive"},
-		[8143] =	{ name = "Tremor Totem", phonetic_name = "", type = "counterCC"},
-		[16191] =	{ name = "Mana Tide", phonetic_name = "", type = "other"}, -- Mana Tide Totem
-		[30823] =	{ name = "Shamanistic Rage", phonetic_name = "", type = "defensive"},
-		[32182] =	{ name = "Heroism", phonetic_name = "", type = "offensive"},
-		[51514] =	{ name = "Hex", phonetic_name = "", type = "cc"},
-		[55198] =	{ name = "Tidal Force", phonetic_name = "", type = "defensive"},
+		[2825] =	{ type = "offensive"},
+		[8143] =	{ type = "counterCC"},
+		[16191] =	{ type = "other"}, -- Mana Tide Totem
+		[30823] =	{ type = "defensive"},
+		[32182] =	{ type = "offensive"},
+		[51514] =	{ type = "cc"},
+		[55198] =	{ type = "defensive"},
 	},
 	["WARLOCK"] = {
-		[1122] =	{ name = "Infernal", phonetic_name = "", type = "offensive"}, -- Summon Infernal
-		[5484] =	{ name = "Howl of Terror", phonetic_name = "", type = "cc"},
-		[5782] =	{ name = "Fear", phonetic_name = "", type = "cc"},
-		[20707] =	{ name = "Soulstone", phonetic_name = "Soelstone", type = "other"},
-		[29893] =	{ name = "Soulwell", phonetic_name = "", type = "other"}, -- Create Soulwell
-		[30283] =	{ name = "Shadowfury", phonetic_name = "Shadowfurey", type = "cc"},
-		[59672] =	{ name = "Metamorphosis", phonetic_name = "", type = "defensive"},
+		[1122] =	{ type = "offensive"}, -- Summon Infernal
+		[5484] =	{ type = "cc"},
+		[5782] =	{ type = "cc"},
+		[20707] =	{ type = "other"},
+		[29893] =	{ type = "other"}, -- Create Soulwell
+		[30283] =	{ type = "cc"},
+		[59672] =	{ type = "defensive"},
 	},
 	["WARRIOR"] = {
-		[871] =		{ name = "Shield Wall", phonetic_name = "", type = "defensive"},
-		[1161] =	{ name = "Challenging Shout", phonetic_name = "", type = "other"},
-		[1719] =	{ name = "Recklessness", phonetic_name = "", type = "offensive"},
-		[2565] =	{ name = "Shield Block", phonetic_name = "", type = "defensive"},
-		[5246] =	{ name = "Intimidating Shout", phonetic_name = "", type = "cc"},
-		[12975] =	{ name = "Last Stand", phonetic_name = "", type = "defensive"},
-		[20230] =	{ name = "Retaliation", phonetic_name = "", type = "offensive"},
-		[23920] =	{ name = "Spell Reflection", phonetic_name = "", type = "counterCC"},
-		[46924] =	{ name = "Bladestorm", phonetic_name = "", type = "offensive"},
-		[46968] =	{ name = "Shockwave", phonetic_name = "", type = "cc"},
-		[64382] =	{ name = "Shattering Throw", phonetic_name = "", type = "other"},
+		[871] =		{ type = "defensive"},
+		[1161] =	{ type = "other"},
+		[1719] =	{ type = "offensive"},
+		[2565] =	{ type = "defensive"},
+		[5246] =	{ type = "cc"},
+		[12975] =	{ type = "defensive"},
+		[20230] =	{ type = "offensive"},
+		[23920] =	{ type = "counterCC"},
+		[46924] =	{ type = "offensive"},
+		[46968] =	{ type = "cc"},
+		[64382] =	{ type = "other"},
 
 	},
 	["GENERAL"] = {
-		[20594] =	{ name = "Stone Form", phonetic_name = "", type = "racial"},
-		[35476] =	{ name = "Drums", phonetic_name = "", type = "offensive"}, -- Drums of Fury
-		[58984] =	{ name = "Shadowmeld", phonetic_name = "", type = "racial"},
-		[59752] =	{ name = "Will to Survive", phonetic_name = "", type = "racial"},
+		[20594] =	{ type = "racial"},
+		[35476] =	{ type = "offensive"}, -- Drums of Fury
+		[58984] =	{ type = "racial"},
+		[59752] =	{ type = "racial"},
 	},
 	["TRINKET"] = {
 		-- pvp
@@ -634,21 +635,25 @@ local spellList = spellListRetail
 
 --[===[@non-version-retail@
 spellListRetail = nil
+
 --@version-classic@
 spellList = spellListClassic
 spellListBCC = nil
 spellListWotLK = nil
 --@end-version-classic@
+
 --@version-bcc@
 spellList = spellListBCC
 spellListClassic = nil
 spellListWotLK = nil
 --@end-version-bcc@
---@version-bcc@
+
+--@version-wotlkc@
 spellList = spellListWotLK
 spellListClassic = nil
 spellListBCC = nil
---@end-version-bcc@
+--@end-version-wotlkc@
+
 --@end-non-version-retail@]===]
 
 local allSupportedSpells = {}

@@ -286,21 +286,26 @@ local spellCorrectionsClassic = {
 }
 
 addon.spellCorrections = spellCorrectionsRetail
+
 --[===[@non-version-retail@
 spellCorrectionsRetail = nil
+
 --@version-classic@
-spellCorrectionsBCC = nil
-spellCorrectionsWotLKC = nil
 addon.spellCorrections = spellCorrectionsClassic
+spellCorrectionsBCC = nil
+spellCorrectionsWotLKC = nil
 --@end-version-classic@
+
 --@version-bcc@
+addon.spellCorrections = spellCorrectionsBCC
 spellCorrectionsClassic = nil
 spellCorrectionsWotLKC = nil
-addon.spellCorrections = spellCorrectionsBCC
 --@end-version-bcc@
+
 --@version-wotlkc@
+addon.spellCorrections = spellCorrectionsWotLKC
 spellCorrectionsClassic = nil
 spellCorrectionsBCC = nil
-addon.spellCorrections = spellCorrectionsWotLKC
 --@end-version-wotlkc@
+
 --@end-non-version-retail@]===]
