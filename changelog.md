@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.5.1
+- Enabled support for Dual-Spec in Wrath
+
 ## 2.5.0
 - Added support for Wrath Classic
 

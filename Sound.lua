@@ -36,13 +36,13 @@ end
 
 local function playSpell(spellID, isTest)
 	local channel = addon.profile.sound.channel
-	local player = registeredSoundpacks[addon.profile.sound.soundpack]
+	local soundPlayer = registeredSoundpacks[addon.profile.sound.soundpack]
 	local errorMsg = nil
-	if player then
+	if soundPlayer then
 		if isThrottled('sound') then
 			return
 		end
-		if not player(spellID, channel) then
+		if not soundPlayer(spellID, channel) then
 			errorMsg = addon:determinePlayerError(spellID, channel, isTest)
 		end
 	else
