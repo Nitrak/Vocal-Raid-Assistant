@@ -7,17 +7,17 @@ local intendedWoWProject = WOW_PROJECT_MAINLINE
 --@version-classic@
 intendedWoWProject = WOW_PROJECT_CLASSIC
 --@end-version-classic@
---@version-bcc@
-intendedWoWProject = WOW_PROJECT_BURNING_CRUSADE_CLASSIC or WOW_PROJECT_MAINLINE
---@end-version-bcc@
+--@version-wrath@
+intendedWoWProject = WOW_PROJECT_WRATH_CLASSIC or WOW_PROJECT_MAINLINE
+--@end-version-wrath@
 --@end-non-version-retail@]===]
 
 function addon:IsClassic()
   return WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
 end
 
-function addon:IsBCC()
-  return WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+function addon:IsWrath()
+	return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC
 end
 
 function addon:IsRetail()
@@ -35,7 +35,7 @@ end
 local intendedWoWProjectName = {
   [WOW_PROJECT_MAINLINE] = "Retail",
   [WOW_PROJECT_CLASSIC] = "Classic",
-  [WOW_PROJECT_BURNING_CRUSADE_CLASSIC or 5] = "The Burning Crusade Classic"
+  [WOW_PROJECT_WRATH_CLASSIC or 11] = "Wrath of the Lich King Classic"
 }
 
 function addon:determinePlayerError(spellID, channel, isTest)

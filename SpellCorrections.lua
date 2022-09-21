@@ -29,8 +29,8 @@ local spellCorrectionsRetail = {
 	[106898] = 77761 -- Roar: General
 }
 
--- BCC
-local spellCorrectionsBCC = {
+-- Wrath
+local spellCorrectionsWrath = {
 	--- Druid
 	-- Bash
 	[6798] = 5211, -- Rank 2
@@ -40,16 +40,14 @@ local spellCorrectionsBCC = {
 	[9862] = 740, -- Rank 3
 	[9863] = 740, -- Rank 4
 	[26983] = 740, -- Rank 5
+	[48446] = 740, -- Rank 6
+	[48447] = 740, -- Rank 7
 	-- Rebirth
 	[20739] = 20484, -- Rank 2
 	[20742] = 20484, -- Rank 3
 	[20747] = 20484, -- Rank 4
 	[20748] = 20484, -- Rank 5
 	[26994] = 20484, -- Rank 5
-	-- Frenzied Regen
-	[22895] = 22842, -- Rank 2
-	[22896] = 22842, -- Rank 3
-	[26999] = 22842, -- Rank 4
 	--- Mage
 	-- Ice Barrier
 	[13031] = 11426, -- Rank 2
@@ -57,17 +55,19 @@ local spellCorrectionsBCC = {
 	[13033] = 11426, -- Rank 4
 	[27134] = 11426, -- Rank 5
 	[33405] = 11426, -- Rank 6
+	[43038] = 11426, -- Rank 7
+	[43039] = 11426, -- Rank 8
 	-- Polymorph
 	[12824] = 118, -- Rank 2
 	[12825] = 118, -- Rank 3
 	[12826] = 118, -- Rank 4
 	[28271] = 118, -- Turtle
 	[28272] = 118, -- Pig
+	[61305] = 118, -- Black Cat
+	[61721] = 118, -- Rabbit
+	[61780] = 118, -- Turkey
+
 	--- Paladin
-	-- Divine Shield
-	[1020] = 642, -- Rank 2
-	-- Divine Protection
-	[5573] = 498, -- Rank 2
 	-- Blessing of Protection
 	[5599] = 1022, -- Rank 2
 	[10278] = 1022, -- Rank 3
@@ -79,23 +79,27 @@ local spellCorrectionsBCC = {
 	[2800] = 633, -- Rank 2
 	[10310] = 633, -- Rank 3
 	[27154] = 633, -- Rank 4
-	-- Blessing of Sacrifice
-	[20729] = 6940, -- Rank 2
-	[27147] = 6940, -- Rank 3
-	[27148] = 6940, -- Rank 4
+	[48788] = 633, -- Rank 5
 	--- Priest
+	-- Lightwell
+	[27870] = 724, -- Rank 2
+	[27871] = 724, -- Rank 3
+	[28275] = 724, -- Rank 4
+	[48086] = 724, -- Rank 5
+	[48087] = 724, -- Rank 6
 	-- Psychic Scream
 	[8124] = 8122, -- Rank 2
 	[10888] = 8122, -- Rank 3
 	[10890] = 8122, -- Rank 4
 	-- Desperate Prayer
-	[13908] = 19236, -- Rank 1
-	[19238] = 19236, -- Rank 3
-	[19240] = 19236, -- Rank 4
-	[19241] = 19236, -- Rank 5
-	[19242] = 19236, -- Rank 6
-	[19243] = 19236, -- Rank 7
-	[25437] = 19236, -- Rank 8
+	[19238] = 19236, -- Rank 2
+	[19240] = 19236, -- Rank 3
+	[19241] = 19236, -- Rank 4
+	[19242] = 19236, -- Rank 5
+	[19243] = 19236, -- Rank 6
+	[25437] = 19236, -- Rank 7
+	[48172] = 19236, -- Rank 8
+	[48173] = 19236, -- Rank 9
 	--- Shaman
 	--- Warlock
 	-- Howl of Terror
@@ -109,6 +113,7 @@ local spellCorrectionsBCC = {
 	[20764] = 20707, -- Rank 4
 	[20765] = 20707, -- Rank 5
 	[27239] = 20707, -- Rank 6
+	[47883] = 20707, -- Rank 7
 	--- General
 	-- Drums
 	[351355] = 35476, -- Greater Drums
@@ -161,6 +166,9 @@ local spellCorrectionsClassic = {
 	-- Blessing of Sacrifice
 	[20729] = 6940, -- Rank 2
 	--- Priest
+	-- Lightwell
+	[27870] = 724, -- Rank 2
+	[27871] = 724, -- Rank 3
 	-- Psychic Scream
 	[8124] = 8122, -- Rank 2
 	[10888] = 8122, -- Rank 3
@@ -190,14 +198,18 @@ local spellCorrectionsClassic = {
 }
 
 addon.spellCorrections = spellCorrectionsRetail
+
 --[===[@non-version-retail@
 spellCorrectionsRetail = nil
+
 --@version-classic@
-spellCorrectionsBCC = nil
 addon.spellCorrections = spellCorrectionsClassic
+spellCorrectionsWrath = nil
 --@end-version-classic@
---@version-bcc@
+
+--@version-wrath@
+addon.spellCorrections = spellCorrectionsWrath
 spellCorrectionsClassic = nil
-addon.spellCorrections = spellCorrectionsBCC
---@end-version-bcc@
+--@end-version-wrath@
+
 --@end-non-version-retail@]===]

@@ -1,0 +1,340 @@
+### Changed
+1022;Protection
+1122;Infernal
+5211;Bash
+6940;Sacrifice
+16191;Mana Tide
+29893;Soulwell
+33891;Incarnation: Tree
+48792;Icebound
+49028;Rune Weapon
+62618;Barrier
+79206;Spiritwalker
+98008;Spirit Link
+102359;Entanglement
+102558;Incarnation: Bear
+102793;Vortex
+111771;Gateway
+111898;Felguard
+113858;Instability
+113860;Misery
+114018;Shroud
+108280;Healing Tide
+123904;Invoke Xuen
+132578;Invoke Niuzao
+178207;Drums
+186265;Turtle
+187650;Trap
+192077;Wind Rush
+196029;Relentless Brooch
+202138;Chains
+204018;Spellwarding
+205180;Darkglare
+205636;Trees
+207399;Ancestral Protection
+265187;Demonic Tyrant
+265202;Salvation
+319952;Madness
+322118;Invoke Yu'lon
+323764;Convoke
+325197;Invoke Chi-Ji
+329840;Blood-Spattered Scale
+336126;Medallion
+336135;Sigil of Adaptation
+344907;Splintered Heart
+345228;Badge of Ferocity
+345231;Gladiator's Emblem
+345801;Soulletting Ruby
+348139;Divine Bell
+348477;Reanimator
+358712;Aegis
+
+### 
+
+99;Incapacitating Roar
+118;Polymorph
+498;Divine Protection  
+633;Lay on Hands       
+642;Divine Shield      
+724;Lightwell
+740;Tranquility        
+853;Hammer of Justice  
+871;Shield Wall        
+1160;Demoralizing Shout
+1161;Challenging Shout
+1719;Recklessness
+1966;Feint
+2094;Blind
+2565;Shield Block
+2825;Bloodlust
+2908;Soothe
+5246;Intimidating Shout
+5277;Evasion
+5384;Feign Death
+5484;Howl of Terror
+5782;Fear
+5938;Shiv
+8122;Psychic Scream
+8143;Tremor Totem
+10060;Power Infusion
+11426;Ice Barrier
+11958;Ice Block
+12042;Arcane Power
+12323;Piercing Howl
+12472;Icy Veins
+12975;Last Stand
+13750;Adrenaline Rush
+15286;Vampiric Embrace
+19236;Desperate Prayer
+19574;Bestial Wrath
+19577;Intimidation
+19801;Tranquilizing Shot
+20066;Repentance
+20230;Retaliation
+20484;Rebirth
+20580;Shadowmeld
+20594;Stone Form
+20707;Soulstone
+22812;Barkskin
+22842;Frenzied Regeneration
+23920;Spell Reflection
+23989;Readiness
+29166;Innervate
+30283;Shadowfury
+30823;Shamanistic Rage
+31224;Cloak of Shadows
+31821;Aura Mastery
+31842;Divine Illumination
+31850;Ardent Defender
+31884;Avenging Wrath
+32182;Heroism
+32375;Mass Dispel
+33206;Pain Suppression
+33786;Cyclone
+34433;Shadowfiend
+34477;Misdirection
+35476;Drums
+42650;Army of the Dead
+44572;Deep Freeze
+45438;Ice Block
+46924;Bladestorm
+46968;Shockwave
+47476;Strangulate
+47536;Rapture
+47568;Empower Rune Weapon
+47585;Dispersion
+47788;Guardian Spirit
+48505;Starfall
+48707;Anti Magic Shell
+48743;Death Pact
+48982;Rune Tap
+49005;Mark of Blood
+49016;Unholy Frenzy
+49039;Lichborne
+49203;Hungering Cold
+49206;Summon Gargoyle
+49222;Bone Shield
+49576;Death Grip
+50334;Berserk
+51052;Anti Magic Zone
+51271;Unbreakable Armor
+51514;Hex
+51690;Killing Spree
+51713;Shadow Dance
+53480;Roar of Sacrifice
+54428;Divine Plea
+55198;Tidal Force
+55233;Vampiric Blood
+55342;Mirror Image
+59672;Metamorphosis
+57934;Tricks of the Trade
+58984;Shadowmeld
+59752;Will to Survive
+61336;Survival Instincts
+61999;Raise Ally
+64044;Psychic Horror
+64382;Shattering Throw
+64843;Divine Hymn
+64901;Symbol of Hope
+73325;Leap of Faith
+76577;Smoke Bomb
+77761;Roar
+78675;Solar Beam
+79140;Vendetta
+80313;Pulverize
+80353;Time Warp
+86659;Guardian of Ancient Kings
+86949;Cauterize
+88625;Chastise
+97462;Rallying Cry
+102342;Iron Bark
+104773;Unending Resolve
+105809;Holy Avenger
+106951;Berserk
+107079;Quaking Palm
+107570;Storm Bolt
+108199;Gorefiend's Grasp
+108238;Renewal
+108271;Astral Shift
+108281;Ancestral Guidance
+108416;Dark Pact
+108968;Void Shift
+109248;Binding Shot
+109304;Exhilaration
+109964;Spirit Shell
+114052;Ascendance
+114158;Light's Hammer
+114556;Purgatory
+115078;Paralysis
+115176;Zen Meditation
+115203;Fortifying Brew
+115288;Energizing Elixir
+115310;Revival
+115399;Black Ox Brew
+115750;Blinding Light
+116841;Tiger's Lust
+116844;Ring of Peace
+116849;Life Cocoon
+118038;Die by the Sword
+119381;Leg sweep
+121471;Shadow Blades
+122278;Dampen Harm
+122470;Touch of Karma
+122783;Diffuse Magic
+137639;Storm, Earth, and Fire
+152173;Serenity
+152279;Breath of Sindragosa
+155835;Bristling Fur
+179057;Chaos Nova
+184364;Enraged Regeneration
+184662;Shield of Vengeance
+185311;Crimson Vial
+186289;Aspect of the Eagle
+187827;Metamorphosis
+190319;Combustion
+190456;Ignore Pain
+191634;Stormkeeper
+192058;Capacitor Totem
+193530;Aspect of the Wild
+194223;Celestial Alignment
+194679;Rune Tap
+194844;Bonestorm
+196555;Netherwalk
+196718;Darkness
+197721;Flourish
+197908;Mana Tea
+198103;Earth Elemental
+198144;Ice Form
+198589;Blur
+198838;Earthen Wall Totem
+200183;Apotheosis
+201430;Stampede
+202137;Sigil of Silence
+202246;Overrun
+202770;Fury of Elune
+204021;Fiery Brand
+205369;Mind Bomb
+205604;Reverse Magic
+205630;Illidan's Grasp
+206491;Nemesis
+206803;Rain from Above
+206931;Blooddrinker
+207167;Blinding Sleet
+207289;Unholy Assault
+207684;Sigil of Misery
+209258;Last Resort
+209749;Faerie Swarm
+211881;Fel Eruption
+212084;Fel Devastation
+216331;Avenging Crusader
+217832;Imprison
+219809;Tombstone
+221562;Asphyxiate
+228260;Void Eruption
+228920;Ravager
+231895;Crusade
+235313;Blazing Barrier
+235450;Prismatic Barrier
+243435;Fortifying Brew
+246287;Evangelism
+258925;Fel Barrage
+264667;Primal Rage
+266779;Coordinated Assault
+271466;Luminous Barrier
+279302;Frostwyrm's Fury
+281195;Survival of the Fittest
+288613;Trueshot
+300728;Door of Shadows
+304971;Divine Toll
+305497;Thorns
+306830;Elysian Decree
+307443;Radiant Spark
+307865;Spear of Bastion
+308491;Resonating Arrow
+310143;Soulshape
+310454;Weapons of Order
+311648;Swarming Mist
+312202;Shackle the Unworthy
+312321;Scouring Tithe
+314791;Shifting Power
+314793;Mirrors of Torment
+315443;Abomination Limb
+316958;Ashen Hallow
+317009;Sinful Brand
+317349;Condemn
+320137;Stormkeeper
+320341;Bulk Extraction
+320674;Chain Harvest
+321507;Touch of the Magi
+321530;Bloodshed
+321792;Impending Catastrophe
+322109;Touch of Death
+322507;Celestial Brew
+323436;Purify Soul
+323546;Ravenous Frenzy
+323547;Echoing Reprimand
+323639;The Hunt
+323654;Flagellation
+323673;Mind Games
+324128;Death's Due
+324143;Conqueror's Banner
+324149;Flayed Shot
+324220;Deathborne
+324386;Vesper Totem
+324631;Fleshcraft
+324724;Unholy Nova
+324739;Summon Steward
+325013;Boon of the Ascended
+325028;Death Chakram
+325153;Exploding Keg
+325216;Bonedust Brew
+325289;Decimating Bolt
+325640;Soul Rot
+325727;Adaptive Swarm
+325886;Ancient Aftershock
+326059;Primordial Wave
+326860;Fallen Order
+327022;Kindred Empowerment
+327037;Kindred Protection
+327071;Kindred Focus
+327104;Faeline Stomp
+327193;Moment of Glory
+327574;Sacrificial Pact
+327661;Fae Guardians
+328204;Vanquisher's Hammer
+328231;Wild Spirits
+328281;Blessing of Winter
+328282;Blessing of Spring
+328305;Sepsis
+328547;Serrated Bone Spike
+328620;Blessing of Summer
+328622;Blessing of Autumn
+328923;Fae Transfusion
+329042;Emerald Slumber
+329554;Fodder to the Flame
+333889;Fel Domination
+338018;Lone Protection
+338035;Lone Meditation
+338142;Lone Empowerment
+342245;Alter Time
+354654;Grove Protection

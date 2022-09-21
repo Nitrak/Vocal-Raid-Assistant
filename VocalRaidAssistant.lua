@@ -161,6 +161,7 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 
 	-- apply spell correction (e.g. hex and polymorh change the spellID)
 	spellID = addon.spellCorrections[spellID] or spellID
+
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
 		if (event == 'SPELL_CAST_SUCCESS') then
 			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
