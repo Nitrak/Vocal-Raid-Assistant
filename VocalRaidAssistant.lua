@@ -106,7 +106,7 @@ function VRA:OnInitialize()
 		self.db:ResetDB("Default")
 	end
 
-	if(self:IsRetail()) then
+	if(self:IsRetail() or self:IsWrath()) then
 		self.LDS = LibStub('LibDualSpec-1.0')
 		self.LDS:EnhanceDatabase(self.db, addonName)
 	end
@@ -159,11 +159,10 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
 					destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
 
-	-- apply spell correction (e.g. hex and polymorh change the spellID)
-	spellID = addon.spellCorrections[spellID] or spellID
-
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
 		if (event == 'SPELL_CAST_SUCCESS') then
+			-- apply spell correction (e.g. hex and polymorh can have different spellIds when glyphed)
+			spellID = addon.spellCorrections[spellID] or spellID
 			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
 				(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
 				addon:IsSpellSupported(spellID) then

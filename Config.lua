@@ -603,17 +603,8 @@ local spells = {
 	}
 }
 
-
-local additionalSpellCategories = {
-	["All Active"] = L["All Active"],
-	["TRINKET"] = INVTYPE_TRINKET,
-	["GENERAL"] = L["General Spells"],
-}
-
 do
-	for k, v in pairs(additionalSpellCategories) do
-		spells.args[k] = createSpellCategory(k, v, nil, 0)
-	end
+	spells.args["GENERAL"]    = createSpellCategory("GENERAL", L["General Spells"], nil, 0)
 
 	for i = 1, MAX_CLASSES do
 		local class = CLASS_SORT_ORDER[i]
@@ -624,6 +615,9 @@ do
 		end
 		spells.args[class] = createSpellCategory(class, name, icon, i)
 	end
+
+	spells.args["TRINKET"] = createSpellCategory("TRINKET", INVTYPE_TRINKET, nil, MAX_CLASSES+1)
+	spells.args["All Active"] = createSpellCategory("All Active", L["All Active"], nil, MAX_CLASSES+2)
 
 	for k, v in pairs(addon.ZONES) do
 		mainOptions.args.abilitiesOptions.args[k] = {
