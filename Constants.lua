@@ -94,15 +94,6 @@ addon.DEFAULTS = {
 	}
 }
 
-addon.SOUND_PACKS = {
-	["en-US-AnaNeural"] = "Ana",
-	["en-US-ElizabethNeural"] = "Elizabeth",
-	["legacy-en-Julie"] = "Julie (Legacy)",
-	["en-US-SaraNeural"] = "Sara",
-	["en-US-EricNeural"] = "Eric",
-	["en-US-GuyNeural"] = "Guy"
-}
-
 addon.SOUND_CHANNEL = {
 	["Master"] = L["Master"],
 	["SFX"] = L["Sound"],

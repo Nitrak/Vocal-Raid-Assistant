@@ -603,17 +603,8 @@ local spells = {
 	}
 }
 
-
-local additionalSpellCategories = {
-	["All Active"] = L["All Active"],
-	["TRINKET"] = INVTYPE_TRINKET,
-	["GENERAL"] = L["General Spells"],
-}
-
 do
-	for k, v in pairs(additionalSpellCategories) do
-		spells.args[k] = createSpellCategory(k, v, nil, 0)
-	end
+	spells.args["GENERAL"]    = createSpellCategory("GENERAL", L["General Spells"], nil, 1)
 
 	for i = 1, MAX_CLASSES do
 		local class = CLASS_SORT_ORDER[i]
@@ -622,8 +613,11 @@ do
 		if(class == "DEATHKNIGHT") then
 			icon = "Interface\\Icons\\spell_deathknight_classicon.png"
 		end
-		spells.args[class] = createSpellCategory(class, name, icon, i)
+		spells.args[class] = createSpellCategory(class, name, icon, i+1)
 	end
+
+	spells.args["TRINKET"] = createSpellCategory("TRINKET", INVTYPE_TRINKET, nil, MAX_CLASSES+3)
+	spells.args["All Active"] = createSpellCategory("All Active", L["All Active"], nil, MAX_CLASSES+4)
 
 	for k, v in pairs(addon.ZONES) do
 		mainOptions.args.abilitiesOptions.args[k] = {
