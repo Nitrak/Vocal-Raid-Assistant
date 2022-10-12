@@ -65,8 +65,6 @@ function VRA:InitializeOptions()
 	self.InitializeOptions = nil
 end
 
-
-
 local function ConfigCleanup(db)
 	if (db.profiles.version == addon.DATABASE_VERSION) then
 		return

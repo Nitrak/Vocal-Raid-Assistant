@@ -6,12 +6,12 @@ local pairs = pairs
 local popUpSemaphore = false
 
 local function indexOf(array, value)
-    for i, v in ipairs(array) do
-        if v == value then
-            return i
-        end
-    end
-    return nil
+	for i, v in ipairs(array) do
+		if v == value then
+			return i
+		end
+	end
+	return nil
 end
 
 StaticPopupDialogs["VRA_IMPORT"] = {
@@ -229,7 +229,6 @@ local mainOptions = {
 							VRA.ICON:Show(addonName)
 						end
 					end
-
 				},
 				linebreak2 = {
 					type = 'description',
@@ -604,7 +603,7 @@ local spells = {
 }
 
 do
-	spells.args["GENERAL"]    = createSpellCategory("GENERAL", L["General Spells"], nil, 0)
+	spells.args["GENERAL"] = createSpellCategory("GENERAL", L["General Spells"], nil, 0)
 
 	for i = 1, MAX_CLASSES do
 		local class = CLASS_SORT_ORDER[i]
