@@ -58,7 +58,7 @@ local spellListRetail = {
 		[329554] =	{ type = "covenant"},
 	},
 	["DRUID"] = {
-		[99] =	    { type = "cc"},
+		[99] =		{ type = "cc"},
 		[740] =		{ type = "raidDefensive"},
 		[2908] =	{ type = "dispel"},
 		[5211] =	{ type = "cc"}, -- Mighty Bash

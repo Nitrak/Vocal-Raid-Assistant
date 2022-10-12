@@ -56,9 +56,9 @@ function addon:determinePlayerError(spellID, channel, isTest)
 end
 
 local wrongTargetMessage = "This version of VRA was packaged for World of Warcraft " .. intendedWoWProjectName[intendedWoWProject] ..
-                              ". Please install the " .. intendedWoWProjectName[WOW_PROJECT_ID] ..
-                              " version instead.\nIf you are using an addon manager, then" ..
-                              " contact their support for further assistance and reinstall VRA manually."
+							". Please install the " .. intendedWoWProjectName[WOW_PROJECT_ID] ..
+							" version instead.\nIf you are using an addon manager, then" ..
+							" contact their support for further assistance and reinstall VRA manually."
 
 if not addon.IsCorrectVersion() then --Wait 10 seconds then error message
   C_Timer.After(10, function() addon:prettyPrint(wrongTargetMessage) end)
