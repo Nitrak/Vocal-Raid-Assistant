@@ -407,6 +407,7 @@ local spellListWrath = {
 		[1022] = 	{ type = "externalDefensive"},
 		[6940] = 	{ type = "externalDefensive"}, -- Blessing of Sacrifice,
 		[20066] =	{ type = "cc"},
+		[31821] =	{ type = "raidDefensive"},
 		[31842] =	{ type = "other"},
 		[54428] =	{ type = "other"},
 	},
