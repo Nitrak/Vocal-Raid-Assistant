@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.5.2
+- Added Aura Mastery for WotLK
+
 ## 2.5.1
 - Enabled support for Dual-Spec in Wrath
 
