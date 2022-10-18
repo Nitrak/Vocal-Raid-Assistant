@@ -19,7 +19,7 @@ end
 
 function addon:GetRegisteredSoundpacks()
 	local t = {}
-	for k,_ in pairs(registeredSoundpacks) do
+	for k, _ in pairs(registeredSoundpacks) do
 		t[k] = k
 	end
 	return t
@@ -73,6 +73,6 @@ function addon:verifySoundPack()
 
 	--If config sound pack is not found or is nil select a valid (first valid)
 	if not addon.profile.sound.soundpack or registeredSoundpacks[addon.profile.sound.soundpack] == nil then
-		addon.profile.sound.soundpack = select(1,next(registeredSoundpacks))
+		addon.profile.sound.soundpack = select(1, next(registeredSoundpacks))
 	end
 end
