@@ -164,7 +164,7 @@ local function createSpellCategory(category, name, icon, order)
 	}
 end
 
-function importSpellSelection(importString, area)
+local function importSpellSelection(importString, area)
 	local success, importDeserialized = addon.EXP:Deserialize(importString)
 	if (success) then
 		for k, v in pairs(importDeserialized) do
