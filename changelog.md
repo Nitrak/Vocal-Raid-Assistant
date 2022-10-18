@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 2.5.3
+- Minor fixes and cleanup
+
 ## 2.5.2
 - Added Aura Mastery for WotLK
 
