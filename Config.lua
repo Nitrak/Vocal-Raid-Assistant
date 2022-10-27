@@ -20,7 +20,7 @@ StaticPopupDialogs["VRA_IMPORT"] = {
 	button2 = L["Cancel"],
 	timeout = 0,
 	OnAccept = function(self, data, data2)
-		importSpellSelection(self.editBox:GetText(), data)
+		VRA.importSpellSelection(self, self.editBox:GetText(), data)
 		popUpSemaphore = false
 	end,
 	OnCancel = function(self, data, data2)
@@ -43,7 +43,7 @@ StaticPopupDialogs["VRA_EXPORT"] = {
 	preferredIndex = 3 -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 }
 
-local borderlessCoords = {0.07, 0.93, 0.07, 0.93}
+local borderlessCoords = { 0.07, 0.93, 0.07, 0.93 }
 local function spellOption(spellID)
 	local spellname, _, icon = GetSpellInfo(spellID)
 	local description = GetSpellDescription(spellID)
@@ -73,7 +73,7 @@ local function createOptionsForCategory(category)
 					args[v] = args[v] or {
 						name = addon.CATEGORY[v],
 						type = 'group',
-						order = indexOf(addon.CATEGORY_SORT_ORDER,v),
+						order = indexOf(addon.CATEGORY_SORT_ORDER, v),
 						inline = true,
 						args = {}
 					}
@@ -88,7 +88,7 @@ local function createOptionsForCategory(category)
 				args[v.type] = args[v.type] or {
 					name = addon.CATEGORY[v.type],
 					type = 'group',
-					order = indexOf(addon.CATEGORY_SORT_ORDER,v.type),
+					order = indexOf(addon.CATEGORY_SORT_ORDER, v.type),
 					inline = true,
 					args = {}
 				}
@@ -164,7 +164,7 @@ local function createSpellCategory(category, name, icon, order)
 	}
 end
 
-local function importSpellSelection(importString, area)
+function VRA:importSpellSelection(importString, area)
 	local success, importDeserialized = addon.EXP:Deserialize(importString)
 	if (success) then
 		for k, v in pairs(importDeserialized) do
@@ -295,7 +295,7 @@ local mainOptions = {
 							type = 'execute',
 							name = L["Test"],
 							func = function()
-								addon:playSpell("740",true)
+								addon:playSpell("740", true)
 							end,
 							width = "half",
 							order = 2
@@ -384,11 +384,16 @@ local mainOptions = {
 }
 
 local officialSoundPacks = {
-	["Ana"] = { displayName = "Vocal Raid Assistant - Ana", name = "VRA_EN_Ana", demoFileName = "Ana", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack" },
-	["Elizabeth"] = { displayName = "Vocal Raid Assistant - Elizabeth", name = "VRA_EN_Elizabeth", demoFileName = "Elizabeth", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack" },
-	["Eric"] = { displayName = "Vocal Raid Assistant - Eric", name = "VRA_EN_Eric", demoFileName = "Eric", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack" },
-	["Guy"] = { displayName = "Vocal Raid Assistant - Guy", name = "VRA_EN_Guy", demoFileName = "Guy", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack" },
-	["Sara"] = { displayName = "Vocal Raid Assistant - Sara", name = "VRA_EN_Sara", demoFileName = "Sara", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack" }
+	["Ana"] = { displayName = "Vocal Raid Assistant - Ana", name = "VRA_EN_Ana", demoFileName = "Ana",
+		link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack" },
+	["Elizabeth"] = { displayName = "Vocal Raid Assistant - Elizabeth", name = "VRA_EN_Elizabeth",
+		demoFileName = "Elizabeth", link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack" },
+	["Eric"] = { displayName = "Vocal Raid Assistant - Eric", name = "VRA_EN_Eric", demoFileName = "Eric",
+		link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack" },
+	["Guy"] = { displayName = "Vocal Raid Assistant - Guy", name = "VRA_EN_Guy", demoFileName = "Guy",
+		link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack" },
+	["Sara"] = { displayName = "Vocal Raid Assistant - Sara", name = "VRA_EN_Sara", demoFileName = "Sara",
+		link = "https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack" }
 }
 
 do
@@ -410,7 +415,9 @@ do
 			type = 'execute',
 			name = L["Demo"],
 			func = function()
-				if not PlaySoundFile(format("Interface\\AddOns\\VocalRaidAssistant\\Media\\%s.ogg", v.demoFileName), addon.profile.sound.channel) then
+				if not
+					PlaySoundFile(format("Interface\\AddOns\\VocalRaidAssistant\\Media\\%s.ogg", v.demoFileName),
+						addon.profile.sound.channel) then
 					addon:prettyPrint(addon:determinePlayerError("", addon.profile.sound.channel, true))
 				end
 			end,
@@ -425,9 +432,9 @@ do
 			order = order + 2
 		}
 
-		mainOptions.args.generalOptions.args.soundPacksConfig.args[k.."link"] = link
-		mainOptions.args.generalOptions.args.soundPacksConfig.args[k.."button"] = playButton
-		mainOptions.args.generalOptions.args.soundPacksConfig.args[k.."break"] = lineBreak
+		mainOptions.args.generalOptions.args.soundPacksConfig.args[k .. "link"] = link
+		mainOptions.args.generalOptions.args.soundPacksConfig.args[k .. "button"] = playButton
+		mainOptions.args.generalOptions.args.soundPacksConfig.args[k .. "break"] = lineBreak
 
 		order = order + 3
 	end
@@ -491,7 +498,7 @@ local spells = {
 			end,
 			confirm = function(info)
 				return L["Copy Settings: "] .. addon.ZONES[addon.profile.general.area[info[2]].copyZone].name .. " -> " ..
-										addon.ZONES[info[2]].name
+					addon.ZONES[info[2]].name
 			end
 		},
 		clearAll = {
@@ -609,14 +616,14 @@ do
 		local class = CLASS_SORT_ORDER[i]
 		local name = LOCALIZED_CLASS_NAMES_MALE[class]
 		local icon = "Interface\\Icons\\ClassIcon_" .. class
-		if(class == "DEATHKNIGHT") then
+		if (class == "DEATHKNIGHT") then
 			icon = "Interface\\Icons\\spell_deathknight_classicon.png"
 		end
 		spells.args[class] = createSpellCategory(class, name, icon, i)
 	end
 
-	spells.args["TRINKET"] = createSpellCategory("TRINKET", INVTYPE_TRINKET, nil, MAX_CLASSES+1)
-	spells.args["All Active"] = createSpellCategory("All Active", L["All Active"], nil, MAX_CLASSES+2)
+	spells.args["TRINKET"] = createSpellCategory("TRINKET", INVTYPE_TRINKET, nil, MAX_CLASSES + 1)
+	spells.args["All Active"] = createSpellCategory("All Active", L["All Active"], nil, MAX_CLASSES + 2)
 
 	for k, v in pairs(addon.ZONES) do
 		mainOptions.args.abilitiesOptions.args[k] = {
@@ -644,10 +651,9 @@ end
 
 function addon:InitConfigOptions()
 	mainOptions.args.profiles = self.ACDBO:GetOptionsTable(self.db)
-	if(not self:IsClassic() and not self:IsWrath()) then
+	if (not self:IsClassic() and not self:IsWrath()) then
 		addon.LDS:EnhanceOptions(mainOptions.args.profiles, self.db)
 	end
 	addon.AC:RegisterOptionsTable("VocalRaidAssistantConfig", mainOptions)
 	addon.ACD:SetDefaultSize("VocalRaidAssistantConfig", 965, 650)
 end
-

@@ -27,7 +27,8 @@ local locales = {
 }
 
 if locales[L] then
-	local msg = string.format("Missing translations for %s. Can you help? Visit https://tinyurl.com/VRA-LOCAL or ask us on Discord for more info.", locales[L])
+	local msg = string.format("Missing translations for %s. Can you help? Visit https://tinyurl.com/VRA-LOCAL or ask us on Discord for more info."
+		, locales[L])
 	C_Timer.After(30, function() addon:prettyPrint(msg) end)
 end
 
@@ -104,7 +105,7 @@ function VRA:OnInitialize()
 		self.db:ResetDB("Default")
 	end
 
-	if(self:IsRetail() or self:IsWrath()) then
+	if (self:IsRetail() or self:IsWrath()) then
 		self.LDS = LibStub('LibDualSpec-1.0')
 		self.LDS:EnhanceDatabase(self.db, addonName)
 	end
@@ -155,7 +156,7 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	end
 
 	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
-					destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
+	destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
 
 	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
 		if (event == 'SPELL_CAST_SUCCESS') then
@@ -164,12 +165,12 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
 				(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
 				addon:IsSpellSupported(spellID) then
-					self:playSpell(spellID)
+				self:playSpell(spellID)
 			elseif self.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID] then
 				self:playSpell('taunted')
 			end
 		elseif (event == 'SPELL_INTERRUPT' and self.profile.general.area[instanceType].enableInterrupts) then
-				self:playSpell('countered')
+			self:playSpell('countered')
 		end
 	end
 end

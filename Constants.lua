@@ -157,8 +157,8 @@ addon.CATEGORY_SORT_ORDER = {
 addon.CATEGORY = {
 	["pvptrinket"] = L["PvP Trinket"],
 	["racial"] = L["Racial Traits"],
-	["trinket-defensive"] = L["Defensive"].." "..INVTYPE_TRINKET,
-	["trinket-offensive"] = L["Offensive"].." "..INVTYPE_TRINKET,
+	["trinket-defensive"] = L["Defensive"] .. " " .. INVTYPE_TRINKET,
+	["trinket-offensive"] = L["Offensive"] .. " " .. INVTYPE_TRINKET,
 	["covenant"] = L["Covenant"],
 	["interrupt"] = LOC_TYPE_INTERRUPT,
 	["dispel"] = DISPELS,
@@ -177,7 +177,7 @@ addon.CATEGORY = {
 addon.ICONCONFIG = {
 	type = "launcher",
 	icon = "Interface\\COMMON\\VoiceChat-Speaker",
-	iconCoords = {-0.45, 1, -0.05, 1},
+	iconCoords = { -0.45, 1, -0.05, 1 },
 	OnClick = function(clickedframe, button)
 		addon:ChatCommand()
 	end,
