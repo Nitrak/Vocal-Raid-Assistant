@@ -12,7 +12,9 @@
 79206;Spiritwalker
 98008;Spirit Link
 102359;Entanglement
+102543;Incarnation: Cat
 102558;Incarnation: Bear
+102560;Incarnation: Moonkin
 102793;Vortex
 111771;Gateway
 111898;Felguard
@@ -48,6 +50,7 @@
 348139;Divine Bell
 348477;Reanimator
 358712;Aegis
+391528;Convoke
 
 ###
 
@@ -171,6 +174,7 @@
 102342;Iron Bark
 104773;Unending Resolve
 105809;Holy Avenger
+106898;Stampeding Roar
 106951;Berserk
 107079;Quaking Palm
 107570;Storm Bolt
@@ -202,6 +206,8 @@
 122278;Dampen Harm
 122470;Touch of Karma
 122783;Diffuse Magic
+124974;Nature's Vigil
+132469;Typhoon
 137639;Storm, Earth, and Fire
 152173;Serenity
 152279;Breath of Sindragosa
@@ -210,10 +216,13 @@
 184364;Enraged Regeneration
 184662;Shield of Vengeance
 185311;Crimson Vial
+186257;Aspect of the Cheetah
 186289;Aspect of the Eagle
 187827;Metamorphosis
+188501;Spectral Sight
 190319;Combustion
 190456;Ignore Pain
+191427;Metamorphosis
 191634;Stormkeeper
 192058;Capacitor Totem
 193530;Aspect of the Wild
@@ -228,11 +237,13 @@
 198144;Ice Form
 198589;Blur
 198838;Earthen Wall Totem
+199483;Camouflage
 200183;Apotheosis
 201430;Stampede
 202137;Sigil of Silence
 202246;Overrun
 202770;Fury of Elune
+203651;Overgrowth
 204021;Fiery Brand
 205369;Mind Bomb
 205604;Reverse Magic
@@ -260,7 +271,9 @@
 243435;Fortifying Brew
 246287;Evangelism
 258925;Fel Barrage
+263648;Soul Barrier
 264667;Primal Rage
+264735;Survival of the Fittest
 266779;Coordinated Assault
 271466;Luminous Barrier
 275699;Apocalypse
@@ -285,6 +298,7 @@
 316958;Ashen Hallow
 317009;Sinful Brand
 317349;Condemn
+319454;Heart of the Wild
 320137;Stormkeeper
 320341;Bulk Extraction
 320674;Chain Harvest
@@ -341,4 +355,6 @@
 338142;Lone Empowerment
 342245;Alter Time
 354654;Grove Protection
+370965;The Hunt
 383269;Abomination Limb
+

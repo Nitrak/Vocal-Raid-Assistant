@@ -140,7 +140,9 @@ addon.CATEGORY = {
 	[3] = "Defensive-Target",
 	[4] = "Defensive-Raid",
 	[5] = "Utility",
-	[6] = "Interrupt"
+	[6] = "Interrupt",
+	-- [7] is not used
+	[8] = "CC"
 
 
 	-- ["pvptrinket"] = L["PvP Trinket"],

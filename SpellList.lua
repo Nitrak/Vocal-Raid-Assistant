@@ -26,95 +26,64 @@ local spellListRetail = {
 		[383269] = {type = 1}, --Abomination Limb
 	},
 	["DEMONHUNTER"] = {
-		[179057] =	{ type = "cc"},
-		[187827] =	{ type = "defensive"},
-		[196555] =	{ type = "immunity"},
-		[196718] =	{ type = "raidDefensive"},
-		[198589] =	{ type = "defensive"},
-		[202137] =	{ type = "disarm"},
-		[202138] =	{ type = "disarm"},
-		[209258] =	{ type = "defensive"},
-		[204021] =	{ type = "defensive"},
-		[205604] =	{ type = "counterCC"},
-		[205630] =	{ type = "cc"},
-		[206491] =	{ type = "offensive"},
-		[206803] =	{ type = "defensive"},
-		[207684] =	{ type = "cc"},
-		[258925] =	{ type = "offensive"},
-		[211881] =	{ type = "cc"},
-		[212084] =	{ type = "offensive"},
-		[217832] =	{ type = "cc"},
-		[306830] =	{ type = "covenant"},
-		[317009] =	{ type = "covenant"},
-		[320341] =	{ type = "defensive"},
-		[323639] =	{ type = "covenant"},
-		[329554] =	{ type = "covenant"},
+		[179057] = {type = 8}, --Chaos Nova
+		[187827] = {type = 2}, --Metamorphosis
+		[188501] = {type = 5}, --Spectral Sight
+		[191427] = {type = 1}, --Metamorphosis
+		[196555] = {type = 2}, --Netherwalk
+		[196718] = {type = 4}, --Darkness
+		[198589] = {type = 2}, --Blur
+		[202137] = {type = 6}, --Sigil of Silence
+		[202138] = {type = 8}, --Sigil of Chains
+		[204021] = {type = 2}, --Fiery Brand
+		[207684] = {type = 8}, --Sigil of Misery
+		[211881] = {type = 5}, --Fel Eruption
+		[217832] = {type = 8}, --Imprison
+		[263648] = {type = 2}, --Soul Barrier
+		[320341] = {type = 2}, --Bulk Extraction
+		[370965] = {type = 1}, --The Hunt
 	},
 	["DRUID"] = {
-		[99] =		{ type = "cc"},
-		[740] =		{ type = "raidDefensive"},
-		[2908] =	{ type = "dispel"},
-		[5211] =	{ type = "cc"}, -- Mighty Bash
-		[20484] =	{ type = "other"},
-		[22812] =	{ type = "defensive"},
-		[22842] =	{ type = "defensive"},
-		[29166] =	{ type = "other"},
-		[33786] =	{ type = "disarm"},
-		[33891] =	{ type = "offensive"}, -- Incarnation: Tree of Life resto
-		[50334] =	{ type = "offensive"},
-		[61336] =	{ type = "defensive"},
-		[77761] =	{ type = "other"}, -- Stampeding Roar bear
-		[78675] =	{ type = "interrupt"},
-		[80313] =	{ type = "defensive"},
-		[102342] =	{ type = "externalDefensive"},
-		[102359] =	{ type = "disarm"}, -- Mass Entanglement
-		[102558] =	{ type = "offensive"}, -- Incarnation: Guardian of Ursoc
-		[102793] =	{ type = "disarm"}, -- "Ursol's Vortex"
-		[106951] =	{ type = "offensive"},
-		[108238] =	{ type = "defensive"},
-		[155835] =	{ type = "defensive"},
-		[194223] =	{ type = "offensive"},
-		[197721] =	{ type = "offensive"},
-		[202246] =	{ type = "cc"},
-		[202770] =	{ type = "offensive"},
-		[205636] =	{ type = "other"}, -- Force of Nature
-		[209749] =	{ type = "disarm"},
-		[305497] =	{ type = "defensive"},
-		[323546] =	{ type = "covenant"},
-		[323764] =	{ type = "covenant"}, -- Convoke the Spirits
-		[325727] =	{ type = "covenant"},
-		[327022] =	{ type = "covenant"}, --Kindred Spirits empowerment
-		[327037] =	{ type = "covenant"}, --Kindred Spirits empowerment
-		[327071] =	{ type = "covenant"}, --Kindred Spirits empowerment
-		[329042] =	{ type = "other"},
-		[338142] =	{ type = "covenant"}, --Kindred Spirits solo empowerment
-		[338018] =	{ type = "covenant"}, --Kindred Spirits solo empowerment
-		[338035] =	{ type = "covenant"}, --Kindred Spirits solo empowerment
-		[354654] =	{ type = "defensive"},
+		[99] 	 = {type = 8}, --Incapacitating Roar
+		[740]    = {type = 4}, --Tranquility
+		[20484]  = {type = 5}, --Rebirth
+		[22812]  = {type = 2}, --Barkskin
+		[29166]  = {type = 5}, --Innervate
+		[33891]  = {type = 4}, --Incarnation: Tree of Life
+		[61336]  = {type = 2}, --Survival Instincts
+		[77761]  = {type = 4}, --Stampeding Roar
+		[102342] = {type = 3}, --Ironbark
+		[102543] = {type = 1}, --Incarnation: Avatar of Ashamane
+		[102558] = {type = 2}, --Incarnation: Guardian of Ursoc
+		[102560] = {type = 1}, --Incarnation: Chosen of Elune
+		[102793] = {type = 8}, --Ursol's Vortex
+		[106898] = {type = 5}, --Stampeding Roar
+		[106951] = {type = 1}, --Berserk
+		[108238] = {type = 2}, --Renewal
+		[124974] = {type = 3}, --Nature's Vigil
+		[132469] = {type = 8}, --Typhoon
+		[194223] = {type = 1}, --Celestial Alignment
+		[197721] = {type = 4}, --Flourish
+		[203651] = {type = 3}, --Overgrowth
+		[319454] = {type = 1}, --Heart of the Wild
+		[391528] = {type = 1}, --Convoke the Spirits
 	},
 	["HUNTER"] = {
-		[5384] =	{ type = "other"},
-		[19574] =	{ type = "offensive"},
-		[19577] =	{ type = "cc"},
-		[19801] =	{ type = "dispel"},
-		[34477] =	{ type = "defensive"},
-		[53480] =	{ type = "externalDefensive"},
-		[109248] =	{ type = "other"},
-		[109304] =	{ type = "defensive"},
-		[186265] =	{ type = "immunity"}, -- Aspect of the Turtle
-		[186289] =	{ type = "offensive"},
-		[187650] =	{ type = "cc"},
-		[193530] =	{ type = "offensive"},
-		[201430] =	{ type = "offensive"},
-		[264667] =	{ type = "offensive"},
-		[266779] =	{ type = "offensive"},
-		[281195] =	{ type = "defensive"},
-		[288613] =	{ type = "offensive"},
-		[308491] =	{ type = "covenant"},
-		[321530] =	{ type = "offensive"},
-		[324149] =	{ type = "covenant"},
-		[325028] =	{ type = "covenant"},
-		[328231] =	{ type = "covenant"},
+		[19574]  = {type = 1}, --Bestial Wrath
+		[19577]  = {type = 8}, --Intimidation
+		[109248] = {type = 8}, --Binding Shot
+		[109304] = {type = 2}, --Exhilaration
+		[186257] = {type = 2}, --Aspect of the Cheetah
+		[186265] = {type = 2}, --Aspect of the Turtle
+		[186289] = {type = 1}, --Aspect of the Eagle
+		[187650] = {type = 8}, --Freezing Trap
+		[193530] = {type = 1}, --Aspect of the Wild
+		[199483] = {type = 2}, --Camouflage
+		[201430] = {type = 1}, --Stampede
+		[264735] = {type = 2}, --Survival of the Fittest
+		[266779] = {type = 1}, --Coordinated Assault
+		[281195] = {type = 2}, --Survival of the Fittest
+		[288613] = {type = 1}, --Trueshot
 	},
 	["MAGE"] = {
 		[118] =		{ type = "cc"},
