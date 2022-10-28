@@ -1,11 +1,11 @@
-## Interface: 90207
+## Interface: 100000
 ## Interface-Wrath: 30400
 ## Interface-Classic: 11402
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 2.5.3
+## Version: 3.0.0
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
