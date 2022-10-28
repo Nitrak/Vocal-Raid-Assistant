@@ -1,5 +1,6 @@
 ### Changed
 1022;Protection
+1044;Freedom
 1122;Infernal
 5211;Bash
 6940;Sacrifice
@@ -22,6 +23,7 @@
 113860;Misery
 114018;Shroud
 108280;Healing Tide
+110960;Invisibility
 123904;Invoke Xuen
 132578;Invoke Niuzao
 178207;Drums
@@ -50,10 +52,11 @@
 348139;Divine Bell
 348477;Reanimator
 358712;Aegis
+388686;White Tiger Statue
 391528;Convoke
 
 ###
-
+66;Invisibility
 99;Incapacitating Roar
 118;Polymorph
 498;Divine Protection
@@ -83,6 +86,7 @@
 11426;Ice Barrier
 11958;Ice Block
 12042;Arcane Power
+12051;Evocation
 12323;Piercing Howl
 12472;Icy Veins
 12975;Last Stand
@@ -191,6 +195,7 @@
 114158;Light's Hammer
 114556;Purgatory
 115078;Paralysis
+115080;Touch of Death
 115176;Zen Meditation
 115203;Fortifying Brew
 115288;Energizing Elixir
@@ -206,6 +211,7 @@
 122278;Dampen Harm
 122470;Touch of Karma
 122783;Diffuse Magic
+123040;Mindbender
 124974;Nature's Vigil
 132469;Typhoon
 137639;Storm, Earth, and Fire
@@ -245,6 +251,7 @@
 202770;Fury of Elune
 203651;Overgrowth
 204021;Fiery Brand
+205191;Eye for an Eye
 205369;Mind Bomb
 205604;Reverse Magic
 205630;Illidan's Grasp
@@ -256,6 +263,7 @@
 207684;Sigil of Misery
 209258;Last Resort
 209749;Faerie Swarm
+200174;Mindbender
 211881;Fel Eruption
 212084;Fel Devastation
 212552;Wraith Walk
@@ -356,5 +364,6 @@
 342245;Alter Time
 354654;Grove Protection
 370965;The Hunt
+372835;Lightwell
 383269;Abomination Limb
 

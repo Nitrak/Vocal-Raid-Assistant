@@ -86,113 +86,91 @@ local spellListRetail = {
 		[288613] = {type = 1}, --Trueshot
 	},
 	["MAGE"] = {
-		[118] =		{ type = "cc"},
-		[11426] =	{ type = "defensive"},
-		[12042] =	{ type = "offensive"},
-		[12472] =	{ type = "offensive"},
-		[45438] =	{ type = "immunity"},
-		[55342] =	{ type = "offensive"},
-		[80353] =	{ type = "offensive"},
-		[86949] =	{ type = "defensive"},
-		[342245] =	{ type = "defensive"},
-		[190319] =	{ type = "offensive"},
-		[198144] =	{ type = "offensive"},
-		[235313] =	{ type = "defensive"},
-		[235450] =	{ type = "defensive"},
-		[307443] =	{ type = "covenant"},
-		[314791] =	{ type = "covenant"},
-		[314793] =	{ type = "covenant"},
-		[321507] =	{ type = "offensive"},
-		[324220] =	{ type = "covenant"},
+		[66]     = {type = 2}, --Invisibility
+		[118]    = {type = 8}, --Polymorph
+		[11426]  = {type = 2}, --Ice Barrier
+		[12042]  = {type = 1}, --Arcane Power
+		[12051]  = {type = 1}, --Evocation
+		[12472]  = {type = 1}, --Icy Veins
+		[45438]  = {type = 2}, --Ice Block
+		[55342]  = {type = 2}, --Mirror Image
+		[110960] = {type = 2}, --Greater Invisibility | 110959
+		[113724] = {type = 8}, --Ring of Frost
+		[190319] = {type = 1}, --Combustion
+		[205021] = {type = 1}, --Ray of Frost
+		[235219] = {type = 2}, --Cold Snap
+		[235313] = {type = 5}, --Blazing Barrier
+		[235450] = {type = 5}, --Prismatic Barrier
+		[383121] = {type = 8}, --Mass Polymorph
 	},
 	["MONK"] = {
-		[115078] =	{ type = "cc"},
-		[115176] =	{ type = "defensive"},
-		[115203] =	{ type = "defensive"},
-		[115288] =	{ type = "offensive"},
-		[115310] =	{ type = "raidDefensive"},
-		[115399] =	{ type = "defensive"},
-		[116841] =	{ type = "other"},
-		[116844] =	{ type = "disarm"},
-		[116849] =	{ type = "externalDefensive"},
-		[119381] =	{ type = "cc"},
-		[122278] =	{ type = "defensive"},
-		[122783] =	{ type = "defensive"},
-		[122470] =	{ type = "immunity"},
-		[123904] =	{ type = "offensive"},
-		[132578] =	{ type = "defensive"},
-		[137639] =	{ type = "offensive"},
-		[152173] =	{ type = "offensive"},
-		[197908] =	{ type = "other"},
-		[243435] =	{ type = "defensive"},
-		[310454] =	{ type = "covenant"},
-		[322109] =	{ type = "offensive"},
-		[322118] =	{ type = "offensive"},
-		[322507] =	{ type = "defensive"},
-		[325153] =	{ type = "defensive"},
-		[325197] =	{ type = "offensive"},
-		[325216] =	{ type = "covenant"},
-		[326860] =	{ type = "covenant"},
-		[327104] =	{ type = "covenant"},
+		[115080] = {type = 1}, --Touch of Death
+		[115176] = {type = 2}, --Zen Meditation
+		[115203] = {type = 2}, --Fortifying Brew
+		[115310] = {type = 4}, --Revival
+		[115399] = {type = 2}, --Black Ox Brew
+		[116844] = {type = 8}, --Ring of Peace
+		[116849] = {type = 3}, --Life Cocoon
+		[119381] = {type = 8}, --Leg Sweep
+		[122278] = {type = 2}, --Dampen Harm
+		[122470] = {type = 2}, --Touch of Karma
+		[122783] = {type = 2}, --Diffuse Magic
+		[123904] = {type = 1}, --Invoke Xuen, the White Tiger
+		[132578] = {type = 1}, --Invoke Niuzao, the Black Ox
+		[137639] = {type = 1}, --Storm, Earth, and Fire
+		[152173] = {type = 1}, --Serenity
+		[197908] = {type = 5}, --Mana Tea
+		[243435] = {type = 2}, --Fortifying Brew
+		[322118] = {type = 4}, --Invoke Yu'lon, the Jade Serpent
+		[388686] = {type = 1}, --Summon White Tiger Statue
 	},
 	["PALADIN"] = {
-		[498] =		{ type = "defensive"},
-		[633] =		{ type = "defensive"},
-		[642] =		{ type = "immunity"},
-		[853] =		{ type = "cc"},
-		[1022] = 	{ type = "externalDefensive"},
-		[6940] = 	{ type = "externalDefensive"}, -- Blessing of Sacrifice,
-		[20066] =	{ type = "cc"},
-		[31821] =	{ type = "raidDefensive"},
-		[31850] =	{ type = "defensive"},
-		[31884] =	{ type = "offensive"},
-		[86659] =	{ type = "defensive"}, -- Guardian of the Ancient Kings,
-		[105809] =	{ type = "offensive"},
-		[114158] =	{ type = "offensive"},
-		[115750] =	{ type = "cc"},
-		[184662] =	{ type = "defensive"},
-		[204018] =	{ type = "externalDefensive"}, -- Blessing of Spellwarding
-		[216331] =	{ type = "offensive"},
-		[231895] =	{ type = "offensive"},
-		[304971] =	{ type = "covenant"},
-		[316958] =	{ type = "covenant"},
-		[328204] =	{ type = "covenant"},
-		[328281] =	{ type = "covenant"},
-		[328282] =	{ type = "covenant"},
-		[328620] =	{ type = "covenant"},
-		[328622] =	{ type = "covenant"},
-		[327193] =	{ type = "offensive"},
+		[498]    = {type = 2}, --Divine Protection
+		[633]    = {type = 3}, --Lay on Hands
+		[642]    = {type = 2}, --Divine Shield
+		[853]    = {type = 8}, --Hammer of Justice
+		[1022]   = {type = 3}, --Blessing of Protection
+		[1044]   = {type = 5}, --Blessing of Freedom
+		[6940]   = {type = 3}, --Blessing of Sacrifice
+		[31821]  = {type = 4}, --Aura Mastery
+		[31850]  = {type = 2}, --Ardent Defender
+		[31884]  = {type = 1}, --Avenging Wrath
+		[86659]  = {type = 2}, --Guardian of Ancient Kings
+		[105809] = {type = 1}, --Holy Avenger
+		[115750] = {type = 8}, --Blinding Light
+		[152262] = {type = 1}, --Seraphim
+		[184662] = {type = 2}, --Shield of Vengeance
+		[204018] = {type = 3}, --Blessing of Spellwarding
+		[205191] = {type = 2}, --Eye for an Eye
+		[216331] = {type = 1}, --Avenging Crusader
+		[231895] = {type = 1}, --Crusade
+		[327193] = {type = 1}, --Moment of Glory
 	},
 	["PRIEST"] = {
-		[8122] =	{ type = "cc"},
-		[10060] =	{ type = "offensive"},
-		[15286] =	{ type = "raidDefensive"},
-		[19236] =	{ type = "defensive"},
-		[32375] =	{ type = "dispel"},
-		[33206] =	{ type = "externalDefensive"},
-		[34433] =	{ type = "offensive"},
-		[47536] =	{ type = "offensive"},
-		[47585] =	{ type = "defensive"},
-		[47788] =	{ type = "externalDefensive"},
-		[62618] =	{ type = "raidDefensive"}, -- Power Word: Barrier
-		[64044] =	{ type = "cc"},
-		[64843] =	{ type = "raidDefensive"},	-- Divine Hymn
-		[64901] =	{ type = "other"},
-		[73325] =	{ type = "other"},
-		[88625] =	{ type = "cc"}, -- Holy Word: Chastise
-		[108968] =	{ type = "defensive"},
-		[109964] =	{ type = "offensive"},
-		[200183] =	{ type = "offensive"},
-		[205369] =	{ type = "cc"},
-		[228260] =	{ type = "offensive"},
-		[246287] =	{ type = "offensive"},
-		[265202] =	{ type = "raidDefensive"}, -- Holy Word: Salvation
-		[271466] =	{ type = "raidDefensive"},
-		[319952] =	{ type = "offensive"}, -- Surrender to Madness
-		[323673] =	{ type = "covenant"},
-		[324724] =	{ type = "covenant"},
-		[325013] =	{ type = "covenant"},
-		[327661] =	{ type = "covenant"}
+		[8122]   = {type = 8}, --Psychic Scream
+		[10060]  = {type = 1}, --Power Infusion
+		[15286]  = {type = 4}, --Vampiric Embrace
+		[19236]  = {type = 2}, --Desperate Prayer
+		[33206]  = {type = 3}, --Pain Suppression
+		[34433]  = {type = 1}, --Shadowfiend
+		[47536]  = {type = 5}, --Rapture
+		[47585]  = {type = 2}, --Dispersion
+		[47788]  = {type = 3}, --Guardian Spirit
+		[62618]  = {type = 4}, --Power Word: Barrier
+		[64044]  = {type = 8}, --Psychic Horror
+		[64843]  = {type = 4}, --Divine Hymn
+		[64901]  = {type = 4}, --Symbol of Hope
+		[73325]  = {type = 5}, --Leap of Faith
+		[109964] = {type = 4}, --Spirit Shell
+		[123040] = {type = 1}, --Mindbender spec 256
+		[200174] = {type = 1}, --Mindbender spec 258
+		[200183] = {type = 2}, --Apotheosis
+		[205369] = {type = 5}, --Mind Bomb
+		[228260] = {type = 1}, --Void Eruption
+		[246287] = {type = 4}, --Evangelism
+		[265202] = {type = 4}, --Holy Word: Salvation
+		[271466] = {type = 4}, --Luminous Barrier
+		[372835] = {type = 4}, --Lightwell
 	},
 	["ROGUE"] = {
 		[1966] =	{ type = "defensive"},
