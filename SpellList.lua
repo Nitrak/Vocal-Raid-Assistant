@@ -3,34 +3,27 @@ local _, addon = ...
 -- Shoutout to the OmniCD Devs!
 local spellListRetail = {
 	["DEATHKNIGHT"] = {
-		[42650] =	{ type = "offensive"},
-		[47568] =	{ type = "offensive"},
-		[48707] =	{ type = "defensive"},
-		[48743] =	{ type = "defensive"},
-		[48792] =	{ type = "defensive"},
-		[49039] =	{ type = "other"},
-		[49206] =	{ type = "offensive"},
-		[49576] =	{ type = "disarm"},
-		[49028] =	{ type = "defensive"}, -- Dancing Rune Weapon
-		[51052] =	{ type = "raidDefensive" },
-		[55233] =	{ type = "defensive"},
-		[61999] =	{ type = "other" },
-		[108199] =	{ type = "disarm"},
-		[114556] =	{ type = "defensive"},
-		[152279] =	{ type = "offensive"},
-		[194679] =	{ type = "defensive"},
-		[194844] =	{ type = "defensive"},
-		[206931] =	{ type = "defensive"},
-		[207167] =	{ type = "cc"},
-		[207289] =	{ type = "offensive"},
-		[219809] =	{ type = "defensive"},
-		[221562] =	{ type = "defensive"},
-		[279302] =	{ type = "offensive"},
-		[311648] =	{ type = "covenant"},
-		[312202] =	{ type = "covenant"},
-		[315443] =	{ type = "covenant"},
-		[324128] =	{ type = "covenant"},
-		[327574] =	{ type = "defensive"},
+		[42650]  = {type = 1}, --Army of the Dead
+		[46585]  = {type = 1}, --Raise Dead
+		[47568]  = {type = 1}, --Empower Rune Weapon
+		[48707]  = {type = 2}, --Anti-Magic Shell
+		[48743]  = {type = 2}, --Death Pact
+		[48792]  = {type = 2}, --Icebound Fortitude
+		[49028]  = {type = 1}, --Dancing Rune Weapon
+		[49206]  = {type = 1}, --Summon Gargoyle
+		[51052]  = {type = 4}, --Anti-Magic Zone
+		[55233]  = {type = 2}, --Vampiric Blood
+		[108194] = {type = 8}, --Asphyxiate
+		[108199] = {type = 5}, --Gorefiend's Grasp
+		[152279] = {type = 1}, --Breath of Sindragosa
+		[207167] = {type = 8}, --Blinding Sleet
+		[207289] = {type = 1}, --Unholy Assault
+		[212552] = {type = 2}, --Wraith Walk
+		[219809] = {type = 2}, --Tombstone
+		[221562] = {type = 8}, --Asphyxiate
+		[275699] = {type = 1}, --Apocalypse
+		[279302] = {type = 1}, --Frostwyrm's Fury
+		[383269] = {type = 1}, --Abomination Limb
 	},
 	["DEMONHUNTER"] = {
 		[179057] =	{ type = "cc"},

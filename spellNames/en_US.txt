@@ -49,17 +49,17 @@
 348477;Reanimator
 358712;Aegis
 
-### 
+###
 
 99;Incapacitating Roar
 118;Polymorph
-498;Divine Protection  
-633;Lay on Hands       
-642;Divine Shield      
+498;Divine Protection
+633;Lay on Hands
+642;Divine Shield
 724;Lightwell
-740;Tranquility        
-853;Hammer of Justice  
-871;Shield Wall        
+740;Tranquility
+853;Hammer of Justice
+871;Shield Wall
 1160;Demoralizing Shout
 1161;Challenging Shout
 1719;Recklessness
@@ -117,6 +117,7 @@
 42650;Army of the Dead
 44572;Deep Freeze
 45438;Ice Block
+46585;Raise Dead
 46924;Bladestorm
 46968;Shockwave
 47476;Strangulate
@@ -246,6 +247,7 @@
 209749;Faerie Swarm
 211881;Fel Eruption
 212084;Fel Devastation
+212552;Wraith Walk
 216331;Avenging Crusader
 217832;Imprison
 219809;Tombstone
@@ -261,6 +263,7 @@
 264667;Primal Rage
 266779;Coordinated Assault
 271466;Luminous Barrier
+275699;Apocalypse
 279302;Frostwyrm's Fury
 281195;Survival of the Fittest
 288613;Trueshot
@@ -338,3 +341,4 @@
 338142;Lone Empowerment
 342245;Alter Time
 354654;Grove Protection
+383269;Abomination Limb
