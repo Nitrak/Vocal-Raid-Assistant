@@ -134,44 +134,32 @@ addon.ZONES = {
 	}
 }
 
-addon.CATEGORY_SORT_ORDER = {
-	"covenant",
-	"racial",
-	"interrupt",
-	"raidDefensive",
-	"externalDefensive",
-	"defensive",
-	"immunity",
-	"offensive",
-	"dispel",
-	"cc",
-	"counterCC",
-	"disarm",
-	"raidMovement",
-	"trinket-offensive",
-	"trinket-defensive",
-	"pvptrinket",
-	"other"
-}
-
 addon.CATEGORY = {
-	["pvptrinket"] = L["PvP Trinket"],
-	["racial"] = L["Racial Traits"],
-	["trinket-defensive"] = L["Defensive"] .. " " .. INVTYPE_TRINKET,
-	["trinket-offensive"] = L["Offensive"] .. " " .. INVTYPE_TRINKET,
-	["covenant"] = L["Covenant"],
-	["interrupt"] = LOC_TYPE_INTERRUPT,
-	["dispel"] = DISPELS,
-	["cc"] = L["Crowd Control"],
-	["disarm"] = format("%s, %s, %s", LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
-	["immunity"] = L["Immunity"],
-	["externalDefensive"] = L["External Defensive"],
-	["defensive"] = L["Defensive"],
-	["raidDefensive"] = L["Raid Defensive"],
-	["offensive"] = L["Offensive"],
-	["counterCC"] = L["Counter CC"],
-	["raidMovement"] = L["Raid Movement"],
-	["other"] = OTHER
+	[1] = "Offensive",
+	[2] = "Defensive-Personal",
+	[3] = "Defensive-Target",
+	[4] = "Defensive-Raid",
+	[5] = "Utility",
+	[6] = "Interrupt"
+
+
+	-- ["pvptrinket"] = L["PvP Trinket"],
+	-- ["racial"] = L["Racial Traits"],
+	-- ["trinket-defensive"] = L["Defensive"] .. " " .. INVTYPE_TRINKET,
+	-- ["trinket-offensive"] = L["Offensive"] .. " " .. INVTYPE_TRINKET,
+	-- ["covenant"] = L["Covenant"],
+	-- ["interrupt"] = LOC_TYPE_INTERRUPT,
+	-- ["dispel"] = DISPELS,
+	-- ["cc"] = L["Crowd Control"],
+	-- ["disarm"] = format("%s, %s, %s", LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
+	-- ["immunity"] = L["Immunity"],
+	-- ["externalDefensive"] = L["External Defensive"],
+	-- ["defensive"] = L["Defensive"],
+	-- ["raidDefensive"] = L["Raid Defensive"],
+
+	-- ["counterCC"] = L["Counter CC"],
+	-- ["raidMovement"] = L["Raid Movement"],
+	-- ["other"] = OTHER
 }
 
 addon.ICONCONFIG = {

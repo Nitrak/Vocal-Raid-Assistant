@@ -73,7 +73,7 @@ local function createOptionsForCategory(category)
 					args[v] = args[v] or {
 						name = addon.CATEGORY[v],
 						type = 'group',
-						order = indexOf(addon.CATEGORY_SORT_ORDER, v),
+						order = indexOf(addon.CATEGORY, v),
 						inline = true,
 						args = {}
 					}
@@ -88,7 +88,7 @@ local function createOptionsForCategory(category)
 				args[v.type] = args[v.type] or {
 					name = addon.CATEGORY[v.type],
 					type = 'group',
-					order = indexOf(addon.CATEGORY_SORT_ORDER, v.type),
+					order = indexOf(addon.CATEGORY, v.type),
 					inline = true,
 					args = {}
 				}
