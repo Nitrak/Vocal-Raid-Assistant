@@ -104,6 +104,7 @@ local spellListRetail = {
 		[383121] = {type = 8}, --Mass Polymorph
 	},
 	["MONK"] = {
+		[115078] = {type = 8}, --Paralysis
 		[115080] = {type = 1}, --Touch of Death
 		[115176] = {type = 2}, --Zen Meditation
 		[115203] = {type = 2}, --Fortifying Brew
