@@ -173,117 +173,108 @@ local spellListRetail = {
 		[372835] = {type = 4}, --Lightwell
 	},
 	["ROGUE"] = {
-		[1966] =	{ type = "defensive"},
-		[2094] =	{ type = "cc"},
-		[5277] =	{ type = "defensive"},
-		[5938] =	{ type = "dispel"},
-		[13750] =	{ type = "offensive"},
-		[31224] =	{ type = "defensive"},
-		[51690] =	{ type = "offensive"},
-		[57934] =	{ type = "other"},
-		[76577] =	{ type = "other"}, -- Smoke Bomb,
-		[79140] =	{ type = "offensive"},
-		[114018] =	{ type = "other"}, -- Shroud of Consealment
-		[121471] =	{ type = "offensive"},
-		[185311] =	{ type = "defensive"},
-		[323547] =	{ type = "covenant"},
-		[323654] =	{ type = "covenant"},
-		[328305] =	{ type = "covenant"},
-		[328547] =	{ type = "covenant"},
+		[1856]   = {type = 1}, --Vanish
+		[2094]   = {type = 8}, --Blind
+		[5277]   = {type = 2}, --Evasion
+		[13750]  = {type = 1}, --Adrenaline Rush
+		[31224]  = {type = 2}, --Cloak of Shadows
+		[51690]  = {type = 1}, --Killing Spree
+		[79140]  = {type = 1}, --Vendetta
+		[114018] = {type = 5}, --Shroud of Concealment
+		[121471] = {type = 1}, --Shadow Blades
+		[185311] = {type = 2}, --Crimson Vial
+		[199754] = {type = 2}, --Riposte
+		[343142] = {type = 1}, --Dreadblades
 	},
 	["SHAMAN"] = {
-		[2825] =	{ type = "offensive"},
-		[8143] =	{ type = "counterCC"},
-		[16191] =	{ type = "other"}, -- Mana Tide Totem
-		[32182] =	{ type = "offensive"},
-		[51514] =	{ type = "cc"},
-		[79206] =	{ type = "counterCC"}, -- Spiritwalker's Grace
-		[98008] =	{ type = "raidDefensive"}, -- -- Spirit Link Totem
-		[108271] =	{ type = "defensive"},
-		[108281] =	{ type = "defensive"},
-		[108280] =	{ type = "raidDefensive"},	-- Healing Tide Totem,
-		[114052] =	{ type = "offensive"},
-		[191634] =	{ type = "offensive"},
-		[192058] =	{ type = "cc"},
-		[192077] =	{ type = "raidMovement"}, -- Wind Rush Totem
-		[198103] =  { type = "other" },
-		[198838] =	{ type = "defensive"},
-		[207399] =	{ type = "defensive"}, -- Ancestral Protection Totem,
-		[320137] =	{ type = "offensive"},
-		[320674] =	{ type = "covenant"},
-		[328923] =	{ type = "covenant"},
-		[326059] =	{ type = "covenant"},
-		[324386] =	{ type = "covenant"},
+		[8143]   = {type = 5}, --Tremor Totem
+		[16191]  = {type = 5}, --Mana Tide Totem
+		[51485]  = {type = 8}, --Earthgrab Totem
+		[51533]  = {type = 1}, --Feral Spirit
+		[98008]  = {type = 4}, --Spirit Link Totem
+		[108271] = {type = 2}, --Astral Shift
+		[108280] = {type = 4}, --Healing Tide Totem
+		[108281] = {type = 4}, --Ancestral Guidance
+		[114050] = {type = 1}, --Ascendance
+		[114051] = {type = 1}, --Ascendance
+		[114052] = {type = 4}, --Ascendance
+		[192058] = {type = 8}, --Capacitor Totem
+		[192077] = {type = 5}, --Wind Rush Totem
+		[192249] = {type = 1}, --Storm Elemental
+		[198067] = {type = 1}, --Fire Elemental
+		[198103] = {type = 2}, --Earth Elemental
+		[207399] = {type = 4}, --Ancestral Protection Totem
 	},
 	["WARLOCK"] = {
-		[1122] =	{ type = "offensive"}, -- Summon Infernal
-		[5484] =	{ type = "cc"},
-		[5782] =	{ type = "cc"},
-		[20707] =	{ type = "other"},
-		[29893] =	{ type = "other"}, -- Create Soulwell
-		[30283] =	{ type = "cc"},
-		[104773] =	{ type = "defensive"},
-		[108416] =	{ type = "defensive"},
-		[111771] =	{ type = "other"}, -- Demonic Gateway
-		[111898] =	{ type = "cc"}, -- Grimoire: Felguard
-		[113858] =	{ type = "offensive"}, -- Dark Soul: Instability
-		[113860] =	{ type = "offensive"}, -- Dark Soul: Misery
-		[205180] =	{ type = "offensive"}, -- Summon Darkglare
-		[265187] =	{ type = "offensive"}, -- Summon Demonic Tyrant
-		[333889] =	{ type = "offensive"},
-		[312321] =	{ type = "covenant"},
-		[321792] =	{ type = "covenant"},
-		[325289] =	{ type = "covenant"},
-		[325640] =	{ type = "covenant"},
+		[1122]   = {type = 1}, --Summon Infernal
+		[5484]   = {type = 8}, --Howl of Terror
+		[30283]  = {type = 8}, --Shadowfury
+		[104773] = {type = 2}, --Unending Resolve
+		[108416] = {type = 2}, --Dark Pact
+		[111898] = {type = 1}, --Grimoire: Felguard
+		[113858] = {type = 1}, --Dark Soul: Instability
+		[113860] = {type = 1}, --Dark Soul: Misery
+		[205180] = {type = 1}, --Summon Darkglare
+		[265187] = {type = 1}, --Summon Demonic Tyrant
+		[267171] = {type = 1}, --Demonic Strength
+		[267217] = {type = 1}, --Nether Portal
+		[333889] = {type = 1}, --Fel Domination
 	},
 	["WARRIOR"] = {
-		[871] =		{ type = "defensive"},
-		[1160] =	{ type = "defensive"},
-		[1161] =	{ type = "other"},
-		[1719] =	{ type = "offensive"},
-		[2565] =	{ type = "defensive"},
-		[5246] =	{ type = "cc"},
-		[12323] = 	{ type = "cc"},
-		[12975] =	{ type = "defensive"},
-		[23920] =	{ type = "counterCC"},
-		[46968] =	{ type = "offensive"},
-		[64382] =	{ type = "other"},
-		[97462] =	{ type = "raidDefensive"},
-		[107570] =	{ type = "cc"},
-		[118038] =	{ type = "defensive"},
-		[184364] =	{ type = "defensive"},
-		[190456] =	{ type = "defensive"},
-		[228920] =	{ type = "offensive"},
-		[307865] =	{ type = "covenant"},
-		[317349] =	{ type = "covenant"},
-		[324143] =	{ type = "covenant"},
-		[325886] =	{ type = "covenant"},
+		[871]    = {type = 2}, --Shield Wall
+		[1161]   = {type = 5}, --Challenging Shout
+		[1719]   = {type = 1}, --Recklessness
+		[5246]   = {type = 8}, --Intimidating Shout
+		[12975]  = {type = 2}, --Last Stand
+		[46924]  = {type = 1}, --Bladestorm
+		[64382]  = {type = 1}, --Shattering Throw
+		[97462]  = {type = 4}, --Rallying Cry
+		[107574] = {type = 1}, --Avatar
+		[118038] = {type = 2}, --Die by the Sword
+		[152277] = {type = 1}, --Ravager
+		[184364] = {type = 2}, --Enraged Regeneration
+		[227847] = {type = 1}, --Bladestorm
+		[228920] = {type = 1}, --Ravager
+		[376079] = {type = 1}, --Spear of Bastion
+		[383762] = {type = 2}, --Bitter Immunity
+		[384318] = {type = 1}, --Thunderous Roar
+		[392966] = {type = 2}, --Spell Block
+	},
+	["EVOKER"] = {
+		[357170] = {type = 3}, --Time Dilation
+		[357210] = {type = 1}, --Deep Breath
+		[358385] = {type = 8}, --Landslide
+		[359816] = {type = 4}, --Dream Flight
+		[363534] = {type = 4}, --Rewind
+		[363916] = {type = 2}, --Obsidian Scales
+		[370665] = {type = 5}, --Rescue
+		[370960] = {type = 2}, --Emerald Communion
+		[372048] = {type = 8}, --Oppressing Roar
+		[374227] = {type = 4}, --Zephyr
+		[374348] = {type = 2}, --Renewing Blaze
+		[374968] = {type = 5}, --Time Spiral
+		[375087] = {type = 1}, --Dragonrage
 	},
 	["GENERAL"] = {
-		[20594] =	{ type = "racial"},
-		[58984] =	{ type = "racial"},
-		[107079] =	{ type = "racial"},
-		[178207] =	{ type = "offensive"}, -- Drums of Fury
-		[300728] =	{ type = "covenant"},
-		[310143] =	{ type = "covenant"},
-		[323436] =	{ type = "covenant"},
-		[324631] =	{ type = "covenant"},
-		[324739] =	{ type = "covenant"},
-		[348477] =	{ type = "other"},
+		[20594] =	{ type = 5},
+		[58984] =	{ type = 5},
+		[107079] =	{ type = 5},
+		[178207] =	{ type = 1}, --Drums of Fury
+		[348477] =	{ type = 5},
 	},
 	["TRINKET"] = {
 		-- pvp
-		[196029] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Relentless Brooch 181335
-		[336135] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Sigil of Adaptation	181816
-		[336126] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Medallion 181333
-		[345228] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Badge of Ferocity 175921
-		[345231] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Emblem 178447
+		-- [196029] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Relentless Brooch 181335
+		-- [336135] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Sigil of Adaptation	181816
+		-- [336126] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Medallion 181333
+		-- [345228] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Badge of Ferocity 175921
+		-- [345231] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Emblem 178447
 		-- pve
-		[329840] =	{ type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
-		[344907] =	{ type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
-		[345801] =	{ type = "trinket-defensive"}, -- Soulletting Ruby 178809
-		[348139] = 	{ type = "trinket-offensive" }, -- Instructor's Divine Bell 184842
-		[358712] =	{ type = "trinket-defensive"}, -- Shard of Annhylde's Aegis 186424
+		-- [329840] =	{ type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
+		-- [344907] =	{ type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
+		-- [345801] =	{ type = "trinket-defensive"}, -- Soulletting Ruby 178809
+		-- [348139] = 	{ type = "trinket-offensive" }, -- Instructor's Divine Bell 184842
+		-- [358712] =	{ type = "trinket-defensive"}, -- Shard of Annhylde's Aegis 186424
 	}
 }
 

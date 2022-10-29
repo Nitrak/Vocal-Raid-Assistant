@@ -11,6 +11,7 @@ local spellCorrectionsRetail = {
 	[211015] = 51514, -- Tome of Hex: Cockroach
 	[269352] = 51514, -- Tome of Hex: Skeletal Hatchling
 	[277778] = 51514, -- Tome of Hex: Zandalari Tendonripper
+	[309328] = 51514, -- Tome of Hex: Living Honey
 	-- Mage Polymorph
 	[28271] = 118, -- Tome of Polymorph: Turtle
 	[28272] = 118, -- Polymorph: Pig
@@ -26,7 +27,9 @@ local spellCorrectionsRetail = {
 	[108978] = 342245,
 	-- Druid Roar
 	[77764] = 77761, -- Roar: Cat form
-	[106898] = 77761 -- Roar: General
+	[106898] = 77761, -- Roar: General
+	-- Metamorphosis
+	[191427] = 200166,
 }
 
 -- Wrath

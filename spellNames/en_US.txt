@@ -69,6 +69,7 @@
 1160;Demoralizing Shout
 1161;Challenging Shout
 1719;Recklessness
+1856;Vanish
 1966;Feint
 2094;Blind
 2565;Shield Block
@@ -146,7 +147,9 @@
 50334;Berserk
 51052;Anti Magic Zone
 51271;Unbreakable Armor
+51485;Earthgrab Totem
 51514;Hex
+51533;Feral Spirit
 51690;Killing Spree
 51713;Shadow Dance
 53480;Roar of Sacrifice
@@ -182,6 +185,7 @@
 106951;Berserk
 107079;Quaking Palm
 107570;Storm Bolt
+107574;Avatar
 108199;Gorefiend's Grasp
 108238;Renewal
 108271;Astral Shift
@@ -191,6 +195,8 @@
 109248;Binding Shot
 109304;Exhilaration
 109964;Spirit Shell
+114050;Ascendance
+114051;Ascendance
 114052;Ascendance
 114158;Light's Hammer
 114556;Purgatory
@@ -216,6 +222,7 @@
 132469;Typhoon
 137639;Storm, Earth, and Fire
 152173;Serenity
+152277;Ravager
 152279;Breath of Sindragosa
 155835;Bristling Fur
 179057;Chaos Nova
@@ -231,6 +238,7 @@
 191427;Metamorphosis
 191634;Stormkeeper
 192058;Capacitor Totem
+192249;Storm Elemental
 193530;Aspect of the Wild
 194223;Celestial Alignment
 194679;Rune Tap
@@ -239,11 +247,13 @@
 196718;Darkness
 197721;Flourish
 197908;Mana Tea
+198067;Fire Elemental
 198103;Earth Elemental
 198144;Ice Form
 198589;Blur
 198838;Earthen Wall Totem
 199483;Camouflage
+199754;Riposte
 200183;Apotheosis
 201430;Stampede
 202137;Sigil of Silence
@@ -271,6 +281,7 @@
 217832;Imprison
 219809;Tombstone
 221562;Asphyxiate
+227847;Bladestorm
 228260;Void Eruption
 228920;Ravager
 231895;Crusade
@@ -283,6 +294,8 @@
 264667;Primal Rage
 264735;Survival of the Fittest
 266779;Coordinated Assault
+267171;Demonic Strength
+267217;Nether Portal
 271466;Luminous Barrier
 275699;Apocalypse
 279302;Frostwyrm's Fury
@@ -362,8 +375,26 @@
 338035;Lone Meditation
 338142;Lone Empowerment
 342245;Alter Time
+343142;Dreadblades
 354654;Grove Protection
+357170;Time Dilation
+357210;Deep Breath
+358385;Landslide
+359816;Dream Flight
+363534;Rewind
+363916;Obsidian Scales
+370665;Rescue
+370960;Emerald Communion
 370965;The Hunt
+372048;Oppressing Roar
 372835;Lightwell
+374227;Zephyr
+374348;Renewing Blaze
+374968;Time Spiral
+375087;Dragonrage
+376079;Spear of Bastion
 383269;Abomination Limb
+383762;Bitter Immunity
+384318;Thunderous Roar
+392966;Spell Block
 

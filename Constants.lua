@@ -135,6 +135,7 @@ addon.ZONES = {
 }
 
 addon.CATEGORY = {
+	-- 1 -> 8 are used by Open Raid Lib
 	[1] = "Offensive",
 	[2] = "Defensive-Personal",
 	[3] = "Defensive-Target",
