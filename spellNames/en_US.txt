@@ -186,6 +186,7 @@
 107079;Quaking Palm
 107570;Storm Bolt
 107574;Avatar
+108194;Asphyxiate
 108199;Gorefiend's Grasp
 108238;Renewal
 108271;Astral Shift
