@@ -399,6 +399,7 @@
 374968;Time Spiral
 375087;Dragonrage
 376079;Spear of Bastion
+383121;Mass Polymorph
 383269;Abomination Limb
 383762;Bitter Immunity
 384318;Thunderous Roar
