@@ -1,5 +1,6 @@
 ### Changed
 1022;Protection
+1044;Freedom
 1122;Infernal
 5211;Bash
 6940;Sacrifice
@@ -12,7 +13,9 @@
 79206;Spiritwalker
 98008;Spirit Link
 102359;Entanglement
+102543;Incarnation: Cat
 102558;Incarnation: Bear
+102560;Incarnation: Moonkin
 102793;Vortex
 111771;Gateway
 111898;Felguard
@@ -20,6 +23,7 @@
 113860;Misery
 114018;Shroud
 108280;Healing Tide
+110960;Invisibility
 123904;Invoke Xuen
 132578;Invoke Niuzao
 178207;Drums
@@ -48,21 +52,24 @@
 348139;Divine Bell
 348477;Reanimator
 358712;Aegis
+388686;White Tiger Statue
+391528;Convoke
 
-### 
-
+###
+66;Invisibility
 99;Incapacitating Roar
 118;Polymorph
-498;Divine Protection  
-633;Lay on Hands       
-642;Divine Shield      
+498;Divine Protection
+633;Lay on Hands
+642;Divine Shield
 724;Lightwell
-740;Tranquility        
-853;Hammer of Justice  
-871;Shield Wall        
+740;Tranquility
+853;Hammer of Justice
+871;Shield Wall
 1160;Demoralizing Shout
 1161;Challenging Shout
 1719;Recklessness
+1856;Vanish
 1966;Feint
 2094;Blind
 2565;Shield Block
@@ -80,6 +87,7 @@
 11426;Ice Barrier
 11958;Ice Block
 12042;Arcane Power
+12051;Evocation
 12323;Piercing Howl
 12472;Icy Veins
 12975;Last Stand
@@ -117,6 +125,7 @@
 42650;Army of the Dead
 44572;Deep Freeze
 45438;Ice Block
+46585;Raise Dead
 46924;Bladestorm
 46968;Shockwave
 47476;Strangulate
@@ -138,7 +147,9 @@
 50334;Berserk
 51052;Anti Magic Zone
 51271;Unbreakable Armor
+51485;Earthgrab Totem
 51514;Hex
+51533;Feral Spirit
 51690;Killing Spree
 51713;Shadow Dance
 53480;Roar of Sacrifice
@@ -170,9 +181,12 @@
 102342;Iron Bark
 104773;Unending Resolve
 105809;Holy Avenger
+106898;Stampeding Roar
 106951;Berserk
 107079;Quaking Palm
 107570;Storm Bolt
+107574;Avatar
+108194;Asphyxiate
 108199;Gorefiend's Grasp
 108238;Renewal
 108271;Astral Shift
@@ -182,10 +196,14 @@
 109248;Binding Shot
 109304;Exhilaration
 109964;Spirit Shell
+113724;Ring of Frost
+114050;Ascendance
+114051;Ascendance
 114052;Ascendance
 114158;Light's Hammer
 114556;Purgatory
 115078;Paralysis
+115080;Touch of Death
 115176;Zen Meditation
 115203;Fortifying Brew
 115288;Energizing Elixir
@@ -201,20 +219,30 @@
 122278;Dampen Harm
 122470;Touch of Karma
 122783;Diffuse Magic
+123040;Mindbender
+124974;Nature's Vigil
+132469;Typhoon
 137639;Storm, Earth, and Fire
 152173;Serenity
+152262;Seraphim
+152277;Ravager
 152279;Breath of Sindragosa
 155835;Bristling Fur
 179057;Chaos Nova
 184364;Enraged Regeneration
 184662;Shield of Vengeance
 185311;Crimson Vial
+186257;Aspect of the Cheetah
 186289;Aspect of the Eagle
 187827;Metamorphosis
+188501;Spectral Sight
 190319;Combustion
 190456;Ignore Pain
+191427;Metamorphosis
 191634;Stormkeeper
 192058;Capacitor Totem
+192249;Storm Elemental
+193223;Surrender to Madness
 193530;Aspect of the Wild
 194223;Celestial Alignment
 194679;Rune Tap
@@ -223,16 +251,22 @@
 196718;Darkness
 197721;Flourish
 197908;Mana Tea
+198067;Fire Elemental
 198103;Earth Elemental
 198144;Ice Form
 198589;Blur
 198838;Earthen Wall Totem
+199483;Camouflage
+199754;Riposte
 200183;Apotheosis
 201430;Stampede
 202137;Sigil of Silence
 202246;Overrun
 202770;Fury of Elune
+203651;Overgrowth
 204021;Fiery Brand
+205021;Ray of Frost
+205191;Eye for an Eye
 205369;Mind Bomb
 205604;Reverse Magic
 205630;Illidan's Grasp
@@ -244,23 +278,32 @@
 207684;Sigil of Misery
 209258;Last Resort
 209749;Faerie Swarm
+200174;Mindbender
 211881;Fel Eruption
 212084;Fel Devastation
+212552;Wraith Walk
 216331;Avenging Crusader
 217832;Imprison
 219809;Tombstone
 221562;Asphyxiate
+227847;Bladestorm
 228260;Void Eruption
 228920;Ravager
 231895;Crusade
+235219;Cold Snap
 235313;Blazing Barrier
 235450;Prismatic Barrier
 243435;Fortifying Brew
 246287;Evangelism
 258925;Fel Barrage
+263648;Soul Barrier
 264667;Primal Rage
+264735;Survival of the Fittest
 266779;Coordinated Assault
+267171;Demonic Strength
+267217;Nether Portal
 271466;Luminous Barrier
+275699;Apocalypse
 279302;Frostwyrm's Fury
 281195;Survival of the Fittest
 288613;Trueshot
@@ -282,6 +325,7 @@
 316958;Ashen Hallow
 317009;Sinful Brand
 317349;Condemn
+319454;Heart of the Wild
 320137;Stormkeeper
 320341;Bulk Extraction
 320674;Chain Harvest
@@ -337,4 +381,26 @@
 338035;Lone Meditation
 338142;Lone Empowerment
 342245;Alter Time
+343142;Dreadblades
 354654;Grove Protection
+357170;Time Dilation
+357210;Deep Breath
+358385;Landslide
+359816;Dream Flight
+363534;Rewind
+363916;Obsidian Scales
+370665;Rescue
+370960;Emerald Communion
+370965;The Hunt
+372048;Oppressing Roar
+372835;Lightwell
+374227;Zephyr
+374348;Renewing Blaze
+374968;Time Spiral
+375087;Dragonrage
+376079;Spear of Bastion
+383269;Abomination Limb
+383762;Bitter Immunity
+384318;Thunderous Roar
+392966;Spell Block
+
