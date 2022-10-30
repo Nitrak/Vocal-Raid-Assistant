@@ -196,6 +196,7 @@
 109248;Binding Shot
 109304;Exhilaration
 109964;Spirit Shell
+113724;Ring of Frost
 114050;Ascendance
 114051;Ascendance
 114052;Ascendance
@@ -223,6 +224,7 @@
 132469;Typhoon
 137639;Storm, Earth, and Fire
 152173;Serenity
+152262;Seraphim
 152277;Ravager
 152279;Breath of Sindragosa
 155835;Bristling Fur
@@ -240,6 +242,7 @@
 191634;Stormkeeper
 192058;Capacitor Totem
 192249;Storm Elemental
+193223;Surrender to Madness
 193530;Aspect of the Wild
 194223;Celestial Alignment
 194679;Rune Tap
@@ -262,6 +265,7 @@
 202770;Fury of Elune
 203651;Overgrowth
 204021;Fiery Brand
+205021;Ray of Frost
 205191;Eye for an Eye
 205369;Mind Bomb
 205604;Reverse Magic
@@ -286,6 +290,7 @@
 228260;Void Eruption
 228920;Ravager
 231895;Crusade
+235219;Cold Snap
 235313;Blazing Barrier
 235450;Prismatic Barrier
 243435;Fortifying Brew

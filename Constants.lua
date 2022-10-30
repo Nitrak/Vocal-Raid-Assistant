@@ -53,7 +53,7 @@ local defaultSpells = {
 	["316958"] = true
 }
 
-addon.DATABASE_VERSION = 3
+addon.DATABASE_VERSION = 4
 
 addon.DEFAULT_SPELLS = defaultSpells
 
@@ -136,14 +136,14 @@ addon.ZONES = {
 
 addon.CATEGORY = {
 	-- 1 -> 8 are used by Open Raid Lib
-	[1] = "Offensive",
-	[2] = "Defensive-Personal",
-	[3] = "Defensive-Target",
-	[4] = "Defensive-Raid",
-	[5] = "Utility",
-	[6] = "Interrupt",
+	[1] = L["Offensive"],
+	[2] = L["Defensive-Personal"],
+	[3] = L["Defensive-Target"],
+	[4] = L["Defensive-Raid"],
+	[5] = L["Utility"],
+	[6] = L["Interrupt"],
 	-- [7] is not used
-	[8] = "CC"
+	[8] = L["CC"]
 
 
 	-- ["pvptrinket"] = L["PvP Trinket"],
