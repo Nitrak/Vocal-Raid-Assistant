@@ -5,24 +5,30 @@ local spellListRetail = {
 	["DEATHKNIGHT"] = {
 		[42650]  = {type = 1}, --Army of the Dead
 		[46585]  = {type = 1}, --Raise Dead
+		[47476]  = {type = 5}, --Strangulate
 		[47568]  = {type = 1}, --Empower Rune Weapon
 		[48707]  = {type = 2}, --Anti-Magic Shell
 		[48743]  = {type = 2}, --Death Pact
 		[48792]  = {type = 2}, --Icebound Fortitude
 		[49028]  = {type = 1}, --Dancing Rune Weapon
+		[49039]  = {type = 5}, --Lichborne
 		[49206]  = {type = 1}, --Summon Gargoyle
 		[51052]  = {type = 4}, --Anti-Magic Zone
 		[55233]  = {type = 2}, --Vampiric Blood
 		[108194] = {type = 8}, --Asphyxiate
 		[108199] = {type = 5}, --Gorefiend's Grasp
+		[114556] = {type = 2}, --Purgatory
 		[152279] = {type = 1}, --Breath of Sindragosa
 		[207167] = {type = 8}, --Blinding Sleet
 		[207289] = {type = 1}, --Unholy Assault
 		[212552] = {type = 2}, --Wraith Walk
 		[219809] = {type = 2}, --Tombstone
 		[221562] = {type = 8}, --Asphyxiate
+		[221699] = {type = 1}, --Blood Tap
 		[275699] = {type = 1}, --Apocalypse
 		[279302] = {type = 1}, --Frostwyrm's Fury
+		[288853] = {type = 1}, --Raise Abomination
+		[327574] = {type = 2}, --Sacrificial Pact
 		[383269] = {type = 1}, --Abomination Limb
 	},
 	["DEMONHUNTER"] = {
@@ -36,9 +42,16 @@ local spellListRetail = {
 		[202137] = {type = 6}, --Sigil of Silence
 		[202138] = {type = 8}, --Sigil of Chains
 		[204021] = {type = 2}, --Fiery Brand
+		[204596] = {type = 1}, --Sigil of Flame
+		[205604] = {type = 2}, --Reverse Magic
+		[206491] = {type = 1}, --Nemesis
+		[206803] = {type = 2}, --Rain from Above
 		[207684] = {type = 8}, --Sigil of Misery
+		[209258] = {type = 2}, --Last Resort
 		[211881] = {type = 5}, --Fel Eruption
+		[212084] = {type = 1}, --Fel Devastation
 		[217832] = {type = 8}, --Imprison
+		[258925] = {type = 1}, --Fel Barrage
 		[263648] = {type = 2}, --Soul Barrier
 		[320341] = {type = 2}, --Bulk Extraction
 		[370965] = {type = 1}, --The Hunt
@@ -46,6 +59,7 @@ local spellListRetail = {
 	["DRUID"] = {
 		[99] 	 = {type = 8}, --Incapacitating Roar
 		[740]    = {type = 4}, --Tranquility
+		[5211]   = {type = 6}, --Mighty Bash
 		[20484]  = {type = 5}, --Rebirth
 		[22812]  = {type = 2}, --Barkskin
 		[29166]  = {type = 5}, --Innervate
@@ -64,13 +78,16 @@ local spellListRetail = {
 		[132469] = {type = 8}, --Typhoon
 		[194223] = {type = 1}, --Celestial Alignment
 		[197721] = {type = 4}, --Flourish
+		[202770] = {type = 1}, --Fury of Elune
 		[203651] = {type = 3}, --Overgrowth
+		[205636] = {type = 1}, --Force of Nature
 		[319454] = {type = 1}, --Heart of the Wild
 		[391528] = {type = 1}, --Convoke the Spirits
 	},
 	["HUNTER"] = {
 		[19574]  = {type = 1}, --Bestial Wrath
 		[19577]  = {type = 8}, --Intimidation
+		[53480]  = {type = 3}, --Roar of Sacrifice
 		[109248] = {type = 8}, --Binding Shot
 		[109304] = {type = 2}, --Exhilaration
 		[186257] = {type = 2}, --Aspect of the Cheetah
@@ -78,8 +95,10 @@ local spellListRetail = {
 		[186289] = {type = 1}, --Aspect of the Eagle
 		[187650] = {type = 8}, --Freezing Trap
 		[193530] = {type = 1}, --Aspect of the Wild
+		[194407] = {type = 1}, --Spitting Cobra
 		[199483] = {type = 2}, --Camouflage
 		[201430] = {type = 1}, --Stampede
+		[205691] = {type = 1}, --Basilisk
 		[264735] = {type = 2}, --Survival of the Fittest
 		[266779] = {type = 1}, --Coordinated Assault
 		[281195] = {type = 2}, --Survival of the Fittest
@@ -94,6 +113,8 @@ local spellListRetail = {
 		[12472]  = {type = 1}, --Icy Veins
 		[45438]  = {type = 2}, --Ice Block
 		[55342]  = {type = 2}, --Mirror Image
+		[80353]  = {type = 1}, --Time Warp
+		[86949]  = {type = 2}, --Cauterize
 		[110960] = {type = 2}, --Greater Invisibility | 110959
 		[113724] = {type = 8}, --Ring of Frost
 		[190319] = {type = 1}, --Combustion
@@ -138,21 +159,28 @@ local spellListRetail = {
 		[31884]  = {type = 1}, --Avenging Wrath
 		[86659]  = {type = 2}, --Guardian of Ancient Kings
 		[105809] = {type = 1}, --Holy Avenger
+		[114158] = {type = 1}, --Lights`s Hammer
 		[115750] = {type = 8}, --Blinding Light
 		[152262] = {type = 1}, --Seraphim
 		[184662] = {type = 2}, --Shield of Vengeance
+		[199452] = {type = 3}, --Ultimate Sacrifice
 		[204018] = {type = 3}, --Blessing of Spellwarding
 		[205191] = {type = 2}, --Eye for an Eye
 		[216331] = {type = 1}, --Avenging Crusader
+		[228049] = {type = 3}, --Guardian of the Forgotten Queen
 		[231895] = {type = 1}, --Crusade
 		[327193] = {type = 1}, --Moment of Glory
+		[343527] = {type = 1}, --Execution Sentence
+		[343721] = {type = 1}, --Final Reckoning
 	},
 	["PRIEST"] = {
 		[8122]   = {type = 8}, --Psychic Scream
 		[10060]  = {type = 1}, --Power Infusion
 		[15286]  = {type = 4}, --Vampiric Embrace
 		[19236]  = {type = 2}, --Desperate Prayer
+		[20711]  = {type = 2}, --Spirit Of Redemption
 		[33206]  = {type = 3}, --Pain Suppression
+		[32375]  = {type = 5}, --Mass Dispel
 		[34433]  = {type = 1}, --Shadowfiend
 		[47536]  = {type = 5}, --Rapture
 		[47585]  = {type = 2}, --Dispersion
@@ -162,60 +190,81 @@ local spellListRetail = {
 		[64843]  = {type = 4}, --Divine Hymn
 		[64901]  = {type = 4}, --Symbol of Hope
 		[73325]  = {type = 5}, --Leap of Faith
+		[108968] = {type = 3}, --Void Shift
 		[109964] = {type = 4}, --Spirit Shell
 		[123040] = {type = 1}, --Mindbender spec 256
+		[197862] = {type = 1}, --Archangel
+		[197871] = {type = 1}, --Dark Archangel
 		[200174] = {type = 1}, --Mindbender spec 258
 		[200183] = {type = 2}, --Apotheosis
 		[205369] = {type = 5}, --Mind Bomb
+		[215982] = {type = 2}, --Spirit of the Redeemer
 		[228260] = {type = 1}, --Void Eruption
 		[246287] = {type = 4}, --Evangelism
 		[265202] = {type = 4}, --Holy Word: Salvation
 		[271466] = {type = 4}, --Luminous Barrier
+		[316262] = {type = 1}, --Toughsteal
+		[328530] = {type = 1}, --Divine Ascension
 		[372835] = {type = 4}, --Lightwell
 	},
 	["ROGUE"] = {
 		[1856]   = {type = 1}, --Vanish
+		[1966]   = {type = 2}, --Faint
 		[2094]   = {type = 8}, --Blind
 		[5277]   = {type = 2}, --Evasion
 		[13750]  = {type = 1}, --Adrenaline Rush
 		[31224]  = {type = 2}, --Cloak of Shadows
+		[31230]  = {type = 2}, --Cheat Death
 		[51690]  = {type = 1}, --Killing Spree
 		[79140]  = {type = 1}, --Vendetta
 		[114018] = {type = 5}, --Shroud of Concealment
 		[121471] = {type = 1}, --Shadow Blades
 		[185311] = {type = 2}, --Crimson Vial
 		[199754] = {type = 2}, --Riposte
+		[212182] = {type = 5}, --Smoke Bombe
 		[343142] = {type = 1}, --Dreadblades
 	},
 	["SHAMAN"] = {
+		[2825]   = {type = 1}, --Bloodlust
 		[8143]   = {type = 5}, --Tremor Totem
+		[20608]  = {type = 5}, --Reincarnation
 		[16191]  = {type = 5}, --Mana Tide Totem
 		[51485]  = {type = 8}, --Earthgrab Totem
+		[51514]  = {type = 5}, --Hex
 		[51533]  = {type = 1}, --Feral Spirit
+		[58875]  = {type = 5}, --Spirit Walk
+		[79206]  = {type = 5}, --Spiritwalker's Grace
 		[98008]  = {type = 4}, --Spirit Link Totem
 		[108271] = {type = 2}, --Astral Shift
 		[108280] = {type = 4}, --Healing Tide Totem
 		[108281] = {type = 4}, --Ancestral Guidance
 		[114050] = {type = 1}, --Ascendance
-		[114051] = {type = 1}, --Ascendance
-		[114052] = {type = 4}, --Ascendance
+		[191634] = {type = 1}, --Stormkeeper
 		[192058] = {type = 8}, --Capacitor Totem
+		[192222] = {type = 1}, --Liquid Magna Totem
 		[192077] = {type = 5}, --Wind Rush Totem
 		[192249] = {type = 1}, --Storm Elemental
+		[193876] = {type = 1}, --Shamanism
 		[198067] = {type = 1}, --Fire Elemental
 		[198103] = {type = 2}, --Earth Elemental
+		[198838] = {type = 3}, --Earthen Wall Totem
 		[207399] = {type = 4}, --Ancestral Protection Totem
+		[355580] = {type = 5}, --Static Field Totem
 	},
 	["WARLOCK"] = {
 		[1122]   = {type = 1}, --Summon Infernal
 		[5484]   = {type = 8}, --Howl of Terror
+		[29893]  = {type = 5}, --Soulwell
 		[30283]  = {type = 8}, --Shadowfury
 		[104773] = {type = 2}, --Unending Resolve
 		[108416] = {type = 2}, --Dark Pact
 		[111898] = {type = 1}, --Grimoire: Felguard
 		[113858] = {type = 1}, --Dark Soul: Instability
 		[113860] = {type = 1}, --Dark Soul: Misery
+		[111771] = {type = 5}, --Demonic Gateway
 		[205180] = {type = 1}, --Summon Darkglare
+		[212459] = {type = 1}, --Call Fel Lord
+		[221703] = {type = 2}, --Casting Circle
 		[265187] = {type = 1}, --Summon Demonic Tyrant
 		[267171] = {type = 1}, --Demonic Strength
 		[267217] = {type = 1}, --Nether Portal
@@ -223,10 +272,12 @@ local spellListRetail = {
 	},
 	["WARRIOR"] = {
 		[871]    = {type = 2}, --Shield Wall
+		[1160]   = {type = 5}, --Demoralizing Shout
 		[1161]   = {type = 5}, --Challenging Shout
 		[1719]   = {type = 1}, --Recklessness
 		[5246]   = {type = 8}, --Intimidating Shout
 		[12975]  = {type = 2}, --Last Stand
+		[18499]  = {type = 1}, --Berserker Rage
 		[46924]  = {type = 1}, --Bladestorm
 		[64382]  = {type = 1}, --Shattering Throw
 		[97462]  = {type = 4}, --Rallying Cry
@@ -236,7 +287,9 @@ local spellListRetail = {
 		[184364] = {type = 2}, --Enraged Regeneration
 		[227847] = {type = 1}, --Bladestorm
 		[228920] = {type = 1}, --Ravager
-		[376079] = {type = 1}, --Spear of Bastion
+		[236273] = {type = 2}, --Duel
+		[236320] = {type = 5}, --War Banner
+		[262228] = {type = 1}, --Deadly Calm
 		[383762] = {type = 2}, --Bitter Immunity
 		[384318] = {type = 1}, --Thunderous Roar
 		[392966] = {type = 2}, --Spell Block

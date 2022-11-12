@@ -5,6 +5,7 @@
 5211;Bash
 6940;Sacrifice
 16191;Mana Tide
+18499;Berserker
 29893;Soulwell
 33891;Incarnation: Tree
 48792;Icebound
@@ -35,6 +36,7 @@
 204018;Spellwarding
 205180;Darkglare
 205636;Trees
+205691;Basilisk
 207399;Ancestral Protection
 265187;Demonic Tyrant
 265202;Salvation
@@ -102,7 +104,9 @@
 20484;Rebirth
 20580;Shadowmeld
 20594;Stone Form
+20608;Reincarnation
 20707;Soulstone
+20711;Spirit of Redemption
 22812;Barkskin
 22842;Frenzied Regeneration
 23920;Spell Reflection
@@ -111,6 +115,7 @@
 30283;Shadowfury
 30823;Shamanistic Rage
 31224;Cloak of Shadows
+31230:Cheat Death
 31821;Aura Mastery
 31842;Divine Illumination
 31850;Ardent Defender
@@ -157,6 +162,7 @@
 55198;Tidal Force
 55233;Vampiric Blood
 55342;Mirror Image
+58875;Spirit Walk
 59672;Metamorphosis
 57934;Tricks of the Trade
 58984;Shadowmeld
@@ -198,8 +204,6 @@
 109964;Spirit Shell
 113724;Ring of Frost
 114050;Ascendance
-114051;Ascendance
-114052;Ascendance
 114158;Light's Hammer
 114556;Purgatory
 115078;Paralysis
@@ -241,21 +245,27 @@
 191427;Metamorphosis
 191634;Stormkeeper
 192058;Capacitor Totem
+192222;Liquid Magma Totem
 192249;Storm Elemental
 193223;Surrender to Madness
+193876;Shamanism
 193530;Aspect of the Wild
 194223;Celestial Alignment
+194407;Spitting Cobra
 194679;Rune Tap
 194844;Bonestorm
 196555;Netherwalk
 196718;Darkness
 197721;Flourish
+197862;Archangel
+197871;Dark Archangel
 197908;Mana Tea
 198067;Fire Elemental
 198103;Earth Elemental
 198144;Ice Form
 198589;Blur
 198838;Earthen Wall Totem
+199452;Ultimate Sacrifice
 199483;Camouflage
 199754;Riposte
 200183;Apotheosis
@@ -265,6 +275,7 @@
 202770;Fury of Elune
 203651;Overgrowth
 204021;Fiery Brand
+204596;Sigil of Flame
 205021;Ray of Frost
 205191;Eye for an Eye
 205369;Mind Bomb
@@ -279,23 +290,33 @@
 209258;Last Resort
 209749;Faerie Swarm
 200174;Mindbender
+205604;Reverse Magic
 211881;Fel Eruption
 212084;Fel Devastation
+212182;Smoke Bomb
+212459;Call Fel Lord
 212552;Wraith Walk
+215982;Spirit of the Redeemer
 216331;Avenging Crusader
 217832;Imprison
 219809;Tombstone
 221562;Asphyxiate
+221699;Blood Tap
+221703;Casting Circle
 227847;Bladestorm
+228049;Guardian of the Forgotten Queen
 228260;Void Eruption
 228920;Ravager
 231895;Crusade
 235219;Cold Snap
 235313;Blazing Barrier
 235450;Prismatic Barrier
+236273;Duel
+236320;War Banner
 243435;Fortifying Brew
 246287;Evangelism
 258925;Fel Barrage
+262228;Deadly Calm
 263648;Soul Barrier
 264667;Primal Rage
 264735;Survival of the Fittest
@@ -307,6 +328,7 @@
 279302;Frostwyrm's Fury
 281195;Survival of the Fittest
 288613;Trueshot
+288853;Raise Abomination
 300728;Door of Shadows
 304971;Divine Toll
 305497;Thorns
@@ -322,6 +344,7 @@
 314791;Shifting Power
 314793;Mirrors of Torment
 315443;Abomination Limb
+316262;Toughsteal
 316958;Ashen Hallow
 317009;Sinful Brand
 317349;Condemn
@@ -370,6 +393,7 @@
 328281;Blessing of Winter
 328282;Blessing of Spring
 328305;Sepsis
+328530;Divine Ascension
 328547;Serrated Bone Spike
 328620;Blessing of Summer
 328622;Blessing of Autumn
@@ -382,7 +406,10 @@
 338142;Lone Empowerment
 342245;Alter Time
 343142;Dreadblades
+343527;Execution Sentence
+343721;Final Reckoning
 354654;Grove Protection
+355580;Static Field Totem
 357170;Time Dilation
 357210;Deep Breath
 358385;Landslide

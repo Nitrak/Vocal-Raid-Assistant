@@ -28,8 +28,15 @@ local spellCorrectionsRetail = {
 	-- Druid Roar
 	[77764] = 77761, -- Roar: Cat form
 	[106898] = 77761, -- Roar: General
+	-- Druid Berserk
+	[106951] = 50334,
 	-- Metamorphosis
 	[191427] = 200166,
+	-- Touch of Death
+	[322109] = 115080,
+	-- Ascendance
+	[114051] = 114050,
+	[114052] = 114050
 }
 
 -- Wrath
