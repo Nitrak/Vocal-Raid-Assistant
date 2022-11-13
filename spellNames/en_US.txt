@@ -115,7 +115,7 @@
 30283;Shadowfury
 30823;Shamanistic Rage
 31224;Cloak of Shadows
-31230:Cheat Death
+31230;Cheat Death
 31821;Aura Mastery
 31842;Divine Illumination
 31850;Ardent Defender

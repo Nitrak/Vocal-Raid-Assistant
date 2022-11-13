@@ -51,7 +51,7 @@ function addon:determinePlayerError(spellID, channel, isTest)
 				, channel, channel)
 		end
 	else
-		errorMsg = format("Missing soundfile for configured spell: %s, Voice Pack: %s", GetSpellInfo(spellID) or spellID,
+		errorMsg = format("Missing soundfile for configured spell: %d - %s, Voice Pack: %s", spellID, GetSpellInfo(spellID) or spellID,
 			addon.profile.sound.soundpack)
 	end
 	return errorMsg
