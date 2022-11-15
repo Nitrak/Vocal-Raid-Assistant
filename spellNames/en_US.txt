@@ -390,6 +390,7 @@
 327661;Fae Guardians
 328204;Vanquisher's Hammer
 328231;Wild Spirits
+328278;Blessing of the Seasons
 328281;Blessing of Winter
 328282;Blessing of Spring
 328305;Sepsis
