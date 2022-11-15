@@ -30,6 +30,12 @@ local spellListRetail = {
 		[288853] = {type = 1}, --Raise Abomination
 		[327574] = {type = 2}, --Sacrificial Pact
 		[383269] = {type = 1}, --Abomination Limb
+		-- Covenant:
+		[311648] = {type = 99}, --Swarming Mist
+		[312202] = {type = 99}, --Shackle the Unworthy
+		[315443] = {type = 99}, --Abomination Limb
+
+
 	},
 	["DEMONHUNTER"] = {
 		[179057] = {type = 8}, --Chaos Nova
@@ -55,6 +61,11 @@ local spellListRetail = {
 		[263648] = {type = 2}, --Soul Barrier
 		[320341] = {type = 2}, --Bulk Extraction
 		[370965] = {type = 1}, --The Hunt
+		-- Covenant
+		[306830] = {type = 99}, --Elysian Decree
+		[317009] = {type = 99}, --Sinful Brand
+		[323639] = {type = 99}, --The Hunt
+		[329554] = {type = 99}, --Fodder to the Flame
 	},
 	["DRUID"] = {
 		[99] 	 = {type = 8}, --Incapacitating Roar
@@ -83,6 +94,11 @@ local spellListRetail = {
 		[205636] = {type = 1}, --Force of Nature
 		[319454] = {type = 1}, --Heart of the Wild
 		[391528] = {type = 1}, --Convoke the Spirits
+		-- Covenant
+		[323764] = {type = 99}, --Convoke the Spirits
+		[323546] = {type = 99}, --Ravenous Frenzy
+		[325727] = {type = 99}, --Adaptive Swarm
+		[338142] = {type = 99}, --Lone Empowerment
 	},
 	["HUNTER"] = {
 		[19574]  = {type = 1}, --Bestial Wrath
@@ -101,8 +117,12 @@ local spellListRetail = {
 		[205691] = {type = 1}, --Basilisk
 		[264735] = {type = 2}, --Survival of the Fittest
 		[266779] = {type = 1}, --Coordinated Assault
-		[281195] = {type = 2}, --Survival of the Fittest
 		[288613] = {type = 1}, --Trueshot
+		--Covenant
+		[308491] = {type = 99}, --Resonating Arrow
+		[324149] = {type = 99}, --Flayed Shot
+		[325028] = {type = 99}, --Death Chakram
+		[328231] = {type = 99}, --Wild Spirits
 	},
 	["MAGE"] = {
 		[66]     = {type = 2}, --Invisibility
@@ -123,6 +143,11 @@ local spellListRetail = {
 		[235313] = {type = 5}, --Blazing Barrier
 		[235450] = {type = 5}, --Prismatic Barrier
 		[383121] = {type = 8}, --Mass Polymorph
+		-- Covenant
+		[307443] = {type = 99}, --Radiant Spark
+		[324220] = {type = 99}, --Deathborne
+		[314791] = {type = 99}, --Shifting Power
+		[314793] = {type = 99}, --Mirrors of Torment
 	},
 	["MONK"] = {
 		[115078] = {type = 8}, --Paralysis
@@ -145,6 +170,11 @@ local spellListRetail = {
 		[243435] = {type = 2}, --Fortifying Brew
 		[322118] = {type = 4}, --Invoke Yu'lon, the Jade Serpent
 		[388686] = {type = 1}, --Summon White Tiger Statue
+		-- Covenant
+		[310454] = {type = 99}, --Weapons of Order
+		[325216] = {type = 99}, --Bonedust Brew
+		[326860] = {type = 99}, --Fallen Order
+		[327104] = {type = 99}, --Faeline Stomp
 	},
 	["PALADIN"] = {
 		[498]    = {type = 2}, --Divine Protection
@@ -172,6 +202,11 @@ local spellListRetail = {
 		[327193] = {type = 1}, --Moment of Glory
 		[343527] = {type = 1}, --Execution Sentence
 		[343721] = {type = 1}, --Final Reckoning
+		-- Covenant
+		[304971] = {type = 99}, --Divine Toll
+		[316958] = {type = 99}, --Ashen Hallow
+		[328204] = {type = 99}, --Vanquiser's Hammer
+		[328278] = {type = 99}, --Blessing Of Protection
 	},
 	["PRIEST"] = {
 		[8122]   = {type = 8}, --Psychic Scream
@@ -206,6 +241,11 @@ local spellListRetail = {
 		[316262] = {type = 1}, --Toughsteal
 		[328530] = {type = 1}, --Divine Ascension
 		[372835] = {type = 4}, --Lightwell
+		-- Covenant
+		[323673] = {type = 99}, --Mindgames
+		[324724] = {type = 99}, --Unholy Nova
+		[325013] = {type = 99}, --Boon of Ascendance
+		[327661] = {type = 99}, --Fae Guardian
 	},
 	["ROGUE"] = {
 		[1856]   = {type = 1}, --Vanish
@@ -223,6 +263,11 @@ local spellListRetail = {
 		[199754] = {type = 2}, --Riposte
 		[212182] = {type = 5}, --Smoke Bombe
 		[343142] = {type = 1}, --Dreadblades
+		-- Covenant
+		[323547] = {type = 99}, --Echoing Reprimand
+		[323654] = {type = 99}, --Flagellation
+		[328305] = {type = 99}, --Sepsis
+		[328547] = {type = 99}, --Serrated Bone Spike
 	},
 	["SHAMAN"] = {
 		[2825]   = {type = 1}, --Bloodlust
@@ -250,6 +295,11 @@ local spellListRetail = {
 		[198838] = {type = 3}, --Earthen Wall Totem
 		[207399] = {type = 4}, --Ancestral Protection Totem
 		[355580] = {type = 5}, --Static Field Totem
+		-- Covenant
+		[320674] = {type = 99}, --Chain Harvest
+		[324386] = {type = 99}, --Vesper Totem
+		[326059] = {type = 99}, --Primordial Wave
+		[328923] = {type = 99}, --Fae Transfusion
 	},
 	["WARLOCK"] = {
 		[1122]   = {type = 1}, --Summon Infernal
@@ -269,6 +319,11 @@ local spellListRetail = {
 		[267171] = {type = 1}, --Demonic Strength
 		[267217] = {type = 1}, --Nether Portal
 		[333889] = {type = 1}, --Fel Domination
+		-- Covenant
+		[312321] = {type = 99}, --Scouring Tithe
+		[321792] = {type = 99}, --Impending Catastrophe
+		[325289] = {type = 99}, --Decimating Bolt
+		[325640] = {type = 99}, --Soul Rot
 	},
 	["WARRIOR"] = {
 		[871]    = {type = 2}, --Shield Wall
@@ -293,6 +348,11 @@ local spellListRetail = {
 		[383762] = {type = 2}, --Bitter Immunity
 		[384318] = {type = 1}, --Thunderous Roar
 		[392966] = {type = 2}, --Spell Block
+		-- Covenant
+		[325886] = {type = 99}, --Ancient Aftershock
+		[317483] = {type = 99}, --Condemn
+		[324143] = {type = 99}, --Conqueror's Banner
+		[307865] = {type = 99}, --Spear of Bastion
 	},
 	["EVOKER"] = {
 		[357170] = {type = 3}, --Time Dilation
@@ -308,6 +368,8 @@ local spellListRetail = {
 		[374348] = {type = 2}, --Renewing Blaze
 		[374968] = {type = 5}, --Time Spiral
 		[375087] = {type = 1}, --Dragonrage
+		-- Covenant
+		[387168] = {type = 99}, --Boon of the Covenants
 	},
 	["GENERAL"] = {
 		[20594] =	{ type = 5},

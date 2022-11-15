@@ -143,7 +143,8 @@ addon.CATEGORY = {
 	[5] = L["Utility"],
 	[6] = L["Interrupt"],
 	-- [7] is not used
-	[8] = L["CC"]
+	[8] = L["CC"],
+	[99] = L["Covenant"]
 
 
 	-- ["pvptrinket"] = L["PvP Trinket"],

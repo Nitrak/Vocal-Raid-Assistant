@@ -347,7 +347,7 @@
 316262;Toughsteal
 316958;Ashen Hallow
 317009;Sinful Brand
-317349;Condemn
+317483;Condemn
 319454;Heart of the Wild
 320137;Stormkeeper
 320341;Bulk Extraction
@@ -430,5 +430,6 @@
 383269;Abomination Limb
 383762;Bitter Immunity
 384318;Thunderous Roar
+387168;Boon of the Covenants
 392966;Spell Block
 

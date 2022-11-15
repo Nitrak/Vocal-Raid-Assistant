@@ -36,7 +36,9 @@ local spellCorrectionsRetail = {
 	[322109] = 115080,
 	-- Ascendance
 	[114051] = 114050,
-	[114052] = 114050
+	[114052] = 114050,
+	-- Survival of the Fittest
+	[281195] = 264735,
 }
 
 -- Wrath
