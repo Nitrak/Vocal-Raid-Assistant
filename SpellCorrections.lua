@@ -23,12 +23,6 @@ local spellCorrectionsRetail = {
 	[277787] = 118, -- Tome of Polymorph: Direhorn
 	[277792] = 118, -- Tome of Polymorph: Bumblebee
 	[321395] = 118, -- Polymorph: Maw Rat
-	-- Mage Alter Time
-	[108978] = 342245,
-	-- Druid Berserk
-	[106951] = 50334,
-	-- Metamorphosis
-	[191427] = 200166,
 	-- Ascendance
 	[114051] = 114050,
 	[114052] = 114050,

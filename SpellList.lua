@@ -136,6 +136,7 @@ local spellListRetail = {
 		[235219] = {type = 2}, --Cold Snap
 		[235313] = {type = 5}, --Blazing Barrier
 		[235450] = {type = 5}, --Prismatic Barrier
+		[342245] = {type = 2}, --Alter Time
 		[383121] = {type = 8}, --Mass Polymorph
 		-- Covenant
 		[307443] = {type = 99}, --Radiant Spark
