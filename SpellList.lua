@@ -373,152 +373,155 @@ local spellListRetail = {
 		[387168] = {type = 99}, --Boon of the Covenants
 	},
 	["GENERAL"] = {
-		[20594] =	{ type = 5},
-		[58984] =	{ type = 5},
-		[107079] =	{ type = 5},
-		[178207] =	{ type = 1}, --Drums of Fury
-		[348477] =	{ type = 5},
+		[20594] =	{type = 5},
+		[58984] =	{type = 5},
+		[107079] =	{type = 5},
+		[178207] =	{type = 1}, --Drums of Fury
+		[348477] =	{type = 5},
 	},
 	["TRINKET"] = {
 		-- pvp
-		-- [196029] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Relentless Brooch 181335
-		-- [336135] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Sigil of Adaptation	181816
-		-- [336126] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Medallion 181333
-		-- [345228] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Badge of Ferocity 175921
-		-- [345231] =	{ type = "pvptrinket" }, -- Sinful Gladiator's Emblem 178447
+		-- [196029] =	{type = "pvptrinket"}, -- Sinful Gladiator's Relentless Brooch 181335
+		-- [336135] =	{type = "pvptrinket"}, -- Sinful Gladiator's Sigil of Adaptation	181816
+		-- [336126] =	{type = "pvptrinket"}, -- Sinful Gladiator's Medallion 181333
+		-- [345228] =	{type = "pvptrinket"}, -- Sinful Gladiator's Badge of Ferocity 175921
+		-- [345231] =	{type = "pvptrinket"}, -- Sinful Gladiator's Emblem 178447
 		-- pve
-		-- [329840] =	{ type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
-		-- [344907] =	{ type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
-		-- [345801] =	{ type = "trinket-defensive"}, -- Soulletting Ruby 178809
-		-- [348139] = 	{ type = "trinket-offensive" }, -- Instructor's Divine Bell 184842
-		-- [358712] =	{ type = "trinket-defensive"}, -- Shard of Annhylde's Aegis 186424
+		-- [329840] =	{type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
+		-- [344907] =	{type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
+		-- [345801] =	{type = "trinket-defensive"}, -- Soulletting Ruby 178809
+		-- [348139] = 	{type = "trinket-offensive"}, -- Instructor's Divine Bell 184842
+		-- [358712] =	{type = "trinket-defensive"}, -- Shard of Annhylde's Aegis 186424
 	}
 }
 
 local spellListWrath = {
 	["DEATHKNIGHT"] = {
-		[42650] =	{ type = 1},
-		[47568] =	{ type = 1},
-		[48707] =	{ type = 2},
-		[48743] =	{ type = 2},
-		[48792] =	{ type = 2},
-		[48982] =	{ type = 2},
-		[49039] =	{ type = 2},
-		[49206] =	{ type = 1},
-		[49576] =	{ type = 7},
-		[49028] =	{ type = 2}, -- Dancing Rune Weapon
-		[51052] =	{ type = 4},
-		[55233] =	{ type = 2},
-		[61999] =	{ type = 5},
-
-		[47476] =	{ type = 8},
-		[49005] =	{ type = 2},
-		[49016] =	{ type = 1},
-		[51271] =	{ type = 1},
-		[49203] =	{ type = 8},
-		[49222] =	{ type = 2},
+		[42650] =	{type = 1},
+		[47476] =	{type = 8},
+		[47568] =	{type = 1},
+		[48707] =	{type = 2},
+		[48743] =	{type = 2},
+		[48792] =	{type = 2},
+		[48982] =	{type = 2},
+		[49005] =	{type = 2},
+		[49016] =	{type = 1},
+		[49028] =	{type = 2}, -- Dancing Rune Weapon
+		[49039] =	{type = 2},
+		[49203] =	{type = 8},
+		[49206] =	{type = 1},
+		[49222] =	{type = 2},
+		[49576] =	{type = 7},
+		[51052] =	{type = 4},
+		[51271] =	{type = 1},
+		[55233] =	{type = 2},
+		[61999] =	{type = 5},
 
 	},
 	["DRUID"] = {
-		[740] =		{ type = 4},
-		[5211] =	{ type = 8},
-		[20484] =	{ type = 5},
-		[22812] =	{ type = 2},
-		[22842] =	{ type = 2},
-		[29166] =	{ type = 5},
-		[33786] =	{ type = 8},
-		[48505] =	{ type = 1},
-		[50334] =	{ type = 1},
+		[740] =		{type = 4},
+		[5211] =	{type = 8},
+		[20484] =	{type = 5},
+		[22812] =	{type = 2},
+		[22842] =	{type = 2},
+		[29166] =	{type = 5},
+		[33786] =	{type = 8},
+		[48505] =	{type = 1},
+		[50334] =	{type = 1},
 	},
 	["HUNTER"] = {
-		[5384] =	{ type = 5},
-		[19574] =	{ type = 1},
-		[19577] =	{ type = 8},
-		[19801] =	{ type = 5},
-		[23989] =	{ type = 1},
-		[34477] =	{ type = 2},
+		[5384] =	{type = 5},
+		[19574] =	{type = 1},
+		[19577] =	{type = 8},
+		[19801] =	{type = 5},
+		[23989] =	{type = 1},
+		[34477] =	{type = 2},
 	},
 	["MAGE"] = {
-		[118] =		{ type = 8},
-		[11426] =	{ type = 2},
-		[12042] =	{ type = 1},
-		[12472] =	{ type = 1},
-		[55342] =	{ type = 1},
-		[44572] =	{ type = 8},
-		[45438] =	{ type = 5},
+		[118] =		{type = 8},
+		[11426] =	{type = 2},
+		[12042] =	{type = 1},
+		[12051] =   {type = 1}, --Evocation
+		[12472] =	{type = 1},
+		[45438] =	{type = 5},
+		[44572] =	{type = 8},
+		[55342] =	{type = 1},
 	},
 	["PALADIN"] = {
-		[498] =		{ type = 3},
-		[633] =		{ type = 3},
-		[642] =		{ type = 5},
-		[853] =		{ type = 8},
-		[1022] = 	{ type = 3},
-		[6940] = 	{ type = 3}, -- Blessing of Sacrifice,
-		[20066] =	{ type = 8},
-		[31821] =	{ type = 4},
-		[31842] =	{ type = 5},
-		[54428] =	{ type = 5},
+		[498] =		{type = 3},
+		[633] =		{type = 3},
+		[642] =		{type = 5},
+		[853] =		{type = 8},
+		[1022] = 	{type = 3},
+		[1044] =	{type = 5}, -- Blessing of Freedom
+		[6940] = 	{type = 3}, -- Blessing of Sacrifice
+		[20066] =	{type = 8},
+		[31821] =	{type = 4},
+		[31842] =	{type = 5},
+		[54428] =	{type = 5},
 	},
 	["PRIEST"] = {
-		[724] =		{ type = 3},
-		[8122] =	{ type = 8},
-		[10060] =	{ type = 1},
-		[19236] =	{ type = 1},
-		[32375] =	{ type = 5},
-		[33206] =	{ type = 4},
-		[34433] =	{ type = 1},
-		[47585] =	{ type = 2},
-		[47788] =	{ type = 3},
-		[64843] =	{ type = 4},	-- Divine Hymn
-		[64901] =	{ type = 5},
+		[724] =		{type = 3},
+		[8122] =	{type = 8},
+		[10060] =	{type = 1},
+		[19236] =	{type = 1},
+		[32375] =	{type = 5},
+		[33206] =	{type = 4},
+		[34433] =	{type = 1},
+		[47585] =	{type = 2},
+		[47788] =	{type = 3},
+		[64843] =	{type = 4},	-- Divine Hymn
+		[64901] =	{type = 5},
 	},
 	["ROGUE"] = {
-		[1966] =	{ type = 2},
-		[2094] =	{ type = 8},
-		[5277] =	{ type = 2},
-		[13750] =	{ type = 1},
-		[31224] =	{ type = 2},
-		[51690] =	{ type = 1},
-		[51713] =	{ type = 1},
-		[57934] =	{ type = 5},
+		[1856] =	{type = 1}, --Vanish
+		[1966] =	{type = 2},
+		[2094] =	{type = 8},
+		[5277] =	{type = 2},
+		[13750] =	{type = 1},
+		[31224] =	{type = 2},
+		[51690] =	{type = 1},
+		[51713] =	{type = 1},
+		[57934] =	{type = 5},
 	},
 	["SHAMAN"] = {
-		[2825] =	{ type = 1},
-		[8143] =	{ type = 5},
-		[16191] =	{ type = 5}, -- Mana Tide Totem
-		[30823] =	{ type = 2},
-		[32182] =	{ type = 1},
-		[51514] =	{ type = 8},
-		[55198] =	{ type = 2},
+		[2825] =	{type = 1},
+		[8143] =	{type = 5},
+		[16191] =	{type = 5}, -- Mana Tide Totem
+		[30823] =	{type = 2},
+		[32182] =	{type = 1},
+		[51514] =	{type = 8},
+		[55198] =	{type = 2},
 	},
 	["WARLOCK"] = {
-		[1122] =	{ type = 1}, -- Summon Infernal
-		[5484] =	{ type = 8},
-		[5782] =	{ type = 8},
-		[20707] =	{ type = 5},
-		[29893] =	{ type = 5}, -- Create Soulwell
-		[30283] =	{ type = 8},
-		[59672] =	{ type = 2},
+		[1122] =	{type = 1}, -- Summon Infernal
+		[5484] =	{type = 8},
+		[5782] =	{type = 8},
+		[20707] =	{type = 5},
+		[29893] =	{type = 5}, -- Create Soulwell
+		[30283] =	{type = 8},
+		[59672] =	{type = 2},
 	},
 	["WARRIOR"] = {
-		[871] =		{ type = 2},
-		[1161] =	{ type = 5},
-		[1719] =	{ type = 1},
-		[2565] =	{ type = 2},
-		[5246] =	{ type = 8},
-		[12975] =	{ type = 2},
-		[20230] =	{ type = 1},
-		[23920] =	{ type = 5},
-		[46924] =	{ type = 1},
-		[46968] =	{ type = 8},
-		[64382] =	{ type = 6},
+		[871] =		{type = 2},
+		[1161] =	{type = 5},
+		[1719] =	{type = 1},
+		[2565] =	{type = 2},
+		[5246] =	{type = 8},
+		[12975] =	{type = 2},
+		[18499] =   {type = 1}, --Berserker Rage
+		[20230] =	{type = 1},
+		[23920] =	{type = 5},
+		[46924] =	{type = 1},
+		[46968] =	{type = 8},
+		[64382] =	{type = 6},
 
 	},
 	["GENERAL"] = {
-		[20594] =	{ type = 5},
-		[35476] =	{ type = 5}, -- Drums of Fury
-		[58984] =	{ type = 5},
-		[59752] =	{ type = 5},
+		[20594] =	{type = 5},
+		[35476] =	{type = 5}, -- Drums of Fury
+		[58984] =	{type = 5},
+		[59752] =	{type = 5},
 	},
 	["TRINKET"] = {
 		-- pvp
@@ -528,68 +531,71 @@ local spellListWrath = {
 
 local spellListClassic = {
 	["DRUID"] = {
-		[740] =		{ type = 4},
-		[5211] =	{ type = 8},
-		[20484] =	{ type = 5},
-		[22812] =	{ type = 2},
-		[22842] =	{ type = 2},
-		[29166] =	{ type = 5},
+		[740] =		{type = 4},
+		[5211] =	{type = 8},
+		[20484] =	{type = 5},
+		[22812] =	{type = 2},
+		[22842] =	{type = 2},
+		[29166] =	{type = 5},
 	},
 	["HUNTER"] = {
-		[5384] =	{ type = 5},
-		[19574] =	{ type = 1},
-		[19577] =	{ type = 8},
-		[19801] =	{ type = 5},
+		[5384] =	{type = 5},
+		[19574] =	{type = 1},
+		[19577] =	{type = 8},
+		[19801] =	{type = 5},
 	},
 	["MAGE"] = {
-		[118] =		{ type = 8},
-		[11426] =	{ type = 2},
-		[12042] =	{ type = 1},
-		[11958] =	{ type = 5},
+		[118] =		{type = 8},
+		[11426] =	{type = 2},
+		[11958] =	{type = 5},
+		[12042] =	{type = 1},
+		[12051] =   {type = 1}, --Evocation
 	},
 	["PALADIN"] = {
-		[642] =		{ type = 5},
-		[498] =		{ type = 2},
-		[633] =		{ type = 2},
-		[853] =		{ type = 8},
-		[1022] = 	{ type = 3},
-		[6940] = 	{ type = 3}, -- Blessing of Sacrifice,
-		[20066] =	{ type = 8},
+		[642] =		{type = 5},
+		[498] =		{type = 2},
+		[633] =		{type = 2},
+		[853] =		{type = 8},
+		[1022] = 	{type = 3},
+		[6940] = 	{type = 3}, -- Blessing of Sacrifice,
+		[20066] =	{type = 8},
 	},
 	["PRIEST"] = {
-		[724] =		{ type = 2},
-		[8122] =	{ type = 8},
-		[10060] =	{ type = 1},
-		[19236] =	{ type = 2},
+		[724] =		{type = 2},
+		[8122] =	{type = 8},
+		[10060] =	{type = 1},
+		[19236] =	{type = 2},
 	},
 	["ROGUE"] = {
-		[1966] =	{ type = 2},
-		[2094] =	{ type = 8},
-		[5277] =	{ type = 2},
-		[13750] =	{ type = 1},
+		[1856] =	{type = 1}, --Vanish
+		[1966] =	{type = 2},
+		[2094] =	{type = 8},
+		[5277] =	{type = 2},
+		[13750] =	{type = 1},
 	},
 	["SHAMAN"] = {
-		[8143] =	{ type = 5},
-		[16191] =	{ type = 5}, -- Mana Tide Totem
+		[8143] =	{type = 5},
+		[16191] =	{type = 5}, -- Mana Tide Totem
 	},
 	["WARLOCK"] = {
-		[1122] =	{ type = 1}, -- Summon Infernal
-		[5484] =	{ type = 8},
-		[5782] =	{ type = 8},
-		[20707] =	{ type = 5},
+		[1122] =	{type = 1}, -- Summon Infernal
+		[5484] =	{type = 8},
+		[5782] =	{type = 8},
+		[20707] =	{type = 5},
 	},
 	["WARRIOR"] = {
-		[871] =		{ type = 2},
-		[1161] =	{ type = 5},
-		[1719] =	{ type = 1},
-		[20230] =	{ type = 1},
-		[2565] =	{ type = 2},
-		[5246] =	{ type = 8},
-		[12975] =	{ type = 2},
+		[871] =		{type = 2},
+		[1161] =	{type = 5},
+		[1719] =	{type = 1},
+		[2565] =	{type = 2},
+		[5246] =	{type = 8},
+		[12975] =	{type = 2},
+		[18499]  = {type = 1}, --Berserker Rage
+		[20230] =	{type = 1},
 	},
 	["GENERAL"] = {
-		[20594] =	{ type = 5},
-		[20580] =	{ type = 5},
+		[20580] =	{type = 5},
+		[20594] =	{type = 5},
 	},
 	["TRINKET"] = {
 		-- pvp
