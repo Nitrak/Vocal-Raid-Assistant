@@ -247,7 +247,6 @@
 192058;Capacitor Totem
 192222;Liquid Magma Totem
 192249;Storm Elemental
-193223;Surrender to Madness
 193876;Shamanism
 193530;Aspect of the Wild
 194223;Celestial Alignment
