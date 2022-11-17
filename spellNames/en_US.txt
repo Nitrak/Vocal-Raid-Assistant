@@ -2,6 +2,7 @@
 1022;Protection
 1044;Freedom
 1122;Infernal
+2894;Fire Elemental
 5211;Bash
 6940;Sacrifice
 16191;Mana Tide
@@ -42,7 +43,6 @@
 265202;Salvation
 319952;Madness
 322118;Invoke Yu'lon
-323764;Convoke
 325197;Invoke Chi-Ji
 329840;Blood-Spattered Scale
 336126;Medallion
@@ -150,6 +150,7 @@
 49222;Bone Shield
 49576;Death Grip
 50334;Berserk
+50516;Typhoon
 51052;Anti Magic Zone
 51271;Unbreakable Armor
 51485;Earthgrab Totem
@@ -175,7 +176,6 @@
 64901;Symbol of Hope
 73325;Leap of Faith
 76577;Smoke Bomb
-77761;Roar
 78675;Solar Beam
 79140;Vendetta
 80313;Pulverize
@@ -207,7 +207,6 @@
 114158;Light's Hammer
 114556;Purgatory
 115078;Paralysis
-115080;Touch of Death
 115176;Zen Meditation
 115203;Fortifying Brew
 115288;Energizing Elixir
@@ -236,7 +235,7 @@
 184364;Enraged Regeneration
 184662;Shield of Vengeance
 185311;Crimson Vial
-186257;Aspect of the Cheetah
+186257;Cheetah
 186289;Aspect of the Eagle
 187827;Metamorphosis
 188501;Spectral Sight
@@ -333,7 +332,6 @@
 305497;Thorns
 306830;Elysian Decree
 307443;Radiant Spark
-307865;Spear of Bastion
 308491;Resonating Arrow
 310143;Soulshape
 310454;Weapons of Order
@@ -342,11 +340,9 @@
 312321;Scouring Tithe
 314791;Shifting Power
 314793;Mirrors of Torment
-315443;Abomination Limb
 316262;Toughsteal
 316958;Ashen Hallow
 317009;Sinful Brand
-317483;Condemn
 319454;Heart of the Wild
 320137;Stormkeeper
 320341;Bulk Extraction
@@ -359,7 +355,6 @@
 323436;Purify Soul
 323546;Ravenous Frenzy
 323547;Echoing Reprimand
-323639;The Hunt
 323654;Flagellation
 323673;Mind Games
 324128;Death's Due
@@ -389,7 +384,6 @@
 327661;Fae Guardians
 328204;Vanquisher's Hammer
 328231;Wild Spirits
-328278;Blessing of the Seasons
 328281;Blessing of Winter
 328282;Blessing of Spring
 328305;Sepsis

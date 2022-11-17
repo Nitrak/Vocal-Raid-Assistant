@@ -25,15 +25,10 @@ local spellCorrectionsRetail = {
 	[321395] = 118, -- Polymorph: Maw Rat
 	-- Mage Alter Time
 	[108978] = 342245,
-	-- Druid Roar
-	[77764] = 77761, -- Roar: Cat form
-	[106898] = 77761, -- Roar: General
 	-- Druid Berserk
 	[106951] = 50334,
 	-- Metamorphosis
 	[191427] = 200166,
-	-- Touch of Death
-	[322109] = 115080,
 	-- Ascendance
 	[114051] = 114050,
 	[114052] = 114050,
@@ -60,6 +55,11 @@ local spellCorrectionsWrath = {
 	[20747] = 20484, -- Rank 4
 	[20748] = 20484, -- Rank 5
 	[26994] = 20484, -- Rank 5
+	-- Typhoon
+	[53223] = 50516, -- Rank 2
+	[53225] = 50516, -- Rank 3
+	[53226] = 50516, -- Rank 4
+	[61384] = 50516, -- Rank 5
 	--- Mage
 	-- Ice Barrier
 	[13031] = 11426, -- Rank 2

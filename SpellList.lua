@@ -29,13 +29,10 @@ local spellListRetail = {
 		[279302] = {type = 1}, --Frostwyrm's Fury
 		[288853] = {type = 1}, --Raise Abomination
 		[327574] = {type = 2}, --Sacrificial Pact
-		[383269] = {type = 1}, --Abomination Limb
 		-- Covenant:
 		[311648] = {type = 99}, --Swarming Mist
 		[312202] = {type = 99}, --Shackle the Unworthy
-		[315443] = {type = 99}, --Abomination Limb
-
-
+		[383269] = {type = 99}, --Abomination Limb
 	},
 	["DEMONHUNTER"] = {
 		[179057] = {type = 8}, --Chaos Nova
@@ -60,11 +57,10 @@ local spellListRetail = {
 		[258925] = {type = 1}, --Fel Barrage
 		[263648] = {type = 2}, --Soul Barrier
 		[320341] = {type = 2}, --Bulk Extraction
-		[370965] = {type = 1}, --The Hunt
 		-- Covenant
 		[306830] = {type = 99}, --Elysian Decree
 		[317009] = {type = 99}, --Sinful Brand
-		[323639] = {type = 99}, --The Hunt
+		[370965] = {type = 99}, --The Hunt
 		[329554] = {type = 99}, --Fodder to the Flame
 	},
 	["DRUID"] = {
@@ -76,7 +72,6 @@ local spellListRetail = {
 		[29166]  = {type = 5}, --Innervate
 		[33891]  = {type = 4}, --Incarnation: Tree of Life
 		[61336]  = {type = 2}, --Survival Instincts
-		[77761]  = {type = 4}, --Stampeding Roar
 		[102342] = {type = 3}, --Ironbark
 		[102543] = {type = 1}, --Incarnation: Avatar of Ashamane
 		[102558] = {type = 2}, --Incarnation: Guardian of Ursoc
@@ -93,9 +88,8 @@ local spellListRetail = {
 		[203651] = {type = 3}, --Overgrowth
 		[205636] = {type = 1}, --Force of Nature
 		[319454] = {type = 1}, --Heart of the Wild
-		[391528] = {type = 1}, --Convoke the Spirits
 		-- Covenant
-		[323764] = {type = 99}, --Convoke the Spirits
+		[391528] = {type = 99}, --Convoke the Spirits
 		[323546] = {type = 99}, --Ravenous Frenzy
 		[325727] = {type = 99}, --Adaptive Swarm
 		[338142] = {type = 99}, --Lone Empowerment
@@ -151,7 +145,6 @@ local spellListRetail = {
 	},
 	["MONK"] = {
 		[115078] = {type = 8}, --Paralysis
-		[115080] = {type = 1}, --Touch of Death
 		[115176] = {type = 2}, --Zen Meditation
 		[115203] = {type = 2}, --Fortifying Brew
 		[115310] = {type = 4}, --Revival
@@ -169,6 +162,7 @@ local spellListRetail = {
 		[152173] = {type = 1}, --Serenity
 		[197908] = {type = 5}, --Mana Tea
 		[243435] = {type = 2}, --Fortifying Brew
+		[322109] = {type = 1}, --Touch of Death
 		[322118] = {type = 4}, --Invoke Yu'lon, the Jade Serpent
 		[388686] = {type = 1}, --Summon White Tiger Statue
 		-- Covenant
@@ -207,7 +201,10 @@ local spellListRetail = {
 		[304971] = {type = 99}, --Divine Toll
 		[316958] = {type = 99}, --Ashen Hallow
 		[328204] = {type = 99}, --Vanquiser's Hammer
-		[328278] = {type = 99}, --Blessing of the Seasons
+		[328281] = {type = 99}, --Blessing of Winter
+		[328282] = {type = 99}, --Blessing of Spring
+		[328620] = {type = 99}, --Blessing of Summer
+		[328622] = {type = 99}, --Blessing of Autumn
 	},
 	["PRIEST"] = {
 		[8122]   = {type = 8}, --Psychic Scream
@@ -334,7 +331,6 @@ local spellListRetail = {
 		[5246]   = {type = 8}, --Intimidating Shout
 		[12975]  = {type = 2}, --Last Stand
 		[18499]  = {type = 1}, --Berserker Rage
-		[46924]  = {type = 1}, --Bladestorm
 		[64382]  = {type = 1}, --Shattering Throw
 		[97462]  = {type = 4}, --Rallying Cry
 		[107574] = {type = 1}, --Avatar
@@ -351,9 +347,8 @@ local spellListRetail = {
 		[392966] = {type = 2}, --Spell Block
 		-- Covenant
 		[325886] = {type = 99}, --Ancient Aftershock
-		[317483] = {type = 99}, --Condemn
 		[324143] = {type = 99}, --Conqueror's Banner
-		[307865] = {type = 99}, --Spear of Bastion
+		[376079] = {type = 99}, --Spear of Bastion
 	},
 	["EVOKER"] = {
 		[357170] = {type = 3}, --Time Dilation
@@ -398,6 +393,7 @@ local spellListRetail = {
 local spellListWrath = {
 	["DEATHKNIGHT"] = {
 		[42650]  = {type = 1},
+		[46585]  = {type = 1}, --Raise Dead
 		[47476]  = {type = 8},
 		[47568]  = {type = 1},
 		[48707]  = {type = 2},
@@ -428,6 +424,7 @@ local spellListWrath = {
 		[33786]  = {type = 8},
 		[48505]  = {type = 1},
 		[50334]  = {type = 1},
+		[50516]	 = {type = 8},
 	},
 	["HUNTER"] = {
 		[5384]   = {type = 5},
@@ -465,6 +462,7 @@ local spellListWrath = {
 		[8122]	 = {type = 8},
 		[10060]  = {type = 1},
 		[19236]  = {type = 1},
+		[20711]  = {type = 2}, --Spirit Of Redemption
 		[32375]  = {type = 5},
 		[33206]  = {type = 4},
 		[34433]  = {type = 1},
@@ -480,19 +478,23 @@ local spellListWrath = {
 		[5277]	 = {type = 2},
 		[13750]	 = {type = 1},
 		[31224]	 = {type = 2},
+		[31230]  = {type = 2}, --Cheat Death
 		[51690]	 = {type = 1},
 		[51713]	 = {type = 1},
 		[57934]	 = {type = 5},
 	},
 	["SHAMAN"] = {
 		[2825]	 = {type = 1},
+		[2894]	 = {type = 1}, --Fire Elemental
 		[8143]	 = {type = 5},
 		[16191]  = {type = 5}, -- Mana Tide Totem
 		[20608]  = {type = 5}, --Reincarnation
 		[30823]  = {type = 2},
 		[32182]  = {type = 1},
 		[51514]  = {type = 8},
+		[51533]  = {type = 1}, --Feral Spirit
 		[55198]  = {type = 2},
+		[58875]  = {type = 5}, --Spirit Walk
 	},
 	["WARLOCK"] = {
 		[1122]	 = {type = 1}, -- Summon Infernal
@@ -566,6 +568,7 @@ local spellListClassic = {
 		[8122]	 = {type = 8},
 		[10060]	 = {type = 1},
 		[19236]	 = {type = 2},
+		[20711]  = {type = 2}, --Spirit Of Redemption
 	},
 	["ROGUE"] = {
 		[1856]	 = {type = 1}, --Vanish
