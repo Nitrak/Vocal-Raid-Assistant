@@ -157,6 +157,7 @@ local spellListRetail = {
 		[115310] = {type = 4}, --Revival
 		[115399] = {type = 2}, --Black Ox Brew
 		[116844] = {type = 8}, --Ring of Peace
+		[116841] = {type = 5}, --Tiger's Lust
 		[116849] = {type = 3}, --Life Cocoon
 		[119381] = {type = 8}, --Leg Sweep
 		[122278] = {type = 2}, --Dampen Harm
@@ -206,7 +207,7 @@ local spellListRetail = {
 		[304971] = {type = 99}, --Divine Toll
 		[316958] = {type = 99}, --Ashen Hallow
 		[328204] = {type = 99}, --Vanquiser's Hammer
-		[328278] = {type = 99}, --Blessing Of Protection
+		[328278] = {type = 99}, --Blessing of the Seasons
 	},
 	["PRIEST"] = {
 		[8122]   = {type = 8}, --Psychic Scream
