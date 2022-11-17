@@ -100,8 +100,6 @@
 64901;Symbol der Hoffnung
 73325;Glaubenssprung
 76577;Rauchbombe
-77761;Anstachelndes Gebrüll
-77764;Anstachelndes Gebrüll
 78675;Sonnenstrahl
 79140;Vendetta
 79206;Gunst des Geistwandlers
@@ -238,7 +236,6 @@
 310454;Waffen der Ordnung
 314791;Machtverschiebung
 314793;Spiegel der Qual
-315443;Monströse Gliedmaße
 316958;Ascheweihung
 319952;Abstieg in den Wahnsinn
 320137;Sturmhüter
@@ -252,7 +249,6 @@
 323436;Seele läutern
 323546;Unersättliche Raserei
 323673;Gedankenspiele
-323764;Konvokation der Geister
 324220;Todesgeboren
 324386;Vespertotem
 324631;Fleischformung
@@ -282,3 +278,5 @@
 348477;Spektrophasischer Einwegreanimator
 354654;Hainschutz
 358712;Annhyldes Aegis
+383269;Monströse Gliedmaße
+391528;Konvokation der Geister

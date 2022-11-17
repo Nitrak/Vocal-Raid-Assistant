@@ -70,14 +70,15 @@ local function createOptionsForCategory(category)
 		if (spellList ~= nil) then
 			for category, x in pairs(spellList) do
 				for spellID, v in pairs(x) do
-					args[v] = args[v] or {
-						name = addon.CATEGORY[v],
+					local category = addon.CATEGORY[v]
+					args[category] = args[category] or {
+						name = category,
 						type = 'group',
-						order = indexOf(addon.CATEGORY_SORT_ORDER, v),
+						order = indexOf(addon.CATEGORY, v),
 						inline = true,
 						args = {}
 					}
-					args[v].args[tostring(spellID)] = spellOption(spellID)
+					args[category].args[tostring(spellID)] = spellOption(spellID)
 				end
 			end
 		end
@@ -85,14 +86,16 @@ local function createOptionsForCategory(category)
 		local spellEntries = addon:GetSpellEntries(category)
 		if (spellEntries ~= nil) then
 			for spellID, v in pairs(spellEntries) do
-				args[v.type] = args[v.type] or {
-					name = addon.CATEGORY[v.type],
+				print(v.type)
+				local category = addon.CATEGORY[v.type]
+				args[category] = args[category] or {
+					name = category,
 					type = 'group',
-					order = indexOf(addon.CATEGORY_SORT_ORDER, v.type),
+					order = indexOf(addon.CATEGORY, v),
 					inline = true,
 					args = {}
 				}
-				args[v.type].args[tostring(spellID)] = spellOption(spellID)
+				args[category].args[tostring(spellID)] = spellOption(spellID)
 			end
 		end
 	end

@@ -11,6 +11,7 @@ local spellCorrectionsRetail = {
 	[211015] = 51514, -- Tome of Hex: Cockroach
 	[269352] = 51514, -- Tome of Hex: Skeletal Hatchling
 	[277778] = 51514, -- Tome of Hex: Zandalari Tendonripper
+	[309328] = 51514, -- Tome of Hex: Living Honey
 	-- Mage Polymorph
 	[28271] = 118, -- Tome of Polymorph: Turtle
 	[28272] = 118, -- Polymorph: Pig
@@ -22,11 +23,11 @@ local spellCorrectionsRetail = {
 	[277787] = 118, -- Tome of Polymorph: Direhorn
 	[277792] = 118, -- Tome of Polymorph: Bumblebee
 	[321395] = 118, -- Polymorph: Maw Rat
-	-- Mage Alter Time
-	[108978] = 342245,
-	-- Druid Roar
-	[77764] = 77761, -- Roar: Cat form
-	[106898] = 77761 -- Roar: General
+	-- Ascendance
+	[114051] = 114050,
+	[114052] = 114050,
+	-- Survival of the Fittest
+	[281195] = 264735,
 }
 
 -- Wrath
@@ -48,6 +49,11 @@ local spellCorrectionsWrath = {
 	[20747] = 20484, -- Rank 4
 	[20748] = 20484, -- Rank 5
 	[26994] = 20484, -- Rank 5
+	-- Typhoon
+	[53223] = 50516, -- Rank 2
+	[53225] = 50516, -- Rank 3
+	[53226] = 50516, -- Rank 4
+	[61384] = 50516, -- Rank 5
 	--- Mage
 	-- Ice Barrier
 	[13031] = 11426, -- Rank 2

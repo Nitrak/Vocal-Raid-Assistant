@@ -53,7 +53,7 @@ local defaultSpells = {
 	["316958"] = true
 }
 
-addon.DATABASE_VERSION = 3
+addon.DATABASE_VERSION = 4
 
 addon.DEFAULT_SPELLS = defaultSpells
 
@@ -134,44 +134,36 @@ addon.ZONES = {
 	}
 }
 
-addon.CATEGORY_SORT_ORDER = {
-	"covenant",
-	"racial",
-	"interrupt",
-	"raidDefensive",
-	"externalDefensive",
-	"defensive",
-	"immunity",
-	"offensive",
-	"dispel",
-	"cc",
-	"counterCC",
-	"disarm",
-	"raidMovement",
-	"trinket-offensive",
-	"trinket-defensive",
-	"pvptrinket",
-	"other"
-}
-
 addon.CATEGORY = {
-	["pvptrinket"] = L["PvP Trinket"],
-	["racial"] = L["Racial Traits"],
-	["trinket-defensive"] = L["Defensive"] .. " " .. INVTYPE_TRINKET,
-	["trinket-offensive"] = L["Offensive"] .. " " .. INVTYPE_TRINKET,
-	["covenant"] = L["Covenant"],
-	["interrupt"] = LOC_TYPE_INTERRUPT,
-	["dispel"] = DISPELS,
-	["cc"] = L["Crowd Control"],
-	["disarm"] = format("%s, %s, %s", LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
-	["immunity"] = L["Immunity"],
-	["externalDefensive"] = L["External Defensive"],
-	["defensive"] = L["Defensive"],
-	["raidDefensive"] = L["Raid Defensive"],
-	["offensive"] = L["Offensive"],
-	["counterCC"] = L["Counter CC"],
-	["raidMovement"] = L["Raid Movement"],
-	["other"] = OTHER
+	-- 1 -> 8 are used by Open Raid Lib
+	[1] = L["Offensive"],
+	[2] = L["Defensive-Personal"],
+	[3] = L["Defensive-Target"],
+	[4] = L["Defensive-Raid"],
+	[5] = L["Utility"],
+	[6] = L["Interrupt"],
+	-- [7] is not used
+	[8] = L["CC"],
+	[99] = L["Covenant"]
+
+
+	-- ["pvptrinket"] = L["PvP Trinket"],
+	-- ["racial"] = L["Racial Traits"],
+	-- ["trinket-defensive"] = L["Defensive"] .. " " .. INVTYPE_TRINKET,
+	-- ["trinket-offensive"] = L["Offensive"] .. " " .. INVTYPE_TRINKET,
+	-- ["covenant"] = L["Covenant"],
+	-- ["interrupt"] = LOC_TYPE_INTERRUPT,
+	-- ["dispel"] = DISPELS,
+	-- ["cc"] = L["Crowd Control"],
+	-- ["disarm"] = format("%s, %s, %s", LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
+	-- ["immunity"] = L["Immunity"],
+	-- ["externalDefensive"] = L["External Defensive"],
+	-- ["defensive"] = L["Defensive"],
+	-- ["raidDefensive"] = L["Raid Defensive"],
+
+	-- ["counterCC"] = L["Counter CC"],
+	-- ["raidMovement"] = L["Raid Movement"],
+	-- ["other"] = OTHER
 }
 
 addon.ICONCONFIG = {

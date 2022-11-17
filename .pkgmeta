@@ -18,7 +18,8 @@ externals:
 
 ignore:
   - .editorconfig
-  - spellNames.json
+  - spellNames
+  - Scripts
 
 enable-nolib-creation: no
 
