@@ -358,6 +358,7 @@ local spellListRetail = {
 		[359816] = {type = 4}, --Dream Flight
 		[363534] = {type = 4}, --Rewind
 		[363916] = {type = 2}, --Obsidian Scales
+		[370537] = {type = 4}, --Stasis
 		[370665] = {type = 5}, --Rescue
 		[370960] = {type = 2}, --Emerald Communion
 		[372048] = {type = 8}, --Oppressing Roar
