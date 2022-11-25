@@ -1,5 +1,15 @@
 # Vocal Raid Assistant
 
+## 3.0.2
+- Updated toc for Julie
+- Fixed incorrect type for Death Grip for WotLK
+- Fixed so Dual Spec profiles works for WotLK
+
+## 3.0.1
+- Removed print message
+
+## 3.0.0
+- Overhaul to Dragonflight.
 ## 2.5.3
 - Minor fixes and cleanup
 
