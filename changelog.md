@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.0.3
+- Added Stasis for Evoker
+
 ## 3.0.2
 - Updated toc for Julie
 - Fixed incorrect type for Death Grip for WotLK
