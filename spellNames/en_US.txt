@@ -410,6 +410,7 @@
 359816;Dream Flight
 363534;Rewind
 363916;Obsidian Scales
+370537;Stasis
 370665;Rescue
 370960;Emerald Communion
 370965;The Hunt
