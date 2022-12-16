@@ -426,5 +426,7 @@
 383762;Bitter Immunity
 384318;Thunderous Roar
 387168;Boon of the Covenants
+388615;Restoral
+390386;Fury of the Aspects
 392966;Spell Block
 

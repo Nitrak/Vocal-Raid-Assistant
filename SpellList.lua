@@ -165,6 +165,7 @@ local spellListRetail = {
 		[243435] = {type = 2}, --Fortifying Brew
 		[322109] = {type = 1}, --Touch of Death
 		[322118] = {type = 4}, --Invoke Yu'lon, the Jade Serpent
+		[388615] = {type = 4}, --Restoral
 		[388686] = {type = 1}, --Summon White Tiger Statue
 		-- Covenant
 		[310454] = {type = 99}, --Weapons of Order
@@ -366,6 +367,7 @@ local spellListRetail = {
 		[374348] = {type = 2}, --Renewing Blaze
 		[374968] = {type = 5}, --Time Spiral
 		[375087] = {type = 1}, --Dragonrage
+		[390386] = {type = 1}, --Fury of the Aspects
 		-- Covenant
 		[387168] = {type = 99}, --Boon of the Covenants
 	},
