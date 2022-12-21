@@ -5,7 +5,7 @@
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 3.0.4
+## Version: 3.0.5
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
