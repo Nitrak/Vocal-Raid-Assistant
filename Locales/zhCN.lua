@@ -2,7 +2,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("VocalRaidAssistant", "zhCN")
 if not L then return end
 
 --  zhCN client: (NGA-男爵凯恩)
---  Last update: 2022/06/05
+--  Last update: 2022/12/23
 
 L["Abilities"] = "技能"
 L["Additional Voicepacks"] = "您最喜欢的VRA插件也提供其他语种的语音包 - 只需在curseforge上搜索 \"Vocal Raid Assistant\""
@@ -11,7 +11,7 @@ L["Alert for"] = "警报"
 L["All Active"] = "已启用技能"
 L["Ambience"] = "环境音"
 L["Cancel"] = "取消"
-L["CC"] = true
+L["CC"] = "控制"
 L["Clear All"] = "全部删除"
 L["Close"] = "关闭"
 L["Combat only"] = "战斗中启用"
@@ -25,9 +25,9 @@ L["Counter CC"] = "反伤/驱散类"
 L["Covenant"] = "盟约"
 L["Credits"] = "\n作者: |cfffff486Nitrak|r of Kazzak and |cff0070ddKyy|r of Blackrock"
 L["Crowd Control"] = "群体控制"
-L["Defensive-Personal"] = true
-L["Defensive-Target"] = true
-L["Defensive-Raid"] = true
+L["Defensive-Personal"] = "个人减伤"
+L["Defensive-Target"] = "单体减伤"
+L["Defensive-Raid"] = "团队减伤"
 L["Demo"] = "演示"
 L["Dialog"] = "对话"
 L["Discord"] = "Discord"
@@ -42,7 +42,7 @@ L["Immunity"] = "免疫"
 L["Import Area"] = "导入"
 L["Import"] = "导入"
 L["Insert import string"] = "导入字符串"
-L["Interrupt"] = true
+L["Interrupt"] = "打断"
 L["Interrupts"] = "打断"
 L["Master"] = "主"
 L["Minimap Icon"] = "小地图图标"
@@ -74,7 +74,7 @@ L["The minimum interval between two alerts in seconds"] = "两次语音之间的
 L["Throttle"] = "语音间隔"
 L["Type /vra open the option panel"] = "输入 /vra 打开选项"
 L["unknown spell, id:"] = "未知技能ID:"
-L["Utility"] = true
+L["Utility"] = "专属技能"
 L["Version: "] = "版本: "
 L["Voice"] = "语音"
 L["Volume"] = "音量"
