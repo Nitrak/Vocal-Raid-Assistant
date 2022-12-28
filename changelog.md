@@ -1,5 +1,13 @@
 # Vocal Raid Assistant
 
+## 3.0.5
+- Readded Shiv for Rogues
+- Readded Soothe for Druids
+- Readded Tranquilizing Shot for Hunters
+## 3.0.4
+- Added Restoral for Monks
+- Added Fury of the Aspects for Evoker
+
 ## 3.0.3
 - Added Stasis for Evoker
 

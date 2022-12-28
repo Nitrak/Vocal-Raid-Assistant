@@ -66,6 +66,7 @@ local spellListRetail = {
 	["DRUID"] = {
 		[99] 	 = {type = 8}, --Incapacitating Roar
 		[740]    = {type = 4}, --Tranquility
+		[2908]   = {type = 5}, --Soothe
 		[5211]   = {type = 6}, --Mighty Bash
 		[20484]  = {type = 5}, --Rebirth
 		[22812]  = {type = 2}, --Barkskin
@@ -95,6 +96,7 @@ local spellListRetail = {
 		[338142] = {type = 99}, --Lone Empowerment
 	},
 	["HUNTER"] = {
+		[19801]  = {type = 5}, --Tranquilizing Shot
 		[19574]  = {type = 1}, --Bestial Wrath
 		[19577]  = {type = 8}, --Intimidation
 		[53480]  = {type = 3}, --Roar of Sacrifice
@@ -252,6 +254,7 @@ local spellListRetail = {
 		[1966]   = {type = 2}, --Faint
 		[2094]   = {type = 8}, --Blind
 		[5277]   = {type = 2}, --Evasion
+		[5938]   = {type = 5}, --Shiv
 		[13750]  = {type = 1}, --Adrenaline Rush
 		[31224]  = {type = 2}, --Cloak of Shadows
 		[31230]  = {type = 2}, --Cheat Death
