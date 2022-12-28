@@ -463,6 +463,7 @@ local spellListWrath = {
 		[31821]	 = {type = 4},
 		[31842]	 = {type = 5},
 		[54428]	 = {type = 5},
+		[64205]  = {type = 4}, -- Divine Sacrifice
 	},
 	["PRIEST"] = {
 		[724] 	 = {type = 3},
