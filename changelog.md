@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.0.6
+- Added Divine Sacrifice for Paladins (Wrath)
+
 ## 3.0.5
 - Readded Shiv for Rogues
 - Readded Soothe for Druids

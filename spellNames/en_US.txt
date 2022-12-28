@@ -170,6 +170,7 @@
 59752;Will to Survive
 61336;Survival Instincts
 61999;Raise Ally
+64205;Divine Sacrifice
 64044;Psychic Horror
 64382;Shattering Throw
 64843;Divine Hymn
