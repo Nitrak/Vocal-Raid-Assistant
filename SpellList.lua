@@ -336,6 +336,7 @@ local spellListRetail = {
 		[5246]   = {type = 8}, --Intimidating Shout
 		[12975]  = {type = 2}, --Last Stand
 		[18499]  = {type = 1}, --Berserker Rage
+		[23920]  = {type = 2}, --Spell Reflection
 		[64382]  = {type = 1}, --Shattering Throw
 		[97462]  = {type = 4}, --Rallying Cry
 		[107574] = {type = 1}, --Avatar
