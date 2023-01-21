@@ -167,6 +167,7 @@ local spellListRetail = {
 		[243435] = {type = 2}, --Fortifying Brew
 		[322109] = {type = 1}, --Touch of Death
 		[322118] = {type = 4}, --Invoke Yu'lon, the Jade Serpent
+		[325197] = {type = 4}, --Invoke Chi-Ji, the Red Crane
 		[388615] = {type = 4}, --Restoral
 		[388686] = {type = 1}, --Summon White Tiger Statue
 		-- Covenant
