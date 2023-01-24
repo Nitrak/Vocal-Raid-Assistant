@@ -1,5 +1,14 @@
 # Vocal Raid Assistant
 
+## 3.0.7
+- Bump Version to 10.0.5
+
+## 3.0.6-b
+- Added Chi-Ji
+
+## 3.0.6-a
+- Added Spell Reflection
+
 ## 3.0.6
 - Added Divine Sacrifice for Paladins (Wrath)
 
