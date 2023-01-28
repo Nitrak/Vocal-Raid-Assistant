@@ -15,6 +15,7 @@ local spellListRetail = {
 		[49206]  = {type = 1}, --Summon Gargoyle
 		[51052]  = {type = 4}, --Anti-Magic Zone
 		[55233]  = {type = 2}, --Vampiric Blood
+		[61999]  = {type = 5}, --Raise Ally
 		[108194] = {type = 8}, --Asphyxiate
 		[108199] = {type = 5}, --Gorefiend's Grasp
 		[114556] = {type = 2}, --Purgatory
@@ -99,6 +100,7 @@ local spellListRetail = {
 		[19801]  = {type = 5}, --Tranquilizing Shot
 		[19574]  = {type = 1}, --Bestial Wrath
 		[19577]  = {type = 8}, --Intimidation
+		[34477]  = {type = 5}, --Misdirection
 		[53480]  = {type = 3}, --Roar of Sacrifice
 		[109248] = {type = 8}, --Binding Shot
 		[109304] = {type = 2}, --Exhilaration
@@ -260,6 +262,7 @@ local spellListRetail = {
 		[31224]  = {type = 2}, --Cloak of Shadows
 		[31230]  = {type = 2}, --Cheat Death
 		[51690]  = {type = 1}, --Killing Spree
+		[57934]  = {type = 5}, --Tricks of the Trade
 		[79140]  = {type = 1}, --Vendetta
 		[114018] = {type = 5}, --Shroud of Concealment
 		[121471] = {type = 1}, --Shadow Blades
