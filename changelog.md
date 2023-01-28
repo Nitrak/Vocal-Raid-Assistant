@@ -1,5 +1,10 @@
 # Vocal Raid Assistant
 
+## 3.0.8
+- Added Raise Ally
+- Added Misdirection
+- Added Tricks of the Trade
+
 ## 3.0.7
 - Bump Version to 10.0.5
 
