@@ -7,6 +7,7 @@ L["Adjusting the voice volume"] = "調節音量"
 L["Alert for"] = "警報"
 L["All Active"] = "已啟用技能"
 L["Ambience"] = "環境音"
+L["Battleres"] = "Battleres"
 L["Cancel"] = "取消"
 L["CC"] = true
 L["Clear All"] = "全部刪除"

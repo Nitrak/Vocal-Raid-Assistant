@@ -25,7 +25,7 @@ Helper.lua
 VocalRaidAssistant.lua
 Constants.lua
 SpellList.lua
-TauntList.lua
+TauntAndBattleresList.lua
 SpellCorrections.lua
 Config.lua
 Sound.lua
