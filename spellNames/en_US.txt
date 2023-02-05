@@ -226,6 +226,7 @@
 123040;Mindbender
 124974;Nature's Vigil
 132469;Typhoon
+137619;Marked For Death
 137639;Storm, Earth, and Fire
 152173;Serenity
 152262;Seraphim
@@ -411,6 +412,7 @@
 359816;Dream Flight
 363534;Rewind
 363916;Obsidian Scales
+365350;Arcane Surge
 370537;Stasis
 370665;Rescue
 370960;Emerald Communion

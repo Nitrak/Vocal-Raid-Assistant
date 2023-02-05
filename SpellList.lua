@@ -141,6 +141,7 @@ local spellListRetail = {
 		[235313] = {type = 5}, --Blazing Barrier
 		[235450] = {type = 5}, --Prismatic Barrier
 		[342245] = {type = 2}, --Alter Time
+		[365350] = {type = 1}, --Arcane Surge
 		[383121] = {type = 8}, --Mass Polymorph
 		-- Covenant
 		[307443] = {type = 99}, --Radiant Spark
@@ -291,6 +292,7 @@ local spellListRetail = {
 		[108280] = {type = 4}, --Healing Tide Totem
 		[108281] = {type = 4}, --Ancestral Guidance
 		[114050] = {type = 1}, --Ascendance
+		[137619] = {type = 1}, --Marked for Death
 		[191634] = {type = 1}, --Stormkeeper
 		[192058] = {type = 8}, --Capacitor Totem
 		[192222] = {type = 1}, --Liquid Magna Totem
