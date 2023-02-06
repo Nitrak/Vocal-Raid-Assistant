@@ -56,6 +56,7 @@ L["Output channel desc"] = "Выберите канал, из которого �
 L["Output channel"] = "Выйти из канала"
 L["Party member abilities"] = "Способности участников вашей группы"
 L["Play sound on interrupts"] = "Использовать звук для прерываний"
+--L["Play sound on combat resurrections"] = "Play sound on combat resurrections"
 --L["Play sound on taunts"] = "Play sound on taunts"
 L["PvP Trinket"] = "ПвП тринкеты"
 L["Racial Traits"] = "Рассовые способности"

@@ -53,6 +53,7 @@ if not L then return end
 --L["Party member abilities"] = "Party member abilities"
 --L["Play sound on interrupts"] = "Play sound on interrupts"
 --L["Play sound on taunts"] = "Play sound on taunts"
+--L["Play sound on combat resurrections"] = "Play sound on combat resurrections"
 --L["PvP Trinket"] = "PvP Trinket"
 --L["Racial Traits"] = "Racial Traits"
 --L["Raid Defensive"] = "Raid Defensive"

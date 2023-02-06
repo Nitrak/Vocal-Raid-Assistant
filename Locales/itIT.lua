@@ -56,6 +56,7 @@ L["Output channel desc"] = "Seleziona il canale dal quale vuoi sentire gli avvis
 L["Output channel"] = "Canale di output"
 L["Party member abilities"] = "Abilità dei membri del gruppo"
 L["Play sound on interrupts"] = "Esegui suono dopo un interrupt"
+--L["Play sound on combat resurrections"] = "Play sound on combat resurrections"
 --L["Play sound on taunts"] = "Play sound on taunts"
 L["PvP Trinket"] = "Monile PvP"
 L["Racial Traits"] = "Abilità Razziali"

@@ -34,7 +34,7 @@ end
 
 local tostring = tostring
 local pairs = pairs
-local GetTime = GetTime
+local UnitAffectingCombat = UnitAffectingCombat
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
@@ -168,9 +168,10 @@ function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 				self:playSpell(spellID)
 			elseif self.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID] then
 				self:playSpell('taunted')
-			elseif self.profile.general.area[instanceType].enableBattleres and addon.battleresList[spellID] then
-				self:playSpell('battleres')
+			--addon.battleresList[spellID] then
 			end
+		elseif (event == 'SPELL_RESURRECT' and UnitAffectingCombat("player") and self.profile.general.area[instanceType].enableBattleres) then
+			self:playSpell('battleres')
 		elseif (event == 'SPELL_INTERRUPT' and self.profile.general.area[instanceType].enableInterrupts) then
 			self:playSpell('countered')
 		end
