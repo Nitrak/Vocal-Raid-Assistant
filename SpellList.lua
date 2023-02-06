@@ -69,7 +69,6 @@ local spellListRetail = {
 		[740]    = {type = 4}, --Tranquility
 		[2908]   = {type = 5}, --Soothe
 		[5211]   = {type = 6}, --Mighty Bash
-		[20484]  = {type = 5}, --Rebirth
 		[22812]  = {type = 2}, --Barkskin
 		[29166]  = {type = 5}, --Innervate
 		[33891]  = {type = 4}, --Incarnation: Tree of Life
