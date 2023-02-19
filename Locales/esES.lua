@@ -7,7 +7,6 @@ if not L then return end
 --L["Alert for"] = "Alert for"
 --L["All Active"] = "All Active"
 --L["Ambience"] = "Ambience"
---L["Battleres"] = "Battleres"
 --L["Cancel"] = "Cancel"
 --L["Clear All"] = "Clear All"
 --L["Close"] = "Close"

@@ -7,7 +7,6 @@ L["Adjusting the voice volume"] = "Регулировка громкости г�
 L["Alert for"] = "Оповещение для"
 --L["All Active"] = "All Active"
 L["Ambience"] = "Атмосфера"
-L["Battleres"] = "Battleres"
 L["Cancel"] = "Отмена"
 L["CC"] = true
 L["Clear All"] = "Отменить все"

@@ -9,12 +9,3 @@ addon.tauntList = {
 	[115546] = true, -- Monk: Provoke
 	[185245] = true  -- Demon Hunter: Torment
 }
-
---@version-retail
-addon.battleresList = {
-	[20484]	 = true, -- Rebirth
-	[20707]  = true, -- Soulstone
-	[61999]	 = true, -- Raise Ally
-	[391054] = true, -- Intercession
-}
---@end-version-retail

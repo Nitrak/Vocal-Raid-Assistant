@@ -565,6 +565,7 @@ local spells = {
 					type = "toggle",
 					name = L["Interrupts"],
 					desc = L["Play sound on interrupts"],
+					width = 1.05,
 					order = 1,
 					get = function(info)
 						return addon.profile.general.area[info[2]].enableInterrupts
@@ -580,6 +581,7 @@ local spells = {
 					type = "toggle",
 					name = L["Taunts"],
 					desc = L["Play sound on taunts"],
+					width = 1.05,
 					order = 2,
 					get = function(info)
 						return addon.profile.general.area[info[2]].enableTaunts
@@ -591,28 +593,12 @@ local spells = {
 						end
 					end
 				},
-				--@version-retail
-				toggleBattleres = {
-					type = "toggle",
-					name = L["Battleres"],
-					desc = L["Play sound on combat resurrections"],
-					order = 3,
-					get = function(info)
-						return addon.profile.general.area[info[2]].enableBattleres
-					end,
-					set = function(info, val)
-						addon.profile.general.area[info[2]].enableBattleres = val
-						if val then
-							addon:playSpell("battleres")
-						end
-					end
-				},
-				--@end-version-retail
 				toggleCombatOnly = {
 					type = "toggle",
 					name = L["Combat only"],
 					desc = L["Combat only description"],
-					order = 4,
+					width = 1.05,
+					order = 3,
 					get = function(info)
 						return addon.profile.general.area[info[2]].combatOnly
 					end,
