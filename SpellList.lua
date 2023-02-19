@@ -344,7 +344,6 @@ local spellListRetail = {
 		[58984]  = {type = 5},
 		[107079] = {type = 5},
 		[178207] = {type = 1}, --Drums of Fury
-		[348477] = {type = 5},
 	},
 	["TRINKET"] = {
 		-- pvp
