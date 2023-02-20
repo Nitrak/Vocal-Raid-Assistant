@@ -1,5 +1,10 @@
 # Vocal Raid Assistant
 
+## 3.1.0
+- Remove Shadow Lands Covenant Spells
+- Added Arcange Surge
+- Added Marked for Death
+
 ## 3.0.8
 - Added Raise Ally
 - Added Misdirection
