@@ -28,6 +28,45 @@ local spellCorrectionsRetail = {
 	[114052] = 114050,
 	-- Survival of the Fittest
 	[281195] = 264735,
+	-- Divine Toll
+	[304971] = 375576,
+	-- Blessing of Summer
+	[388010] = 388007,
+	[388013] = 388007,
+	[388007] = 388007,
+	[388011] = 388007,
+	[328622] = 388007,
+	[328282] = 388007,
+	[328620] = 388007,
+	[328281] = 388007,
+	-- Faeline Stomp
+	[327104] = 388193,
+	-- Elysian Decree
+	[306830] = 390163,
+	-- Convoke the Spirits
+	[323764] = 391528,
+	-- Adaptive Swarm
+	[325727] = 391888,
+	-- Flagellation
+	[323654] = 384631,
+	-- Sepsis
+	[328305] = 385408,
+	-- Serrated Bone Spike
+	[328547] = 385424,
+	-- Primordial Wave
+	[326059] = 375982,
+	-- Soul Rot
+	[325640] = 386997,
+	-- Death Chakram
+	[325028] = 375891,
+	-- Radiant Spark
+	[307443] = 376103,
+	-- Shifting Power
+	[314791] = 382440,
+	-- Mindgames
+	[323673] = 375901,
+	-- Echoing Reprimand
+	[323547] = 385616,
 }
 
 -- Wrath
