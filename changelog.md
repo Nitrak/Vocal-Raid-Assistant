@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.1.1
+- Add Stampeding Roar for all druid forms
+
 ## 3.1.0
 - Remove Shadow Lands Covenant Spells
 - Added Arcange Surge
