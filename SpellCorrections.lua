@@ -25,7 +25,6 @@ local spellCorrectionsRetail = {
 	[321395] = 118, -- Polymorph: Maw Rat
 	-- Druid Stampeding Roar
 	[77761] = 106898,
-	[77764] = 106898,
 	-- Ascendance
 	[114051] = 114050,
 	[114052] = 114050,
