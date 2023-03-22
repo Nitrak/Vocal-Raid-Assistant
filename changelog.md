@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+
+## 3.1.2
+- Bump Version to 10.0.7
+
 ## 3.1.1
 - Add Stampeding Roar for all druid forms
 
