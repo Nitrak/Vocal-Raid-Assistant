@@ -108,6 +108,7 @@ local spellListRetail = {
 		[266779] = {type = 1}, --Coordinated Assault
 		[288613] = {type = 1}, --Trueshot
 		[375891] = {type = 1}, --Death Chakram
+		[392060] = {type = 5}, --Wailing Arrow
 	},
 	["MAGE"] = {
 		[66]     = {type = 2}, --Invisibility

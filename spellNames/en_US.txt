@@ -431,5 +431,6 @@
 387168;Boon of the Covenants
 388615;Restoral
 390386;Fury of the Aspects
+392060;Wailing Arrow
 392966;Spell Block
 
