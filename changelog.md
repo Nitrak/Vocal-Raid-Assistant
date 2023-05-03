@@ -1,6 +1,7 @@
 # Vocal Raid Assistant
 
-
+## 3.2.0
+- Bump Version to 10.1.0
 ## 3.1.2
 - Bump Version to 10.0.7
 
