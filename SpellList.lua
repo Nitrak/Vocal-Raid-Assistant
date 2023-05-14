@@ -108,6 +108,7 @@ local spellListRetail = {
 		[266779] = {type = 1}, --Coordinated Assault
 		[288613] = {type = 1}, --Trueshot
 		[375891] = {type = 1}, --Death Chakram
+		[392060] = {type = 8}, --Wailing Arrow
 	},
 	["MAGE"] = {
 		[66]     = {type = 2}, --Invisibility
@@ -249,8 +250,8 @@ local spellListRetail = {
 	["SHAMAN"] = {
 		[2825]   = {type = 1}, --Bloodlust
 		[8143]   = {type = 5}, --Tremor Totem
-		[20608]  = {type = 5}, --Reincarnation
 		[16191]  = {type = 5}, --Mana Tide Totem
+		[20608]  = {type = 5}, --Reincarnation
 		[51485]  = {type = 8}, --Earthgrab Totem
 		[51514]  = {type = 5}, --Hex
 		[51533]  = {type = 1}, --Feral Spirit
@@ -274,6 +275,7 @@ local spellListRetail = {
 		[207399] = {type = 4}, --Ancestral Protection Totem
 		[355580] = {type = 5}, --Static Field Totem
 		[375982] = {type = 1}, --Primordial Wave
+		[383013] = {type = 5}, --Poison Cleansing Totem
 	},
 	["WARLOCK"] = {
 		[1122]   = {type = 1}, --Summon Infernal
