@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 3.2.1
+- Added Poison Cleansing Totem
+- Added Wailing Arrow
+- Changed Trap sound to Freezing Trap
 ## 3.2.0
 - Bump Version to 10.1.0
 ## 3.1.2
