@@ -30,7 +30,7 @@
 132578;Invoke Niuzao
 178207;Drums
 186265;Turtle
-187650;Trap
+187650;Freezing Trap
 192077;Wind Rush
 196029;Relentless Brooch
 202138;Chains
@@ -54,6 +54,7 @@
 348139;Divine Bell
 348477;Reanimator
 358712;Aegis
+383013;Poison Cleansing
 388686;White Tiger Statue
 391528;Convoke
 
