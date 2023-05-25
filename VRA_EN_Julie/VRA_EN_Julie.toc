@@ -5,7 +5,7 @@
 ## Notes: VoicePack for Vocal Raid Assistant Addon
 ## Dependencies: VocalRaidAssistant
 ## Author: The VRA Team
-## Version: 3.2.0
+## Version: 3.3.0
 
 VRA_EN_Julie.lua
 
