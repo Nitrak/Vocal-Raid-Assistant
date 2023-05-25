@@ -6,7 +6,7 @@
 ## Author: Nitrak
 ## IconTexture: Interface\\COMMON\\VoiceChat-Speaker
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 3.2.0
+## Version: 3.2.1
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
