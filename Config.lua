@@ -231,7 +231,7 @@ local mainOptions = {
 							VRA.ICON:Show(addonName)
 						end
 					end
-				},
+				} and not VRA.IsRetail() or nil,
 				linebreak2 = {
 					type = 'description',
 					name = '\n\n',

@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.3.0
+- Move minimap icon to AddonCompartment in Retail
+
 ## 3.2.1
 - Added Poison Cleansing Totem
 - Added Wailing Arrow
