@@ -4,9 +4,9 @@
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
-## IconTexture: Interface\\COMMON\\VoiceChat-Speaker
+## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\VOICECHAT-SPEAKER.blp
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 3.3.0
+## Version: 3.3.1
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
