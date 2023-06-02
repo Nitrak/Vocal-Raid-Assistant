@@ -6,7 +6,7 @@
 ## Author: Nitrak
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\VOICECHAT-SPEAKER.blp
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 3.3.1
+## Version: 3.3.2
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
