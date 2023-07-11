@@ -1,282 +1,31 @@
 ### Changed
 
-###
-118;Verwandlung
-498;Göttlicher Schutz
-633;Handauflegung
-642;Gottesschild
-740;Gelassenheit
-853;Hammer der Gerechtigkeit
-871;Schildwall
-1022;Segen des Schutzes
-1122;Höllenbestie beschwören
-1160;Demoralisierender Ruf
-1161;Herausforderungsruf
-1719;Tollkühnheit
-1966;Finte
-2094;Blenden
-2565;Schildblock
-2825;Kampfrausch
-2908;Besänftigen
-5211;Mächtiger Hieb
-5246;Drohruf
-5277;Entrinnen
-5384;Totstellen
-5484;Schreckensgeheul
-5782;Furcht
-5938;Tückische Klinge
-6940;Segen der Aufopferung
-8122;Psychischer Schrei
-8143;Totem des Erdstoßes
-10060;Seele der Macht
-11426;Eisbarriere
-11958;Kälteeinbruch
-12042;Arkane Macht
-12323;Durchdringendes Heulen
-12472;Eisige Adern
-12975;Letztes Gefecht
-13750;Adrenalinrausch
-15286;Vampirumarmung
-16191;Totem der Manaflut
-19236;Verzweifeltes Gebet
-19574;Zorn des Wildtiers
-19577;Einschüchterung
-19801;Einlullender Schuss
-20066;Buße
-20230;Gegenschlag
-20484;Wiedergeburt
-20580;Schattenhaftigkeit
-20594;Steingestalt
-20707;Seelenstein
-22812;Baumrinde
-22842;Rasende Regeneration
-23920;Zauberreflexion
-29166;Anregen
-29893;Seelenbrunnen erschaffen
-30283;Schattenfuror
-30823;Schamanistische Wut
-31224;Mantel der Schatten
-31821;Aurenmeisterschaft
-31842;Göttliche Eingebung
-31850;Unermüdlicher Verteidiger
-31884;Zornige Vergeltung
-32182;Heldentum
-32375;Massenbannung
-33206;Schmerzunterdrückung
-33786;Wirbelsturm
-33891;Inkarnation: Baum des Lebens
-34433;Schattengeist
-34477;Irreführung
-35476;Trommeln der Schlacht
-42650;Armee der Toten
-45438;Eisblock
-46968;Schockwelle
-47536;Euphorie
-47568;Runenwaffe verstärken
-47585;Dispersion
-47788;Schutzgeist
-48707;Antimagische Hülle
-48743;Todespakt
-48792;Eisige Gegenwehr
-49028;Tanzende Runenwaffe
-49039;Lichritter
-49206;Gargoyle beschwören
-49576;Todesgriff
-50334;Berserker
-51052;Antimagisches Feld
-51514;Verhexen
-51690;Mordlust
-53480;Brüllen der Aufopferung
-55233;Vampirblut
-55342;Spiegelbild
-57934;Schurkenhandel
-58984;Schattenmimik
-61336;Überlebensinstinkte
-61999;Verbündeten erwecken
-62618;Machtwort: Barriere
-64044;Psychisches Entsetzen
-64382;Zerschmetternder Wurf
-64843;Gotteshymne
-64901;Symbol der Hoffnung
-73325;Glaubenssprung
-76577;Rauchbombe
-78675;Sonnenstrahl
-79140;Vendetta
-79206;Gunst des Geistwandlers
-80313;Pulverisieren
-80353;Zeitkrümmung
-86659;Wächter der Uralten Könige
-86949;Kauterisieren
-88625;Segenswort: Züchtigung
-97462;Anspornender Schrei
-98008;Totem der Geistverbindung
-102342;Eisenborke
-102359;Massenumschlingung
-102558;Inkarnation: Wächter von Ursoc
-102793;Ursols Vortex
-104773;Erbarmungslose Entschlossenheit
-105809;Heiliger Rächer
-106898;Anstachelndes Gebrüll
-106951;Berserker
-107079;Bebende Handfläche
-108199;Blutschattens Griff
-108238;Erneuerung
-108271;Astralverschiebung
-108280;Totem der Heilungsflut
-108281;Führung der Ahnen
-108416;Dunkler Pakt
-108968;Leerenverschiebung
-109248;Bindender Schuss
-109304;Freudentaumel
-109964;Geisthülle
-110909;Zeitverschiebung
-111771;Dämonisches Tor
-111898;Grimoire: Teufelswache
-113858;Finstere Seele: Instabilität
-113860;Finstere Seele: Elend
-114018;Verhüllender Nebel
-114052;Aszendenz
-114158;Hammer des Lichts
-114556;Fegefeuer
-115078;Paralyse
-115176;Zenmeditation
-115203;Stärkendes Gebräu
-115288;Energetisierendes Elixier
-115310;Belebung
-115399;Schwarzochsengebräu
-115750;Blendendes Licht
-116841;Tigerrausch
-116844;Ring des Friedens
-116849;Lebenskokon
-118038;Durch das Schwert umkommen
-119381;Fußfeger
-121471;Schattenklingen
-122278;Schaden dämpfen
-122470;Karmaberührung
-122783;Magiediffusion
-123904;Xuen den Weißen Tiger beschwören
-132578;Niuzao den Schwarzen Ochsen beschwören
-137639;Sturm, Erde und Feuer
-152173;Gleichmut
-152279;Sindragosas Hauch
-155835;Gesträubtes Fell
-178207;Trommeln der Wut
-179057;Chaosnova
-184662;Schild der Vergeltung
-185311;Blutrote Phiole
-186265;Aspekt der Schildkröte
-186289;Aspekt des Adlers
-187650;Eiskältefalle
-187827;Metamorphose
-190319;Einäschern
-190456;Zähne zusammenbeißen
-191634;Sturmhüter
-192058;Totem der Energiespeicherung
-192077;Totem des Windsturms
-193530;Aspekt der Wildnis
-194223;Himmlische Ausrichtung
-194679;Runenwandlung
-194844;Knochensturm
-196029;Unerbittlich
-196555;Netherwandeln
-196718;Dunkelheit
-197721;Gedeihen
-197908;Manatee
-198103;Erdelementar
-198144;Eisform
-198589;Verschwimmen
-198838;Totem des irdenen Walls
-200183;Apotheose
-201430;Stampede
-202137;Zeichen der Stille
-202138;Zeichen der Ketten
-202246;Überrennen
-202770;Zorn der Elune
-204018;Segen des Zauberschutzes
-204021;Flammendes Brandmal
-205180;Dunkelblick beschwören
-205369;Gedankenbombe
-205604;Magie umkehren
-205630;Illidans Griff
-205636;Naturgewalt
-206491;Nemesis
-206803;Teuflischer Niederschlag
-206931;Bluttrinker
-207167;Blendender Eisregen
-207289;Unheiliger Angriff
-207399;Totem des Schutzes der Ahnen
-207684;Zeichen des Elends
-209258;Verzweiflungstat
-209749;Feenschwarm
-211881;Teufelseruption
-212084;Dämonische Verwüstung
-216331;Kreuzzug der Vergeltung
-217832;Einkerkern
-219809;Grabstein
-221562;Ersticken
-228260;Leereneruption
-228920;Verheerer
-231895;Kreuzzug
-235313;Lodernde Barriere
-235450;Prismatische Barriere
-243435;Stärkendes Gebräu
-246287;Prediger
-258925;Teufelsbeschuss
-264667;Urtümliche Wut
-265187;Dämonischen Tyrannen beschwören
-265202;Segenswort: Erlösung
-266779;Koordinierter Angriff
-271466;Leuchtende Barriere
-279302;Furor des Frostwyrms
-281195;Überleben des Stärkeren
-288613;Volltreffer
-304971;Göttlicher Glockenschlag
-305497;Dornen
-308491;Resonierender Pfeil
-310454;Waffen der Ordnung
-314791;Machtverschiebung
-314793;Spiegel der Qual
-316958;Ascheweihung
-319952;Abstieg in den Wahnsinn
-320137;Sturmhüter
-320341;Massenextraktion
-320674;Kettenernte
-321507;Berührung der Magi
-321530;Blutvergießen
-322109;Berührung des Todes
-322118;Yu'lon die Jadeschlange beschwören
-322507;Himmlisches Gebräu
-323436;Seele läutern
-323546;Unersättliche Raserei
-323673;Gedankenspiele
-324220;Todesgeboren
-324386;Vespertotem
-324631;Fleischformung
-324724;Unheilige Nova
-325013;Segen der Aufgestiegenen
-325153;Explodierendes Fässchen
-325197;Chi-Ji den Roten Kranich beschwören
-325216;Knochenstaubgebräu
-326059;Urzeitliche Welle
-326860;Gefallener Orden
-327193;Ruhmreicher Moment
-327574;Opferpakt
-327661;Faewächter
-328231;Wilde Geister
-328923;Faetransfusion
-329042;Smaragdgrüner Schlummer
-329554;Futter für die Flamme
-329840;Blutbarriere
-333889;Teufelsbeherrschung
-336126;Medaillon des Gladiators
-336135;Anpassung
-344907;Zersplittertes Herz von Al'ar
-345228;Abzeichen des Gladiators
-345231;Emblem des Gladiators
-345801;Seelenlassender Rubin
-348139;Heilige Glocke des Ausbilders
-348477;Spektrophasischer Einwegreanimator
-354654;Hainschutz
-358712;Annhyldes Aegis
-383269;Monströse Gliedmaße
-391528;Konvokation der Geister
+2894;Feuerelementar
+
+
+### Not available via API
+
+724;Brunnen des Lichts
+23989;Bereitschaft
+44572;Tieffrieren
+46924;Klingensturm
+48505;Sternenregen
+48982;Runenheilung
+49005;Mal des Blutes
+49016;Unheilige Raserei
+49203;Zehrende Kälte
+49222;Knochenschild
+50516;Taifun
+51713;Schattentanz
+54428;Göttliche Bitte
+55198;Kraft der Gezeiten
+59672;Metamorphose
+64205;Heilige Opferung
+108194;Ersticken
+110960;Große Unsichtbarkeit
+152277;Verheerer
+194407;Speiende Kobra
+199754;Riposte
+205191;Auge um Auge
+221703;Beschwörungskreis
+262228;Tödliche Gelassenheit
