@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.3.3
+- Bump Version to 10.1.5
+
 ## 3.3.2
 - Readded option to show/hide minimap icon. Minimap icon is OFF by default on retail as AddonCompartment exists.
 
