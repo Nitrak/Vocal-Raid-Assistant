@@ -1,5 +1,24 @@
 # Vocal Raid Assistant
 
+## 3.3.3
+- Bump Version to 10.1.5
+
+## 3.3.2
+- Readded option to show/hide minimap icon. Minimap icon is OFF by default on retail as AddonCompartment exists.
+
+## 3.3.1
+- Added Icon to AddOns list
+
+## 3.3.0
+- Move minimap icon to AddonCompartment in Retail
+
+## 3.2.1
+- Added Poison Cleansing Totem
+- Added Wailing Arrow
+- Changed Trap sound to Freezing Trap
+
+## 3.2.0
+- Bump Version to 10.1.0
 
 ## 3.1.2
 - Bump Version to 10.0.7

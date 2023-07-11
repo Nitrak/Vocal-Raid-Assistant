@@ -100,9 +100,20 @@ function VRA:OnInitialize()
 
 	-- Minimap Icon and Broker
 	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), self.profile.general.minimap)
+
 	if not pcall(ConfigCleanup, self.db) then
 		addon:prettyPrint(VRA.L["Config Cleaning Error Message"])
 		self.db:ResetDB("Default")
+	end
+
+	if (self:IsRetail()) then
+		AddonCompartmentFrame:RegisterAddon({
+			text = addonName,
+			icon = "Interface\\COMMON\\VoiceChat-Speaker",
+			func = function() VRA:ChatCommand() end,
+			registerForAnyClick = true,
+			notCheckable = true,
+		})
 	end
 
 	if (self:IsRetail() or self:IsWrath()) then

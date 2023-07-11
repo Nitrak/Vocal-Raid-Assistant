@@ -85,7 +85,7 @@ addon.DEFAULTS = {
 				}
 			},
 			watchFor = 6, -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
-			minimap = {}
+			minimap = {hide = VRA.IsRetail() or nil}
 		},
 		sound = {
 			throttle = 0,
