@@ -1,5 +1,10 @@
 ### Changed
 
+### Special
+countered;Unterbrochen
+taunted;Gespotted
+battleres;Wiederbelebung
+
 ###
 118;Verwandlung
 498;Göttlicher Schutz
