@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.3.4
+- Add Augmentation Evoker Spells
+
 ## 3.3.3
 - Bump Version to 10.1.5
 

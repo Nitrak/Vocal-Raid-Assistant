@@ -330,6 +330,7 @@ local spellListRetail = {
 		[363534] = {type = 4}, --Rewind
 		[363916] = {type = 2}, --Obsidian Scales
 		[370537] = {type = 4}, --Stasis
+		[370553] = {type = 1}, --Tip the Scales
 		[370665] = {type = 5}, --Rescue
 		[370960] = {type = 2}, --Emerald Communion
 		[372048] = {type = 8}, --Oppressing Roar
@@ -338,6 +339,8 @@ local spellListRetail = {
 		[374968] = {type = 5}, --Time Spiral
 		[375087] = {type = 1}, --Dragonrage
 		[390386] = {type = 1}, --Fury of the Aspects
+		[403631] = {type = 1}, --Breath of Eons
+		[404977] = {type = 5}, --Time Skip
 	},
 	["GENERAL"] = {
 		[20594]  = {type = 5},
