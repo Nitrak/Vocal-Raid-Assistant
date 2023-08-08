@@ -1,10 +1,16 @@
 ### Changed
 
+### Special
+countered;Unterbrochen
+taunted;Gespotted
+battleres;Wiederbelebung
+
 ###
 118;Verwandlung
 498;Göttlicher Schutz
 633;Handauflegung
 642;Gottesschild
+724;Brunnen des Lichts
 740;Gelassenheit
 853;Hammer der Gerechtigkeit
 871;Schildwall
@@ -17,6 +23,7 @@
 2094;Blenden
 2565;Schildblock
 2825;Kampfrausch
+2894;Totem des Feuerelementars
 2908;Besänftigen
 5211;Mächtiger Hieb
 5246;Drohruf
@@ -51,6 +58,7 @@
 22812;Baumrinde
 22842;Rasende Regeneration
 23920;Zauberreflexion
+23989;Bereitschaft
 29166;Anregen
 29893;Seelenbrunnen erschaffen
 30283;Schattenfuror
@@ -69,32 +77,46 @@
 34477;Irreführung
 35476;Trommeln der Schlacht
 42650;Armee der Toten
+44572;Tieffrieren
 45438;Eisblock
+46924;Klingensturm
 46968;Schockwelle
 47536;Euphorie
 47568;Runenwaffe verstärken
 47585;Dispersion
 47788;Schutzgeist
+48505;Sternenregen
 48707;Antimagische Hülle
 48743;Todespakt
 48792;Eisige Gegenwehr
+48982;Runenheilung
+49005;Mal des Blutes
+49016;Unheilige Raserei
 49028;Tanzende Runenwaffe
 49039;Lichritter
+49203;Zehrende Kälte
 49206;Gargoyle beschwören
+49222;Knochenschild
 49576;Todesgriff
 50334;Berserker
+50516;Taifun
 51052;Antimagisches Feld
 51514;Verhexen
 51690;Mordlust
+51713;Schattentanz
 53480;Brüllen der Aufopferung
+54428;Göttliche Bitte
+55198;Kraft der Gezeiten
 55233;Vampirblut
 55342;Spiegelbild
 57934;Schurkenhandel
 58984;Schattenmimik
+59672;Metamorphose
 61336;Überlebensinstinkte
 61999;Verbündeten erwecken
 62618;Machtwort: Barriere
 64044;Psychisches Entsetzen
+64205;Heilige Opferung
 64382;Zerschmetternder Wurf
 64843;Gotteshymne
 64901;Symbol der Hoffnung
@@ -119,6 +141,7 @@
 106898;Anstachelndes Gebrüll
 106951;Berserker
 107079;Bebende Handfläche
+108194;Ersticken
 108199;Blutschattens Griff
 108238;Erneuerung
 108271;Astralverschiebung
@@ -130,6 +153,7 @@
 109304;Freudentaumel
 109964;Geisthülle
 110909;Zeitverschiebung
+110960;Große Unsichtbarkeit
 111771;Dämonisches Tor
 111898;Grimoire: Teufelswache
 113858;Finstere Seele: Instabilität
@@ -158,6 +182,8 @@
 132578;Niuzao den Schwarzen Ochsen beschwören
 137639;Sturm, Erde und Feuer
 152173;Gleichmut
+152262;Seraphim
+152277;Verheerer
 152279;Sindragosas Hauch
 155835;Gesträubtes Fell
 178207;Trommeln der Wut
@@ -175,6 +201,7 @@
 192077;Totem des Windsturms
 193530;Aspekt der Wildnis
 194223;Himmlische Ausrichtung
+194407;Speiende Kobra
 194679;Runenwandlung
 194844;Knochensturm
 196029;Unerbittlich
@@ -186,6 +213,7 @@
 198144;Eisform
 198589;Verschwimmen
 198838;Totem des irdenen Walls
+199754;Riposte
 200183;Apotheose
 201430;Stampede
 202137;Zeichen der Stille
@@ -195,6 +223,7 @@
 204018;Segen des Zauberschutzes
 204021;Flammendes Brandmal
 205180;Dunkelblick beschwören
+205191;Auge um Auge
 205369;Gedankenbombe
 205604;Magie umkehren
 205630;Illidans Griff
@@ -214,6 +243,7 @@
 217832;Einkerkern
 219809;Grabstein
 221562;Ersticken
+221703;Beschwörungskreis
 228260;Leereneruption
 228920;Verheerer
 231895;Kreuzzug
@@ -222,6 +252,7 @@
 243435;Stärkendes Gebräu
 246287;Prediger
 258925;Teufelsbeschuss
+262228;Tödliche Gelassenheit
 264667;Urtümliche Wut
 265187;Dämonischen Tyrannen beschwören
 265202;Segenswort: Erlösung
@@ -229,6 +260,7 @@
 271466;Leuchtende Barriere
 279302;Furor des Frostwyrms
 281195;Überleben des Stärkeren
+288853;Monstrosität erwecken
 288613;Volltreffer
 304971;Göttlicher Glockenschlag
 305497;Dornen

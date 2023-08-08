@@ -435,3 +435,8 @@
 392060;Wailing Arrow
 392966;Spell Block
 
+### Special
+countered;countered
+taunted;taunted
+battleres;battleres
+
