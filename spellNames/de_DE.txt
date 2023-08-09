@@ -37,7 +37,7 @@ battleres;Wiederbelebung
 8143;Totem des Erdstoßes
 10060;Seele der Macht
 11426;Eisbarriere
-11958;Kälteeinbruch
+11958;Kälte-Einbruch
 12042;Arkane Macht
 12323;Durchdringendes Heulen
 12472;Eisige Adern
