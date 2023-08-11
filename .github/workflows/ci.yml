@@ -10,13 +10,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'Empty commit') || github.ref != 'refs/heads/main'"
 
     steps:
       - name: Checkout addon
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
           fetch-depth: 100
-
       - name: Package Classic
         uses: BigWigsMods/packager@master
         with:
