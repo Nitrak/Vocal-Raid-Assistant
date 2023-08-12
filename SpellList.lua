@@ -175,7 +175,6 @@ local spellListRetail = {
 		[105809] = {type = 1}, --Holy Avenger
 		[114158] = {type = 1}, --Lights`s Hammer
 		[115750] = {type = 8}, --Blinding Light
-		[152262] = {type = 1}, --Seraphim
 		[184662] = {type = 2}, --Shield of Vengeance
 		[199452] = {type = 3}, --Ultimate Sacrifice
 		[204018] = {type = 3}, --Blessing of Spellwarding
