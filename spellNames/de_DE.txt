@@ -1,3 +1,8 @@
+### Special
+countered;Unterbrochen
+taunted;Gespotted
+battleres;Wiederbelebung
+
 ### Changed
 
 2894;Feuerelementar

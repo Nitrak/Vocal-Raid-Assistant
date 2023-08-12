@@ -1,3 +1,8 @@
+### Special
+countered;countered
+taunted;taunted
+battleres;battleres
+
 ### Changed
 
 1022;Protection
