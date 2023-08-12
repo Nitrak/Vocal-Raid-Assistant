@@ -1,4 +1,10 @@
+### Special
+countered;countered
+taunted;taunted
+battleres;battleres
+
 ### Changed
+
 1022;Protection
 1044;Freedom
 1122;Infernal
@@ -58,380 +64,29 @@
 388686;White Tiger Statue
 391528;Convoke
 
-###
-66;Invisibility
-99;Incapacitating Roar
-118;Polymorph
-498;Divine Protection
-633;Lay on Hands
-642;Divine Shield
+
+### Not available via API
+
 724;Lightwell
-740;Tranquility
-853;Hammer of Justice
-871;Shield Wall
-1160;Demoralizing Shout
-1161;Challenging Shout
-1719;Recklessness
-1856;Vanish
-1966;Feint
-2094;Blind
-2565;Shield Block
-2825;Bloodlust
-2908;Soothe
-5246;Intimidating Shout
-5277;Evasion
-5384;Feign Death
-5484;Howl of Terror
-5782;Fear
-5938;Shiv
-8122;Psychic Scream
-8143;Tremor Totem
-10060;Power Infusion
-11426;Ice Barrier
-11958;Ice Block
-12042;Arcane Power
-12051;Evocation
-12323;Piercing Howl
-12472;Icy Veins
-12975;Last Stand
-13750;Adrenaline Rush
-15286;Vampiric Embrace
-19236;Desperate Prayer
-19574;Bestial Wrath
-19577;Intimidation
-19801;Tranquilizing Shot
-20066;Repentance
-20230;Retaliation
-20484;Rebirth
-20580;Shadowmeld
-20594;Stone Form
-20608;Reincarnation
-20707;Soulstone
-20711;Spirit of Redemption
-22812;Barkskin
-22842;Frenzied Regeneration
-23920;Spell Reflection
 23989;Readiness
-29166;Innervate
-30283;Shadowfury
-30823;Shamanistic Rage
-31224;Cloak of Shadows
-31230;Cheat Death
-31821;Aura Mastery
-31842;Divine Illumination
-31850;Ardent Defender
-31884;Avenging Wrath
-32182;Heroism
-32375;Mass Dispel
-33206;Pain Suppression
-33786;Cyclone
-34433;Shadowfiend
-34477;Misdirection
-35476;Drums
-42650;Army of the Dead
 44572;Deep Freeze
-45438;Ice Block
-46585;Raise Dead
 46924;Bladestorm
-46968;Shockwave
-47476;Strangulate
-47536;Rapture
-47568;Empower Rune Weapon
-47585;Dispersion
-47788;Guardian Spirit
 48505;Starfall
-48707;Anti Magic Shell
-48743;Death Pact
 48982;Rune Tap
 49005;Mark of Blood
 49016;Unholy Frenzy
-49039;Lichborne
 49203;Hungering Cold
-49206;Summon Gargoyle
 49222;Bone Shield
-49576;Death Grip
-50334;Berserk
 50516;Typhoon
-51052;Anti Magic Zone
-51271;Unbreakable Armor
-51485;Earthgrab Totem
-51514;Hex
-51533;Feral Spirit
-51690;Killing Spree
 51713;Shadow Dance
-53480;Roar of Sacrifice
 54428;Divine Plea
 55198;Tidal Force
-55233;Vampiric Blood
-55342;Mirror Image
-58875;Spirit Walk
 59672;Metamorphosis
-57934;Tricks of the Trade
-58984;Shadowmeld
-59752;Will to Survive
-61336;Survival Instincts
-61999;Raise Ally
 64205;Divine Sacrifice
-64044;Psychic Horror
-64382;Shattering Throw
-64843;Divine Hymn
-64901;Symbol of Hope
-73325;Leap of Faith
-76577;Smoke Bomb
-78675;Solar Beam
-79140;Vendetta
-80313;Pulverize
-80353;Time Warp
-86659;Guardian of Ancient Kings
-86949;Cauterize
-88625;Chastise
-97462;Rallying Cry
-102342;Iron Bark
-104773;Unending Resolve
-105809;Holy Avenger
-106898;Stampeding Roar
-106951;Berserk
-107079;Quaking Palm
-107570;Storm Bolt
-107574;Avatar
 108194;Asphyxiate
-108199;Gorefiend's Grasp
-108238;Renewal
-108271;Astral Shift
-108281;Ancestral Guidance
-108416;Dark Pact
-108968;Void Shift
-109248;Binding Shot
-109304;Exhilaration
-109964;Spirit Shell
-113724;Ring of Frost
-114050;Ascendance
-114158;Light's Hammer
-114556;Purgatory
-115078;Paralysis
-115176;Zen Meditation
-115203;Fortifying Brew
-115288;Energizing Elixir
-115310;Revival
-115399;Black Ox Brew
-115750;Blinding Light
-116841;Tiger's Lust
-116844;Ring of Peace
-116849;Life Cocoon
-118038;Die by the Sword
-119381;Leg sweep
-121471;Shadow Blades
-122278;Dampen Harm
-122470;Touch of Karma
-122783;Diffuse Magic
-123040;Mindbender
-124974;Nature's Vigil
-132469;Typhoon
-137619;Marked For Death
-137639;Storm, Earth, and Fire
-152173;Serenity
-152262;Seraphim
 152277;Ravager
-152279;Breath of Sindragosa
-155835;Bristling Fur
-179057;Chaos Nova
-184364;Enraged Regeneration
-184662;Shield of Vengeance
-185311;Crimson Vial
-186257;Cheetah
-186289;Aspect of the Eagle
-187827;Metamorphosis
-188501;Spectral Sight
-190319;Combustion
-190456;Ignore Pain
-191427;Metamorphosis
-191634;Stormkeeper
-192058;Capacitor Totem
-192222;Liquid Magma Totem
-192249;Storm Elemental
-193876;Shamanism
-193530;Aspect of the Wild
-194223;Celestial Alignment
 194407;Spitting Cobra
-194679;Rune Tap
-194844;Bonestorm
-196555;Netherwalk
-196718;Darkness
-197721;Flourish
-197862;Archangel
-197871;Dark Archangel
-197908;Mana Tea
-198067;Fire Elemental
-198103;Earth Elemental
-198144;Ice Form
-198589;Blur
-198838;Earthen Wall Totem
-199452;Ultimate Sacrifice
-199483;Camouflage
 199754;Riposte
-200183;Apotheosis
-201430;Stampede
-202137;Sigil of Silence
-202246;Overrun
-202770;Fury of Elune
-203651;Overgrowth
-204021;Fiery Brand
-204596;Sigil of Flame
-205021;Ray of Frost
 205191;Eye for an Eye
-205369;Mind Bomb
-205604;Reverse Magic
-205630;Illidan's Grasp
-206491;Nemesis
-206803;Rain from Above
-206931;Blooddrinker
-207167;Blinding Sleet
-207289;Unholy Assault
-207684;Sigil of Misery
-209258;Last Resort
-209749;Faerie Swarm
-200174;Mindbender
-205604;Reverse Magic
-211881;Fel Eruption
-212084;Fel Devastation
-212182;Smoke Bomb
-212459;Call Fel Lord
-212552;Wraith Walk
-215982;Spirit of the Redeemer
-216331;Avenging Crusader
-217832;Imprison
-219809;Tombstone
-221562;Asphyxiate
-221699;Blood Tap
 221703;Casting Circle
-227847;Bladestorm
-228049;Guardian of the Forgotten Queen
-228260;Void Eruption
-228920;Ravager
-231895;Crusade
-235219;Cold Snap
-235313;Blazing Barrier
-235450;Prismatic Barrier
-236273;Duel
-236320;War Banner
-243435;Fortifying Brew
-246287;Evangelism
-258925;Fel Barrage
 262228;Deadly Calm
-263648;Soul Barrier
-264667;Primal Rage
-264735;Survival of the Fittest
-266779;Coordinated Assault
-267171;Demonic Strength
-267217;Nether Portal
-271466;Luminous Barrier
-275699;Apocalypse
-279302;Frostwyrm's Fury
-281195;Survival of the Fittest
-288613;Trueshot
-288853;Raise Abomination
-300728;Door of Shadows
-375576;Divine Toll
-305497;Thorns
-390163;Elysian Decree
-376103;Radiant Spark
-308491;Resonating Arrow
-310143;Soulshape
-310454;Weapons of Order
-311648;Swarming Mist
-312202;Shackle the Unworthy
-312321;Scouring Tithe
-382440;Shifting Power
-314793;Mirrors of Torment
-316262;Toughsteal
-316958;Ashen Hallow
-317009;Sinful Brand
-319454;Heart of the Wild
-320137;Stormkeeper
-320341;Bulk Extraction
-320674;Chain Harvest
-321507;Touch of the Magi
-321530;Bloodshed
-321792;Impending Catastrophe
-322109;Touch of Death
-322507;Celestial Brew
-323436;Purify Soul
-323546;Ravenous Frenzy
-385616;Echoing Reprimand
-384631;Flagellation
-375901;Mindgames
-324128;Death's Due
-324143;Conqueror's Banner
-324149;Flayed Shot
-324220;Deathborne
-324386;Vesper Totem
-324631;Fleshcraft
-324724;Unholy Nova
-324739;Summon Steward
-325013;Boon of the Ascended
-375891;Death Chakram
-325153;Exploding Keg
-325216;Bonedust Brew
-325289;Decimating Bolt
-386997;Soul Rot
-391888;Adaptive Swarm
-325886;Ancient Aftershock
-375982;Primordial Wave
-326860;Fallen Order
-327022;Kindred Empowerment
-327037;Kindred Protection
-327071;Kindred Focus
-388193;Faeline Stomp
-327193;Moment of Glory
-327574;Sacrificial Pact
-327661;Fae Guardians
-328204;Vanquisher's Hammer
-328231;Wild Spirits
-328281;Blessing of Winter
-328282;Blessing of Spring
-385408;Sepsis
-328530;Divine Ascension
-385424;Serrated Bone Spike
-388007;Blessing of Summer
-328622;Blessing of Autumn
-328923;Fae Transfusion
-329042;Emerald Slumber
-329554;Fodder to the Flame
-333889;Fel Domination
-338018;Lone Protection
-338035;Lone Meditation
-338142;Lone Empowerment
-342245;Alter Time
-343142;Dreadblades
-343527;Execution Sentence
-343721;Final Reckoning
-354654;Grove Protection
-355580;Static Field Totem
-357170;Time Dilation
-357210;Deep Breath
-358385;Landslide
-359816;Dream Flight
-363534;Rewind
-363916;Obsidian Scales
-365350;Arcane Surge
-370537;Stasis
-370665;Rescue
-370960;Emerald Communion
-370965;The Hunt
-372048;Oppressing Roar
-372835;Lightwell
-374227;Zephyr
-374348;Renewing Blaze
-374968;Time Spiral
-375087;Dragonrage
-376079;Spear of Bastion
-383121;Mass Polymorph
-383269;Abomination Limb
-383762;Bitter Immunity
-384318;Thunderous Roar
-387168;Boon of the Covenants
-388615;Restoral
-390386;Fury of the Aspects
-392060;Wailing Arrow
-392966;Spell Block
-
