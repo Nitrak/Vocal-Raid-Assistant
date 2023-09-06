@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 3.3.5
+- Added Mass Barrier
+- Added Mass Invisibility
+
 ## 3.3.4
 - Add Augmentation Evoker Spells
 
