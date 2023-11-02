@@ -16,7 +16,6 @@ local spellListRetail = {
 		[51052]  = {type = 4}, --Anti-Magic Zone
 		[55233]  = {type = 2}, --Vampiric Blood
 		[61999]  = {type = 5}, --Raise Ally
-		[108194] = {type = 8}, --Asphyxiate
 		[108199] = {type = 5}, --Gorefiend's Grasp
 		[114556] = {type = 2}, --Purgatory
 		[152279] = {type = 1}, --Breath of Sindragosa
@@ -45,7 +44,6 @@ local spellListRetail = {
 		[204021] = {type = 2}, --Fiery Brand
 		[204596] = {type = 1}, --Sigil of Flame
 		[205604] = {type = 2}, --Reverse Magic
-		[206491] = {type = 1}, --Nemesis
 		[206803] = {type = 2}, --Rain from Above
 		[207684] = {type = 8}, --Sigil of Misery
 		[209258] = {type = 2}, --Last Resort
