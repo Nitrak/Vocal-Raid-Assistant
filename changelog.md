@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.3.6
+- Bump Version to 10.2.0
+
 ## 3.3.5
 - Added Mass Barrier
 - Added Mass Invisibility
