@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.3.7
+- Added Call of the Wild
+
 ## 3.3.6
 - Bump Version to 10.2.0
 

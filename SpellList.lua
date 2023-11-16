@@ -105,6 +105,7 @@ local spellListRetail = {
 		[264735] = {type = 2}, --Survival of the Fittest
 		[266779] = {type = 1}, --Coordinated Assault
 		[288613] = {type = 1}, --Trueshot
+		[359844] = {type = 1}, --Call of the Wild
 		[375891] = {type = 1}, --Death Chakram
 		[392060] = {type = 8}, --Wailing Arrow
 	},
