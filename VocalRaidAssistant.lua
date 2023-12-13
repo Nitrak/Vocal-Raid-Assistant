@@ -151,8 +151,13 @@ local function combatPlayCheck(instanceType)
 	return addon.profile.general.area[instanceType].combatOnly and not UnitAffectingCombat("player")
 end
 
-local function allowedSubEvent(event)
-	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
+local function checkEventType(event)
+	local allowedSubEvents = {
+		["SPELL_CAST_SUCCESS"] = true,
+		["SPELL_AURA_APPLIED"] = true,
+		["SPELL_INTERRUPT"] = true,
+	}
+	return allowedSubEvents[event] or false
 end
 
 local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
@@ -160,28 +165,43 @@ local function checkSpellTarget(destFlags, destGUID)
 	return destGUID == '' or (bit.band(destFlags, targetTypePlayer) > 0 and destGUID == UnitGUID("player"))
 end
 
+local function isSpellEnabled(instanceType, spellID, spellType, destFlags, destGUID)
+	if (spellType =="CAST") then
+		return addon.profile.general.area[instanceType].spells[tostring(spellID)] and
+			(not addon.profile.general.onlySelf or (addon.profile.general.onlySelf and
+			checkSpellTarget(destFlags, destGUID))) and
+			addon:IsSpellSupported(spellID)
+    elseif (spellType == "TAUNT" ) then
+		return addon.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID]
+ 	elseif (spellType == "INTERRUPT") then
+		return addon.profile.general.area[instanceType].enableInterrupts
+	end
+end
+
 function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
 	local _, instanceType = IsInInstance()
-	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType))) or combatPlayCheck(instanceType) then
+	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType)) or combatPlayCheck(instanceType)) then
 		return
 	end
 
 	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
 	destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
 
-	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
-		if (event == 'SPELL_CAST_SUCCESS') then
-			-- apply spell correction (e.g. hex and polymorh can have different spellIds when glyphed)
-			spellID = addon.spellCorrections[spellID] or spellID
-			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
-				(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
-				addon:IsSpellSupported(spellID) then
-				self:playSpell(spellID)
-			elseif self.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID] then
-				self:playSpell('taunted')
-			end
-		elseif (event == 'SPELL_INTERRUPT' and self.profile.general.area[instanceType].enableInterrupts) then
-			self:playSpell('countered')
-		end
+	-- Check if we are interested in this event and have configered to watch for own or party member abilities
+	if (not (checkEventType(event) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0))) then
+		return
 	end
+
+	if (event == 'SPELL_CAST_SUCCESS') or (event == 'SPELL_AURA_APPLIED' and sourceGUID == destGUID ) then
+		-- apply spell correction (e.g. hex and polymorh can have different spellIds when glyphed)
+		spellID = addon.spellCorrections[spellID] or spellID
+		if isSpellEnabled(instanceType, spellID, "CAST", destFlags, destGUID) then
+			self:playSpell(spellID)
+		elseif isSpellEnabled(instanceType, spellID, "TAUNT") then
+			self:playSpell('taunted')
+		end
+	elseif (event == 'SPELL_INTERRUPT' and isSpellEnabled(instanceType, spellID, "INTERRUPT")) then
+		self:playSpell('countered')
+	end
+
 end

@@ -33,9 +33,9 @@ local spellListRetail = {
 	},
 	["DEMONHUNTER"] = {
 		[179057] = {type = 8}, --Chaos Nova
-		[187827] = {type = 2}, --Metamorphosis
+		[187827] = {type = 2}, --Metamorphosis #Vengeance
 		[188501] = {type = 5}, --Spectral Sight
-		[191427] = {type = 1}, --Metamorphosis
+		[191427] = {type = 1}, --Metamorphosis #Havoc
 		[196555] = {type = 2}, --Netherwalk
 		[196718] = {type = 4}, --Darkness
 		[198589] = {type = 2}, --Blur
