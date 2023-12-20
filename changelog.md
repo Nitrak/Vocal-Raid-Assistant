@@ -1,5 +1,17 @@
 # Vocal Raid Assistant
 
+## 3.3.8
+ - Added Deathmark
+ - Added Kingsbane
+ - Added Shockwave
+ - Added Wing Buffet
+ - Added Tailswipe
+ - Added Cauterizing Flame
+ - Added War Stomp
+ - Added Stoneform
+ - Added Shadowmeld
+ - Added Quaking Palm
+
 ## 3.3.7
 - Added Call of the Wild
 
