@@ -242,10 +242,12 @@ local spellListRetail = {
 		[199754] = {type = 2}, --Riposte
 		[212182] = {type = 5}, --Smoke Bombe
 		[343142] = {type = 1}, --Dreadblades
+		[360194] = {type = 1}, --Deathmark
 		[385616] = {type = 1}, --Echoing Reprimand
 		[384631] = {type = 1}, --Flagellation
 		[385408] = {type = 1}, --Sepsis
 		[385424] = {type = 1}, --Serrated Bone Spike
+		[385627] = {type = 1}, --Kingsbane
 	},
 	["SHAMAN"] = {
 		[2825]   = {type = 1}, --Bloodlust
@@ -306,6 +308,7 @@ local spellListRetail = {
 		[12975]  = {type = 2}, --Last Stand
 		[18499]  = {type = 1}, --Berserker Rage
 		[23920]  = {type = 2}, --Spell Reflection
+		[46968]  = {type = 5}, --Shockwave
 		[64382]  = {type = 1}, --Shattering Throw
 		[97462]  = {type = 4}, --Rallying Cry
 		[107574] = {type = 1}, --Avatar
@@ -325,9 +328,11 @@ local spellListRetail = {
 	["EVOKER"] = {
 		[357170] = {type = 3}, --Time Dilation
 		[357210] = {type = 1}, --Deep Breath
+		[357214] = {type = 5}, --Wing Buffet
 		[358385] = {type = 8}, --Landslide
 		[359816] = {type = 4}, --Dream Flight
 		[363534] = {type = 4}, --Rewind
+		[368970] = {type = 5}, --Tailswipe
 		[363916] = {type = 2}, --Obsidian Scales
 		[370537] = {type = 4}, --Stasis
 		[370553] = {type = 1}, --Tip the Scales
@@ -335,6 +340,7 @@ local spellListRetail = {
 		[370960] = {type = 2}, --Emerald Communion
 		[372048] = {type = 8}, --Oppressing Roar
 		[374227] = {type = 4}, --Zephyr
+		[374251] = {type = 5}, --Cauzerizing Flame
 		[374348] = {type = 2}, --Renewing Blaze
 		[374968] = {type = 5}, --Time Spiral
 		[375087] = {type = 1}, --Dragonrage
@@ -343,9 +349,10 @@ local spellListRetail = {
 		[404977] = {type = 5}, --Time Skip
 	},
 	["GENERAL"] = {
-		[20594]  = {type = 5},
-		[58984]  = {type = 5},
-		[107079] = {type = 5},
+		[20549]  = {type = 5}, --War Stomp
+		[20594]  = {type = 5}, --Stoneform
+		[58984]  = {type = 5}, --Shadowmeld
+		[107079] = {type = 5}, --Quaking Palm
 		[178207] = {type = 1}, --Drums of Fury
 	},
 	["TRINKET"] = {
