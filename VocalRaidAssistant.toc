@@ -30,3 +30,4 @@ TauntList.lua
 SpellCorrections.lua
 Config.lua
 Sound.lua
+Core.lua
