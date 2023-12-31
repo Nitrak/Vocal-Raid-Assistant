@@ -55,26 +55,25 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(event)
 	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
 	destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
 
-	-- Check if we are interested in this event and have configered to watch for own or party member abilities
+	-- Check if we are interested in this event and have configured to watch for own or party member abilities
 	if (not (checkEventType(event) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0))) then
 		return
 	end
 
-	local spellType = nil
+	local checkHandler = nil
 	if event == 'SPELL_CAST_SUCCESS' or (event == 'SPELL_AURA_APPLIED' and sourceGUID == destGUID ) then
 		-- apply spell correction (e.g. hex and polymorh can have different spellIds when glyphed)
 		spellID = addon.spellCorrections[spellID] or spellID
 		-- Check if this is a spellcast or taunt
 		if addon.profile.general.area[instanceType].spells[tostring(spellID)] then
-			spellType = "CAST"
+			checkHandler = spellCheckFunctions["CAST"]
 		elseif addon.tauntList[spellID] then
-			spellType = "TAUNT"
+			checkHandler = spellCheckFunctions["TAUNT"]
 		end
 	elseif event == 'SPELL_INTERRUPT' then
-		spellType = "INTERRUPT"
+		checkHandler = spellCheckFunctions["INTERRUPT"]
 	end
 
-	local checkHandler = spellCheckFunctions[spellType]
 	if checkHandler then
 		checkHandler(instanceType, spellID, destFlags, destGUID)
 	end
