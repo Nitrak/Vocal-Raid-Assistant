@@ -46,9 +46,9 @@ local spellCheckFunctions = {
 	end
 }
 
-function addon:COMBAT_LOG_EVENT_UNFILTERED(event)
+function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 	local _, instanceType = IsInInstance()
-	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType)) or combatPlayCheck(instanceType)) then
+	if (not (cleu_event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType)) or combatPlayCheck(instanceType)) then
 		return
 	end
 
