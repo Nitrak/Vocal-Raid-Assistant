@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.3.9
+- Bump Version to 10.2.5
+
 ## 3.3.8
  - Added Deathmark
  - Added Kingsbane
