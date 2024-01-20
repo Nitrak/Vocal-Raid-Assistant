@@ -6,7 +6,9 @@ battleres;Wiederbelebung
 ### Changed
 
 2894;Feuerelementar
-
+35476;Trommeln
+351355;Trommeln
+381301;Trommeln
 
 ### Not available via API
 

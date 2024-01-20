@@ -353,7 +353,7 @@ local spellListRetail = {
 		[20594]  = {type = 5}, --Stoneform
 		[58984]  = {type = 5}, --Shadowmeld
 		[107079] = {type = 5}, --Quaking Palm
-		[178207] = {type = 1}, --Drums of Fury
+		[381301] = {type = 1}, --Feral Hide Drums
 	},
 	["TRINKET"] = {
 		-- pvp
@@ -504,9 +504,10 @@ local spellListWrath = {
 	},
 	["GENERAL"] = {
 		[20594]	 = {type = 5},
-		[35476]	 = {type = 5}, -- Drums of Fury
+		[35476]	 = {type = 5}, -- Drums of Battle
 		[58984]	 = {type = 5},
 		[59752]	 = {type = 5},
+		[351355] = {type = 5}, -- Greater Drums of Battle
 	},
 	["TRINKET"] = {
 		-- pvp
