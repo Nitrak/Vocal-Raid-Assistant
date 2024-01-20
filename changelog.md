@@ -1,5 +1,12 @@
 # Vocal Raid Assistant
 
+## 3.3.10
+ - Fix Drums
+ - Added Rage of the Sleeper
+ - Added Doom Winds
+ - Added Spatial Paradox
+ - Added Ultimate Penitence
+
 ## 3.3.9
 - Bump Version to 10.2.5
 
