@@ -162,8 +162,7 @@ local spellCorrectionsWrath = {
 	[27239] = 20707, -- Rank 6
 	[47883] = 20707, -- Rank 7
 	--- General
-	-- Drums
-	[351355] = 35476, -- Greater Drums
+	--
 }
 
 -- Classic

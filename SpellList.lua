@@ -78,6 +78,7 @@ local spellListRetail = {
 		[132469] = {type = 8}, --Typhoon
 		[194223] = {type = 1}, --Celestial Alignment
 		[197721] = {type = 4}, --Flourish
+		[200851] = {type = 2}, --Rage of the Sleeper
 		[202770] = {type = 1}, --Fury of Elune
 		[203651] = {type = 3}, --Overgrowth
 		[205636] = {type = 1}, --Force of Nature
@@ -86,6 +87,7 @@ local spellListRetail = {
 		[391888] = {type = 1}, --Adaptive Swarm
 	},
 	["HUNTER"] = {
+		[5384]   = {type = 5}, --Feign Death
 		[19801]  = {type = 5}, --Tranquilizing Shot
 		[19574]  = {type = 1}, --Bestial Wrath
 		[19577]  = {type = 8}, --Intimidation
@@ -223,6 +225,7 @@ local spellListRetail = {
 		[328530] = {type = 1}, --Divine Ascension
 		[372835] = {type = 4}, --Lightwell
 		[375901] = {type = 1}, --Mindgames
+		[421453] = {type = 1}, --Ultimate Penitence
 	},
 	["ROGUE"] = {
 		[1856]   = {type = 1}, --Vanish
@@ -238,6 +241,7 @@ local spellListRetail = {
 		[79140]  = {type = 1}, --Vendetta
 		[114018] = {type = 5}, --Shroud of Concealment
 		[121471] = {type = 1}, --Shadow Blades
+		[137619] = {type = 1}, --Marked for Death
 		[185311] = {type = 2}, --Crimson Vial
 		[199754] = {type = 2}, --Riposte
 		[212182] = {type = 5}, --Smoke Bombe
@@ -264,7 +268,6 @@ local spellListRetail = {
 		[108280] = {type = 4}, --Healing Tide Totem
 		[108281] = {type = 4}, --Ancestral Guidance
 		[114050] = {type = 1}, --Ascendance
-		[137619] = {type = 1}, --Marked for Death
 		[191634] = {type = 1}, --Stormkeeper
 		[192058] = {type = 8}, --Capacitor Totem
 		[192222] = {type = 1}, --Liquid Magna Totem
@@ -278,6 +281,7 @@ local spellListRetail = {
 		[355580] = {type = 5}, --Static Field Totem
 		[375982] = {type = 1}, --Primordial Wave
 		[383013] = {type = 5}, --Poison Cleansing Totem
+		[384352] = {type = 1}, --Doom Winds
 	},
 	["WARLOCK"] = {
 		[1122]   = {type = 1}, --Summon Infernal
@@ -347,13 +351,14 @@ local spellListRetail = {
 		[390386] = {type = 1}, --Fury of the Aspects
 		[403631] = {type = 1}, --Breath of Eons
 		[404977] = {type = 5}, --Time Skip
+		[406732] = {type = 5}, --Spatial Paradox
 	},
 	["GENERAL"] = {
 		[20549]  = {type = 5}, --War Stomp
 		[20594]  = {type = 5}, --Stoneform
 		[58984]  = {type = 5}, --Shadowmeld
 		[107079] = {type = 5}, --Quaking Palm
-		[178207] = {type = 1}, --Drums of Fury
+		[381301] = {type = 1}, --Feral Hide Drums
 	},
 	["TRINKET"] = {
 		-- pvp
@@ -504,9 +509,10 @@ local spellListWrath = {
 	},
 	["GENERAL"] = {
 		[20594]	 = {type = 5},
-		[35476]	 = {type = 5}, -- Drums of Fury
+		[35476]	 = {type = 5}, -- Drums of Battle
 		[58984]	 = {type = 5},
 		[59752]	 = {type = 5},
+		[351355] = {type = 5}, -- Greater Drums of Battle
 	},
 	["TRINKET"] = {
 		-- pvp
