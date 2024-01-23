@@ -33,7 +33,6 @@ if locales[L] then
 end
 
 local pairs = pairs
-local GetTime = GetTime
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
