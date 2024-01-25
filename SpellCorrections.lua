@@ -69,6 +69,8 @@ local spellCorrectionsRetail = {
 	[323673] = 375901,
 	-- Echoing Reprimand
 	[323547] = 385616,
+	-- Havoc Meta
+	[162264] = 191427
 }
 
 -- Wrath

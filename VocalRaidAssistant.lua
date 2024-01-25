@@ -32,9 +32,7 @@ if locales[L] then
 	C_Timer.After(30, function() addon:prettyPrint(msg) end)
 end
 
-local tostring = tostring
 local pairs = pairs
-local GetTime = GetTime
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
@@ -140,48 +138,4 @@ end
 function VRA:OnEnable()
 	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	addon:verifySoundPack()
-end
-
--- ### Core
-local function allowedZone(instanceType)
-	return addon.profile.general.area[instanceType].enabled
-end
-
-local function combatPlayCheck(instanceType)
-	return addon.profile.general.area[instanceType].combatOnly and not UnitAffectingCombat("player")
-end
-
-local function allowedSubEvent(event)
-	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
-end
-
-local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
-local function checkSpellTarget(destFlags, destGUID)
-	return destGUID == '' or (bit.band(destFlags, targetTypePlayer) > 0 and destGUID == UnitGUID("player"))
-end
-
-function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
-	local _, instanceType = IsInInstance()
-	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType))) or combatPlayCheck(instanceType) then
-		return
-	end
-
-	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
-	destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
-
-	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
-		if (event == 'SPELL_CAST_SUCCESS') then
-			-- apply spell correction (e.g. hex and polymorh can have different spellIds when glyphed)
-			spellID = addon.spellCorrections[spellID] or spellID
-			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
-				(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
-				addon:IsSpellSupported(spellID) then
-				self:playSpell(spellID)
-			elseif self.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID] then
-				self:playSpell('taunted')
-			end
-		elseif (event == 'SPELL_INTERRUPT' and self.profile.general.area[instanceType].enableInterrupts) then
-			self:playSpell('countered')
-		end
-	end
 end

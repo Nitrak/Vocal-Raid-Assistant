@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.4.0
+- Refactor spell detection
+
 ## 3.3.10
  - Fix Drums
  - Added Rage of the Sleeper
