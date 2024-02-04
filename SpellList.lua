@@ -356,8 +356,10 @@ local spellListRetail = {
 	["GENERAL"] = {
 		[20549]  = {type = 5}, --War Stomp
 		[20594]  = {type = 5}, --Stoneform
+		[25046]  = {type = 5}, --Arcane Torrent
 		[58984]  = {type = 5}, --Shadowmeld
 		[107079] = {type = 5}, --Quaking Palm
+		[255654] = {type = 5}, --Bull Rush
 		[381301] = {type = 1}, --Feral Hide Drums
 	},
 	["TRINKET"] = {
@@ -508,11 +510,12 @@ local spellListWrath = {
 
 	},
 	["GENERAL"] = {
-		[20594]	 = {type = 5},
-		[35476]	 = {type = 5}, -- Drums of Battle
-		[58984]	 = {type = 5},
-		[59752]	 = {type = 5},
-		[351355] = {type = 5}, -- Greater Drums of Battle
+		[20594]	 = {type = 5}, --Stoneform
+		[25046]  = {type = 5}, --Arcane Torrent
+		[35476]	 = {type = 5}, --Drums of Battle
+		[58984]	 = {type = 5}, --Shadowmeld
+		[59752]	 = {type = 5}, --Will to Survive
+		[351355] = {type = 5}, --Greater Drums of Battle
 	},
 	["TRINKET"] = {
 		-- pvp
