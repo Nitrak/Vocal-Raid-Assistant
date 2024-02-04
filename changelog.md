@@ -5,6 +5,9 @@
 	- Bull Rush
 	- Stoneform
 	- Arcane Torrent
+	- Blast Wave
+	- Dragon's Breath
+	- Upheaval
 
 
 ## 3.4.0
