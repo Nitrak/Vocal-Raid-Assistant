@@ -2,6 +2,7 @@
 countered;Unterbrochen
 taunted;Gespotted
 battleres;Wiederbelebung
+cheatdeath;Cheat Death
 
 ### Changed
 

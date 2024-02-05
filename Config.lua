@@ -596,12 +596,28 @@ local spells = {
 						end
 					end
 				},
+				toggleCheatDeath = {
+					type = "toggle",
+					name = "Cheat Death",
+					desc = "Play sound on cheat death proc",
+					width = 1.05,
+					order = 3,
+					get = function(info)
+						return addon.profile.general.area[info[2]].enableCheatDeath
+					end,
+					set = function(info, val)
+						addon.profile.general.area[info[2]].enableCheatDeath = val
+						if val then
+							addon:playSpell("cheatdeath")
+						end
+					end
+				},
 				toggleCombatOnly = {
 					type = "toggle",
 					name = L["Combat only"],
 					desc = L["Combat only description"],
 					width = 1.05,
-					order = 3,
+					order = 4,
 					get = function(info)
 						return addon.profile.general.area[info[2]].combatOnly
 					end,
