@@ -603,10 +603,10 @@ local spells = {
 					width = 1.05,
 					order = 3,
 					get = function(info)
-						return addon.profile.general.area[info[2]].enableCheatDeath
+						return addon.profile.general.area[info[2]].enableCheatDeaths
 					end,
 					set = function(info, val)
-						addon.profile.general.area[info[2]].enableCheatDeath = val
+						addon.profile.general.area[info[2]].enableCheatDeaths = val
 						if val then
 							addon:playSpell("cheatdeath")
 						end
