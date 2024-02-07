@@ -14,9 +14,10 @@ addon.tauntList = {
 addon.cheatDeathList = {
 	[31230]  = true, -- Cheat Death
 	[86949]  = true, -- Cauterize
-	[114556] = true, -- Purgatory
+	[123981] = true, -- Perdition / Blood DK
 	[209258] = true, -- Last Resort
+	[393879] = true, -- Ardent Defender
 	[404369] = true, -- Defy Fate
 	-- Trinkets
-	-- DotI
+	[417069] = true, --
 }
