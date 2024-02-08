@@ -1,5 +1,15 @@
 # Vocal Raid Assistant
 
+## 3.4.1
+- Added Racial Abilities:
+	- Bull Rush
+	- Stoneform
+	- Arcane Torrent
+	- Blast Wave
+	- Dragon's Breath
+	- Upheaval
+
+
 ## 3.4.0
 - Refactor spell detection
 

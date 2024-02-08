@@ -23,6 +23,15 @@ local spellCorrectionsRetail = {
 	[277787] = 118, -- Tome of Polymorph: Direhorn
 	[277792] = 118, -- Tome of Polymorph: Bumblebee
 	[321395] = 118, -- Polymorph: Maw Rat
+	-- Arcane Torrent (Different SpellID per Class)
+	[28730] = 25046,
+	[50613] = 25046,
+	[69179] = 25046,
+	[80483] = 25046,
+	[129597] = 25046,
+	[155145] = 25046,
+	[202719] = 25046,
+	[232633] = 25046,
 	-- Druid Stampeding Roar
 	[77761] = 106898,
 	-- Ascendance
@@ -163,6 +172,9 @@ local spellCorrectionsWrath = {
 	[20765] = 20707, -- Rank 5
 	[27239] = 20707, -- Rank 6
 	[47883] = 20707, -- Rank 7
+	-- Arcane Torrent (Different SpellID per Class / Power Type)
+	[28730] = 25046,
+	[50613] = 25046
 	--- General
 	--
 }

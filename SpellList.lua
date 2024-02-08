@@ -119,11 +119,13 @@ local spellListRetail = {
 		[12051]  = {type = 1}, --Evocation
 		[12472]  = {type = 1}, --Icy Veins
 		[45438]  = {type = 2}, --Ice Block
+		[31661]  = {type = 8}, --Dragon's Breath
 		[55342]  = {type = 2}, --Mirror Image
 		[80353]  = {type = 1}, --Time Warp
 		[86949]  = {type = 2}, --Cauterize
 		[110960] = {type = 2}, --Greater Invisibility | 110959
 		[113724] = {type = 8}, --Ring of Frost
+		[157981] = {type = 8}, --Blast Wave
 		[190319] = {type = 1}, --Combustion
 		[205021] = {type = 1}, --Ray of Frost
 		[235219] = {type = 2}, --Cold Snap
@@ -349,6 +351,7 @@ local spellListRetail = {
 		[374968] = {type = 5}, --Time Spiral
 		[375087] = {type = 1}, --Dragonrage
 		[390386] = {type = 1}, --Fury of the Aspects
+		[396286] = {type = 8}, --Upheaval
 		[403631] = {type = 1}, --Breath of Eons
 		[404977] = {type = 5}, --Time Skip
 		[406732] = {type = 5}, --Spatial Paradox
@@ -356,8 +359,10 @@ local spellListRetail = {
 	["GENERAL"] = {
 		[20549]  = {type = 5}, --War Stomp
 		[20594]  = {type = 5}, --Stoneform
+		[25046]  = {type = 5}, --Arcane Torrent
 		[58984]  = {type = 5}, --Shadowmeld
 		[107079] = {type = 5}, --Quaking Palm
+		[255654] = {type = 5}, --Bull Rush
 		[381301] = {type = 1}, --Feral Hide Drums
 	},
 	["TRINKET"] = {
@@ -508,11 +513,12 @@ local spellListWrath = {
 
 	},
 	["GENERAL"] = {
-		[20594]	 = {type = 5},
-		[35476]	 = {type = 5}, -- Drums of Battle
-		[58984]	 = {type = 5},
-		[59752]	 = {type = 5},
-		[351355] = {type = 5}, -- Greater Drums of Battle
+		[20594]	 = {type = 5}, --Stoneform
+		[25046]  = {type = 5}, --Arcane Torrent
+		[35476]	 = {type = 5}, --Drums of Battle
+		[58984]	 = {type = 5}, --Shadowmeld
+		[59752]	 = {type = 5}, --Will to Survive
+		[351355] = {type = 5}, --Greater Drums of Battle
 	},
 	["TRINKET"] = {
 		-- pvp
