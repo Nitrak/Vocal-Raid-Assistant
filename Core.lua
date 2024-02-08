@@ -29,8 +29,8 @@ local function checkSpellTarget(destFlags, destGUID)
 end
 
 local spellCheckFunctions = {
-	["CAST"] = function(_, spellID, destFlags, destGUID)
-		if not addon.profile.general.onlySelf or (addon.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID)) and addon:IsSpellSupported(spellID) then
+	["CAST"] = function(instanceType, spellID, destFlags, destGUID)
+		if not addon.profile.general.area[instanceType].onlySelf or (addon.profile.general.area[instanceType].onlySelf and checkSpellTarget(destFlags, destGUID)) and addon:IsSpellSupported(spellID) then
 			addon:playSpell(spellID)
 		end
 	end,
