@@ -33,6 +33,7 @@ battleres;Wiederbelebung
 152277;Verheerer
 194407;Speiende Kobra
 199754;Riposte
+200166;Metamorphose
 205191;Auge um Auge
 221703;Beschwörungskreis
 262228;Tödliche Gelassenheit

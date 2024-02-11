@@ -89,6 +89,7 @@ battleres;battleres
 152277;Ravager
 194407;Spitting Cobra
 199754;Riposte
+200166;Metamorphosis
 205191;Eye for an Eye
 221703;Casting Circle
 262228;Deadly Calm
