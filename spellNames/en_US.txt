@@ -65,6 +65,7 @@ battleres;battleres
 383013;Poison Cleansing
 388686;White Tiger Statue
 391528;Convoke
+422083;Seedling
 
 
 ### Not available via API

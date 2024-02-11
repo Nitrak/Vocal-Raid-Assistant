@@ -373,6 +373,7 @@ local spellListRetail = {
 		-- [345228] = {type = "pvptrinket"}, -- Sinful Gladiator's Badge of Ferocity 175921
 		-- [345231] = {type = "pvptrinket"}, -- Sinful Gladiator's Emblem 178447
 		-- pve
+		[422083] = {type = 5}
 		-- [329840] = {type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
 		-- [344907] = {type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
 		-- [345801] = {type = "trinket-defensive"}, -- Soulletting Ruby 178809
