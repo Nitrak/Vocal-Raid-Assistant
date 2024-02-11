@@ -17,7 +17,7 @@ end
 local function checkEventType(event)
 	local allowedSubEvents = {
 		["SPELL_CAST_SUCCESS"] = true,
-		["SPELL_AURA_APPLIED"] = true,
+		--["SPELL_AURA_APPLIED"] = true,
 		["SPELL_INTERRUPT"] = true,
 	}
 	return allowedSubEvents[event] or false
@@ -61,7 +61,7 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 	end
 
 	local checkHandler = nil
-	if event == 'SPELL_CAST_SUCCESS' or (event == 'SPELL_AURA_APPLIED' and sourceGUID == destGUID ) then
+	if event == 'SPELL_CAST_SUCCESS' then
 		-- apply spell correction (e.g. hex and polymorh can have different spellIds when glyphed)
 		spellID = addon.spellCorrections[spellID] or spellID
 		-- Check if this is a spellcast or taunt

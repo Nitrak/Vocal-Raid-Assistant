@@ -78,8 +78,12 @@ local spellCorrectionsRetail = {
 	[323673] = 375901,
 	-- Echoing Reprimand
 	[323547] = 385616,
-	-- Havoc Meta
-	[162264] = 191427
+}
+
+local spellIconCorrections = {
+	-- These are icon ids!
+	-- Vengeance DH Meta
+	[135860] = 1247263
 }
 
 -- Wrath
@@ -258,6 +262,7 @@ local spellCorrectionsClassic = {
 }
 
 addon.spellCorrections = spellCorrectionsRetail
+addon.spellIconCorrections = spellIconCorrections
 
 --[===[@non-version-retail@
 spellCorrectionsRetail = nil
