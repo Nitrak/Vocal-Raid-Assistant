@@ -1,5 +1,5 @@
 local addonName, addon = ...
-addon.version = GetAddOnMetadata(addonName, "Version")
+addon.version = C_AddOns.GetAddOnMetadata(addonName, "Version")
 
 VRA = LibStub("AceAddon-3.0"):NewAddon(addon, addonName, "AceConsole-3.0", "AceEvent-3.0")
 VRA.L = LibStub("AceLocale-3.0"):GetLocale(addonName)
@@ -65,26 +65,25 @@ function VRA:InitializeOptions()
 end
 
 local function ConfigCleanup(db)
-	if (db.profiles.version == addon.DATABASE_VERSION) then
-		return
-	end
-	for k, v in pairs(db.profiles) do
-		if v['version'] == nil or v['version'] ~= addon.DATABASE_VERSION then
-			for key, _ in pairs(v) do
+
+	for profileKey, profile in pairs(db.profiles) do
+		if profile['version'] == nil or profile['version'] ~= addon.DATABASE_VERSION then
+			-- Remove invalid keys
+			for key, _ in pairs(profile) do
 				if addon.DEFAULTS.profile[key] == nil then
-					v[key] = nil
+					profile[key] = nil
 				end
 			end
-			v.version = addon.DATABASE_VERSION
-		end
-	end
-	for zone, _ in pairs(addon.ZONES) do
-		for spellID, _ in pairs(addon.GetAllSpellIds()) do
-			-- remove invalid spells in config
-			if addon:IsSpellSupported(spellID) == nil then
-				db.profiles.general.area[zone].spells[tostring(spellID)] = nil
-				addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
+			-- Remove invalid spells
+			for zone, _ in pairs(addon.ZONES) do
+				for spellID, _ in pairs(profile.general.area[zone].spells) do
+					if not addon:IsSpellSupported(tonumber(spellID)) then
+						profile.general.area[zone].spells[spellID] = nil
+						addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
+					end
+				end
 			end
+			profile.version = addon.DATABASE_VERSION
 		end
 	end
 end
@@ -127,11 +126,18 @@ function VRA:ChangeProfile()
 	self.profile = self.db.profile
 end
 
-function VRA:ChatCommand()
-	if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
-		self.ACD:Close("VocalRaidAssistantConfig")
-	else
-		self.ACD:Open("VocalRaidAssistantConfig")
+function VRA:ChatCommand(msg)
+	if (msg == "") then
+		if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
+			self.ACD:Close("VocalRaidAssistantConfig")
+		else
+			self.ACD:Open("VocalRaidAssistantConfig")
+		end
+	elseif (msg == "debug") then
+		local _, instanceType = IsInInstance()
+		for spellID, _ in pairs(self.profile.general.area[instanceType].spells) do
+			print(instanceType, spellID, addon:IsSpellSupported(tonumber(spellID)))
+		end
 	end
 end
 

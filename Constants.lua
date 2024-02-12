@@ -1,59 +1,95 @@
 local _, addon = ...
 local L = addon.L
 
-local defaultSpells = {
-	["217832"] = true,
-	["2825"] = true,
-	["323673"] = true,
-	["111771"] = true,
-	["32182"] = true,
-	["16191"] = true,
-	["1022"] = true,
-	["322109"] = true,
-	["116849"] = true,
-	["326860"] = true,
-	["109964"] = true,
-	["871"] = true,
-	["12975"] = true,
-	["64843"] = true,
-	["115310"] = true,
-	["49576"] = true,
-	["98008"] = true,
-	["178207"] = true,
-	["2094"] = true,
-	["324386"] = true,
-	["310454"] = true,
-	["106898"] = true,
-	["246287"] = false,
-	["48707"] = true,
-	["196718"] = true,
-	["328231"] = true,
-	["193530"] = true,
+local defaultSpellsRetail = {
 	["118"] = true,
-	["320674"] = true,
-	["61336"] = true,
-	["325013"] = true,
-	["190319"] = true,
-	["86949"] = true,
-	["62618"] = true,
-	["31821"] = true,
-	["13750"] = true,
-	["23920"] = true,
-	["102342"] = true,
-	["33206"] = true,
-	["323764"] = true,
-	["740"] = true,
-	["108280"] = true,
 	["642"] = true,
-	["114052"] = true,
-	["64901"] = true,
-	["30283"] = false,
-	["115078"] = true,
+	["740"] = true,
+	["871"] = true,
+	["1022"] = true,
+	["2094"] = true,
+	["2825"] = true,
+	["12975"] = true,
+	["13750"] = true,
+	["16191"] = true,
+	["23920"] = true,
+	["31821"] = true,
+	["33206"] = true,
+	["48707"] = true,
 	["51052"] = true,
-	["316958"] = true
+	["61336"] = true,
+	["62618"] = true,
+	["64843"] = true,
+	["64901"] = true,
+	["86949"] = true,
+	["98008"] = true,
+	["102342"] = true,
+	["106898"] = true,
+	["108280"] = true,
+	["109964"] = true,
+	["111771"] = true,
+	["115078"] = true,
+	["115310"] = true,
+	["116849"] = true,
+	["190319"] = true,
+	["193530"] = true,
+	["196718"] = true,
+	["217832"] = true,
+	["322109"] = true,
 }
 
-addon.DATABASE_VERSION = 4
+local defaultSpellsWrath = {
+	["118"] = true,
+	["642"] = true,
+	["740"] = true,
+	["871"] = true,
+	["1022"] = true,
+	["2094"] = true,
+	["2825"] = true,
+	["12975"] = true,
+	["13750"] = true,
+	["16191"] = true,
+	["23920"] = true,
+	["31821"] = true,
+	["33206"] = true,
+	["48707"] = true,
+	["51052"] = true,
+	["61336"] = true,
+	["64843"] = true,
+	["64901"] = true,
+}
+
+local defaultSpellsClassic = {
+	["118"] = true,
+	["642"] = true,
+	["740"] = true,
+	["871"] = true,
+	["1022"] = true,
+	["2094"] = true,
+	["12975"] = true,
+	["13750"] = true,
+	["16191"] = true,
+	["23920"] = true,
+}
+
+local defaultSpells = defaultSpellsRetail
+
+--[===[@non-version-retail@
+defaultSpellsRetail = nil
+
+--@version-classic@
+defaultSpells = defaultSpellsClassic
+spellListWrath = nil
+--@end-version-classic@
+
+--@version-wrath@
+defaultSpells = defaultSpellsWrath
+spellListClassic = nil
+--@end-version-wrath@
+
+--@end-non-version-retail@]===]
+
+addon.DATABASE_VERSION = 5
 
 addon.DEFAULT_SPELLS = defaultSpells
 

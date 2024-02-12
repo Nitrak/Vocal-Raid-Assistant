@@ -1,5 +1,11 @@
 # Vocal Raid Assistant
 
+## 3.4.2
+- Fix config cleanup routine
+- Fix DH Meta
+- Replace deprecated API calls
+- Refactor default spells for Wrath / Classic
+
 ## 3.4.1
 - Added Racial Abilities:
 	- Bull Rush
