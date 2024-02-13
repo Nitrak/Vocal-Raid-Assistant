@@ -76,10 +76,12 @@ local function ConfigCleanup(db)
 			end
 			-- Remove invalid spells
 			for zone, _ in pairs(addon.ZONES) do
-				for spellID, _ in pairs(profile.general.area[zone].spells) do
-					if not addon:IsSpellSupported(tonumber(spellID)) then
-						profile.general.area[zone].spells[spellID] = nil
-						addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
+				if profile.general and profile.general.area[zone] and profile.general.area[zone].spells then
+					for spellID, _ in pairs(profile.general.area[zone].spells) do
+						if not addon:IsSpellSupported(tonumber(spellID)) then
+							profile.general.area[zone].spells[spellID] = nil
+							addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
+						end
 					end
 				end
 			end

@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.4.3
+- Fixed a bug that could cause the profile to be reset
+
 ## 3.4.2
 - Fix config cleanup routine
 - Fix DH Meta
