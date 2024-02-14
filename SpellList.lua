@@ -591,6 +591,7 @@ local spellListClassic = {
 		[12975]	 = {type = 2},
 		[18499]	 = {type = 1}, --Berserker Rage
 		[20230]	 = {type = 1},
+		[23920]  = {type = 2},
 	},
 	["GENERAL"] = {
 		[20580]	 = {type = 5},
