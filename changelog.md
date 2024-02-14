@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 3.4.4
+- Fix addon not loading in Wrath
+- Add missing Spell Reflect (Classic)
+
 ## 3.4.3
 - Fixed a bug that could cause the profile to be reset
 

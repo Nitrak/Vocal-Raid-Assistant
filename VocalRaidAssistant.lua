@@ -1,5 +1,6 @@
 local addonName, addon = ...
-addon.version = C_AddOns.GetAddOnMetadata(addonName, "Version")
+local getAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
+addon.version = getAddOnMetadata(addonName, "Version")
 
 VRA = LibStub("AceAddon-3.0"):NewAddon(addon, addonName, "AceConsole-3.0", "AceEvent-3.0")
 VRA.L = LibStub("AceLocale-3.0"):GetLocale(addonName)

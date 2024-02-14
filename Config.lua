@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local getAddOnInfo = C_AddOns and C_AddOns.GetAddOnInfo or GetAddOnInfo
 local L = VRA.L
 
 local tostring = tostring
@@ -404,7 +405,7 @@ do
 	local order = 1
 
 	for k, v in pairs(officialSoundPacks) do
-		local isHidden = select(4, C_AddOns.GetAddOnInfo(v.name)) -- name, title, notes, enabled, loadable, reason, security
+		local isHidden = select(4, getAddOnInfo(v.name)) -- name, title, notes, enabled, loadable, reason, security
 		local link = {
 			type = "input",
 			name = v.displayName,
