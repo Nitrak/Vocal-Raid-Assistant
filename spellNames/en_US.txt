@@ -71,6 +71,7 @@ battleres;battleres
 ### Not available via API
 
 724;Lightwell
+1714;Curse of Tongues
 23989;Readiness
 44572;Deep Freeze
 46924;Bladestorm
