@@ -1,5 +1,13 @@
 # Vocal Raid Assistant
 
+## 3.4.5
+- Fix broken minimap button
+- Added Dragon's Breath (WotlK)
+- Added Curse of Weakness
+- Added Curse of Tongues
+- Added Storm Bolt
+- Added Smoldering Seedling
+
 ## 3.4.4
 - Fix addon not loading in Wrath
 - Add missing Spell Reflect (Classic)

@@ -6,7 +6,7 @@
 ## Dependencies: VocalRaidAssistant
 ## Author: The VRA Team
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\VOICECHAT-SPEAKER.blp
-## Version: 3.4.4
+## Version: 3.4.5
 
 VRA_EN_Julie.lua
 

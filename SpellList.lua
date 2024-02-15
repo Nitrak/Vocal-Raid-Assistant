@@ -119,7 +119,7 @@ local spellListRetail = {
 		[12051]  = {type = 1}, --Evocation
 		[12472]  = {type = 1}, --Icy Veins
 		[45438]  = {type = 2}, --Ice Block
-		[31661]  = {type = 8}, --Dragon's Breath
+		[31661]  = {type = 1}, --Dragon's Breath
 		[55342]  = {type = 2}, --Mirror Image
 		[80353]  = {type = 1}, --Time Warp
 		[86949]  = {type = 2}, --Cauterize
@@ -286,6 +286,8 @@ local spellListRetail = {
 		[384352] = {type = 1}, --Doom Winds
 	},
 	["WARLOCK"] = {
+		[702]	 = {type = 1}, --Curse of Weakness
+		[1714]   = {type = 1}, --Curse of Tongues
 		[1122]   = {type = 1}, --Summon Infernal
 		[5484]   = {type = 8}, --Howl of Terror
 		[29893]  = {type = 5}, --Soulwell
@@ -317,6 +319,7 @@ local spellListRetail = {
 		[46968]  = {type = 5}, --Shockwave
 		[64382]  = {type = 1}, --Shattering Throw
 		[97462]  = {type = 4}, --Rallying Cry
+		[107570] = {type = 1}, --Storm Bolt
 		[107574] = {type = 1}, --Avatar
 		[118038] = {type = 2}, --Die by the Sword
 		[152277] = {type = 1}, --Ravager
@@ -373,6 +376,7 @@ local spellListRetail = {
 		-- [345228] = {type = "pvptrinket"}, -- Sinful Gladiator's Badge of Ferocity 175921
 		-- [345231] = {type = "pvptrinket"}, -- Sinful Gladiator's Emblem 178447
 		-- pve
+		[422083] = {type = 5}
 		-- [329840] = {type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
 		-- [344907] = {type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
 		-- [345801] = {type = "trinket-defensive"}, -- Soulletting Ruby 178809
@@ -431,6 +435,7 @@ local spellListWrath = {
 		[12042]  = {type = 1},
 		[12051]  = {type = 1}, --Evocation
 		[12472]  = {type = 1},
+		[31661]  = {type = 1}, --Dragon's Breath
 		[45438]  = {type = 5},
 		[44572]  = {type = 8},
 		[55342]  = {type = 1},

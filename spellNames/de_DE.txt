@@ -13,6 +13,7 @@ battleres;Wiederbelebung
 ### Not available via API
 
 724;Brunnen des Lichts
+1714;Fluch der Sprachen
 23989;Bereitschaft
 44572;Tieffrieren
 46924;Klingensturm
