@@ -130,16 +130,16 @@ function VRA:ChangeProfile()
 end
 
 function VRA:ChatCommand(msg)
-	if (msg == "") then
+	if (msg == "debug") then
+		local _, instanceType = IsInInstance()
+		for spellID, _ in pairs(self.profile.general.area[instanceType].spells) do
+			print(instanceType, spellID, addon:IsSpellSupported(tonumber(spellID)))
+		end
+	else
 		if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
 			self.ACD:Close("VocalRaidAssistantConfig")
 		else
 			self.ACD:Open("VocalRaidAssistantConfig")
-		end
-	elseif (msg == "debug") then
-		local _, instanceType = IsInInstance()
-		for spellID, _ in pairs(self.profile.general.area[instanceType].spells) do
-			print(instanceType, spellID, addon:IsSpellSupported(tonumber(spellID)))
 		end
 	end
 end
