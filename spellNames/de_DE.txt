@@ -11,7 +11,11 @@ cheatdeath;Cheat Death
 351355;Trommeln
 381301;Trommeln
 
-### Not available via API
+### Changed cheat death
+87024;Kauterisieren
+116888;Fegefeuer
+
+### Not available via Spell API
 
 724;Brunnen des Lichts
 1714;Fluch der Sprachen

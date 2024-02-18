@@ -17,7 +17,7 @@ local spellListRetail = {
 		[55233]  = {type = 2}, --Vampiric Blood
 		[61999]  = {type = 5}, --Raise Ally
 		[108199] = {type = 5}, --Gorefiend's Grasp
-		[114556] = {type = 2}, --Purgatory
+		--[114556] = {type = 2}, --Purgatory
 		[152279] = {type = 1}, --Breath of Sindragosa
 		[207167] = {type = 8}, --Blinding Sleet
 		[207289] = {type = 1}, --Unholy Assault
@@ -122,7 +122,7 @@ local spellListRetail = {
 		[31661]  = {type = 1}, --Dragon's Breath
 		[55342]  = {type = 2}, --Mirror Image
 		[80353]  = {type = 1}, --Time Warp
-		[86949]  = {type = 2}, --Cauterize
+		--[86949]  = {type = 2}, --Cauterize
 		[110960] = {type = 2}, --Greater Invisibility | 110959
 		[113724] = {type = 8}, --Ring of Frost
 		[157981] = {type = 8}, --Blast Wave

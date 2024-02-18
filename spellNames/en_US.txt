@@ -2,7 +2,6 @@
 countered;countered
 taunted;taunted
 battleres;battleres
-cheatdeath;cheat death
 
 ### Changed
 
@@ -68,8 +67,11 @@ cheatdeath;cheat death
 391528;Convoke
 422083;Seedling
 
+### Changed cheat death
+87024;Cauterize
+116888;Purgatory
 
-### Not available via API
+### Not available via Spell API
 
 724;Lightwell
 1714;Curse of Tongues

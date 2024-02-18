@@ -17,7 +17,7 @@ end
 local function checkEventType(event)
 	local allowedSubEvents = {
 		["SPELL_CAST_SUCCESS"] = true,
-		--["SPELL_AURA_APPLIED"] = true,
+		["SPELL_AURA_APPLIED"] = true,
 		["SPELL_INTERRUPT"] = true,
 	}
 	return allowedSubEvents[event] or false
@@ -44,8 +44,9 @@ local spellCheckFunctions = {
 			addon:playSpell('countered')
 		end
 	end,
-	["CHEATDEATH"] = function(instanceType)
-		if addon.profile.general.area[instanceType].enableCheatDeaths then
+	["AURA_APPLICATION"] = function(instanceType, spellID)
+		-- We only watch for aura applications of cheat death debuffs
+		if addon.cheatDeathList[spellID] and addon.profile.general.area[instanceType].enableCheatDeaths then
 			addon:playSpell('cheatdeath')
 		end
 	end
@@ -74,9 +75,9 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 			checkHandler = spellCheckFunctions["CAST"]
 		elseif addon.tauntList[spellID] then
 			checkHandler = spellCheckFunctions["TAUNT"]
-		elseif addon.cheatDeathList[spellID] then
-			checkHandler = spellCheckFunctions["CHEATDEATH"]
 		end
+	elseif event == 'SPELL_AURA_APPLIED' then
+		checkHandler = spellCheckFunctions["AURA_APPLICATION"]
 	elseif event == 'SPELL_INTERRUPT' then
 		checkHandler = spellCheckFunctions["INTERRUPT"]
 	end
