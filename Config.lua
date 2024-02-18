@@ -607,9 +607,6 @@ local spells = {
 					end,
 					set = function(info, val)
 						addon.profile.general.area[info[2]].enableCheatDeaths = val
-						if val then
-							addon:playSpell("cheatdeath")
-						end
 					end
 				},
 				toggleCombatOnly = {
