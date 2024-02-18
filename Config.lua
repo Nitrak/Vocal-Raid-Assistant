@@ -598,8 +598,8 @@ local spells = {
 				},
 				toggleCheatDeath = {
 					type = "toggle",
-					name = "Cheat Death",
-					desc = "Play sound on cheat death proc",
+					name = L["Cheat Death"],
+					desc = L["Play sound on Cheat Death abilities"],
 					width = 1.05,
 					order = 3,
 					get = function(info)
