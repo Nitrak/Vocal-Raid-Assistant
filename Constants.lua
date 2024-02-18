@@ -21,7 +21,6 @@ local defaultSpellsRetail = {
 	["62618"] = true,
 	["64843"] = true,
 	["64901"] = true,
-	["86949"] = true,
 	["98008"] = true,
 	["102342"] = true,
 	["106898"] = true,

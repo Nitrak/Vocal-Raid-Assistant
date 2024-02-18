@@ -12,8 +12,12 @@ cheatdeath;Cheat Death
 381301;Trommeln
 
 ### Changed cheat death
+45181;Von der Schippe gesprungen
 87024;Kauterisieren
 116888;Fegefeuer
+209261;Verzweiflungstat
+404369;Trotz dem Schicksal
+417069;Prophetische Steinschuppe
 
 ### Not available via Spell API
 
