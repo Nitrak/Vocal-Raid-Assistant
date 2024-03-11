@@ -47,7 +47,7 @@ local spellCheckFunctions = {
 	["AURA_APPLICATION"] = function(instanceType, spellID)
 		-- We only watch for aura applications of cheat death debuffs
 		if addon.cheatDeathList[spellID] and addon.profile.general.area[instanceType].enableCheatDeaths then
-			addon:playSpell('cheatdeath')
+			addon:playSpell(spellID)
 		end
 	end
 }
