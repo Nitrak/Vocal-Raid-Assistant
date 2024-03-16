@@ -109,7 +109,7 @@ function VRA:OnInitialize()
 	if (self:IsRetail()) then
 		AddonCompartmentFrame:RegisterAddon({
 			text = addonName,
-			icon = "Interface\\COMMON\\VoiceChat-Speaker",
+			icon = "Interface\\AddOns\\VocalRaidAssistant\\Media\\icon",
 			func = function() VRA:ChatCommand() end,
 			registerForAnyClick = true,
 			notCheckable = true,
