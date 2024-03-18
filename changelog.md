@@ -1,5 +1,12 @@
 # Vocal Raid Assistant
 
+## 3.5.0
+
+- Add Cheat Death Sounds
+- Implement new logo
+- Update Addon description
+
+
 ## 3.4.5
 - Fix broken minimap button
 - Added Dragon's Breath (WotlK)
