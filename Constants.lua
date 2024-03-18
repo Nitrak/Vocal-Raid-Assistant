@@ -203,8 +203,8 @@ addon.CATEGORY = {
 
 addon.ICONCONFIG = {
 	type = "launcher",
-	icon = "Interface\\COMMON\\VoiceChat-Speaker",
-	iconCoords = { -0.45, 1, -0.05, 1 },
+	icon = "Interface\\AddOns\\VocalRaidAssistant\\Media\\icon",
+	--iconCoords = { -0.45, 1, -0.05, 1 },
 	OnClick = function(clickedframe, button)
 		addon:ChatCommand()
 	end,
