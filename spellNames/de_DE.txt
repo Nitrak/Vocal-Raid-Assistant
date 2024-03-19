@@ -47,5 +47,7 @@ cheatdeath;Cheat Death
 199754;Riposte
 200166;Metamorphose
 205191;Auge um Auge
+207349;Dunkle Richterin
 221703;Beschwörungskreis
 262228;Tödliche Gelassenheit
+345229;Insigne des Gladiators
