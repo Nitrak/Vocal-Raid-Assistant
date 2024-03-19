@@ -1,4 +1,4 @@
-## Interface: 100205
+## Interface: 100206
 ## Interface-Wrath: 30403
 ## Interface-Classic: 11501
 ## Title: VRA_EN_Julie
@@ -6,7 +6,7 @@
 ## Dependencies: VocalRaidAssistant
 ## Author: The VRA Team
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\VOICECHAT-SPEAKER.blp
-## Version: 3.4.5
+## Version: 3.4.6
 
 VRA_EN_Julie.lua
 
