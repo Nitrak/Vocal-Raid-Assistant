@@ -86,6 +86,13 @@ local spellIconCorrections = {
 	[135860] = 1247263
 }
 
+local spellNameCorrections = {
+	[115203] = true,
+	[243435] = true,
+	[422083] = true,
+	[422750] = true
+}
+
 -- Wrath
 local spellCorrectionsWrath = {
 	--- Druid
@@ -263,6 +270,7 @@ local spellCorrectionsClassic = {
 
 addon.spellCorrections = spellCorrectionsRetail
 addon.spellIconCorrections = spellIconCorrections
+addon.spellNameCorrections = spellNameCorrections
 
 --[===[@non-version-retail@
 spellCorrectionsRetail = nil

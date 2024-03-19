@@ -66,6 +66,7 @@ battleres;battleres
 388686;White Tiger Statue
 391528;Convoke
 422083;Seedling
+422750;Tainted Rageheart
 
 ### Changed cheat death
 45181;Cheat Death

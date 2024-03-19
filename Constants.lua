@@ -179,26 +179,10 @@ addon.CATEGORY = {
 	[6] = L["Interrupt"],
 	-- [7] is not used
 	[8] = L["CC"],
+	-- VRA
+	[11] = L["PvE Trinket"],
+	[12] = L["PvP Trinket"],
 	[99] = L["Covenant"]
-
-
-	-- ["pvptrinket"] = L["PvP Trinket"],
-	-- ["racial"] = L["Racial Traits"],
-	-- ["trinket-defensive"] = L["Defensive"] .. " " .. INVTYPE_TRINKET,
-	-- ["trinket-offensive"] = L["Offensive"] .. " " .. INVTYPE_TRINKET,
-	-- ["covenant"] = L["Covenant"],
-	-- ["interrupt"] = LOC_TYPE_INTERRUPT,
-	-- ["dispel"] = DISPELS,
-	-- ["cc"] = L["Crowd Control"],
-	-- ["disarm"] = format("%s, %s, %s", LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
-	-- ["immunity"] = L["Immunity"],
-	-- ["externalDefensive"] = L["External Defensive"],
-	-- ["defensive"] = L["Defensive"],
-	-- ["raidDefensive"] = L["Raid Defensive"],
-
-	-- ["counterCC"] = L["Counter CC"],
-	-- ["raidMovement"] = L["Raid Movement"],
-	-- ["other"] = OTHER
 }
 
 addon.ICONCONFIG = {

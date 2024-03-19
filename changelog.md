@@ -1,5 +1,13 @@
 # Vocal Raid Assistant
 
+## 3.5.0
+- Added ability to play a sound on cheat death
+- Added Dark Arbiter
+- Added Cyclone
+- Added Tainted Rageheart
+- Added PvP Trinkets
+- Added spell name changes (e.g. Fort Brew - Mistweaver, Fort Brew - Brewmaster)
+
 ## 3.4.5
 - Fix broken minimap button
 - Added Dragon's Breath (WotlK)
@@ -23,12 +31,12 @@
 
 ## 3.4.1
 - Added Racial Abilities:
-	- Bull Rush
-	- Stoneform
-	- Arcane Torrent
-	- Blast Wave
-	- Dragon's Breath
-	- Upheaval
+- Bull Rush
+- Stoneform
+- Arcane Torrent
+- Blast Wave
+- Dragon's Breath
+- Upheaval
 
 
 ## 3.4.0
