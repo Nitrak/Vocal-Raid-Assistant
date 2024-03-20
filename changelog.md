@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.4.6
+- Bump Version to 10.2.6
+
 ## 3.4.5
 - Fix broken minimap button
 - Added Dragon's Breath (WotlK)
