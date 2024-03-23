@@ -1,6 +1,6 @@
 local addonName, addon = ...
 local getAddOnInfo = C_AddOns and C_AddOns.GetAddOnInfo or GetAddOnInfo
-local L = VRA.L
+local L = addon.L
 
 local tostring = tostring
 local pairs = pairs
@@ -49,6 +49,7 @@ local function spellOption(spellID)
 	local spellname, _, icon = GetSpellInfo(spellID)
 	local description = GetSpellDescription(spellID)
 	icon = addon.spellIconCorrections[icon] or icon
+	spellname = addon.spellNameCorrections[spellID] and L[spellID] or spellname
 	if (spellname ~= nil) then
 		return {
 			type = 'toggle',

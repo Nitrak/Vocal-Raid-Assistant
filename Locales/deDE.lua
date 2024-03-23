@@ -58,7 +58,8 @@ L["Party member abilities"] = "Fähigkeiten meiner Gruppenmitglieder"
 L["Play sound on Cheat Death abilities"] = "Spiele Sound bei Cheat Death Fähigkeiten"
 L["Play sound on interrupts"] = "Spiele Sound bei Unterbrechungen"
 L["Play sound on taunts"] = "Spiele Sound bei Spott"
---L["PvP Trinket"] = "PvP Trinket"
+L["PvE Trinket"] = "PvE Trinket"
+L["PvP Trinket"] = "PvP Trinket"
 L["Racial Traits"] = "Rassenfähigkeiten"
 --L["Raid Defensive"] = "Raid Defensive"
 --L["Raid Movement"] = "Movement"
@@ -79,3 +80,11 @@ L["Voice"] = "Stimme"
 L["Volume"] = "Lautstärke"
 L["VRA should alert you for"] = "VRA soll Sounds abspielen für:"
 --L["VRANAME"] = "Vocal Raid Assistant"
+
+--- Spell Name Overrides
+-- Monk
+L[115203] = "Stärkendes Gebräu - MW/WW"
+L[243435] = "Stärkendes Gebräu - BM"
+-- Trinkets
+L[422083] = "Setzling"
+L[422750] = "Fyrakks besudeltes Zornesherz"

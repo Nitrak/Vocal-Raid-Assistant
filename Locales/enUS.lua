@@ -58,6 +58,7 @@ L["Party member abilities"] = "Party member abilities"
 L["Play sound on Cheat Death abilities"] = "Play sound on Cheat Death abilities"
 L["Play sound on interrupts"] = "Play sound on interrupts"
 L["Play sound on taunts"] = "Play sound on taunts"
+L["PvE Trinket"] = "PvE Trinket"
 L["PvP Trinket"] = "PvP Trinket"
 L["Racial Traits"] = "Racial Traits"
 L["Raid Defensive"] = "Raid Defensive"
@@ -79,3 +80,11 @@ L["Voice"] = "Voice"
 L["Volume"] = "Volume"
 L["VRA should alert you for"] = "VRA should alert you for"
 L["VRANAME"] = "Vocal Raid Assistant"
+
+--- Spell Name Overrides
+-- Monk
+L[115203] = "Fortifying Brew - MW/WW"
+L[243435] = "Fortifying Brew - BM"
+-- Trinkets
+L[422083] = "Seedling"
+L[422750] = "Fyrakk's Tainted Rageheart"

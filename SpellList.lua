@@ -20,6 +20,7 @@ local spellListRetail = {
 		[152279] = {type = 1}, --Breath of Sindragosa
 		[207167] = {type = 8}, --Blinding Sleet
 		[207289] = {type = 1}, --Unholy Assault
+		[207349] = {type = 1}, --Dark Arbiter
 		[212552] = {type = 2}, --Wraith Walk
 		[219809] = {type = 2}, --Tombstone
 		[221562] = {type = 8}, --Asphyxiate
@@ -62,6 +63,7 @@ local spellListRetail = {
 		[20484]  = {type = 5}, --Rebirth
 		[22812]  = {type = 2}, --Barkskin
 		[29166]  = {type = 5}, --Innervate
+		[33786]  = {type = 5}, --Cyclone
 		[33891]  = {type = 4}, --Incarnation: Tree of Life
 		[61336]  = {type = 2}, --Survival Instincts
 		[102342] = {type = 3}, --Ironbark
@@ -366,18 +368,15 @@ local spellListRetail = {
 	},
 	["TRINKET"] = {
 		-- pvp
-		-- [196029] = {type = "pvptrinket"}, -- Sinful Gladiator's Relentless Brooch 181335
-		-- [336135] = {type = "pvptrinket"}, -- Sinful Gladiator's Sigil of Adaptation	181816
-		-- [336126] = {type = "pvptrinket"}, -- Sinful Gladiator's Medallion 181333
-		-- [345228] = {type = "pvptrinket"}, -- Sinful Gladiator's Badge of Ferocity 175921
-		-- [345231] = {type = "pvptrinket"}, -- Sinful Gladiator's Emblem 178447
+		[336126] = {type = 12}, -- Verdant Gladiator's Medallion
+		[336135] = {type = 12}, -- Verdant Gladiator's Sigil of Adaptation
+		[345228] = {type = 12}, -- Verdant Gladiator's Badge of Ferocity
+		[345229] = {type = 12}, -- Verdant Gladiator's Insignia of Alacrity
+		[345231] = {type = 12}, -- Verdant Gladiator's Emblem
+
 		-- pve
-		[422083] = {type = 5}
-		-- [329840] = {type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
-		-- [344907] = {type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
-		-- [345801] = {type = "trinket-defensive"}, -- Soulletting Ruby 178809
-		-- [348139] = 	{type = "trinket-offensive"}, -- Instructor's Divine Bell 184842
-		-- [358712] = {type = "trinket-defensive"}, -- Shard of Annhylde's Aegis 186424
+		[422083] = {type = 11}, -- Seedling
+		[422750] = {type = 11}, -- Tainted Rageheart
 	}
 }
 

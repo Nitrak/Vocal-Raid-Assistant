@@ -10,6 +10,8 @@ cheatdeath;Cheat Death
 35476;Trommeln
 351355;Trommeln
 381301;Trommeln
+422083;Setzling
+422750;Tainted Rageheart
 
 ### Changed cheat death
 45181;Von der Schippe gesprungen
@@ -17,7 +19,7 @@ cheatdeath;Cheat Death
 116888;Fegefeuer
 209261;Verzweiflungstat
 404369;Trotz dem Schicksal
-417069;Prophetische Steinschuppe
+417069;Zornesherz
 
 ### Not available via Spell API
 
@@ -45,5 +47,7 @@ cheatdeath;Cheat Death
 199754;Riposte
 200166;Metamorphose
 205191;Auge um Auge
+207349;Dunkle Richterin
 221703;Beschwörungskreis
 262228;Tödliche Gelassenheit
+345229;Insigne des Gladiators

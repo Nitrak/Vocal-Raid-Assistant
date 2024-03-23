@@ -59,6 +59,7 @@ L["Party member abilities"] = "Способности участников ва�
 L["Play sound on interrupts"] = "Использовать звук для прерываний"
 --L["Play sound on taunts"] = "Play sound on taunts"
 L["PvP Trinket"] = "ПвП тринкеты"
+L["PvE Trinket"] = "ПвE тринкеты"
 L["Racial Traits"] = "Рассовые способности"
 L["Raid Defensive"] = "Рейдовые способности"
 L["Raid Movement"] = "Передвижение "
