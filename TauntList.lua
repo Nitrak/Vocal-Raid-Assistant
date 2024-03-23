@@ -9,3 +9,4 @@ addon.tauntList = {
 	[115546] = true, -- Monk: Provoke
 	[185245] = true  -- Demon Hunter: Torment
 }
+

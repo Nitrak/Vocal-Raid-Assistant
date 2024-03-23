@@ -4,9 +4,9 @@
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
-## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\VOICECHAT-SPEAKER.blp
+## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\icon.tga
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 3.4.6
+## Version: 3.5.0-dev
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
@@ -27,6 +27,7 @@ VocalRaidAssistant.lua
 Constants.lua
 SpellList.lua
 TauntList.lua
+CheatDeathList.lua
 SpellCorrections.lua
 Config.lua
 Sound.lua

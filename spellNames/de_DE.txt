@@ -2,6 +2,7 @@
 countered;Unterbrochen
 taunted;Gespotted
 battleres;Wiederbelebung
+cheatdeath;Cheat Death
 
 ### Changed
 
@@ -10,7 +11,15 @@ battleres;Wiederbelebung
 351355;Trommeln
 381301;Trommeln
 
-### Not available via API
+### Changed cheat death
+45181;Von der Schippe gesprungen
+87024;Kauterisieren
+116888;Fegefeuer
+209261;Verzweiflungstat
+404369;Trotz dem Schicksal
+417069;Prophetische Steinschuppe
+
+### Not available via Spell API
 
 724;Brunnen des Lichts
 1714;Fluch der Sprachen

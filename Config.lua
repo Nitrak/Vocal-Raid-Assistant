@@ -190,37 +190,41 @@ local mainOptions = {
 			type = "group",
 			order = 1,
 			args = {
-				title = {
-					name = "|cffffd200" .. "Vocal Raid Assistant",
+				logo = {
 					order = 1,
 					type = "description",
-					fontSize = "large"
+					name = " ",
+					image = "Interface\\AddOns\\VocalRaidAssistant\\Media\\logo",
+					imageWidth = 384,
+					imageHeight = 192,
+					width = 1.5
 				},
 				about = {
-					order = 2,
+					order = 1.2,
 					type = "description",
-					name = L["Credits"]
+					name = function() return "\n\n\n\n\n" .. L["Credits"] .. "\n" .. L["Version: "] .. addon.version end,
+					width = 1.5
 				},
-				version = {
-					order = 3,
-					type = "description",
-					name = L["Version: "] .. addon.version
+				linebreak1 = {
+					order = 2,
+					type = 'description',
+					name = '\n',
 				},
 				discord = {
-					order = 4,
+					order = 3,
 					type = "input",
 					name = L["Discord"],
 					get = function()
 						return "https://discord.gg/UZMzqap"
-					end
+					end,
 				},
-				linebreak1 = {
+				linebreak2 = {
+					order = 4,
 					type = 'description',
-					name = '',
-					order = 5
+					name = '\n\n',
 				},
 				minimapIcon = {
-					order = 6,
+					order = 5,
 					type = "toggle",
 					name = L["Minimap Icon"],
 					get = function()
@@ -235,11 +239,6 @@ local mainOptions = {
 						end
 					end
 				},
-				linebreak2 = {
-					type = 'description',
-					name = '\n\n',
-					order = 7
-				},
 				watchFor = {
 					type = 'group',
 					inline = true,
@@ -251,7 +250,7 @@ local mainOptions = {
 					set = function(info, val)
 						setFilterValue(info[#info], val)
 					end,
-					order = 8,
+					order = 6,
 					args = {
 						player = {
 							type = 'toggle',
@@ -275,7 +274,7 @@ local mainOptions = {
 					set = function(info, val)
 						addon.profile.sound[info[#info]] = val
 					end,
-					order = 9,
+					order = 7,
 					args = {
 						soundpack = {
 							type = 'select',
@@ -359,7 +358,7 @@ local mainOptions = {
 					type = 'group',
 					inline = true,
 					name = L["Officially supported sound packs not yet installed/active"],
-					order = 10,
+					order = 8,
 					width = "half",
 					args = {
 					}
@@ -584,12 +583,25 @@ local spells = {
 						end
 					end
 				},
+				toggleCheatDeath = {
+					type = "toggle",
+					name = L["Cheat Death"],
+					desc = L["Play sound on Cheat Death abilities"],
+					width = 1.05,
+					order = 3,
+					get = function(info)
+						return addon.profile.general.area[info[2]].enableCheatDeaths
+					end,
+					set = function(info, val)
+						addon.profile.general.area[info[2]].enableCheatDeaths = val
+					end
+				},
 				toggleCombatOnly = {
 					type = "toggle",
 					name = L["Combat only"],
 					desc = L["Combat only description"],
 					width = 1.05,
-					order = 3,
+					order = 4,
 					get = function(info)
 						return addon.profile.general.area[info[2]].combatOnly
 					end,

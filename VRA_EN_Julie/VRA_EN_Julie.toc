@@ -5,8 +5,8 @@
 ## Notes: VoicePack for Vocal Raid Assistant Addon
 ## Dependencies: VocalRaidAssistant
 ## Author: The VRA Team
-## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\VOICECHAT-SPEAKER.blp
-## Version: 3.4.6
+## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\icon.tga
+## Version: 3.5.0
 
 VRA_EN_Julie.lua
 

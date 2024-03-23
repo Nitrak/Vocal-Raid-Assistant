@@ -1,5 +1,11 @@
 # Vocal Raid Assistant
 
+## 3.5.0
+
+- Add Cheat Death Sounds
+- Implement new logo
+- Update Addon description
+
 ## 3.4.6
 - Bump Version to 10.2.6
 

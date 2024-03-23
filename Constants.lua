@@ -21,7 +21,6 @@ local defaultSpellsRetail = {
 	["62618"] = true,
 	["64843"] = true,
 	["64901"] = true,
-	["86949"] = true,
 	["98008"] = true,
 	["102342"] = true,
 	["106898"] = true,
@@ -204,8 +203,8 @@ addon.CATEGORY = {
 
 addon.ICONCONFIG = {
 	type = "launcher",
-	icon = "Interface\\COMMON\\VoiceChat-Speaker",
-	iconCoords = { -0.45, 1, -0.05, 1 },
+	icon = "Interface\\AddOns\\VocalRaidAssistant\\Media\\icon",
+	--iconCoords = { -0.45, 1, -0.05, 1 },
 	OnClick = function(clickedframe, button)
 		addon:ChatCommand()
 	end,

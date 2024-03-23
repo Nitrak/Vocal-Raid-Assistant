@@ -17,7 +17,6 @@ local spellListRetail = {
 		[55233]  = {type = 2}, --Vampiric Blood
 		[61999]  = {type = 5}, --Raise Ally
 		[108199] = {type = 5}, --Gorefiend's Grasp
-		[114556] = {type = 2}, --Purgatory
 		[152279] = {type = 1}, --Breath of Sindragosa
 		[207167] = {type = 8}, --Blinding Sleet
 		[207289] = {type = 1}, --Unholy Assault
@@ -46,7 +45,6 @@ local spellListRetail = {
 		[205604] = {type = 2}, --Reverse Magic
 		[206803] = {type = 2}, --Rain from Above
 		[207684] = {type = 8}, --Sigil of Misery
-		[209258] = {type = 2}, --Last Resort
 		[211881] = {type = 5}, --Fel Eruption
 		[212084] = {type = 1}, --Fel Devastation
 		[217832] = {type = 8}, --Imprison
@@ -122,7 +120,6 @@ local spellListRetail = {
 		[31661]  = {type = 1}, --Dragon's Breath
 		[55342]  = {type = 2}, --Mirror Image
 		[80353]  = {type = 1}, --Time Warp
-		[86949]  = {type = 2}, --Cauterize
 		[110960] = {type = 2}, --Greater Invisibility | 110959
 		[113724] = {type = 8}, --Ring of Frost
 		[157981] = {type = 8}, --Blast Wave
@@ -237,7 +234,6 @@ local spellListRetail = {
 		[5938]   = {type = 5}, --Shiv
 		[13750]  = {type = 1}, --Adrenaline Rush
 		[31224]  = {type = 2}, --Cloak of Shadows
-		[31230]  = {type = 2}, --Cheat Death
 		[51690]  = {type = 1}, --Killing Spree
 		[57934]  = {type = 5}, --Tricks of the Trade
 		[79140]  = {type = 1}, --Vendetta
@@ -475,7 +471,6 @@ local spellListWrath = {
 		[5277]	 = {type = 2},
 		[13750]	 = {type = 1},
 		[31224]	 = {type = 2},
-		[31230]  = {type = 2}, --Cheat Death
 		[51690]	 = {type = 1},
 		[51713]	 = {type = 1},
 		[57934]	 = {type = 5},

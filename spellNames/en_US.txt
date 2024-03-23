@@ -67,8 +67,15 @@ battleres;battleres
 391528;Convoke
 422083;Seedling
 
+### Changed cheat death
+45181;Cheat Death
+87024;Cauterize
+116888;Purgatory
+209261;Last Resort
+404369;Defy Fate
+417069;Prophetic Stonescale
 
-### Not available via API
+### Not available via Spell API
 
 724;Lightwell
 1714;Curse of Tongues
