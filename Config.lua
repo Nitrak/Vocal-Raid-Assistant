@@ -262,18 +262,6 @@ local mainOptions = {
 							type = 'toggle',
 							name = L["Party member abilities"],
 							order = 2
-						},
-						onlyself = {
-							type = 'toggle',
-							name = L["OnlySelfExternalsName"],
-							desc = L["OnlySelfExternalsDesc"],
-							get = function(info)
-								return addon.profile.general.onlySelf
-							end,
-							set = function(info, val)
-								addon.profile.general.onlySelf = val
-							end,
-							order = 3
 						}
 					}
 				},
@@ -608,6 +596,18 @@ local spells = {
 					set = function(info, val)
 						addon.profile.general.area[info[2]].combatOnly = val
 					end
+				},
+				onlyself = {
+					type = 'toggle',
+					name = L["OnlySelfExternalsName"],
+					desc = L["OnlySelfExternalsDesc"],
+					get = function(info)
+						return addon.profile.general.area[info[2]].onlySelf
+					end,
+					set = function(info, val)
+						addon.profile.general.area[info[2]].onlySelf = val
+					end,
+					order = 4
 				}
 			}
 		}

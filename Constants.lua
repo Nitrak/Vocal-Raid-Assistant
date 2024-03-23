@@ -89,7 +89,7 @@ spellListClassic = nil
 
 --@end-non-version-retail@]===]
 
-addon.DATABASE_VERSION = 5
+addon.DATABASE_VERSION = 6
 
 addon.DEFAULT_SPELLS = defaultSpells
 
