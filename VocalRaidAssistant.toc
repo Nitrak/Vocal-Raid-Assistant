@@ -1,12 +1,12 @@
-## Interface: 100107
-## Interface-Wrath: 30402
-## Interface-Classic: 11404
+## Interface: 100206
+## Interface-Wrath: 30403
+## Interface-Classic: 11501
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\VOICECHAT-SPEAKER.blp
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 3.3.5
+## Version: 3.4.6
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
@@ -30,3 +30,4 @@ TauntList.lua
 SpellCorrections.lua
 Config.lua
 Sound.lua
+Core.lua

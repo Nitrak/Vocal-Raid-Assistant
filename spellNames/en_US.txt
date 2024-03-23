@@ -15,6 +15,7 @@ battleres;battleres
 18499;Berserker
 29893;Soulwell
 33891;Incarnation: Tree
+35476;Drums
 48792;Icebound
 49028;Rune Weapon
 62618;Barrier
@@ -34,7 +35,6 @@ battleres;battleres
 110960;Invisibility
 123904;Invoke Xuen
 132578;Invoke Niuzao
-178207;Drums
 186265;Turtle
 187650;Freezing Trap
 192077;Wind Rush
@@ -59,15 +59,19 @@ battleres;battleres
 345801;Soulletting Ruby
 348139;Divine Bell
 348477;Reanimator
+351355;Drums
 358712;Aegis
+381301;Drums
 383013;Poison Cleansing
 388686;White Tiger Statue
 391528;Convoke
+422083;Seedling
 
 
 ### Not available via API
 
 724;Lightwell
+1714;Curse of Tongues
 23989;Readiness
 44572;Deep Freeze
 46924;Bladestorm
@@ -87,6 +91,7 @@ battleres;battleres
 152277;Ravager
 194407;Spitting Cobra
 199754;Riposte
+200166;Metamorphosis
 205191;Eye for an Eye
 221703;Casting Circle
 262228;Deadly Calm

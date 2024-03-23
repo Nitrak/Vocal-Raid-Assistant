@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local getAddOnInfo = C_AddOns and C_AddOns.GetAddOnInfo or GetAddOnInfo
 local L = VRA.L
 
 local tostring = tostring
@@ -47,6 +48,7 @@ local borderlessCoords = { 0.07, 0.93, 0.07, 0.93 }
 local function spellOption(spellID)
 	local spellname, _, icon = GetSpellInfo(spellID)
 	local description = GetSpellDescription(spellID)
+	icon = addon.spellIconCorrections[icon] or icon
 	if (spellname ~= nil) then
 		return {
 			type = 'toggle',
@@ -126,7 +128,8 @@ end
 local function setSpellOption(info, val)
 	addon.profile.general.area[info[2]].spells[info[#info]] = val
 	if (val == true) then
-		addon:playSpell(info[#info], true)
+		local spellID = addon.spellCorrections[tonumber(info[#info])] or info[#info]
+		addon:playSpell(spellID, true)
 	end
 end
 
@@ -402,7 +405,7 @@ do
 	local order = 1
 
 	for k, v in pairs(officialSoundPacks) do
-		local isHidden = select(4, GetAddOnInfo(v.name)) -- name, title, notes, enabled, loadable, reason, security
+		local isHidden = select(4, getAddOnInfo(v.name)) -- name, title, notes, enabled, loadable, reason, security
 		local link = {
 			type = "input",
 			name = v.displayName,

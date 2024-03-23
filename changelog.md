@@ -1,5 +1,70 @@
 # Vocal Raid Assistant
 
+## 3.4.6
+- Bump Version to 10.2.6
+
+## 3.4.5
+- Fix broken minimap button
+- Added Dragon's Breath (WotlK)
+- Added Curse of Weakness
+- Added Curse of Tongues
+- Added Storm Bolt
+- Added Smoldering Seedling
+
+## 3.4.4
+- Fix addon not loading in Wrath
+- Add missing Spell Reflect (Classic)
+
+## 3.4.3
+- Fixed a bug that could cause the profile to be reset
+
+## 3.4.2
+- Fix config cleanup routine
+- Fix DH Meta
+- Replace deprecated API calls
+- Refactor default spells for Wrath / Classic
+
+## 3.4.1
+- Added Racial Abilities:
+	- Bull Rush
+	- Stoneform
+	- Arcane Torrent
+	- Blast Wave
+	- Dragon's Breath
+	- Upheaval
+
+
+## 3.4.0
+- Refactor spell detection
+
+## 3.3.10
+ - Fix Drums
+ - Added Rage of the Sleeper
+ - Added Doom Winds
+ - Added Spatial Paradox
+ - Added Ultimate Penitence
+
+## 3.3.9
+- Bump Version to 10.2.5
+
+## 3.3.8
+ - Added Deathmark
+ - Added Kingsbane
+ - Added Shockwave
+ - Added Wing Buffet
+ - Added Tailswipe
+ - Added Cauterizing Flame
+ - Added War Stomp
+ - Added Stoneform
+ - Added Shadowmeld
+ - Added Quaking Palm
+
+## 3.3.7
+- Added Call of the Wild
+
+## 3.3.6
+- Bump Version to 10.2.0
+
 ## 3.3.5
 - Added Mass Barrier
 - Added Mass Invisibility

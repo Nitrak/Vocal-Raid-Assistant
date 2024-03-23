@@ -6,11 +6,14 @@ battleres;Wiederbelebung
 ### Changed
 
 2894;Feuerelementar
-
+35476;Trommeln
+351355;Trommeln
+381301;Trommeln
 
 ### Not available via API
 
 724;Brunnen des Lichts
+1714;Fluch der Sprachen
 23989;Bereitschaft
 44572;Tieffrieren
 46924;Klingensturm
@@ -31,6 +34,7 @@ battleres;Wiederbelebung
 152277;Verheerer
 194407;Speiende Kobra
 199754;Riposte
+200166;Metamorphose
 205191;Auge um Auge
 221703;Beschwörungskreis
 262228;Tödliche Gelassenheit

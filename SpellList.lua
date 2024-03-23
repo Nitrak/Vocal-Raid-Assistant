@@ -16,7 +16,6 @@ local spellListRetail = {
 		[51052]  = {type = 4}, --Anti-Magic Zone
 		[55233]  = {type = 2}, --Vampiric Blood
 		[61999]  = {type = 5}, --Raise Ally
-		[108194] = {type = 8}, --Asphyxiate
 		[108199] = {type = 5}, --Gorefiend's Grasp
 		[114556] = {type = 2}, --Purgatory
 		[152279] = {type = 1}, --Breath of Sindragosa
@@ -34,18 +33,17 @@ local spellListRetail = {
 	},
 	["DEMONHUNTER"] = {
 		[179057] = {type = 8}, --Chaos Nova
-		[187827] = {type = 2}, --Metamorphosis
+		[187827] = {type = 2}, --Metamorphosis #Vengeance
 		[188501] = {type = 5}, --Spectral Sight
-		[191427] = {type = 1}, --Metamorphosis
 		[196555] = {type = 2}, --Netherwalk
 		[196718] = {type = 4}, --Darkness
 		[198589] = {type = 2}, --Blur
+		[200166] = {type = 1}, --Metamorphosis #Havoc
 		[202137] = {type = 6}, --Sigil of Silence
 		[202138] = {type = 8}, --Sigil of Chains
 		[204021] = {type = 2}, --Fiery Brand
 		[204596] = {type = 1}, --Sigil of Flame
 		[205604] = {type = 2}, --Reverse Magic
-		[206491] = {type = 1}, --Nemesis
 		[206803] = {type = 2}, --Rain from Above
 		[207684] = {type = 8}, --Sigil of Misery
 		[209258] = {type = 2}, --Last Resort
@@ -80,6 +78,7 @@ local spellListRetail = {
 		[132469] = {type = 8}, --Typhoon
 		[194223] = {type = 1}, --Celestial Alignment
 		[197721] = {type = 4}, --Flourish
+		[200851] = {type = 2}, --Rage of the Sleeper
 		[202770] = {type = 1}, --Fury of Elune
 		[203651] = {type = 3}, --Overgrowth
 		[205636] = {type = 1}, --Force of Nature
@@ -88,6 +87,7 @@ local spellListRetail = {
 		[391888] = {type = 1}, --Adaptive Swarm
 	},
 	["HUNTER"] = {
+		[5384]   = {type = 5}, --Feign Death
 		[19801]  = {type = 5}, --Tranquilizing Shot
 		[19574]  = {type = 1}, --Bestial Wrath
 		[19577]  = {type = 8}, --Intimidation
@@ -107,6 +107,7 @@ local spellListRetail = {
 		[264735] = {type = 2}, --Survival of the Fittest
 		[266779] = {type = 1}, --Coordinated Assault
 		[288613] = {type = 1}, --Trueshot
+		[359844] = {type = 1}, --Call of the Wild
 		[375891] = {type = 1}, --Death Chakram
 		[392060] = {type = 8}, --Wailing Arrow
 	},
@@ -118,11 +119,13 @@ local spellListRetail = {
 		[12051]  = {type = 1}, --Evocation
 		[12472]  = {type = 1}, --Icy Veins
 		[45438]  = {type = 2}, --Ice Block
+		[31661]  = {type = 1}, --Dragon's Breath
 		[55342]  = {type = 2}, --Mirror Image
 		[80353]  = {type = 1}, --Time Warp
 		[86949]  = {type = 2}, --Cauterize
 		[110960] = {type = 2}, --Greater Invisibility | 110959
 		[113724] = {type = 8}, --Ring of Frost
+		[157981] = {type = 8}, --Blast Wave
 		[190319] = {type = 1}, --Combustion
 		[205021] = {type = 1}, --Ray of Frost
 		[235219] = {type = 2}, --Cold Snap
@@ -224,6 +227,7 @@ local spellListRetail = {
 		[328530] = {type = 1}, --Divine Ascension
 		[372835] = {type = 4}, --Lightwell
 		[375901] = {type = 1}, --Mindgames
+		[421453] = {type = 1}, --Ultimate Penitence
 	},
 	["ROGUE"] = {
 		[1856]   = {type = 1}, --Vanish
@@ -239,14 +243,17 @@ local spellListRetail = {
 		[79140]  = {type = 1}, --Vendetta
 		[114018] = {type = 5}, --Shroud of Concealment
 		[121471] = {type = 1}, --Shadow Blades
+		[137619] = {type = 1}, --Marked for Death
 		[185311] = {type = 2}, --Crimson Vial
 		[199754] = {type = 2}, --Riposte
 		[212182] = {type = 5}, --Smoke Bombe
 		[343142] = {type = 1}, --Dreadblades
+		[360194] = {type = 1}, --Deathmark
 		[385616] = {type = 1}, --Echoing Reprimand
 		[384631] = {type = 1}, --Flagellation
 		[385408] = {type = 1}, --Sepsis
 		[385424] = {type = 1}, --Serrated Bone Spike
+		[385627] = {type = 1}, --Kingsbane
 	},
 	["SHAMAN"] = {
 		[2825]   = {type = 1}, --Bloodlust
@@ -263,7 +270,6 @@ local spellListRetail = {
 		[108280] = {type = 4}, --Healing Tide Totem
 		[108281] = {type = 4}, --Ancestral Guidance
 		[114050] = {type = 1}, --Ascendance
-		[137619] = {type = 1}, --Marked for Death
 		[191634] = {type = 1}, --Stormkeeper
 		[192058] = {type = 8}, --Capacitor Totem
 		[192222] = {type = 1}, --Liquid Magna Totem
@@ -277,8 +283,11 @@ local spellListRetail = {
 		[355580] = {type = 5}, --Static Field Totem
 		[375982] = {type = 1}, --Primordial Wave
 		[383013] = {type = 5}, --Poison Cleansing Totem
+		[384352] = {type = 1}, --Doom Winds
 	},
 	["WARLOCK"] = {
+		[702]	 = {type = 1}, --Curse of Weakness
+		[1714]   = {type = 1}, --Curse of Tongues
 		[1122]   = {type = 1}, --Summon Infernal
 		[5484]   = {type = 8}, --Howl of Terror
 		[29893]  = {type = 5}, --Soulwell
@@ -307,8 +316,10 @@ local spellListRetail = {
 		[12975]  = {type = 2}, --Last Stand
 		[18499]  = {type = 1}, --Berserker Rage
 		[23920]  = {type = 2}, --Spell Reflection
+		[46968]  = {type = 5}, --Shockwave
 		[64382]  = {type = 1}, --Shattering Throw
 		[97462]  = {type = 4}, --Rallying Cry
+		[107570] = {type = 1}, --Storm Bolt
 		[107574] = {type = 1}, --Avatar
 		[118038] = {type = 2}, --Die by the Sword
 		[152277] = {type = 1}, --Ravager
@@ -326,9 +337,11 @@ local spellListRetail = {
 	["EVOKER"] = {
 		[357170] = {type = 3}, --Time Dilation
 		[357210] = {type = 1}, --Deep Breath
+		[357214] = {type = 5}, --Wing Buffet
 		[358385] = {type = 8}, --Landslide
 		[359816] = {type = 4}, --Dream Flight
 		[363534] = {type = 4}, --Rewind
+		[368970] = {type = 5}, --Tailswipe
 		[363916] = {type = 2}, --Obsidian Scales
 		[370537] = {type = 4}, --Stasis
 		[370553] = {type = 1}, --Tip the Scales
@@ -336,18 +349,24 @@ local spellListRetail = {
 		[370960] = {type = 2}, --Emerald Communion
 		[372048] = {type = 8}, --Oppressing Roar
 		[374227] = {type = 4}, --Zephyr
+		[374251] = {type = 5}, --Cauzerizing Flame
 		[374348] = {type = 2}, --Renewing Blaze
 		[374968] = {type = 5}, --Time Spiral
 		[375087] = {type = 1}, --Dragonrage
 		[390386] = {type = 1}, --Fury of the Aspects
+		[396286] = {type = 8}, --Upheaval
 		[403631] = {type = 1}, --Breath of Eons
 		[404977] = {type = 5}, --Time Skip
+		[406732] = {type = 5}, --Spatial Paradox
 	},
 	["GENERAL"] = {
-		[20594]  = {type = 5},
-		[58984]  = {type = 5},
-		[107079] = {type = 5},
-		[178207] = {type = 1}, --Drums of Fury
+		[20549]  = {type = 5}, --War Stomp
+		[20594]  = {type = 5}, --Stoneform
+		[25046]  = {type = 5}, --Arcane Torrent
+		[58984]  = {type = 5}, --Shadowmeld
+		[107079] = {type = 5}, --Quaking Palm
+		[255654] = {type = 5}, --Bull Rush
+		[381301] = {type = 1}, --Feral Hide Drums
 	},
 	["TRINKET"] = {
 		-- pvp
@@ -357,6 +376,7 @@ local spellListRetail = {
 		-- [345228] = {type = "pvptrinket"}, -- Sinful Gladiator's Badge of Ferocity 175921
 		-- [345231] = {type = "pvptrinket"}, -- Sinful Gladiator's Emblem 178447
 		-- pve
+		[422083] = {type = 5}
 		-- [329840] = {type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
 		-- [344907] = {type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
 		-- [345801] = {type = "trinket-defensive"}, -- Soulletting Ruby 178809
@@ -415,6 +435,7 @@ local spellListWrath = {
 		[12042]  = {type = 1},
 		[12051]  = {type = 1}, --Evocation
 		[12472]  = {type = 1},
+		[31661]  = {type = 1}, --Dragon's Breath
 		[45438]  = {type = 5},
 		[44572]  = {type = 8},
 		[55342]  = {type = 1},
@@ -497,10 +518,12 @@ local spellListWrath = {
 
 	},
 	["GENERAL"] = {
-		[20594]	 = {type = 5},
-		[35476]	 = {type = 5}, -- Drums of Fury
-		[58984]	 = {type = 5},
-		[59752]	 = {type = 5},
+		[20594]	 = {type = 5}, --Stoneform
+		[25046]  = {type = 5}, --Arcane Torrent
+		[35476]	 = {type = 5}, --Drums of Battle
+		[58984]	 = {type = 5}, --Shadowmeld
+		[59752]	 = {type = 5}, --Will to Survive
+		[351355] = {type = 5}, --Greater Drums of Battle
 	},
 	["TRINKET"] = {
 		-- pvp
@@ -573,6 +596,7 @@ local spellListClassic = {
 		[12975]	 = {type = 2},
 		[18499]	 = {type = 1}, --Berserker Rage
 		[20230]	 = {type = 1},
+		[23920]  = {type = 2},
 	},
 	["GENERAL"] = {
 		[20580]	 = {type = 5},

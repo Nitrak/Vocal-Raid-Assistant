@@ -1,5 +1,6 @@
 local addonName, addon = ...
-addon.version = GetAddOnMetadata(addonName, "Version")
+local getAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
+addon.version = getAddOnMetadata(addonName, "Version")
 
 VRA = LibStub("AceAddon-3.0"):NewAddon(addon, addonName, "AceConsole-3.0", "AceEvent-3.0")
 VRA.L = LibStub("AceLocale-3.0"):GetLocale(addonName)
@@ -32,9 +33,7 @@ if locales[L] then
 	C_Timer.After(30, function() addon:prettyPrint(msg) end)
 end
 
-local tostring = tostring
 local pairs = pairs
-local GetTime = GetTime
 
 function VRA:InitializeOptions()
 	self:RegisterChatCommand("vra", "ChatCommand")
@@ -67,26 +66,27 @@ function VRA:InitializeOptions()
 end
 
 local function ConfigCleanup(db)
-	if (db.profiles.version == addon.DATABASE_VERSION) then
-		return
-	end
-	for k, v in pairs(db.profiles) do
-		if v['version'] == nil or v['version'] ~= addon.DATABASE_VERSION then
-			for key, _ in pairs(v) do
+
+	for profileKey, profile in pairs(db.profiles) do
+		if profile['version'] == nil or profile['version'] ~= addon.DATABASE_VERSION then
+			-- Remove invalid keys
+			for key, _ in pairs(profile) do
 				if addon.DEFAULTS.profile[key] == nil then
-					v[key] = nil
+					profile[key] = nil
 				end
 			end
-			v.version = addon.DATABASE_VERSION
-		end
-	end
-	for zone, _ in pairs(addon.ZONES) do
-		for spellID, _ in pairs(addon.GetAllSpellIds()) do
-			-- remove invalid spells in config
-			if addon:IsSpellSupported(spellID) == nil then
-				db.profiles.general.area[zone].spells[tostring(spellID)] = nil
-				addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
+			-- Remove invalid spells
+			for zone, _ in pairs(addon.ZONES) do
+				if profile.general and profile.general.area[zone] and profile.general.area[zone].spells then
+					for spellID, _ in pairs(profile.general.area[zone].spells) do
+						if not addon:IsSpellSupported(tonumber(spellID)) then
+							profile.general.area[zone].spells[spellID] = nil
+							addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
+						end
+					end
+				end
 			end
+			profile.version = addon.DATABASE_VERSION
 		end
 	end
 end
@@ -129,59 +129,22 @@ function VRA:ChangeProfile()
 	self.profile = self.db.profile
 end
 
-function VRA:ChatCommand()
-	if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
-		self.ACD:Close("VocalRaidAssistantConfig")
+function VRA:ChatCommand(msg)
+	if (msg == "debug") then
+		local _, instanceType = IsInInstance()
+		for spellID, _ in pairs(self.profile.general.area[instanceType].spells) do
+			print(instanceType, spellID, addon:IsSpellSupported(tonumber(spellID)))
+		end
 	else
-		self.ACD:Open("VocalRaidAssistantConfig")
+		if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
+			self.ACD:Close("VocalRaidAssistantConfig")
+		else
+			self.ACD:Open("VocalRaidAssistantConfig")
+		end
 	end
 end
 
 function VRA:OnEnable()
 	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	addon:verifySoundPack()
-end
-
--- ### Core
-local function allowedZone(instanceType)
-	return addon.profile.general.area[instanceType].enabled
-end
-
-local function combatPlayCheck(instanceType)
-	return addon.profile.general.area[instanceType].combatOnly and not UnitAffectingCombat("player")
-end
-
-local function allowedSubEvent(event)
-	return (event == "SPELL_CAST_SUCCESS" or event == "SPELL_INTERRUPT")
-end
-
-local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
-local function checkSpellTarget(destFlags, destGUID)
-	return destGUID == '' or (bit.band(destFlags, targetTypePlayer) > 0 and destGUID == UnitGUID("player"))
-end
-
-function VRA:COMBAT_LOG_EVENT_UNFILTERED(event)
-	local _, instanceType = IsInInstance()
-	if (not (event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType))) or combatPlayCheck(instanceType) then
-		return
-	end
-
-	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
-	destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
-
-	if ((allowedSubEvent(event)) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
-		if (event == 'SPELL_CAST_SUCCESS') then
-			-- apply spell correction (e.g. hex and polymorh can have different spellIds when glyphed)
-			spellID = addon.spellCorrections[spellID] or spellID
-			if self.profile.general.area[instanceType].spells[tostring(spellID)] and
-				(not self.profile.general.onlySelf or (self.profile.general.onlySelf and checkSpellTarget(destFlags, destGUID))) and
-				addon:IsSpellSupported(spellID) then
-				self:playSpell(spellID)
-			elseif self.profile.general.area[instanceType].enableTaunts and addon.tauntList[spellID] then
-				self:playSpell('taunted')
-			end
-		elseif (event == 'SPELL_INTERRUPT' and self.profile.general.area[instanceType].enableInterrupts) then
-			self:playSpell('countered')
-		end
-	end
 end
