@@ -2,11 +2,13 @@
 
 ## 3.5.0
 - Added ability to play a sound on cheat death
+- Added spell name changes (e.g. Fort Brew - Mistweaver, Fort Brew - Brewmaster)
+- Moved 'OnlySelf' Config to each zone
 - Added Dark Arbiter
 - Added Cyclone
 - Added Tainted Rageheart
 - Added PvP Trinkets
-- Added spell name changes (e.g. Fort Brew - Mistweaver, Fort Brew - Brewmaster)
+- Update Readme & Logo
 
 ## 3.4.6
 - Bump Version to 10.2.6

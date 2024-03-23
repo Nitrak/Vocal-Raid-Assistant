@@ -20,6 +20,7 @@ ignore:
   - .editorconfig
   - spellNames
   - Scripts
+  - Media/Github
 
 enable-nolib-creation: no
 
