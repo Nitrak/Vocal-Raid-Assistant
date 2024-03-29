@@ -27,6 +27,8 @@ VRA comes with one voice pack pre-installed. Different voices are available as s
  - [Eric (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack)
  - [Guy (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-guy-sound-pack)
 
+ [PREVIEW](https://github.com/Nitrak/Vocal-Raid-Assistant/tree/main/Media/Github)
+
 ## Slash commands
 - /vra
 - /vocalraidassistant
