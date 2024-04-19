@@ -2,8 +2,8 @@
 
 <img src="https://i.imgur.com/ap0Zsdy.png" width="300" height="300">
 
-[![VRA on Discord](https://img.shields.io/badge/discord-_vra_-5364d0.svg)](https://discord.gg/UZMzqap)
-[![Donate](https://img.shields.io/badge/paypal-_donate_-fd0000.svg)](https://paypal.me/Nitrak)
+[![VRA on Discord](https://img.shields.io/badge/discord-_vra_-fd0000.svg)](https://discord.gg/UZMzqap)
+[![Paypal](https://img.shields.io/badge/donate-_paypal_-5364d0.svg)](https://paypal.me/Nitrak)
 
 # Vocal Raid Assistant
 </div>
@@ -27,7 +27,7 @@ VRA comes with one voice pack pre-installed. Different voices are available as s
  - [Eric (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack)
  - [Guy (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-guy-sound-pack)
 
- [PREVIEW](https://github.com/Nitrak/Vocal-Raid-Assistant/tree/main/Media/Github)
+[PREVIEW](https://github.com/Nitrak/Vocal-Raid-Assistant/tree/main/Media/Github)
 
 ## Slash commands
 - /vra

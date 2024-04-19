@@ -1,7 +1,7 @@
 # Vocal Raid Assistant
 
 ## 3.5.0
-- Added ability to play a sound on cheat death
+- Added cheat death proccs
 - Added spell name changes (e.g. Fort Brew - Mistweaver, Fort Brew - Brewmaster)
 - Moved 'OnlySelf' Config to each zone
 - Added Dark Arbiter
