@@ -9,7 +9,7 @@
 </div>
 
 Vocal Raid Assistant provides audible notifications for spells being used by your raid or party members.
-It is designed to support raid leaders, healers, and support classes. Additionally, it can announce successful interrupts, taunts, and cheat death procs.
+It is designed to support raid leaders, healers and support classes. Additionally, it can announce successful interrupts, taunts, and cheat death procs.
 VRA can also enhance your stream with announcements of major cooldowns.
 
 ## What will you hear?
@@ -20,14 +20,13 @@ Announcement of spells can be enabled with just one click.
 VRA comes with one voice pack pre-installed. Different voices are available as separate addons.
 
 
- - [Ana (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack)
- - [Elizabeth (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack)
- - [Sara (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack)
- - [Jane (US)](https://addons.wago.io/addons/vocal-raid-assistant-jane-sound-pack-en-en)
- - [Eric (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack)
- - [Guy (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-guy-sound-pack)
+ - [Ana (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-ana-sound-pack) | [Demo](https://github.com/Nitrak/Vocal-Raid-Assistant/raw/main/Media/Github/Ana.mp3)
+ - [Elizabeth (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-elizabeth-sound-pack) | [Demo](https://github.com/Nitrak/Vocal-Raid-Assistant/raw/main/Media/Github/Elizabeth.mp3)
+ - [Sara (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-sara-sound-pack) | [Demo](https://github.com/Nitrak/Vocal-Raid-Assistant/raw/main/Media/Github/Sara.mp3)
+ - [Jane (US)](https://addons.wago.io/addons/vocal-raid-assistant-jane-sound-pack-en-en) | [Demo](https://github.com/Nitrak/Vocal-Raid-Assistant/raw/main/Media/Github/Jane.mp3)
+ - [Eric (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-eric-sound-pack) | [Demo](https://github.com/Nitrak/Vocal-Raid-Assistant/raw/main/Media/Github/Eric.mp3)
+ - [Guy (US)](https://www.curseforge.com/wow/addons/vocal-raid-assistant-guy-sound-pack) | [Demo](https://github.com/Nitrak/Vocal-Raid-Assistant/raw/main/Media/Github/Eric.mp3)
 
-[PREVIEW](https://github.com/Nitrak/Vocal-Raid-Assistant/tree/main/Media/Github)
 
 ## Slash commands
 - /vra
