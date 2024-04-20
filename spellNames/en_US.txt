@@ -104,4 +104,8 @@ battleres;battleres
 207349;Dark Arbiter
 221703;Casting Circle
 262228;Deadly Calm
+336126;Gladiator's Medallion
+336135;Gladiator's Sigil
+345228;Gladiator's Badge
 345229;Gladiator's Insignia
+345231;Gladiator's Emblem

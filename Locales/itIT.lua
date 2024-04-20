@@ -80,3 +80,11 @@ L["Voice"] = "Voce"
 L["Volume"] = "Volume"
 L["VRA should alert you for"] = "VRA dovrebbe produre avvisi per"
 L["VRANAME"] = "Assistente Vocale di Incursione (VRA)"
+
+--- Spell Name Overrides
+-- Monk
+L[115203] = "Fortifying Brew - MW/WW"
+L[243435] = "Fortifying Brew - BM"
+-- Trinkets
+L[422083] = "Seedling"
+L[422750] = "Fyrakk's Tainted Rageheart"

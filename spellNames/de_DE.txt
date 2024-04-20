@@ -50,4 +50,8 @@ cheatdeath;Cheat Death
 207349;Dunkle Richterin
 221703;Beschwörungskreis
 262228;Tödliche Gelassenheit
+336126;Medaillon des Gladiators
+336135;Siegel der Anpassung
+345228;Abzeichen des Gladiators
 345229;Insigne des Gladiators
+345231;Emblem des Gladiators
