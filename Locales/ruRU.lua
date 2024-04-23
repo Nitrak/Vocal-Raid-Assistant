@@ -9,6 +9,7 @@ L["Alert for"] = "Оповещение для"
 L["Ambience"] = "Атмосфера"
 L["Cancel"] = "Отмена"
 L["CC"] = true
+L["Cheat Death"] = "Cheat Death"
 L["Clear All"] = "Отменить все"
 L["Close"] = "Закрыть"
 --L["Combat only"] = "Combat only"
@@ -53,10 +54,12 @@ L["OnlySelfExternalsDesc"] = "Включите это, чтобы слышать
 L["OnlySelfExternalsName"] = "Дебафф только на вас"
 L["Output channel desc"] = "Выберите канал, из которого вы хотите получать анонс способностей"
 L["Output channel"] = "Выйти из канала"
+L["Play sound on Cheat Death abilities"] = "Play sound on Cheat Death abilities"
 L["Party member abilities"] = "Способности участников вашей группы"
 L["Play sound on interrupts"] = "Использовать звук для прерываний"
 --L["Play sound on taunts"] = "Play sound on taunts"
 L["PvP Trinket"] = "ПвП тринкеты"
+L["PvE Trinket"] = "ПвE тринкеты"
 L["Racial Traits"] = "Рассовые способности"
 L["Raid Defensive"] = "Рейдовые способности"
 L["Raid Movement"] = "Передвижение "
@@ -77,3 +80,11 @@ L["Voice"] = "Голос"
 L["Volume"] = "Громкость"
 L["VRA should alert you for"] = "VRA должна анонсить для вас"
 L["VRANAME"] = "Vocal Raid Assistant"
+
+--- Spell Name Overrides
+-- Monk
+L[115203] = "Fortifying Brew - MW/WW"
+L[243435] = "Fortifying Brew - BM"
+-- Trinkets
+L[422083] = "Seedling"
+L[422750] = "Fyrakk's Tainted Rageheart"

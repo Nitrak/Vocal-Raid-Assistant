@@ -17,10 +17,10 @@ local spellListRetail = {
 		[55233]  = {type = 2}, --Vampiric Blood
 		[61999]  = {type = 5}, --Raise Ally
 		[108199] = {type = 5}, --Gorefiend's Grasp
-		[114556] = {type = 2}, --Purgatory
 		[152279] = {type = 1}, --Breath of Sindragosa
 		[207167] = {type = 8}, --Blinding Sleet
 		[207289] = {type = 1}, --Unholy Assault
+		[207349] = {type = 1}, --Dark Arbiter
 		[212552] = {type = 2}, --Wraith Walk
 		[219809] = {type = 2}, --Tombstone
 		[221562] = {type = 8}, --Asphyxiate
@@ -46,7 +46,6 @@ local spellListRetail = {
 		[205604] = {type = 2}, --Reverse Magic
 		[206803] = {type = 2}, --Rain from Above
 		[207684] = {type = 8}, --Sigil of Misery
-		[209258] = {type = 2}, --Last Resort
 		[211881] = {type = 5}, --Fel Eruption
 		[212084] = {type = 1}, --Fel Devastation
 		[217832] = {type = 8}, --Imprison
@@ -64,6 +63,7 @@ local spellListRetail = {
 		[20484]  = {type = 5}, --Rebirth
 		[22812]  = {type = 2}, --Barkskin
 		[29166]  = {type = 5}, --Innervate
+		[33786]  = {type = 5}, --Cyclone
 		[33891]  = {type = 4}, --Incarnation: Tree of Life
 		[61336]  = {type = 2}, --Survival Instincts
 		[102342] = {type = 3}, --Ironbark
@@ -122,7 +122,6 @@ local spellListRetail = {
 		[31661]  = {type = 1}, --Dragon's Breath
 		[55342]  = {type = 2}, --Mirror Image
 		[80353]  = {type = 1}, --Time Warp
-		[86949]  = {type = 2}, --Cauterize
 		[110960] = {type = 2}, --Greater Invisibility | 110959
 		[113724] = {type = 8}, --Ring of Frost
 		[157981] = {type = 8}, --Blast Wave
@@ -237,7 +236,6 @@ local spellListRetail = {
 		[5938]   = {type = 5}, --Shiv
 		[13750]  = {type = 1}, --Adrenaline Rush
 		[31224]  = {type = 2}, --Cloak of Shadows
-		[31230]  = {type = 2}, --Cheat Death
 		[51690]  = {type = 1}, --Killing Spree
 		[57934]  = {type = 5}, --Tricks of the Trade
 		[79140]  = {type = 1}, --Vendetta
@@ -370,18 +368,15 @@ local spellListRetail = {
 	},
 	["TRINKET"] = {
 		-- pvp
-		-- [196029] = {type = "pvptrinket"}, -- Sinful Gladiator's Relentless Brooch 181335
-		-- [336135] = {type = "pvptrinket"}, -- Sinful Gladiator's Sigil of Adaptation	181816
-		-- [336126] = {type = "pvptrinket"}, -- Sinful Gladiator's Medallion 181333
-		-- [345228] = {type = "pvptrinket"}, -- Sinful Gladiator's Badge of Ferocity 175921
-		-- [345231] = {type = "pvptrinket"}, -- Sinful Gladiator's Emblem 178447
+		[336126] = {type = 12}, -- Verdant Gladiator's Medallion
+		[336135] = {type = 12}, -- Verdant Gladiator's Sigil of Adaptation
+		[345228] = {type = 12}, -- Verdant Gladiator's Badge of Ferocity
+		[345229] = {type = 12}, -- Verdant Gladiator's Insignia of Alacrity
+		[345231] = {type = 12}, -- Verdant Gladiator's Emblem
+
 		-- pve
-		[422083] = {type = 5}
-		-- [329840] = {type = "trinket-defensive"}, -- Blood-Spattered Scale 179331
-		-- [344907] = {type = "trinket-defensive"}, -- Splintered Heart of Al'ar 184018
-		-- [345801] = {type = "trinket-defensive"}, -- Soulletting Ruby 178809
-		-- [348139] = 	{type = "trinket-offensive"}, -- Instructor's Divine Bell 184842
-		-- [358712] = {type = "trinket-defensive"}, -- Shard of Annhylde's Aegis 186424
+		[422083] = {type = 11}, -- Seedling
+		[422750] = {type = 11}, -- Tainted Rageheart
 	}
 }
 
@@ -475,7 +470,6 @@ local spellListWrath = {
 		[5277]	 = {type = 2},
 		[13750]	 = {type = 1},
 		[31224]	 = {type = 2},
-		[31230]  = {type = 2}, --Cheat Death
 		[51690]	 = {type = 1},
 		[51713]	 = {type = 1},
 		[57934]	 = {type = 5},

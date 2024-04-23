@@ -66,9 +66,17 @@ battleres;battleres
 388686;White Tiger Statue
 391528;Convoke
 422083;Seedling
+422750;Tainted Rageheart
 
+### Changed cheat death
+45181;Cheat Death
+87024;Cauterize
+116888;Purgatory
+209261;Last Resort
+404369;Defy Fate
+417069;Prophetic Stonescale
 
-### Not available via API
+### Not available via Spell API
 
 724;Lightwell
 1714;Curse of Tongues
@@ -93,5 +101,11 @@ battleres;battleres
 199754;Riposte
 200166;Metamorphosis
 205191;Eye for an Eye
+207349;Dark Arbiter
 221703;Casting Circle
 262228;Deadly Calm
+336126;Gladiator's Medallion
+336135;Gladiator's Sigil
+345228;Gladiator's Badge
+345229;Gladiator's Insignia
+345231;Gladiator's Emblem

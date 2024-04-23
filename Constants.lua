@@ -21,7 +21,6 @@ local defaultSpellsRetail = {
 	["62618"] = true,
 	["64843"] = true,
 	["64901"] = true,
-	["86949"] = true,
 	["98008"] = true,
 	["102342"] = true,
 	["106898"] = true,
@@ -89,7 +88,7 @@ spellListClassic = nil
 
 --@end-non-version-retail@]===]
 
-addon.DATABASE_VERSION = 5
+addon.DATABASE_VERSION = 6
 
 addon.DEFAULT_SPELLS = defaultSpells
 
@@ -180,32 +179,16 @@ addon.CATEGORY = {
 	[6] = L["Interrupt"],
 	-- [7] is not used
 	[8] = L["CC"],
+	-- VRA
+	[11] = L["PvE Trinket"],
+	[12] = L["PvP Trinket"],
 	[99] = L["Covenant"]
-
-
-	-- ["pvptrinket"] = L["PvP Trinket"],
-	-- ["racial"] = L["Racial Traits"],
-	-- ["trinket-defensive"] = L["Defensive"] .. " " .. INVTYPE_TRINKET,
-	-- ["trinket-offensive"] = L["Offensive"] .. " " .. INVTYPE_TRINKET,
-	-- ["covenant"] = L["Covenant"],
-	-- ["interrupt"] = LOC_TYPE_INTERRUPT,
-	-- ["dispel"] = DISPELS,
-	-- ["cc"] = L["Crowd Control"],
-	-- ["disarm"] = format("%s, %s, %s", LOC_TYPE_DISARM, LOC_TYPE_ROOT, LOC_TYPE_SILENCE),
-	-- ["immunity"] = L["Immunity"],
-	-- ["externalDefensive"] = L["External Defensive"],
-	-- ["defensive"] = L["Defensive"],
-	-- ["raidDefensive"] = L["Raid Defensive"],
-
-	-- ["counterCC"] = L["Counter CC"],
-	-- ["raidMovement"] = L["Raid Movement"],
-	-- ["other"] = OTHER
 }
 
 addon.ICONCONFIG = {
 	type = "launcher",
-	icon = "Interface\\COMMON\\VoiceChat-Speaker",
-	iconCoords = { -0.45, 1, -0.05, 1 },
+	icon = "Interface\\AddOns\\VocalRaidAssistant\\Media\\icon",
+	--iconCoords = { -0.45, 1, -0.05, 1 },
 	OnClick = function(clickedframe, button)
 		addon:ChatCommand()
 	end,

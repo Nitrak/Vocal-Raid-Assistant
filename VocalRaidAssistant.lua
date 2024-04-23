@@ -66,7 +66,6 @@ function VRA:InitializeOptions()
 end
 
 local function ConfigCleanup(db)
-
 	for profileKey, profile in pairs(db.profiles) do
 		if profile['version'] == nil or profile['version'] ~= addon.DATABASE_VERSION then
 			-- Remove invalid keys
@@ -77,6 +76,7 @@ local function ConfigCleanup(db)
 			end
 			-- Remove invalid spells
 			for zone, _ in pairs(addon.ZONES) do
+				-- v4 -> v5
 				if profile.general and profile.general.area[zone] and profile.general.area[zone].spells then
 					for spellID, _ in pairs(profile.general.area[zone].spells) do
 						if not addon:IsSpellSupported(tonumber(spellID)) then
@@ -84,6 +84,10 @@ local function ConfigCleanup(db)
 							addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
 						end
 					end
+				end
+				-- v5 -> v6
+				if profile.general and profile.general.onlySelf then
+					profile.general.onlySelf = nil
 				end
 			end
 			profile.version = addon.DATABASE_VERSION
@@ -109,7 +113,7 @@ function VRA:OnInitialize()
 	if (self:IsRetail()) then
 		AddonCompartmentFrame:RegisterAddon({
 			text = addonName,
-			icon = "Interface\\COMMON\\VoiceChat-Speaker",
+			icon = "Interface\\AddOns\\VocalRaidAssistant\\Media\\icon",
 			func = function() VRA:ChatCommand() end,
 			registerForAnyClick = true,
 			notCheckable = true,

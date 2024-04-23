@@ -2,6 +2,7 @@
 countered;Unterbrochen
 taunted;Gespotted
 battleres;Wiederbelebung
+cheatdeath;Cheat Death
 
 ### Changed
 
@@ -9,8 +10,18 @@ battleres;Wiederbelebung
 35476;Trommeln
 351355;Trommeln
 381301;Trommeln
+422083;Setzling
+422750;Tainted Rageheart
 
-### Not available via API
+### Changed cheat death
+45181;Von der Schippe gesprungen
+87024;Kauterisieren
+116888;Fegefeuer
+209261;Verzweiflungstat
+404369;Trotz dem Schicksal
+417069;Zornesherz
+
+### Not available via Spell API
 
 724;Brunnen des Lichts
 1714;Fluch der Sprachen
@@ -36,5 +47,11 @@ battleres;Wiederbelebung
 199754;Riposte
 200166;Metamorphose
 205191;Auge um Auge
+207349;Dunkle Richterin
 221703;Beschwörungskreis
 262228;Tödliche Gelassenheit
+336126;Medaillon des Gladiators
+336135;Siegel der Anpassung
+345228;Abzeichen des Gladiators
+345229;Insigne des Gladiators
+345231;Emblem des Gladiators
