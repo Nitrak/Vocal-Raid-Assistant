@@ -109,3 +109,4 @@ battleres;battleres
 345228;Gladiator's Badge
 345229;Gladiator's Insignia
 345231;Gladiator's Emblem
+414658;Ice Cold

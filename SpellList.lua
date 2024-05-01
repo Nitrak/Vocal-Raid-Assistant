@@ -135,6 +135,7 @@ local spellListRetail = {
 		[383121] = {type = 8}, --Mass Polymorph
 		[376103] = {type = 1}, --Radiant Spark
 		[382440] = {type = 1}, --Shifting Power
+		[414658] = {type = 2}, --Ice Cold
 		[414660] = {type = 5}, --Mass Barrier
 		[414664] = {type = 5}, --Mass Invisibility
 	},
