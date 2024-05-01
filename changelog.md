@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.5.1
+- Added Ice Cold
+
 ## 3.5.0
 - Added cheat death proccs
 - Added spell name changes (e.g. Fort Brew - Mistweaver, Fort Brew - Brewmaster)
