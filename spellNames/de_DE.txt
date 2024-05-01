@@ -55,3 +55,4 @@ cheatdeath;Cheat Death
 345228;Abzeichen des Gladiators
 345229;Insigne des Gladiators
 345231;Emblem des Gladiators
+414658;Eiskalt
