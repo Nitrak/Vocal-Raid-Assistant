@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.5.2
+- Bump toc for 10.2.7
+
 ## 3.5.1
 - Added Ice Cold
 
