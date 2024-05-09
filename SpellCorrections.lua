@@ -93,7 +93,7 @@ local spellNameCorrections = {
 	[422750] = true
 }
 
--- Wrath
+-- Cata
 local spellCorrectionsCata = {
 	--- Druid
 	-- Bash

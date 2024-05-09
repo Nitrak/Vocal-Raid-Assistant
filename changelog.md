@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.5.3
+- Adapt VRA for Cata Prepatch
+
 ## 3.5.2
 - Bump toc for 10.2.7
 
