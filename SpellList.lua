@@ -381,7 +381,7 @@ local spellListRetail = {
 	}
 }
 
-local spellListWrath = {
+local spellListCata = {
 	["DEATHKNIGHT"] = {
 		[42650]  = {type = 1},
 		[46585]  = {type = 1}, --Raise Dead
@@ -610,15 +610,15 @@ spellListRetail = nil
 
 --@version-classic@
 spellList = spellListClassic
-spellListWrath = nil
+spellListCata = nil
 --@end-version-classic@
 
---@version-wrath@
-spellList = spellListWrath
+--@version-cata@
+spellList = spellListCata
 spellListClassic = nil
---@end-version-wrath@
+--@end-version-cata@
 
---@end-non-version-retail@]===]
+--@end-non-version-cata@]===]
 
 local allSupportedSpells = {}
 do
