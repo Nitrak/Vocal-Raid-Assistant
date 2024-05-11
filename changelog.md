@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.5.4
+- Fix wrong closing tag in version specific code replacements
+
 ## 3.5.3
 - Adapt VRA for Cata Prepatch
 
