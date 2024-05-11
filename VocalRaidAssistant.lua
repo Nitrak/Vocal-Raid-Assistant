@@ -120,7 +120,7 @@ function VRA:OnInitialize()
 		})
 	end
 
-	if (self:IsRetail() or self:IsWrath()) then
+	if (self:IsRetail() or self:IsCata()) then
 		self.LDS = LibStub('LibDualSpec-1.0')
 		self.LDS:EnhanceDatabase(self.db, addonName)
 	end

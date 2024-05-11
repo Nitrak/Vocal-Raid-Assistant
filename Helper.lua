@@ -7,17 +7,17 @@ local intendedWoWProject = WOW_PROJECT_MAINLINE
 --@version-classic@
 intendedWoWProject = WOW_PROJECT_CLASSIC
 --@end-version-classic@
---@version-wrath@
-intendedWoWProject = WOW_PROJECT_WRATH_CLASSIC or WOW_PROJECT_MAINLINE
---@end-version-wrath@
+--@version-cata@
+intendedWoWProject = WOW_PROJECT_CATA_CLASSIC or 14
+--@end-version-cata@
 --@end-non-version-retail@]===]
 
 function addon:IsClassic()
 	return WOW_PROJECT_ID == WOW_PROJECT_CLASSIC
 end
 
-function addon:IsWrath()
-	return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC
+function addon:IsCata()
+	return WOW_PROJECT_ID == WOW_PROJECT_CATA_CLASSIC or 14
 end
 
 function addon:IsRetail()
@@ -35,7 +35,7 @@ end
 local intendedWoWProjectName = {
 	[WOW_PROJECT_MAINLINE] = "Retail",
 	[WOW_PROJECT_CLASSIC] = "Classic",
-	[WOW_PROJECT_WRATH_CLASSIC or 11] = "Wrath of the Lich King Classic"
+	[WOW_PROJECT_CATA_CLASSIC or 14] = "Cataclysm Classic"
 }
 
 function addon:determinePlayerError(spellID, channel, isTest)
