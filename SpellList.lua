@@ -618,7 +618,7 @@ spellList = spellListCata
 spellListClassic = nil
 --@end-version-cata@
 
---@end-non-version-cata@]===]
+--@end-non-version-retail@]===]
 
 local allSupportedSpells = {}
 do
