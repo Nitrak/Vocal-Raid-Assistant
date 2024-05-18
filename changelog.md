@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.5.5
+- Fix "OnlyOnMe" filter
+
 ## 3.5.4
 - Fix wrong closing tag in version specific code replacements
 

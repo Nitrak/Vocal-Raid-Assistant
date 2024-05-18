@@ -23,9 +23,10 @@ local function checkEventType(event)
 	return allowedSubEvents[event] or false
 end
 
-local targetTypePlayer = bit.bor(COMBATLOG_OBJECT_TARGET, COMBATLOG_OBJECT_TYPE_PLAYER, COMBATLOG_OBJECT_CONTROL_PLAYER)
 local function checkSpellTarget(destFlags, destGUID)
-	return destGUID == '' or (bit.band(destFlags, targetTypePlayer) > 0 and destGUID == UnitGUID("player"))
+	return destGUID == '' or -- AOE
+	destGUID == UnitGUID("player") or -- Cast on us
+	bit.band(destFlags, COMBATLOG_OBJECT_TYPE_NPC) == COMBATLOG_OBJECT_TYPE_NPC -- Target = NPC
 end
 
 local spellCheckFunctions = {
