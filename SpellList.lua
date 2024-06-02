@@ -66,6 +66,7 @@ local spellListRetail = {
 		[33786]  = {type = 5}, --Cyclone
 		[33891]  = {type = 4}, --Incarnation: Tree of Life
 		[61336]  = {type = 2}, --Survival Instincts
+		[61391]  = {type = 8}, --Typhoon
 		[102342] = {type = 3}, --Ironbark
 		[102543] = {type = 1}, --Incarnation: Avatar of Ashamane
 		[102558] = {type = 2}, --Incarnation: Guardian of Ursoc
@@ -75,7 +76,6 @@ local spellListRetail = {
 		[106951] = {type = 1}, --Berserk
 		[108238] = {type = 2}, --Renewal
 		[124974] = {type = 3}, --Nature's Vigil
-		[132469] = {type = 8}, --Typhoon
 		[194223] = {type = 1}, --Celestial Alignment
 		[197721] = {type = 4}, --Flourish
 		[200851] = {type = 2}, --Rage of the Sleeper
@@ -260,6 +260,7 @@ local spellListRetail = {
 		[16191]  = {type = 5}, --Mana Tide Totem
 		[20608]  = {type = 5}, --Reincarnation
 		[51485]  = {type = 8}, --Earthgrab Totem
+		[51490]  = {type = 5}, --Thunderstorm
 		[51514]  = {type = 5}, --Hex
 		[51533]  = {type = 1}, --Feral Spirit
 		[58875]  = {type = 5}, --Spirit Walk
@@ -289,6 +290,7 @@ local spellListRetail = {
 		[1714]   = {type = 1}, --Curse of Tongues
 		[1122]   = {type = 1}, --Summon Infernal
 		[5484]   = {type = 8}, --Howl of Terror
+		[6789]   = {type = 5}, --Mortal Coil
 		[29893]  = {type = 5}, --Soulwell
 		[30283]  = {type = 8}, --Shadowfury
 		[104773] = {type = 2}, --Unending Resolve

@@ -1,5 +1,10 @@
 # Vocal Raid Assistant
 
+## 3.5.6
+- Fix Typhoon
+- Added Mortal Coil
+- Added Thunderstorm
+
 ## 3.5.5
 - Fix "OnlyOnMe" filter
 
