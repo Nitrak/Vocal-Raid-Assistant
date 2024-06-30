@@ -38,6 +38,7 @@ local spellListRetail = {
 		[196555] = {type = 2}, --Netherwalk
 		[196718] = {type = 4}, --Darkness
 		[198589] = {type = 2}, --Blur
+		[198793] = {type = 5}, --Vengeful Retreat
 		[200166] = {type = 1}, --Metamorphosis #Havoc
 		[202137] = {type = 6}, --Sigil of Silence
 		[202138] = {type = 8}, --Sigil of Chains
@@ -126,6 +127,7 @@ local spellListRetail = {
 		[113724] = {type = 8}, --Ring of Frost
 		[157981] = {type = 8}, --Blast Wave
 		[190319] = {type = 1}, --Combustion
+		[190336] = {type = 5}, --Conjure Refreshment
 		[205021] = {type = 1}, --Ray of Frost
 		[235219] = {type = 2}, --Cold Snap
 		[235313] = {type = 5}, --Blazing Barrier
@@ -194,6 +196,7 @@ local spellListRetail = {
 		[388007] = {type = 1}, --Blessing of Summer
 	},
 	["PRIEST"] = {
+		[586]	 = {type = 2}, --Fade
 		[8122]   = {type = 8}, --Psychic Scream
 		[10060]  = {type = 1}, --Power Infusion
 		[15286]  = {type = 4}, --Vampiric Embrace
@@ -286,6 +289,7 @@ local spellListRetail = {
 		[384352] = {type = 1}, --Doom Winds
 	},
 	["WARLOCK"] = {
+		[698]	 = {type = 5}, --Ritual of Summoning
 		[702]	 = {type = 1}, --Curse of Weakness
 		[1714]   = {type = 1}, --Curse of Tongues
 		[1122]   = {type = 1}, --Summon Infernal
