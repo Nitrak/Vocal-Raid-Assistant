@@ -1,5 +1,11 @@
 # Vocal Raid Assistant
 
+## 3.5.7
+- Added Fade
+- Added Vengeful Retreat
+- Added Mage Table
+- Added Ritual of Summoning
+
 ## 3.5.6
 - Fix Typhoon
 - Added Mortal Coil
