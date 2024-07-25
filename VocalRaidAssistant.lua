@@ -59,7 +59,12 @@ function VRA:InitializeOptions()
 		VRA:ChatCommand()
 	end)
 
-	InterfaceOptions_AddCategory(optionsFrame)
+	if InterfaceOptions_AddCategory then
+		InterfaceOptions_AddCategory(optionsFrame)
+	else
+		local category, layout = Settings.RegisterCanvasLayoutCategory(optionsFrame, optionsFrame.name);
+		Settings.RegisterAddOnCategory(category);
+	end
 	self.optionsFrame = optionsFrame
 
 	self.InitializeOptions = nil
