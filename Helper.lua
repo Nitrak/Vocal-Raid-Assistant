@@ -28,6 +28,10 @@ function addon:IsCorrectVersion()
 	return intendedWoWProject == WOW_PROJECT_ID
 end
 
+function addon:IsTWW()
+	return select(4, GetBuildInfo()) >= 110000
+end
+
 function addon:prettyPrint(...)
 	print("|c00ff0000Vocal Raid Assistant:|r ", ...)
 end
