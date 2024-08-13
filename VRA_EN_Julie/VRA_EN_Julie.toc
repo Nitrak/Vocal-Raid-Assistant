@@ -1,4 +1,4 @@
-## Interface: 110000
+## Interface: 110000, 110002
 ## Interface-Cata: 40400
 ## Interface-Classic: 11503
 ## Title: VRA_EN_Julie
@@ -6,7 +6,7 @@
 ## Dependencies: VocalRaidAssistant
 ## Author: The VRA Team
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\icon.tga
-## Version: 3.6.0
+## Version: 3.6.1
 
 VRA_EN_Julie.lua
 

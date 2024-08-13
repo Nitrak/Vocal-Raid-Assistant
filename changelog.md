@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.6.1
+- Fix Addon not loading due to more removed API function
+
 ## 3.6.0
 - Fix Addon not loading due to removed API function
 
