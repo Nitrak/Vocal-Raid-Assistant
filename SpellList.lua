@@ -157,7 +157,7 @@ local spellListRetail = {
 		[123904] = {type = 1}, --Invoke Xuen, the White Tiger
 		[132578] = {type = 1}, --Invoke Niuzao, the Black Ox
 		[137639] = {type = 1}, --Storm, Earth, and Fire
-		[152173] = {type = 1}, --Serenity
+		-- [152173] = {type = 1}, --Serenity
 		[197908] = {type = 5}, --Mana Tea
 		[243435] = {type = 2}, --Fortifying Brew
 		[322109] = {type = 1}, --Touch of Death
@@ -220,7 +220,7 @@ local spellListRetail = {
 		[197871] = {type = 1}, --Dark Archangel
 		[200174] = {type = 1}, --Mindbender spec 258
 		[200183] = {type = 2}, --Apotheosis
-		[205369] = {type = 5}, --Mind Bomb
+		-- [205369] = {type = 5}, --Mind Bomb
 		[215982] = {type = 2}, --Spirit of the Redeemer
 		[228260] = {type = 1}, --Void Eruption
 		[246287] = {type = 4}, --Evangelism
@@ -327,7 +327,7 @@ local spellListRetail = {
 		[107570] = {type = 1}, --Storm Bolt
 		[107574] = {type = 1}, --Avatar
 		[118038] = {type = 2}, --Die by the Sword
-		[152277] = {type = 1}, --Ravager
+		-- [152277] = {type = 1}, --Ravager
 		[184364] = {type = 2}, --Enraged Regeneration
 		[227847] = {type = 1}, --Bladestorm
 		[228920] = {type = 1}, --Ravager
