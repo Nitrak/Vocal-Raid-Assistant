@@ -111,3 +111,4 @@ battleres;battleres
 345229;Gladiator's Insignia
 345231;Gladiator's Emblem
 414658;Ice Cold
+459796;Barrage

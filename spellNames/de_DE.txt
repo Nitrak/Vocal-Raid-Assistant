@@ -68,3 +68,4 @@ cheatdeath;Cheat Death
 345229;Insigne des Gladiators
 345231;Emblem des Gladiators
 414658;Eiskalt
+459796;Sperrfeuer
