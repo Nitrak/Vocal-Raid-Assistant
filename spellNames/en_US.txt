@@ -45,6 +45,7 @@ battleres;battleres
 205636;Trees
 205691;Basilisk
 207399;Ancestral Protection
+208652;Hawk
 265187;Demonic Tyrant
 265202;Salvation
 319952;Madness
