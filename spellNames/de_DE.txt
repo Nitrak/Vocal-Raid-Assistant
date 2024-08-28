@@ -25,7 +25,13 @@ cheatdeath;Cheat Death
 
 724;Brunnen des Lichts
 1714;Fluch der Sprachen
+11958;Kälteeinbruch
+12042;Arkane Macht
+20230;Gegenschlag
+20580;Schattenhaftigkeit
 23989;Bereitschaft
+30823;Schamanistische Wut
+31842;Göttliche Gunst
 44572;Tieffrieren
 46924;Klingensturm
 48505;Sternenregen
@@ -40,8 +46,11 @@ cheatdeath;Cheat Death
 55198;Kraft der Gezeiten
 59672;Metamorphose
 64205;Heilige Opferung
+79140;Vendetta
 108194;Ersticken
 110960;Große Unsichtbarkeit
+113858;Finstere Seele: Instabilität
+113860;Finstere Seele: Elend
 152277;Verheerer
 194407;Speiende Kobra
 199754;Riposte
@@ -49,7 +58,10 @@ cheatdeath;Cheat Death
 205191;Auge um Auge
 207349;Dunkle Richterin
 221703;Beschwörungskreis
+243435;Stärkendes Gebräu
 262228;Tödliche Gelassenheit
+266779;Koordinierter Angriff
+288853;Monstrosität erwecken
 336126;Medaillon des Gladiators
 336135;Siegel der Anpassung
 345228;Abzeichen des Gladiators
