@@ -33,28 +33,39 @@ local spellListRetail = {
 	},
 	["DEMONHUNTER"] = {
 		[179057] = {type = 8}, --Chaos Nova
+		[183752] = {type = 2}, --Disrupt
+		[185245] = {type = 1}, --Torment
 		[187827] = {type = 2}, --Metamorphosis #Vengeance
 		[188501] = {type = 5}, --Spectral Sight
+		[189110] = {type = 1}, --Infernal Strike
+		[195072] = {type = 1}, --Fel Rush
 		[196555] = {type = 2}, --Netherwalk
 		[196718] = {type = 4}, --Darkness
+		[198013] = {type = 1}, --Eye Beam
 		[198589] = {type = 2}, --Blur
 		[198793] = {type = 5}, --Vengeful Retreat
 		[200166] = {type = 1}, --Metamorphosis #Havoc
 		[202137] = {type = 6}, --Sigil of Silence
 		[202138] = {type = 8}, --Sigil of Chains
+		[203720] = {type = 1}, --Demon Spikes
 		[204021] = {type = 2}, --Fiery Brand
 		[204596] = {type = 1}, --Sigil of Flame
 		[205604] = {type = 2}, --Reverse Magic
 		[206803] = {type = 2}, --Rain from Above
+		[207407] = {type = 1}, --Soul Carver
 		[207684] = {type = 8}, --Sigil of Misery
 		[211881] = {type = 5}, --Fel Eruption
 		[212084] = {type = 1}, --Fel Devastation
 		[217832] = {type = 8}, --Imprison
+		[258860] = {type = 1}, --Essence Break
+		[258920] = {type = 1}, --Immolation Aura
 		[258925] = {type = 1}, --Fel Barrage
 		[263648] = {type = 2}, --Soul Barrier
+		[278326] = {type = 4}, --Consume Magic
 		[320341] = {type = 2}, --Bulk Extraction
-		[390163] = {type = 1}, --Elysian Decree
+		[342817] = {type = 1}, --Glaive Tempest
 		[370965] = {type = 1}, --The Hunt
+		[390163] = {type = 1}, --Sigil of Spite
 	},
 	["DRUID"] = {
 		[99] 	 = {type = 8}, --Incapacitating Roar
