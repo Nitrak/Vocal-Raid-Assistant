@@ -99,29 +99,52 @@ local spellListRetail = {
 		[391888] = {type = 1}, --Adaptive Swarm
 	},
 	["HUNTER"] = {
+		[781]	 = {type = 5}, --Disengage
+		[1543]	 = {type = 5}, --Flare
 		[5384]   = {type = 5}, --Feign Death
-		[19801]  = {type = 5}, --Tranquilizing Shot
 		[19574]  = {type = 1}, --Bestial Wrath
+		[19801]  = {type = 5}, --Tranquilizing Shot
 		[19577]  = {type = 8}, --Intimidation
 		[34477]  = {type = 5}, --Misdirection
 		[53480]  = {type = 3}, --Roar of Sacrifice
 		[109248] = {type = 8}, --Binding Shot
 		[109304] = {type = 2}, --Exhilaration
+		[120360] = {type = 1}, --Barrage
+		[120679] = {type = 1}, --Dire Beast
 		[186257] = {type = 2}, --Aspect of the Cheetah
 		[186265] = {type = 2}, --Aspect of the Turtle
 		[186289] = {type = 1}, --Aspect of the Eagle
+		[186387] = {type = 1}, --Bursting Shot
 		[187650] = {type = 8}, --Freezing Trap
-		[193530] = {type = 1}, --Aspect of the Wild
-		[194407] = {type = 1}, --Spitting Cobra
+		[187698] = {type = 8}, --Tar Trap
+		[190925] = {type = 1}, --Harpoon
+		--[193530] = {type = 1}, --Aspect of the Wild
+		--[194407] = {type = 1}, --Spitting Cobra
 		[199483] = {type = 2}, --Camouflage
 		[201430] = {type = 1}, --Stampede
+		[203415] = {type = 1}, --Fury of the Eagle
 		[205691] = {type = 1}, --Basilisk
+		[208652] = {type = 1}, --Hawk
+		[212431] = {type = 1}, --Explosive Shot
+		[213691] = {type = 1}, --Scatter Shot
+		[236776] = {type = 1}, --High Explosive Trap
+		[257044] = {type = 1}, --Rapid Fire
+		[260243] = {type = 1}, --Volley
 		[264735] = {type = 2}, --Survival of the Fittest
 		[266779] = {type = 1}, --Coordinated Assault
+		[269751] = {type = 1}, --Flanking Strike
+		[272651] = {type = 1}, --Command Pet
 		[288613] = {type = 1}, --Trueshot
+		[321530] = {type = 1}, --Bloodshed
 		[359844] = {type = 1}, --Call of the Wild
+		[360952] = {type = 1}, --Coordinated Assault
+		[360966] = {type = 1}, --Spearhead
 		[375891] = {type = 1}, --Death Chakram
 		[392060] = {type = 8}, --Wailing Arrow
+		[400456] = {type = 1}, --Salvo
+		[430703] = {type = 1}, --Black Arrow
+		[459796] = {type = 1}, --Rapid Fire Barrage
+		[462031] = {type = 8}, --Implosive Trap
 	},
 	["MAGE"] = {
 		[66]     = {type = 2}, --Invisibility
@@ -231,7 +254,6 @@ local spellListRetail = {
 		[197871] = {type = 1}, --Dark Archangel
 		[200174] = {type = 1}, --Mindbender spec 258
 		[200183] = {type = 2}, --Apotheosis
-		-- [205369] = {type = 5}, --Mind Bomb
 		[215982] = {type = 2}, --Spirit of the Redeemer
 		[228260] = {type = 1}, --Void Eruption
 		[246287] = {type = 4}, --Evangelism
