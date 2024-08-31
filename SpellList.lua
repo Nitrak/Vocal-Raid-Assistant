@@ -428,8 +428,20 @@ local spellListRetail = {
 		[345231] = {type = 12}, -- Verdant Gladiator's Emblem
 
 		-- pve
-		[422083] = {type = 11}, -- Seedling
-		[422750] = {type = 11}, -- Tainted Rageheart
+		[442489] = {type = 11}, -- Reactive Webbed Escutcheon
+		[443124] = {type = 11}, -- Mad Queen's Mandate
+		[443415] = {type = 11}, -- High Speaker's Accretion
+		[443529] = {type = 11}, -- Burin of the Candle King
+		[443535] = {type = 11}, -- Tome of Light's Devotion
+		[443536] = {type = 11}, -- Bursting Lightshard
+		[443552] = {type = 11}, -- Oppressive Orator's Larynx
+		[443556] = {type = 11}, -- Twin Fang Instruments
+		[444264] = {type = 11}, -- Foul Behemoth's Chelicera
+		[444301] = {type = 11}, -- Swarmlord's Authority
+		[444489] = {type = 11}, -- Skyterror's Corrosive Organ
+		[448904] = {type = 11}, -- Ravenous Honey Buzzer
+		[451568] = {type = 11}, -- Refracting Aggression Module
+		[455467] = {type = 11}, -- Kaheti Shadeweaver's Emblem
 	}
 }
 
