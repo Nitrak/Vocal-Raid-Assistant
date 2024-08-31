@@ -373,18 +373,31 @@ local spellListRetail = {
 		[376079] = {type = 1}, --Spear of Bastion
 	},
 	["EVOKER"] = {
+		[355913] = {type = 5}, --Emerald Blossom
+		[355936] = {type = 1}, --Dream Breath
 		[357170] = {type = 3}, --Time Dilation
+		[357208] = {type = 1}, --Fire Breath
 		[357210] = {type = 1}, --Deep Breath
 		[357214] = {type = 5}, --Wing Buffet
+		[358267] = {type = 5}, --Hover
 		[358385] = {type = 8}, --Landslide
+		[359073] = {type = 1}, --Eternity Surge
 		[359816] = {type = 4}, --Dream Flight
+		[360806] = {type = 5}, --Sleep Walk
+		[360823] = {type = 5}, --Naturalize
+		[360827] = {type = 5}, --Blistering Scales
+		[360995] = {type = 5}, --Verdant Embrace
 		[363534] = {type = 4}, --Rewind
+		[365585] = {type = 5}, --Expunge
+		[367226] = {type = 5}, --Spiritbloom
 		[368970] = {type = 5}, --Tailswipe
 		[363916] = {type = 2}, --Obsidian Scales
+		[368847] = {type = 1}, --Firestorm
 		[370537] = {type = 4}, --Stasis
 		[370553] = {type = 1}, --Tip the Scales
 		[370665] = {type = 5}, --Rescue
 		[370960] = {type = 2}, --Emerald Communion
+		[371032] = {type = 5}, --Terror of the Skies
 		[372048] = {type = 8}, --Oppressing Roar
 		[374227] = {type = 4}, --Zephyr
 		[374251] = {type = 5}, --Cauzerizing Flame
