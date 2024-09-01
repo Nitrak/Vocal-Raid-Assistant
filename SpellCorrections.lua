@@ -78,6 +78,8 @@ local spellCorrectionsRetail = {
 	[323673] = 375901,
 	-- Echoing Reprimand
 	[323547] = 385616,
+	-- Devine Protection
+	[403876] = 498,
 }
 
 local spellIconCorrections = {

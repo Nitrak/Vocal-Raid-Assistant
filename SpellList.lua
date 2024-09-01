@@ -208,26 +208,39 @@ local spellListRetail = {
 		[853]    = {type = 8}, --Hammer of Justice
 		[1022]   = {type = 3}, --Blessing of Protection
 		[1044]   = {type = 5}, --Blessing of Freedom
+		[4987]   = {type = 5}, --Cleanse
 		[6940]   = {type = 3}, --Blessing of Sacrifice
+		[10326]  = {type = 5}, --Turn Evil
+		[20066]  = {type = 5}, --Repentance
 		[31821]  = {type = 4}, --Aura Mastery
 		[31850]  = {type = 2}, --Ardent Defender
 		[31884]  = {type = 1}, --Avenging Wrath
 		[86659]  = {type = 2}, --Guardian of Ancient Kings
 		[105809] = {type = 1}, --Holy Avenger
 		[114158] = {type = 1}, --Lights`s Hammer
+		[114165] = {type = 1}, --Holy Prism
 		[115750] = {type = 8}, --Blinding Light
+		[148039] = {type = 5}, --Barrier of Faith
 		[184662] = {type = 2}, --Shield of Vengeance
 		[199452] = {type = 3}, --Ultimate Sacrifice
+		[200652] = {type = 5}, --Tyr's Deliverance
 		[204018] = {type = 3}, --Blessing of Spellwarding
 		[205191] = {type = 2}, --Eye for an Eye
+		[213644] = {type = 5}, --Cleanse Toxins
 		[216331] = {type = 1}, --Avenging Crusader
 		[228049] = {type = 3}, --Guardian of the Forgotten Queen
 		[231895] = {type = 1}, --Crusade
+		[255937] = {type = 1}, --Wake of Ashes
 		[327193] = {type = 1}, --Moment of Glory
 		[343527] = {type = 1}, --Execution Sentence
 		[343721] = {type = 1}, --Final Reckoning
 		[375576] = {type = 1}, --Divine Toll
+		[378974] = {type = 1}, --Bastion of Light
 		[388007] = {type = 1}, --Blessing of Summer
+		[389539] = {type = 1}, --Sentinel
+		[414170] = {type = 1}, --Daybreak
+		[414273] = {type = 1}, --Hand of Divinity
+		[432472] = {type = 1}, --Sacred Weapon
 	},
 	["PRIEST"] = {
 		[586]	 = {type = 2}, --Fade
