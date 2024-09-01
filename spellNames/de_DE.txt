@@ -21,6 +21,15 @@ cheatdeath;Cheat Death
 404369;Trotz dem Schicksal
 417069;Zornesherz
 
+443124;Mandat der verrückten Königin
+443415;Zuwachs des Sprechers
+443552;Kehlkopf des Orators
+444264;Beißwerkzeug des Behemoths
+444301;Autorität des Schwarmfürsten
+444489;Ätzendes Himmelsschreckenorgan
+451568;Aggressionsablenkungsmodul
+455467;Emblem der Schattenweberin
+
 ### Not available via Spell API
 
 724;Brunnen des Lichts

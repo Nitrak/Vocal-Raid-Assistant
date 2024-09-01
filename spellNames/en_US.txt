@@ -68,6 +68,15 @@ battleres;battleres
 391528;Convoke
 422083;Seedling
 422750;Tainted Rageheart
+442489;Webbed Escutcheon
+443124;Queen's Mandate
+443415;Speaker's Accretion
+443552;Orator's Larynx
+444264;Behemoth's Chelicera
+444301;Swarmlord's Authority
+444489;Corrosive Organ
+451568;Aggression Module
+455467;Shadeweaver's Emblem
 
 ### Changed cheat death
 45181;Cheat Death
