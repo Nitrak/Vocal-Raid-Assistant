@@ -6,30 +6,45 @@ local spellListRetail = {
 		[42650]  = {type = 1}, --Army of the Dead
 		[46585]  = {type = 1}, --Raise Dead
 		[47476]  = {type = 5}, --Strangulate
+		[47481]  = {type = 8}, --Gnaw
 		[47568]  = {type = 1}, --Empower Rune Weapon
+		[48265]  = {type = 5}, --Death's Advance
 		[48707]  = {type = 2}, --Anti-Magic Shell
 		[48743]  = {type = 2}, --Death Pact
 		[48792]  = {type = 2}, --Icebound Fortitude
 		[49028]  = {type = 1}, --Dancing Rune Weapon
 		[49039]  = {type = 5}, --Lichborne
 		[49206]  = {type = 1}, --Summon Gargoyle
+		[49576]  = {type = 8}, --Death Grip
 		[51052]  = {type = 4}, --Anti-Magic Zone
+		[51271]  = {type = 5}, --Pillar of Frost
 		[55233]  = {type = 2}, --Vampiric Blood
+		[57330]  = {type = 1}, --Horn of Winter
 		[61999]  = {type = 5}, --Raise Ally
+		[63560]  = {type = 1}, --Dark Transformation
 		[108199] = {type = 5}, --Gorefiend's Grasp
 		[152279] = {type = 1}, --Breath of Sindragosa
+		[194679] = {type = 2}, --Rune Tap
+		[194844] = {type = 1}, --Bonestorm
+		[206931] = {type = 1}, --Blooddrinker
 		[207167] = {type = 8}, --Blinding Sleet
+		[207230] = {type = 1}, --Frostscythe
 		[207289] = {type = 1}, --Unholy Assault
 		[207349] = {type = 1}, --Dark Arbiter
 		[212552] = {type = 2}, --Wraith Walk
 		[219809] = {type = 2}, --Tombstone
 		[221562] = {type = 8}, --Asphyxiate
 		[221699] = {type = 1}, --Blood Tap
+		[274156] = {type = 1}, --Consumption
 		[275699] = {type = 1}, --Apocalypse
 		[279302] = {type = 1}, --Frostwyrm's Fury
 		[288853] = {type = 1}, --Raise Abomination
+		[305392] = {type = 8}, --Chill Streak
 		[327574] = {type = 2}, --Sacrificial Pact
 		[383269] = {type = 1}, --Abomination Limb
+		[390279] = {type = 1}, --Vile Contagion
+		[439843] = {type = 1}, --Reaper's Mark
+		[444347] = {type = 5}, --Death Charge
 	},
 	["DEMONHUNTER"] = {
 		[179057] = {type = 8}, --Chaos Nova

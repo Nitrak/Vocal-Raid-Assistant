@@ -84,6 +84,8 @@ local spellCorrectionsRetail = {
 	[323547] = 385616,
 	-- Devine Protection
 	[403876] = 498,
+	--Raise Abomination
+	[455395] = 288853
 }
 
 local spellIconCorrections = {
