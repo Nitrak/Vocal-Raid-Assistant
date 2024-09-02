@@ -441,23 +441,39 @@ local spellListRetail = {
 		[1714]   = {type = 1}, --Curse of Tongues
 		[1122]   = {type = 1}, --Summon Infernal
 		[5484]   = {type = 8}, --Howl of Terror
+		[6353]   = {type = 1}, --Soul Fire
 		[6789]   = {type = 5}, --Mortal Coil
 		[29893]  = {type = 5}, --Soulwell
 		[30283]  = {type = 8}, --Shadowfury
+		[80240]  = {type = 1}, --Havoc
+		[89751]  = {type = 1}, --Felstorm
 		[104773] = {type = 2}, --Unending Resolve
 		[108416] = {type = 2}, --Dark Pact
 		[111898] = {type = 1}, --Grimoire: Felguard
 		[113858] = {type = 1}, --Dark Soul: Instability
 		[113860] = {type = 1}, --Dark Soul: Misery
 		[111771] = {type = 5}, --Demonic Gateway
+		[152108] = {type = 1}, --Cataclysm
+		[200546] = {type = 1}, --Bane of Havoc
+		[205179] = {type = 1}, --Phantom Singularity
 		[205180] = {type = 1}, --Summon Darkglare
 		[212459] = {type = 1}, --Call Fel Lord
 		[221703] = {type = 2}, --Casting Circle
+		[264119] = {type = 1}, --Summon Vilefiend
 		[265187] = {type = 1}, --Summon Demonic Tyrant
 		[267171] = {type = 1}, --Demonic Strength
+		[267211] = {type = 1}, --Bilescourge Bombers
 		[267217] = {type = 1}, --Nether Portal
+		[278350] = {type = 1}, --Vile Taint
+		[328774] = {type = 1}, --Amplify Curse
 		[333889] = {type = 1}, --Fel Domination
+		[353601] = {type = 1}, --Fel Obelisk
+		[386833] = {type = 1}, --Guillotine
 		[386997] = {type = 1}, --Soul Rot
+		[387976] = {type = 1}, --Dimensional Rift
+		[417537] = {type = 1}, --Oblivion
+		[442726] = {type = 1}, --Malevolence
+		[452930] = {type = 2}, --Demonic Healthstone
 	},
 	["WARRIOR"] = {
 		[100]	 = {type = 5}, --Charge
