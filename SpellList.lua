@@ -338,13 +338,18 @@ local spellListRetail = {
 		[421453] = {type = 1}, --Ultimate Penitence
 	},
 	["ROGUE"] = {
+		[408]	 = {type = 1}, --Kidney Shot
+		[1725]   = {type = 5}, --Distract
 		[1856]   = {type = 1}, --Vanish
 		[1966]   = {type = 2}, --Faint
 		[2094]   = {type = 8}, --Blind
+		[2983]	 = {type = 5}, --Sprint
 		[5277]   = {type = 2}, --Evasion
 		[5938]   = {type = 5}, --Shiv
 		[13750]  = {type = 1}, --Adrenaline Rush
+		[13877]  = {type = 5}, --Blade Flurry
 		[31224]  = {type = 2}, --Cloak of Shadows
+		[36554]  = {type = 5}, --Shadowstep
 		[51690]  = {type = 1}, --Killing Spree
 		[57934]  = {type = 5}, --Tricks of the Trade
 		[79140]  = {type = 1}, --Vendetta
@@ -352,15 +357,28 @@ local spellListRetail = {
 		[121471] = {type = 1}, --Shadow Blades
 		[137619] = {type = 1}, --Marked for Death
 		[185311] = {type = 2}, --Crimson Vial
+		[185313] = {type = 5}, --Shadow Dance
+		[195457] = {type = 5}, --Grappling Hook
+		[196937] = {type = 1}, --Ghostly Strike
 		[199754] = {type = 2}, --Riposte
 		[212182] = {type = 5}, --Smoke Bombe
+		[212283] = {type = 1}, --Symbols of Death
+		[271877] = {type = 1}, --Blade Rush
+		[277925] = {type = 1}, --Shuriken Tornado
+		[280719] = {type = 1}, --Secret Technique
+		[315341] = {type = 1}, --Between the Eyes
+		[315508] = {type = 1}, --Roll the Bones
 		[343142] = {type = 1}, --Dreadblades
 		[360194] = {type = 1}, --Deathmark
+		[381623] = {type = 1}, --Thistle Tea
+		[381989] = {type = 1}, --Keep It Rolling
+		[382245] = {type = 1}, --Cold Blood
 		[385616] = {type = 1}, --Echoing Reprimand
 		[384631] = {type = 1}, --Flagellation
 		[385408] = {type = 1}, --Sepsis
 		[385424] = {type = 1}, --Serrated Bone Spike
 		[385627] = {type = 1}, --Kingsbane
+		[426591] = {type = 1}, --Goremaw's Bite
 	},
 	["SHAMAN"] = {
 		[2484]	 = {type = 5}, --Earthbind Totem
