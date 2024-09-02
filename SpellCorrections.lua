@@ -83,11 +83,15 @@ local spellCorrectionsRetail = {
 	-- Echoing Reprimand
 	[323547] = 385616,
 	--Smoke Bomb
-	[359053] = 212182
+	[359053] = 212182,
 	-- Devine Protection
 	[403876] = 498,
 	--Raise Abomination
-	[455395] = 288853
+	[455395] = 288853,
+	--Halo
+	[120644] = 120517,
+	--Mindbender
+	[200174] = 123040
 }
 
 local spellIconCorrections = {

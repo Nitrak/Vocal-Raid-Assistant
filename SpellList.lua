@@ -302,10 +302,12 @@ local spellListRetail = {
 		[432472] = {type = 1}, --Sacred Weapon
 	},
 	["PRIEST"] = {
+		[527]	 = {type = 5}, --Purify
 		[586]	 = {type = 2}, --Fade
 		[8122]   = {type = 8}, --Psychic Scream
 		[10060]  = {type = 1}, --Power Infusion
 		[15286]  = {type = 4}, --Vampiric Embrace
+		[15487]  = {type = 5}, --Silence
 		[19236]  = {type = 2}, --Desperate Prayer
 		[20711]  = {type = 2}, --Spirit Of Redemption
 		[33206]  = {type = 3}, --Pain Suppression
@@ -319,23 +321,31 @@ local spellListRetail = {
 		[64843]  = {type = 4}, --Divine Hymn
 		[64901]  = {type = 4}, --Symbol of Hope
 		[73325]  = {type = 5}, --Leap of Faith
+		[108920] = {type = 8}, --Void Tendrils
 		[108968] = {type = 3}, --Void Shift
 		[109964] = {type = 4}, --Spirit Shell
-		[123040] = {type = 1}, --Mindbender spec 256
+		[120517] = {type = 1}, --Halo
+		[123040] = {type = 1}, --Mindbender
 		[197862] = {type = 1}, --Archangel
 		[197871] = {type = 1}, --Dark Archangel
-		[200174] = {type = 1}, --Mindbender spec 258
 		[200183] = {type = 2}, --Apotheosis
+		[205364] = {type = 5}, --Dominate Mind
+		[213634] = {type = 5}, --Purify Disease
 		[215982] = {type = 2}, --Spirit of the Redeemer
 		[228260] = {type = 1}, --Void Eruption
 		[246287] = {type = 4}, --Evangelism
+		[263165] = {type = 1}, --Void Torrent
 		[265202] = {type = 4}, --Holy Word: Salvation
 		[271466] = {type = 4}, --Luminous Barrier
 		[316262] = {type = 1}, --Toughsteal
 		[328530] = {type = 1}, --Divine Ascension
+		[372760] = {type = 1}, --Divine Word
 		[372835] = {type = 4}, --Lightwell
 		[375901] = {type = 1}, --Mindgames
+		[391109] = {type = 1}, --Dark Ascension
 		[421453] = {type = 1}, --Ultimate Penitence
+		[428933] = {type = 1}, --Premonition
+		[451235] = {type = 1}, --Voidwraith
 	},
 	["ROGUE"] = {
 		[408]	 = {type = 1}, --Kidney Shot
