@@ -60,6 +60,7 @@ cheatdeath;Cheat Death
 79140;Vendetta
 89751;Teufelssturm
 108194;Ersticken
+109964;Geisthülle
 110960;Große Unsichtbarkeit
 113858;Finstere Seele: Instabilität
 113860;Finstere Seele: Elend
