@@ -391,11 +391,15 @@ local spellListRetail = {
 		[386997] = {type = 1}, --Soul Rot
 	},
 	["WARRIOR"] = {
+		[100]	 = {type = 5}, --Charge
 		[871]    = {type = 2}, --Shield Wall
 		[1160]   = {type = 5}, --Demoralizing Shout
 		[1161]   = {type = 5}, --Challenging Shout
 		[1719]   = {type = 1}, --Recklessness
+		[3411]   = {type = 5}, --Intervene
 		[5246]   = {type = 8}, --Intimidating Shout
+		[6544]   = {type = 5}, --Heroic Leap
+		[12323]  = {type = 8}, --Piercing Howl
 		[12975]  = {type = 2}, --Last Stand
 		[18499]  = {type = 1}, --Berserker Rage
 		[23920]  = {type = 2}, --Spell Reflection
@@ -406,16 +410,26 @@ local spellListRetail = {
 		[107574] = {type = 1}, --Avatar
 		[118038] = {type = 2}, --Die by the Sword
 		-- [152277] = {type = 1}, --Ravager
+		[167105] = {type = 1}, --Colossus Smash
 		[184364] = {type = 2}, --Enraged Regeneration
 		[227847] = {type = 1}, --Bladestorm
 		[228920] = {type = 1}, --Ravager
 		[236273] = {type = 2}, --Duel
 		[236320] = {type = 5}, --War Banner
+		[260708] = {type = 1}, --Sweeping Strikes
+		[262161] = {type = 1}, --Warbreaker
 		[262228] = {type = 1}, --Deadly Calm
-		[383762] = {type = 2}, --Bitter Immunity
-		[384318] = {type = 1}, --Thunderous Roar
-		[392966] = {type = 2}, --Spell Block
 		[376079] = {type = 1}, --Spear of Bastion
+		[383762] = {type = 2}, --Bitter Immunity
+		[384100] = {type = 1}, --Berserker Shout
+		[384110] = {type = 1}, --Wrecking Throw
+		[384318] = {type = 1}, --Thunderous Roar
+		[385059] = {type = 1}, --Odyn's Fury
+		[385952] = {type = 1}, --Shield Charge
+		[386071] = {type = 8}, --Disrupting Shout
+		[392966] = {type = 2}, --Spell Block
+		[401150] = {type = 1}, --Avatar
+		[436358] = {type = 1}, --Demolish
 	},
 	["EVOKER"] = {
 		[355913] = {type = 5}, --Emerald Blossom
