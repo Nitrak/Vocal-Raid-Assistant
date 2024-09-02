@@ -94,6 +94,7 @@ battleres;battleres
 23989;Readiness
 44572;Deep Freeze
 46924;Bladestorm
+47481;Gnaw
 48505;Starfall
 48982;Rune Tap
 49005;Mark of Blood
@@ -106,11 +107,17 @@ battleres;battleres
 55198;Tidal Force
 59672;Metamorphosis
 64205;Divine Sacrifice
+89751;Felstorm
 108194;Asphyxiate
+116011;Rune of Power
+119996;Transcendence: Transfer
 152277;Ravager
 194407;Spitting Cobra
 199754;Riposte
 200166;Metamorphosis
+200546;Bane of Havoc
+202359;Astral Communion
+204406;Thunderstorm
 205191;Eye for an Eye
 207349;Dark Arbiter
 221703;Casting Circle
@@ -120,5 +127,17 @@ battleres;battleres
 345228;Gladiator's Badge
 345229;Gladiator's Insignia
 345231;Gladiator's Emblem
+353601;Fel Obelisk
+414170;Daybreak
 414658;Ice Cold
+428933;Premonition of Insight
+432472;Sacred Weapon
+443529;Burin of the Candle King
+443535;Tome of Light's Devotion
+443536;Bursting Lightshard
+443556;Twin Fang Instruments
+444347;Death Charge
+448904;Ravenous Honey Buzzer
+451235;Voidwraith
+452930;Demonic Healthstone
 459796;Barrage

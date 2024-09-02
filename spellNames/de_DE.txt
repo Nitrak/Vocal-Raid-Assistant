@@ -44,6 +44,7 @@ cheatdeath;Cheat Death
 31842;Göttliche Gunst
 44572;Tieffrieren
 46924;Klingensturm
+47481;Nagen
 48505;Sternenregen
 48982;Runenheilung
 49005;Mal des Blutes
@@ -57,14 +58,20 @@ cheatdeath;Cheat Death
 59672;Metamorphose
 64205;Heilige Opferung
 79140;Vendetta
+89751;Teufelssturm
 108194;Ersticken
 110960;Große Unsichtbarkeit
 113858;Finstere Seele: Instabilität
 113860;Finstere Seele: Elend
+116011;Rune der Kraft
+119996;Transzendenz: Transfer
 152277;Verheerer
 194407;Speiende Kobra
 199754;Riposte
 200166;Metamorphose
+200546;Fluch der Verwüstung
+202359;Astrale Vereinigung
+204406;Gewitter
 205191;Auge um Auge
 207349;Dunkle Richterin
 221703;Beschwörungskreis
@@ -77,5 +84,17 @@ cheatdeath;Cheat Death
 345228;Abzeichen des Gladiators
 345229;Insigne des Gladiators
 345231;Emblem des Gladiators
+353601;Teufelsobelisk
+414170;Tagesanbruch
 414658;Eiskalt
+428933;Vorahnung der Einsicht
+432472;Heilige Waffe
+443529;Stichel des Kerzenkönigs
+443535;Foliant der Hingabe des Lichts
+443536;Explodierender Lichtsplitter
+443556;Doppelfangbesteck
+444347;Todessprint
+448904;Gefräßiger Honigbrummer
+451235;Leergespenst
+452930;Dämonischer Gesundheitsstein
 459796;Sperrfeuer
