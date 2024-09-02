@@ -70,16 +70,24 @@ local spellListRetail = {
 	["DRUID"] = {
 		[99] 	 = {type = 8}, --Incapacitating Roar
 		[740]    = {type = 4}, --Tranquility
+		[1850]   = {type = 5}, --Dash
+		[2782]   = {type = 5}, --Remove Corruption
 		[2908]   = {type = 5}, --Soothe
 		[5211]   = {type = 6}, --Mighty Bash
+		[5217]   = {type = 1}, --Tigers Fury
 		[20484]  = {type = 5}, --Rebirth
 		[22812]  = {type = 2}, --Barkskin
+		[22842]  = {type = 5}, --Frenzied Regeneration
 		[29166]  = {type = 5}, --Innervate
 		[33786]  = {type = 5}, --Cyclone
 		[33891]  = {type = 4}, --Incarnation: Tree of Life
+		[50334]  = {type = 1}, --Berserk
 		[61336]  = {type = 2}, --Survival Instincts
 		[61391]  = {type = 8}, --Typhoon
+		[78675]  = {type = 8}, --Solar Beam
+		[88423]  = {type = 5}, --Nature's Cure
 		[102342] = {type = 3}, --Ironbark
+		[102359] = {type = 8}, --Mass Entanglement
 		[102543] = {type = 1}, --Incarnation: Avatar of Ashamane
 		[102558] = {type = 2}, --Incarnation: Guardian of Ursoc
 		[102560] = {type = 1}, --Incarnation: Chosen of Elune
@@ -88,12 +96,19 @@ local spellListRetail = {
 		[106951] = {type = 1}, --Berserk
 		[108238] = {type = 2}, --Renewal
 		[124974] = {type = 3}, --Nature's Vigil
+		[132158] = {type = 5}, --Nature's Swiftness
+		[155835] = {type = 1}, --Bristling Fur
 		[194223] = {type = 1}, --Celestial Alignment
 		[197721] = {type = 4}, --Flourish
 		[200851] = {type = 2}, --Rage of the Sleeper
+		[202359] = {type = 1}, --Astral Communion
+		[202425] = {type = 1}, --Warrior of Elune
 		[202770] = {type = 1}, --Fury of Elune
 		[203651] = {type = 3}, --Overgrowth
+		[204066] = {type = 8}, --Lunar Beam
 		[205636] = {type = 1}, --Force of Nature
+		[252216] = {type = 8}, --Tiger Dash
+		[274837] = {type = 1}, --Feral Frenzy
 		[319454] = {type = 1}, --Heart of the Wild
 		[391528] = {type = 1}, --Convoke the Spirits
 		[391888] = {type = 1}, --Adaptive Swarm

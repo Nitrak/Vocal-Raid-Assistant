@@ -34,6 +34,8 @@ local spellCorrectionsRetail = {
 	[232633] = 25046,
 	-- Druid Stampeding Roar
 	[77761] = 106898,
+	-- Typhoon
+	[132469] = 61391,
 	-- Ascendance
 	[114051] = 114050,
 	[114052] = 114050,
