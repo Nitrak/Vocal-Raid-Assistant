@@ -8,6 +8,7 @@ cheatdeath;Cheat Death
 
 2894;Feuerelementar
 35476;Trommeln
+115315;Statue des Schwarzen Ochsen
 351355;Trommeln
 381301;Trommeln
 422083;Setzling

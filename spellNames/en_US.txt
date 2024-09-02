@@ -33,6 +33,7 @@ battleres;battleres
 114018;Shroud
 108280;Healing Tide
 110960;Invisibility
+115315;Black Ox Statue
 123904;Invoke Xuen
 132578;Invoke Niuzao
 186265;Turtle
