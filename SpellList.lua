@@ -164,28 +164,40 @@ local spellListRetail = {
 	["MAGE"] = {
 		[66]     = {type = 2}, --Invisibility
 		[118]    = {type = 8}, --Polymorph
+		[475]	 = {type = 5}, --Remove Curse
+		[2139]   = {type = 5}, --Counterspell
 		[11426]  = {type = 2}, --Ice Barrier
 		[12042]  = {type = 1}, --Arcane Power
 		[12051]  = {type = 1}, --Evocation
 		[12472]  = {type = 1}, --Icy Veins
-		[45438]  = {type = 2}, --Ice Block
 		[31661]  = {type = 1}, --Dragon's Breath
+		[44614]  = {type = 1}, --Flurry
+		[45438]  = {type = 2}, --Ice Block
 		[55342]  = {type = 2}, --Mirror Image
 		[80353]  = {type = 1}, --Time Warp
+		[84714]  = {type = 1}, --Frozen Orb
 		[110960] = {type = 2}, --Greater Invisibility | 110959
 		[113724] = {type = 8}, --Ring of Frost
+		[116011] = {type = 1}, --Rune of Power
+		[153561] = {type = 1}, --Meteor
+		[153595] = {type = 1}, --Comet Storm
+		[153626] = {type = 1}, --Arcane Orb
+		[157980] = {type = 1}, --Supernova
 		[157981] = {type = 8}, --Blast Wave
 		[190319] = {type = 1}, --Combustion
 		[190336] = {type = 5}, --Conjure Refreshment
 		[205021] = {type = 1}, --Ray of Frost
+		[205025] = {type = 1}, --Presence of Mind
 		[235219] = {type = 2}, --Cold Snap
 		[235313] = {type = 5}, --Blazing Barrier
 		[235450] = {type = 5}, --Prismatic Barrier
+		[321507] = {type = 1}, --Touch of the Magi
 		[342245] = {type = 2}, --Alter Time
 		[365350] = {type = 1}, --Arcane Surge
-		[383121] = {type = 8}, --Mass Polymorph
 		[376103] = {type = 1}, --Radiant Spark
 		[382440] = {type = 1}, --Shifting Power
+		[383121] = {type = 8}, --Mass Polymorph
+		[389713] = {type = 1}, --Displacement
 		[414658] = {type = 2}, --Ice Cold
 		[414660] = {type = 5}, --Mass Barrier
 		[414664] = {type = 5}, --Mass Invisibility
