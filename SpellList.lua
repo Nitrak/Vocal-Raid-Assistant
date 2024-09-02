@@ -191,30 +191,47 @@ local spellListRetail = {
 		[414664] = {type = 5}, --Mass Invisibility
 	},
 	["MONK"] = {
+		[101545] = {type = 8}, --Flying Serpent Kick
 		[115078] = {type = 8}, --Paralysis
 		[115176] = {type = 2}, --Zen Meditation
 		[115203] = {type = 2}, --Fortifying Brew
 		[115310] = {type = 4}, --Revival
+		[115315] = {type = 5}, --Summon Black Ox Statue
 		[115399] = {type = 2}, --Black Ox Brew
-		[116844] = {type = 8}, --Ring of Peace
+		[115450] = {type = 5}, --Detox
+		[116680] = {type = 8}, --Thunder Focus Tea
 		[116841] = {type = 5}, --Tiger's Lust
+		[116844] = {type = 8}, --Ring of Peace
 		[116849] = {type = 3}, --Life Cocoon
 		[119381] = {type = 8}, --Leg Sweep
+		[119582] = {type = 5}, --Purifying Brew
+		[119996] = {type = 5}, --Transcendence: Transfer
 		[122278] = {type = 2}, --Dampen Harm
 		[122470] = {type = 2}, --Touch of Karma
 		[122783] = {type = 2}, --Diffuse Magic
 		[123904] = {type = 1}, --Invoke Xuen, the White Tiger
+		[124081] = {type = 1}, --Zen Pulse
 		[132578] = {type = 1}, --Invoke Niuzao, the Black Ox
 		[137639] = {type = 1}, --Storm, Earth, and Fire
 		-- [152173] = {type = 1}, --Serenity
+		[152175] = {type = 1}, --Whirling Dragon Punch
+		[196725] = {type = 5}, --Refreshing Jade Wind
 		[197908] = {type = 5}, --Mana Tea
+		[198898] = {type = 8}, --Song of Chi-Ji
+		[218164] = {type = 5}, --Detox
 		[243435] = {type = 2}, --Fortifying Brew
 		[322109] = {type = 1}, --Touch of Death
 		[322118] = {type = 4}, --Invoke Yu'lon, the Jade Serpent
+		[322507] = {type = 1}, --Celestial Brew
+		[324312] = {type = 8}, --Clash
 		[325197] = {type = 4}, --Invoke Chi-Ji, the Red Crane
+		[325153] = {type = 1}, --Exploding Keg
+		[387184] = {type = 1}, --Weapons of Order
 		[388615] = {type = 4}, --Restoral
 		[388686] = {type = 1}, --Summon White Tiger Statue
 		[388193] = {type = 1}, --Faeline Stomp
+		[392983] = {type = 1}, --Strike of the Windlord
+		[443028] = {type = 1}, --Celestial Conduit
 	},
 	["PALADIN"] = {
 		[498]    = {type = 2}, --Divine Protection
