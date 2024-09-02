@@ -348,7 +348,9 @@ local spellListRetail = {
 		[385627] = {type = 1}, --Kingsbane
 	},
 	["SHAMAN"] = {
+		[2484]	 = {type = 5}, --Earthbind Totem
 		[2825]   = {type = 1}, --Bloodlust
+		[5394]   = {type = 5}, --Healing Stream Totem
 		[8143]   = {type = 5}, --Tremor Totem
 		[16191]  = {type = 5}, --Mana Tide Totem
 		[20608]  = {type = 5}, --Reincarnation
@@ -356,27 +358,39 @@ local spellListRetail = {
 		[51490]  = {type = 5}, --Thunderstorm
 		[51514]  = {type = 5}, --Hex
 		[51533]  = {type = 1}, --Feral Spirit
+		[51886]  = {type = 5}, --Cleanse Spirit
 		[58875]  = {type = 5}, --Spirit Walk
 		[79206]  = {type = 5}, --Spiritwalker's Grace
 		[98008]  = {type = 4}, --Spirit Link Totem
+		[108270] = {type = 5}, --Stone Bulwark Totem
 		[108271] = {type = 2}, --Astral Shift
 		[108280] = {type = 4}, --Healing Tide Totem
 		[108281] = {type = 4}, --Ancestral Guidance
+		[108285] = {type = 5}, --Totemic Recall
 		[114050] = {type = 1}, --Ascendance
+		[157153] = {type = 5}, --Cloudburst Totem
 		[191634] = {type = 1}, --Stormkeeper
 		[192058] = {type = 8}, --Capacitor Totem
 		[192222] = {type = 1}, --Liquid Magna Totem
 		[192077] = {type = 5}, --Wind Rush Totem
 		[192249] = {type = 1}, --Storm Elemental
 		[193876] = {type = 1}, --Shamanism
+		[196884] = {type = 5}, --Feral Lunge
+		[197214] = {type = 1}, --Sundering
 		[198067] = {type = 1}, --Fire Elemental
 		[198103] = {type = 2}, --Earth Elemental
 		[198838] = {type = 3}, --Earthen Wall Totem
+		[204406] = {type = 8}, --Traveling Storm
 		[207399] = {type = 4}, --Ancestral Protection Totem
+		[305483] = {type = 5}, --Lightning Lasso
 		[355580] = {type = 5}, --Static Field Totem
 		[375982] = {type = 1}, --Primordial Wave
+		[378773] = {type = 8}, --Greater Purge
 		[383013] = {type = 5}, --Poison Cleansing Totem
+		[383019] = {type = 5}, --Tranquil Air Totem
 		[384352] = {type = 1}, --Doom Winds
+		[428332] = {type = 5}, --Primordial Wave
+		[444995] = {type = 5}, --Surging Totem
 	},
 	["WARLOCK"] = {
 		[698]	 = {type = 5}, --Ritual of Summoning

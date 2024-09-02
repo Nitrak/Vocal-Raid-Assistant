@@ -12,6 +12,8 @@ local spellCorrectionsRetail = {
 	[269352] = 51514, -- Tome of Hex: Skeletal Hatchling
 	[277778] = 51514, -- Tome of Hex: Zandalari Tendonripper
 	[309328] = 51514, -- Tome of Hex: Living Honey
+	-- Shaman Stormkeeper
+	[383009] = 191634,
 	-- Mage Polymorph
 	[28271] = 118, -- Tome of Polymorph: Turtle
 	[28272] = 118, -- Polymorph: Pig
