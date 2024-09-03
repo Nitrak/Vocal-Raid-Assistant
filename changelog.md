@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.7.0
+- Added a lot of spells
+
 ## 3.6.1
 - Fix Addon not loading due to more removed API function
 
