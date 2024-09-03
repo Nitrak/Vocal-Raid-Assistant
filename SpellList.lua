@@ -167,7 +167,6 @@ local spellListRetail = {
 		[288613] = {type = 1}, --Trueshot
 		[321530] = {type = 1}, --Bloodshed
 		[359844] = {type = 1}, --Call of the Wild
-		[360952] = {type = 1}, --Coordinated Assault
 		[360966] = {type = 1}, --Spearhead
 		[375891] = {type = 1}, --Death Chakram
 		[392060] = {type = 8}, --Wailing Arrow
@@ -180,7 +179,6 @@ local spellListRetail = {
 		[66]     = {type = 2}, --Invisibility
 		[118]    = {type = 8}, --Polymorph
 		[475]	 = {type = 5}, --Remove Curse
-		[2139]   = {type = 5}, --Counterspell
 		[11426]  = {type = 2}, --Ice Barrier
 		[12042]  = {type = 1}, --Arcane Power
 		[12051]  = {type = 1}, --Evocation
@@ -432,7 +430,6 @@ local spellListRetail = {
 		[383013] = {type = 5}, --Poison Cleansing Totem
 		[383019] = {type = 5}, --Tranquil Air Totem
 		[384352] = {type = 1}, --Doom Winds
-		[428332] = {type = 5}, --Primordial Wave
 		[444995] = {type = 5}, --Surging Totem
 	},
 	["WARLOCK"] = {

@@ -14,6 +14,8 @@ local spellCorrectionsRetail = {
 	[309328] = 51514, -- Tome of Hex: Living Honey
 	-- Shaman Stormkeeper
 	[383009] = 191634,
+	-- Primordial Wave
+	[428332] = 375982,
 	-- Mage Polymorph
 	[28271] = 118, -- Tome of Polymorph: Turtle
 	[28272] = 118, -- Polymorph: Pig
@@ -91,7 +93,9 @@ local spellCorrectionsRetail = {
 	--Halo
 	[120644] = 120517,
 	--Mindbender
-	[200174] = 123040
+	[200174] = 123040,
+	--
+	[360952] = 266779,
 }
 
 local spellIconCorrections = {
