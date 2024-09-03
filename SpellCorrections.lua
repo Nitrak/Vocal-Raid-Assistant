@@ -12,6 +12,10 @@ local spellCorrectionsRetail = {
 	[269352] = 51514, -- Tome of Hex: Skeletal Hatchling
 	[277778] = 51514, -- Tome of Hex: Zandalari Tendonripper
 	[309328] = 51514, -- Tome of Hex: Living Honey
+	-- Shaman Stormkeeper
+	[383009] = 191634,
+	-- Primordial Wave
+	[428332] = 375982,
 	-- Mage Polymorph
 	[28271] = 118, -- Tome of Polymorph: Turtle
 	[28272] = 118, -- Polymorph: Pig
@@ -34,6 +38,8 @@ local spellCorrectionsRetail = {
 	[232633] = 25046,
 	-- Druid Stampeding Roar
 	[77761] = 106898,
+	-- Typhoon
+	[132469] = 61391,
 	-- Ascendance
 	[114051] = 114050,
 	[114052] = 114050,
@@ -78,6 +84,18 @@ local spellCorrectionsRetail = {
 	[323673] = 375901,
 	-- Echoing Reprimand
 	[323547] = 385616,
+	--Smoke Bomb
+	[359053] = 212182,
+	-- Devine Protection
+	[403876] = 498,
+	--Raise Abomination
+	[455395] = 288853,
+	--Halo
+	[120644] = 120517,
+	--Mindbender
+	[200174] = 123040,
+	--
+	[360952] = 266779,
 }
 
 local spellIconCorrections = {
