@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.7.1
+- Bump toc for 11.0.5
+
 ## 3.7.0
 - Added a lot of spells
 
