@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local getAddOnInfo = C_AddOns and C_AddOns.GetAddOnInfo or GetAddOnInfo
+
 local L = addon.L
 
 local tostring = tostring
@@ -45,11 +46,29 @@ StaticPopupDialogs["VRA_EXPORT"] = {
 }
 
 local borderlessCoords = { 0.07, 0.93, 0.07, 0.93 }
+
+
 local function spellOption(spellID)
-	local spellname, _, icon = GetSpellInfo(spellID)
-	local description = GetSpellDescription(spellID)
+	-- Find a cleaner solution for this
+	local spellname = nil
+	local icon = nil
+	local description = nil
+
+    if addon:IsTWW() then
+		spellname = C_Spell.GetSpellName(spellID)
+		icon = C_Spell.GetSpellTexture(spellID)
+		description = C_Spell.GetSpellDescription(spellID)
+	else
+		local _spellname, _, _icon = GetSpellInfo(spellID)
+		description = GetSpellDescription(spellID)
+
+		spellname = _spellname
+		icon = _icon
+	end
+
 	icon = addon.spellIconCorrections[icon] or icon
 	spellname = addon.spellNameCorrections[spellID] and L[spellID] or spellname
+
 	if (spellname ~= nil) then
 		return {
 			type = 'toggle',

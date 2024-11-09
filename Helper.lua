@@ -28,6 +28,10 @@ function addon:IsCorrectVersion()
 	return intendedWoWProject == WOW_PROJECT_ID
 end
 
+function addon:IsTWW()
+	return select(4, GetBuildInfo()) >= 110000
+end
+
 function addon:prettyPrint(...)
 	print("|c00ff0000Vocal Raid Assistant:|r ", ...)
 end
@@ -51,8 +55,7 @@ function addon:determinePlayerError(spellID, channel, isTest)
 				, channel, channel)
 		end
 	else
-		errorMsg = format("Missing soundfile for configured spell: %d - %s, Voice Pack: %s", spellID, GetSpellInfo(spellID) or spellID,
-			addon.profile.sound.soundpack)
+		errorMsg = format("Missing soundfile for configured spell: %d , Voice Pack: %s", spellID, addon.profile.sound.soundpack)
 	end
 	return errorMsg
 end

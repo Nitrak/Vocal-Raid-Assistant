@@ -8,6 +8,7 @@ cheatdeath;Cheat Death
 
 2894;Feuerelementar
 35476;Trommeln
+115315;Statue des Schwarzen Ochsen
 351355;Trommeln
 381301;Trommeln
 422083;Setzling
@@ -21,13 +22,29 @@ cheatdeath;Cheat Death
 404369;Trotz dem Schicksal
 417069;Zornesherz
 
+443124;Mandat der verrückten Königin
+443415;Zuwachs des Sprechers
+443552;Kehlkopf des Orators
+444264;Beißwerkzeug des Behemoths
+444301;Autorität des Schwarmfürsten
+444489;Ätzendes Himmelsschreckenorgan
+451568;Aggressionsablenkungsmodul
+455467;Emblem der Schattenweberin
+
 ### Not available via Spell API
 
 724;Brunnen des Lichts
 1714;Fluch der Sprachen
+11958;Kälteeinbruch
+12042;Arkane Macht
+20230;Gegenschlag
+20580;Schattenhaftigkeit
 23989;Bereitschaft
+30823;Schamanistische Wut
+31842;Göttliche Gunst
 44572;Tieffrieren
 46924;Klingensturm
+47481;Nagen
 48505;Sternenregen
 48982;Runenheilung
 49005;Mal des Blutes
@@ -40,19 +57,45 @@ cheatdeath;Cheat Death
 55198;Kraft der Gezeiten
 59672;Metamorphose
 64205;Heilige Opferung
+79140;Vendetta
+89751;Teufelssturm
 108194;Ersticken
+109964;Geisthülle
 110960;Große Unsichtbarkeit
+113858;Finstere Seele: Instabilität
+113860;Finstere Seele: Elend
+116011;Rune der Kraft
+119996;Transzendenz: Transfer
 152277;Verheerer
 194407;Speiende Kobra
 199754;Riposte
 200166;Metamorphose
+200546;Fluch der Verwüstung
+202359;Astrale Vereinigung
+204406;Gewitter
 205191;Auge um Auge
 207349;Dunkle Richterin
 221703;Beschwörungskreis
+243435;Stärkendes Gebräu
 262228;Tödliche Gelassenheit
+266779;Koordinierter Angriff
+288853;Monstrosität erwecken
 336126;Medaillon des Gladiators
 336135;Siegel der Anpassung
 345228;Abzeichen des Gladiators
 345229;Insigne des Gladiators
 345231;Emblem des Gladiators
+353601;Teufelsobelisk
+414170;Tagesanbruch
 414658;Eiskalt
+428933;Vorahnung der Einsicht
+432472;Heilige Waffe
+443529;Stichel des Kerzenkönigs
+443535;Foliant der Hingabe des Lichts
+443536;Explodierender Lichtsplitter
+443556;Doppelfangbesteck
+444347;Todessprint
+448904;Gefräßiger Honigbrummer
+451235;Leergespenst
+452930;Dämonischer Gesundheitsstein
+459796;Sperrfeuer
