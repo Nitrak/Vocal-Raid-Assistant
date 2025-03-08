@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.7.3
+- Bump toc for 11.1.0
+
 ## 3.7.2
 - Bump toc for 11.0.7
 
