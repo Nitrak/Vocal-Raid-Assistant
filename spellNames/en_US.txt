@@ -66,6 +66,7 @@ battleres;battleres
 381301;Drums
 383013;Poison Cleansing
 388686;White Tiger Statue
+387174;Eye Of Tyr
 391528;Convoke
 422083;Seedling
 422750;Tainted Rageheart
