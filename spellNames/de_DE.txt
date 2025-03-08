@@ -86,6 +86,7 @@ cheatdeath;Cheat Death
 345229;Insigne des Gladiators
 345231;Emblem des Gladiators
 353601;Teufelsobelisk
+387174;Auge von Tyr
 414170;Tagesanbruch
 414658;Eiskalt
 428933;Vorahnung der Einsicht
