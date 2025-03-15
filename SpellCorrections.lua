@@ -94,8 +94,10 @@ local spellCorrectionsRetail = {
 	[120644] = 120517,
 	--Mindbender
 	[200174] = 123040,
-	--
+	--Coordinated Assault
 	[360952] = 266779,
+	--Lay On Hands
+	[471195] = 633,
 }
 
 local spellIconCorrections = {

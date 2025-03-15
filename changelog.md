@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.7.5
+- Fix Lay on Hands / Empyreal Ward
+
 ## 3.7.4
 - Added Eye of Tyr
 
