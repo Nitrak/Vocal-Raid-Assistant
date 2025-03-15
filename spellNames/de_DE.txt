@@ -91,6 +91,7 @@ cheatdeath;Cheat Death
 414658;Eiskalt
 428933;Vorahnung der Einsicht
 432472;Heilige Waffe
+442489;Schutzfäden
 443529;Stichel des Kerzenkönigs
 443535;Foliant der Hingabe des Lichts
 443536;Explodierender Lichtsplitter
