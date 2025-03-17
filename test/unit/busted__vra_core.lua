@@ -6,33 +6,36 @@ describe("busted", function()
 		profile = {
 			general = {
 				area = {
-					STUB = setmetatable({ onlySelf = true }, {
+					STUB = setmetatable({
+						onlySelf = false
+					}, {
 						__index = function(_, key)
 							return setmetatable({}, {
 								__index = function(_, spellID)
-									return true  -- Always return true for any spellID
+									return true -- Always return true for any spellID
 								end
 							})
 						end
 					})
 				},
-				watchFor = 6, -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
+				watchFor = 6 -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
 			},
 			sound = {
 				throttle = 0,
 				channel = "Master"
-			},
+			}
 		}
 	}
 
 	local inCombat = true
 	local fakeCombatLogEvent = {}
+	local fakePlayerGuid = "Player-1234-123"
 
 	-- Function to simulate CombatLogGetCurrentEventInfo Output using a stored string
 	local function loadCombatLogEventFromString(logString)
 		local function split(str, delimiter)
 			local result = {}
-			for match in (str..delimiter):gmatch("(.-)"..delimiter) do
+			for match in (str .. delimiter):gmatch("(.-)" .. delimiter) do
 				table.insert(result, match)
 			end
 			return result
@@ -56,22 +59,31 @@ describe("busted", function()
 		local spellName = values[13]
 		local spellScool = tonumber(values[14])
 
-		return { timestamp, subevent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
-		destFlags2, spellID, spellName, spellScool }
+		return {timestamp, subevent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName,
+          destFlags, destFlags2, spellID, spellName, spellScool}
 	end
 
 	-- Function to mock log entry dynamically
 	local function setMockCombatLogEntry(logString)
-    	fakeCombatLogEvent = loadCombatLogEventFromString(logString)
+		fakeCombatLogEvent = loadCombatLogEventFromString(logString)
 	end
 
 	setup("load addon", function()
 		-- Stub Blizz functions
-		stub(_G, "IsInInstance", function() return true, "STUB" end)
-		stub(_G, "UnitAffectingCombat", function() return inCombat end)
+		stub(_G, "IsInInstance", function()
+			return true, "STUB"
+		end)
+		stub(_G, "UnitAffectingCombat", function()
+			return inCombat
+		end)
+		stub(_G, "UnitGUID", function()
+			return fakePlayerGuid
+		end)
 		stub(_G, "CombatLogGetCurrentEventInfo", function()
 			return table.unpack(fakeCombatLogEvent)
 		end)
+
+		_G.COMBATLOG_OBJECT_TYPE_NPC = 2048
 
 		-- Ensure `bit` exists
 		if not _G.bit then
@@ -79,84 +91,87 @@ describe("busted", function()
 		end
 
 		-- Stub bitwise functions
-		stub(_G.bit, "band", function(a, b) return a & b end)
-		stub(_G.bit, "bor", function(a, b) return a | b end)
-		stub(_G.bit, "bxor", function(a, b) return a ~ b end)
-		stub(_G.bit, "lshift", function(a, b) return a << b end)
-		stub(_G.bit, "rshift", function(a, b) return a >> b end)
+		stub(_G.bit, "band", function(a, b)
+			return a & b
+		end)
+		stub(_G.bit, "bor", function(a, b)
+			return a | b
+		end)
+		stub(_G.bit, "bxor", function(a, b)
+			return a ~ b
+		end)
+		stub(_G.bit, "lshift", function(a, b)
+			return a << b
+		end)
+		stub(_G.bit, "rshift", function(a, b)
+			return a >> b
+		end)
 
 		-- Load minimum addon files
-		local addonFiles = {
-			"Core.lua",
-			"SpellList.lua",
-			"SpellCorrections.lua"
-		}
+		local addonFiles = {"Core.lua", "SpellList.lua", "SpellCorrections.lua"}
 
 		for _, luaFileName in ipairs(addonFiles) do
 			local path = "../../" .. luaFileName
 			local chunk = loadfile(path)
-			assert(chunk,  "Error loading: " .. luaFileName)
+			assert(chunk, "Error loading: " .. luaFileName)
 			chunk(addonName, addon)
 		end
 	end)
 
-
 	describe("Addon name is mocked", function()
 		it("Checks if our custom load is working", function()
-		  local expected = "VRA_STUB"
-		  assert.are.equals(expected, addonName)
+			local expected = "VRA_STUB"
+			assert.are.equals(expected, addonName)
 		end)
 	end)
 
-
 	describe("Check CombatLog loading", function()
 		it("should parse and return a SPELL_CAST_SUCCESS_EVENT", function()
-			local logString = "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
+			local logString =
+							"123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
 			setMockCombatLogEntry(logString)
 
 			-- Call the stubbed function
 			local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
-			destFlags2, spellID, spellName, spellSchool = CombatLogGetCurrentEventInfo()
+							destFlags2, spellID, spellName, spellSchool = CombatLogGetCurrentEventInfo()
 
-			 -- Assertions
-			 assert.equals(timestamp, "123456.78")
-			 assert.equals(event, "SPELL_CAST_SUCCESS")
-			 assert.is_false(hideCaster)
-			 assert.equals(sourceGUID, "Player-1234-456")
-			 assert.equals(sourceName, "CasterName")
-			 assert.equals(sourceFlags, 1298)
-			 assert.equals(destGUID, "Player-1234-123")
-			 assert.equals(destName, "TargetName")
-			 assert.equals(destFlags, 1297)
-			 assert.equals(spellID, 406732)
-			 assert.equals(spellName, "Spatial Paradox")
-			 assert.equals(spellSchool, 64)
+			-- Assertions
+			assert.equals(timestamp, "123456.78")
+			assert.equals(event, "SPELL_CAST_SUCCESS")
+			assert.is_false(hideCaster)
+			assert.equals(sourceGUID, "Player-1234-456")
+			assert.equals(sourceName, "CasterName")
+			assert.equals(sourceFlags, 1298)
+			assert.equals(destGUID, "Player-1234-123")
+			assert.equals(destName, "TargetName")
+			assert.equals(destFlags, 1297)
+			assert.equals(spellID, 406732)
+			assert.equals(spellName, "Spatial Paradox")
+			assert.equals(spellSchool, 64)
 		end)
 	end)
-
 
 	describe("Bitwise Operations", function()
 		it("should correctly perform bitwise AND", function()
-			assert.equals(bit.band(5, 3), 5 & 3)  -- 101 & 011 = 001 (1)
+			assert.equals(bit.band(5, 3), 5 & 3) -- 101 & 011 = 001 (1)
 		end)
 
 		it("should correctly perform bitwise OR", function()
-			assert.equals(bit.bor(5, 3), 5 | 3)  -- 101 | 011 = 111 (7)
+			assert.equals(bit.bor(5, 3), 5 | 3) -- 101 | 011 = 111 (7)
 		end)
 
 		it("should correctly perform bitwise XOR", function()
-			assert.equals(bit.bxor(5, 3), 5 ~ 3)  -- 101 ^ 011 = 110 (6)
+			assert.equals(bit.bxor(5, 3), 5 ~ 3) -- 101 ^ 011 = 110 (6)
 		end)
 
 		it("should correctly perform left shift", function()
-			assert.equals(bit.lshift(1, 2), 1 << 2)  -- 0001 << 2 = 0100 (4)
+			assert.equals(bit.lshift(1, 2), 1 << 2) -- 0001 << 2 = 0100 (4)
 		end)
 
 		it("should correctly perform right shift", function()
-			assert.equals(bit.rshift(8, 2), 8 >> 2)  -- 1000 >> 2 = 0010 (2)
+			assert.equals(bit.rshift(8, 2), 8 >> 2) -- 1000 >> 2 = 0010 (2)
 		end)
 	end)
-
 
 	describe("Check VRA Announce", function()
 		before_each(function()
@@ -164,11 +179,53 @@ describe("busted", function()
 			fakeCombatLogEvent = {}
 		end)
 
-		describe("")
-		it("Partymember casts spell on me", function()
-			local logString = "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
-			setMockCombatLogEntry(logString)
-			addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+		describe("Partymember casts spell on me:", function()
+
+			-- An Evoker in our group casts Spatial Paradox on "me"
+			local logStringEvokerOnMe =
+							"123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
+
+			it("Should play sound if: Externals only on me enabled", function()
+				setMockCombatLogEntry(logStringEvokerOnMe)
+				local play = spy.on(addon, "playSpell")
+
+				addon.profile.general.area["STUB"].onlySelf = true
+				addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+				assert.spy(play).was.called()
+			end)
+
+			it("Should play sound if: Externals only on me disabled", function()
+			setMockCombatLogEntry(logStringEvokerOnMe)
+				local play = spy.on(addon, "playSpell")
+
+				addon.profile.general.area["STUB"].onlySelf = false
+				addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+				assert.spy(play).was.called()
+			end)
+		end)
+		describe("Partymember casts spell on someone else", function() end)
+		describe("Player casts a spell on someone else", function()
+			-- Player Evoker in our group casts Spatial Paradox on "someone"
+			local logStringEvokerOnThird =
+							"123456.78, SPELL_CAST_SUCCESS, false, Player-1234-123, CasterName, 1297, 0, Player-1234-444, TargetName, 66834, 0, 406732, Spatial Paradox, 64"
+
+				it("should not play sound if: Watch for Own Abilities not taken", function()
+				setMockCombatLogEntry(logStringEvokerOnThird)
+				local play = spy.on(addon, "playSpell")
+
+				addon.profile.general.watchFor = 6 -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
+				addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+				assert.spy(play).was.not_called()
+			end)
+
+			it("should play sound if: Watch for Own Abilities taken", function()
+				setMockCombatLogEntry(logStringEvokerOnThird)
+				local play = spy.on(addon, "playSpell")
+
+				addon.profile.general.watchFor = 7 -- COMBATLOG_OBJECT_AFFILIATION_MINE + COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
+				addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+				assert.spy(play).was.called()
+			end)
 		end)
 	end)
 end)
