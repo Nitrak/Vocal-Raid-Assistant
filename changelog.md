@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.7.6
+- Fix Evangelism spellID
+
 ## 3.7.5
 - Fix Lay on Hands / Empyreal Ward
 

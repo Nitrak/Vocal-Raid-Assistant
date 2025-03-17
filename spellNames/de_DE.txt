@@ -101,3 +101,4 @@ cheatdeath;Cheat Death
 451235;Leergespenst
 452930;Dämonischer Gesundheitsstein
 459796;Sperrfeuer
+472433;Prediger
