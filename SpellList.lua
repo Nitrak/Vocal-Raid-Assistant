@@ -331,7 +331,6 @@ local spellListRetail = {
 		[213634] = {type = 5}, --Purify Disease
 		[215982] = {type = 2}, --Spirit of the Redeemer
 		[228260] = {type = 1}, --Void Eruption
-		[246287] = {type = 4}, --Evangelism
 		[263165] = {type = 1}, --Void Torrent
 		[265202] = {type = 4}, --Holy Word: Salvation
 		[271466] = {type = 4}, --Luminous Barrier
@@ -344,6 +343,7 @@ local spellListRetail = {
 		[421453] = {type = 1}, --Ultimate Penitence
 		[428933] = {type = 1}, --Premonition
 		[451235] = {type = 1}, --Voidwraith
+		[472433] = {type = 4}, --Evangelism
 	},
 	["ROGUE"] = {
 		[408]	 = {type = 1}, --Kidney Shot

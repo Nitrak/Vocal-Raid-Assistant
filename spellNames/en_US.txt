@@ -142,3 +142,4 @@ battleres;battleres
 451235;Voidwraith
 452930;Demonic Healthstone
 459796;Barrage
+472433;Evangelism
