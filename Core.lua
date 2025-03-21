@@ -6,17 +6,6 @@ local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 local UnitAffectingCombat = UnitAffectingCombat
 
 
-
-local function localPrint()
-	print("Hello from local VRA Stub function")
-end
-
-function addon:stubPrint()
-	print("Hello From mocked VRA")
-	localPrint()
-end
-
-
 local function allowedZone(instanceType)
 	return addon.profile.general.area[instanceType].enabled
 end
@@ -66,7 +55,6 @@ local spellCheckFunctions = {
 
 function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 	local _, instanceType = IsInInstance()
-	print(instanceType)
 	if (not (cleu_event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType)) or combatPlayCheck(instanceType)) then
 		return
 	end
