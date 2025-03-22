@@ -34,8 +34,3 @@ jobs:
         with:
           name: busted-test-results
           path: test-results/results.xml
-
-      - name: Upload test results for GitHub Actions display
-        uses: wzieba/Test-Result-Action@v2
-        with:
-          result_path: test-results/results.xml
