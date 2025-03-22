@@ -1,0 +1,36 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - '**'  # Runs on every branch push
+  pull_request:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Lua and Luarocks
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lua5.1 luarocks
+          luarocks install luabitop --local
+          luarocks install busted --local
+          echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
+
+      - name: Check Lua Version
+        run: lua -v
+
+      - name: Run Busted tests ## and generate JUnit report
+        run: |
+          mkdir -p test-results
+          busted test/e2e/busted__vra_core.lua --output=junit > test-results/results.xml
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: busted-test-results
+          path: test-results/results.xml
