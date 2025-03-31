@@ -173,7 +173,8 @@ local spellListRetail = {
 		[400456] = {type = 1}, --Salvo
 		[430703] = {type = 1}, --Black Arrow
 		[459796] = {type = 1}, --Rapid Fire Barrage
-		[462031] = {type = 8}, --Implosive Trap
+		[462031] = {type = 8}, --Implosive Trap,
+		[466904] = {type = 1}, --Harrier's Cry
 	},
 	["MAGE"] = {
 		[66]     = {type = 2}, --Invisibility
@@ -213,7 +214,8 @@ local spellListRetail = {
 		[389713] = {type = 1}, --Displacement
 		[414658] = {type = 2}, --Ice Cold
 		[414660] = {type = 5}, --Mass Barrier
-		[414664] = {type = 5}, --Mass Invisibility
+		[414664] = {type = 5}, --Mass Invisibility,
+		[449700] = {type = 1}, --Gravity Lapse
 	},
 	["MONK"] = {
 		[101545] = {type = 8}, --Flying Serpent Kick

@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 3.7.7
+- Added Gravity Lapse
+- Added Harrier's Cry
+
 ## 3.7.6
 - Fix Evangelism spellID
 
