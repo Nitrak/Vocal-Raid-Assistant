@@ -171,7 +171,6 @@ local spellListRetail = {
 		[375891] = {type = 1}, --Death Chakram
 		[392060] = {type = 8}, --Wailing Arrow
 		[400456] = {type = 1}, --Salvo
-		[430703] = {type = 1}, --Black Arrow
 		[459796] = {type = 1}, --Rapid Fire Barrage
 		[462031] = {type = 8}, --Implosive Trap,
 		[466904] = {type = 1}, --Harrier's Cry
