@@ -143,3 +143,5 @@ battleres;battleres
 452930;Demonic Healthstone
 459796;Barrage
 472433;Evangelism
+449700;Gravity Lapse
+466904;Harrier's Cry

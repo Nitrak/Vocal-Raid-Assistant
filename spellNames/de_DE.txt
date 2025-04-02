@@ -102,3 +102,5 @@ cheatdeath;Cheat Death
 452930;Dämonischer Gesundheitsstein
 459796;Sperrfeuer
 472433;Prediger
+449700;Gravitationsverlust
+466904;Schrei des Hetzers
