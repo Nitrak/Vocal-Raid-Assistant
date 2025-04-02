@@ -27,10 +27,4 @@ jobs:
       - name: Run Busted tests ## and generate JUnit report
         run: |
           mkdir -p test-results
-          busted test/e2e/busted__vra_core.lua --output=tap --output=junit > test-results/results.xml
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: busted-test-results
-          path: test-results/results.xml
+          busted test/e2e/busted__vra_core.lua --output=tap
