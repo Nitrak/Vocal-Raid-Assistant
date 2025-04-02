@@ -511,7 +511,6 @@ local spellListRetail = {
 		[385952] = {type = 1}, --Shield Charge
 		[386071] = {type = 8}, --Disrupting Shout
 		[392966] = {type = 2}, --Spell Block
-		[401150] = {type = 1}, --Avatar
 		[436358] = {type = 1}, --Demolish
 	},
 	["EVOKER"] = {

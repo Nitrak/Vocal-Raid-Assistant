@@ -4,6 +4,7 @@
 - Added Gravity Lapse
 - Added Harrier's Cry
 - Remove Black Arrow
+- Remove Avatar
 
 ## 3.7.6
 - Fix Evangelism spellID
