@@ -27,4 +27,4 @@ jobs:
       - name: Run Busted tests ## and generate JUnit report
         run: |
           mkdir -p test-results
-          busted test/e2e/busted__vra_core.lua --output=tap
+          busted test/e2e/busted__vra_core.lua --output=junit
