@@ -1,6 +1,6 @@
 ## Interface: 110100
 ## Interface-Cata: 40402
-## Interface-Classic: 11506
+## Interface-Classic: 11506, 11507
 ## Title: VRA_EN_Julie
 ## Notes: VoicePack for Vocal Raid Assistant Addon
 ## Dependencies: VocalRaidAssistant

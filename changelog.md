@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.7.8
+- Bump toc for Season of Discovery
+
 ## 3.7.7
 - Added Gravity Lapse
 - Added Harrier's Cry
