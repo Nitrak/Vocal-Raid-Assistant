@@ -79,6 +79,7 @@ cheatdeath;Cheat Death
 243435;Stärkendes Gebräu
 262228;Tödliche Gelassenheit
 266779;Koordinierter Angriff
+272678;Urtümliche Wut
 288853;Monstrosität erwecken
 336126;Medaillon des Gladiators
 336135;Siegel der Anpassung
