@@ -148,8 +148,6 @@ local spellListRetail = {
 		[187650] = {type = 8}, --Freezing Trap
 		[187698] = {type = 8}, --Tar Trap
 		[190925] = {type = 1}, --Harpoon
-		--[193530] = {type = 1}, --Aspect of the Wild
-		--[194407] = {type = 1}, --Spitting Cobra
 		[199483] = {type = 2}, --Camouflage
 		[201430] = {type = 1}, --Stampede
 		[203415] = {type = 1}, --Fury of the Eagle
@@ -163,7 +161,7 @@ local spellListRetail = {
 		[264735] = {type = 2}, --Survival of the Fittest
 		[266779] = {type = 1}, --Coordinated Assault
 		[269751] = {type = 1}, --Flanking Strike
-		[272651] = {type = 1}, --Command Pet
+		[272678] = {type = 1}, --Primal Rage
 		[288613] = {type = 1}, --Trueshot
 		[321530] = {type = 1}, --Bloodshed
 		[359844] = {type = 1}, --Call of the Wild

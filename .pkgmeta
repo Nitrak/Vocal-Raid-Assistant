@@ -21,6 +21,8 @@ ignore:
   - spellNames
   - Scripts
   - Media/Github
+  - test-results
+  - test
 
 enable-nolib-creation: no
 

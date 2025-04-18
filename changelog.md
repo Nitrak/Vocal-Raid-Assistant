@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.8.0
+- Fix Hunter Pet BL
+
 ## 3.7.8
 - Bump toc for Season of Discovery
 

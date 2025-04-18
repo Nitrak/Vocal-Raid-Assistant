@@ -1,14 +1,16 @@
 name: Package
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Run Tests"]
+    types:
+    - completed
     branches:
-      - main
-    tags:
-      - '*'
+    - main
 
 jobs:
-  build:
+  package:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
