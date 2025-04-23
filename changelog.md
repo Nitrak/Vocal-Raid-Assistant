@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.8.1
+- Bump toc for 11.1.5
+
 ## 3.8.0
 - Fix Hunter Pet BL
 
