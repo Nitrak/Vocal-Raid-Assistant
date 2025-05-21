@@ -135,7 +135,7 @@ describe("busted", function()
         end)
     end)
 
-    describe("Check VRA Announce", function()
+    describe("Check VRA Announce: ", function()
         before_each(function()
             -- Reset before each test
             fakeCombatLogEvent = {}
@@ -165,7 +165,7 @@ describe("busted", function()
             end)
         end)
 
-        describe("Partymember casts a spell on someone else", function()
+        describe("Partymember casts a spell on someone else:", function()
             -- Evoker in our group casts Spatial Paradox on "someone"
             local logStringEvokerOnThird =
                             "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-444, TargetName, 1298, 0, 406732, Spatial Paradox, 64"
@@ -189,7 +189,32 @@ describe("busted", function()
             end)
         end)
 
-        describe("Player casts a spell on someone else", function()
+		 describe("Partymember casts a spell on - no target - :", function()
+            -- Evoker in our group casts Spatial Paradox but has the boss in target
+            local logStringEvokerOnThird =
+                            "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Creature-1234-444, TargetName, 2600, 0, 406732, Spatial Paradox, 64"
+
+            it("Should not play sound if: Externals only on me enabled", function()
+                setMockCombatLogEntry(logStringEvokerOnThird)
+                local play = spy.on(addon, "playSpell")
+
+                addon.profile.general.area["STUB"].onlySelf = true
+                addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+                assert.spy(play).was.not_called()
+            end)
+
+            it("Should play sound if: Externals only on me disabled", function()
+                setMockCombatLogEntry(logStringEvokerOnThird)
+                local play = spy.on(addon, "playSpell")
+
+                addon.profile.general.area["STUB"].onlySelf = false
+                addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+                assert.spy(play).was.called()
+            end)
+        end)
+
+
+        describe("Player casts a spell on someone else:", function()
             -- Player Evoker casts Spatial Paradox on "someone"
             local logStringPlayerEvokerOnThird =
                             "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-123, CasterName, 1297, 0, Player-1234-444, TargetName, 66834, 0, 406732, Spatial Paradox, 64"
