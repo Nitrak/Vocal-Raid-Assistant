@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.9.0
+- Add fix for wrong announce when casting externals on NPCs. (e.g. Spatial Paradox "no healer" fallback)
+
 ## 3.8.1
 - Bump toc for 11.1.5
 

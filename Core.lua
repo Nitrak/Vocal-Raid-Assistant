@@ -4,6 +4,7 @@ local tostring = tostring
 local IsInInstance = IsInInstance
 local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 local UnitAffectingCombat = UnitAffectingCombat
+local IsSpellHarmful = C_Spell and C_Spell.IsSpellHarmful or IsHarmfulSpell
 
 
 local function allowedZone(instanceType)
@@ -23,15 +24,26 @@ local function checkEventType(event)
 	return allowedSubEvents[event] or false
 end
 
-local function checkSpellTarget(destFlags, destGUID)
-	return destGUID == '' or -- AOE
-	destGUID == UnitGUID("player") or -- Cast on us
-	bit.band(destFlags, COMBATLOG_OBJECT_TYPE_NPC) == COMBATLOG_OBJECT_TYPE_NPC -- Target = NPC
+local function checkSpellTarget(spellID, destFlags, destGUID)
+	-- Valid Targets are:
+	-- No Target: --> AOE
+	-- It has to be a harmful spell. Friendly spells usually apply an aura and are handled via auraCheckFunction
+	-- The harmful check is also necessary to filters casts, while caster has boss in target. E.g. Spatial Paradox defaulting to nearest healer
+	return destGUID == '' or -- AOE Spell
+	IsSpellHarmful(spellID)
+end
+
+local function checkAuraTarget(destFlags, destGUID, onlySelf)
+	-- We are only interested in aura applications to players
+	if not bit.band(destFlags, COMBATLOG_OBJECT_TYPE_PLAYER) == COMBATLOG_OBJECT_TYPE_PLAYER then
+		return false
+	end
+	return onlySelf and destGUID == UnitGUID("player") or not onlySelf
 end
 
 local spellCheckFunctions = {
 	["CAST"] = function(instanceType, spellID, destFlags, destGUID)
-		if not addon.profile.general.area[instanceType].onlySelf or (addon.profile.general.area[instanceType].onlySelf and checkSpellTarget(destFlags, destGUID)) and addon:IsSpellSupported(spellID) then
+		if addon:IsSpellSupported(spellID) and checkSpellTarget(spellID, destFlags, destGUID) then
 			addon:playSpell(spellID)
 		end
 	end,
@@ -45,9 +57,16 @@ local spellCheckFunctions = {
 			addon:playSpell('countered')
 		end
 	end,
-	["AURA_APPLICATION"] = function(instanceType, spellID)
-		-- We only watch for aura applications of cheat death debuffs
+	["AURA_APPLICATION"] = function(instanceType, spellID, destFlags, destGUID)
+		-- Cheat death debuffs
 		if addon.cheatDeathList[spellID] and addon.profile.general.area[instanceType].enableCheatDeaths then
+			addon:playSpell(spellID)
+			return
+		end
+
+		-- Externals
+		local onlySelf = addon.profile.general.area[instanceType].onlySelf
+		if addon:IsSpellSupported(spellID) and checkAuraTarget(destFlags, destGUID, onlySelf) then
 			addon:playSpell(spellID)
 		end
 	end

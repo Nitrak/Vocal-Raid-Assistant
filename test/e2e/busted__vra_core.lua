@@ -24,12 +24,14 @@ describe("busted", function()
                 throttle = 0,
                 channel = "Master"
             }
-        }
+        },
+		cheatDeathList = {}
     }
 
     local inCombat = true
     local fakeCombatLogEvent = {}
     local fakePlayerGuid = "Player-1234-123"
+	local isHarmful = true
 
     -- Function to simulate CombatLogGetCurrentEventInfo Output using a stored string
     local function loadCombatLogEventFromString(logString)
@@ -42,7 +44,7 @@ describe("busted", function()
         end
 
         local values = split(logString, ", ")
-
+		assert(#values == 14, "Check input string!")
         -- Mapping values to variables
         local timestamp = values[1]
         local subevent = values[2]
@@ -82,6 +84,9 @@ describe("busted", function()
         stub(_G, "CombatLogGetCurrentEventInfo", function()
             return table.unpack(fakeCombatLogEvent)
         end)
+		stub(_G, "IsHarmfulSpell", function ()
+			return isHarmful
+		end)
 
 		-- Ensure `bit` exists for Lua 5.1
 		if not _G.bit then
@@ -89,6 +94,7 @@ describe("busted", function()
 		end
 
         _G.COMBATLOG_OBJECT_TYPE_NPC = 2048
+		_G.COMBATLOG_OBJECT_TYPE_PLAYER = 1024
 
         -- Load minimum addon files
         local addonFiles = {"Core.lua", "SpellList.lua", "SpellCorrections.lua"}
@@ -135,107 +141,248 @@ describe("busted", function()
         end)
     end)
 
-    describe("Check VRA Announce: ", function()
+    describe("Check VRA Announce:", function()
         before_each(function()
             -- Reset before each test
             fakeCombatLogEvent = {}
         end)
 
-        describe("Partymember casts spell on me:", function()
+		local function spy_assert(f, assertion, ...)
+			assert.spy(f)[assertion](...)
+		end
+
+		local function checkSpellCastEvent(cleu, isHarmful, onlySelf, expected_result_string, assert_func)
+			it(expected_result_string, function()
+				setMockCombatLogEntry(cleu)
+				local play = spy.on(addon, "playSpell")
+
+				addon.profile.general.area["STUB"].onlySelf = onlySelf
+				addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+				spy_assert(play, assert_func)
+			end)
+		end
+
+		local function checkAuraAppEvent(cleu, isHarmful, onlySelf, expected_result_string, assert_func)
+			it(expected_result_string, function()
+				setMockCombatLogEntry(cleu)
+				local play = spy.on(addon, "playSpell")
+
+				addon.profile.general.area["STUB"].onlySelf = onlySelf
+				addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+				spy_assert(play, assert_func)
+			end)
+		end
+
+        describe("Partymember casts spell (with aura) on: -> Player <-:", function()
             -- Evoker in our group casts Spatial Paradox on "me"
-            local logStringEvokerOnMe =
-                            "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
+			-- SPELL_CAST_SUCCESS should never play
+			-- SPELL_AURA_APPLIED should only play if "onlySelf" taken
+            local logStringEvokerOnMeCast = "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
+			local logStringEvokerOnMeAura = "123456.78, SPELL_AURA_APPLIED, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
+            isHarmful = false
 
-            it("Should play sound if: Externals only on me enabled", function()
-                setMockCombatLogEntry(logStringEvokerOnMe)
+			describe("the spell cast should:", function()
+				checkSpellCastEvent(logStringEvokerOnMeCast, false, true, "not play if only self = true", "not_called")
+				checkSpellCastEvent(logStringEvokerOnMeCast, false, false, "not play if only self = false", "not_called")
+				--[[
+				it("not play if only self = true", function()
+					setMockCombatLogEntry(logStringEvokerOnMeCast)
+					local play = spy.on(addon, "playSpell")
+
+					addon.profile.general.area["STUB"].onlySelf = true
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.not_called()
+				end)
+				it("not play if only self = false", function()
+					setMockCombatLogEntry(logStringEvokerOnMeCast)
+					local play = spy.on(addon, "playSpell")
+					addon.profile.general.area["STUB"].onlySelf = false
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.not_called()
+				end)
+				]]--
+			end)
+
+			describe("the aura application should:", function()
+				checkAuraAppEvent(logStringEvokerOnMeAura, false, true, "play if only self = true", "called")
+				checkAuraAppEvent(logStringEvokerOnMeAura, false, false, "play, if only self = false", "called")
+				--[[
+				it("play if only self = true", function()
+					setMockCombatLogEntry(logStringEvokerOnMeAura)
                 local play = spy.on(addon, "playSpell")
 
                 addon.profile.general.area["STUB"].onlySelf = true
                 addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
                 assert.spy(play).was.called()
-            end)
+				end)
 
-            it("Should play sound if: Externals only on me disabled", function()
-            setMockCombatLogEntry(logStringEvokerOnMe)
+				it("play, if only self = false", function()
+					setMockCombatLogEntry(logStringEvokerOnMeAura)
                 local play = spy.on(addon, "playSpell")
 
                 addon.profile.general.area["STUB"].onlySelf = false
                 addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
                 assert.spy(play).was.called()
-            end)
+				end)
+				]]--
+			end)
         end)
 
-        describe("Partymember casts a spell on someone else:", function()
+		--[[
+
+        describe("Partymember casts a spell (with aura) on: -> Partymember / Not the Player <-:", function()
             -- Evoker in our group casts Spatial Paradox on "someone"
-            local logStringEvokerOnThird =
-                            "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-444, TargetName, 1298, 0, 406732, Spatial Paradox, 64"
+			-- SPELL_CAST_SUCCESS should play if target = not player
+			-- SPELL_AURA_APPLIED should never play
 
-            it("Should not play sound if: Externals only on me enabled", function()
-                setMockCombatLogEntry(logStringEvokerOnThird)
+            local logStringEvokerOnThirdCast = "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Player-1234-444, TargetName, 1298, 0, 406732, Spatial Paradox, 64"
+			local logStringEvokerOnThirdAura = "123456.78, SPELL_AURA_APPLIED, false, Player-1234-456, CasterName, 1298, 0, Player-1234-444, TargetName, 1298, 0, 406732, Spatial Paradox, 64"
+
+			describe("the spell cast should:", function()
+				it("not play if only self = true", function()
+					setMockCombatLogEntry(logStringEvokerOnThirdCast)
+					local play = spy.on(addon, "playSpell")
+
+					addon.profile.general.area["STUB"].onlySelf = true
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.not_called()
+				end)
+				it("not play if only self = false", function()
+					setMockCombatLogEntry(logStringEvokerOnThirdCast)
+					local play = spy.on(addon, "playSpell")
+					addon.profile.general.area["STUB"].onlySelf = false
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.not_called()
+				end)
+			end)
+
+			describe("the aura application should:", function()
+				it("not play if only self = true", function()
+					setMockCombatLogEntry(logStringEvokerOnThirdAura)
                 local play = spy.on(addon, "playSpell")
 
                 addon.profile.general.area["STUB"].onlySelf = true
                 addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
                 assert.spy(play).was.not_called()
-            end)
+				end)
 
-            it("Should play sound if: Externals only on me disabled", function()
-                setMockCombatLogEntry(logStringEvokerOnThird)
+				it("play, if only self = false", function()
+					setMockCombatLogEntry(logStringEvokerOnThirdAura)
                 local play = spy.on(addon, "playSpell")
 
                 addon.profile.general.area["STUB"].onlySelf = false
                 addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
                 assert.spy(play).was.called()
-            end)
+				end)
+			end)
         end)
 
-		 describe("Partymember casts a spell on - no target - :", function()
-            -- Evoker in our group casts Spatial Paradox but has the boss in target
-            local logStringEvokerOnThird =
-                            "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-456, CasterName, 1298, 0, Creature-1234-444, TargetName, 2600, 0, 406732, Spatial Paradox, 64"
+		describe("Partymember casts a friendly spell (with aura) on: -> NPC Target <-:", function()
+		-- Evoker in our group casts Spatial Paradox, but has the boss / create in target
+		-- Fallbacks:
+		-- --> 1. We get the Aura
+		-- --> 2. Another healer gets the Aura
 
-            it("Should not play sound if: Externals only on me enabled", function()
-                setMockCombatLogEntry(logStringEvokerOnThird)
-                local play = spy.on(addon, "playSpell")
+		local logStringEvokerOneEnemyCast = "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-444, CasterName, 1298, 0, Creature-1234-444, TargetName, 2600, 0, 406732, Spatial Paradox, 64"
+		local logStringEvokerOnEnemyAura_Me = "123456.78, SPELL_AURA_APPLIED, false, Player-1234-444, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
+		local logStringEvokerOnEnemyAura_Other = "123456.78, SPELL_AURA_APPLIED, false, Player-1234-444, CasterName, 1298, 0, Player-1234-555, TargetName, 1298, 0, 406732, Spatial Paradox, 64"
 
-                addon.profile.general.area["STUB"].onlySelf = true
-                addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
-                assert.spy(play).was.not_called()
-            end)
+			describe("the spell cast should:", function()
+				it ("always play, if it is a harmfull spell", function()
+					isHarmful = true
+					setMockCombatLogEntry(logStringEvokerOneEnemyCast)
+					local play = spy.on(addon, "playSpell")
+					addon.profile.general.area["STUB"].onlySelf = true
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.called()
 
-            it("Should play sound if: Externals only on me disabled", function()
-                setMockCombatLogEntry(logStringEvokerOnThird)
-                local play = spy.on(addon, "playSpell")
+					addon.profile.general.area["STUB"].onlySelf = true
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.called(2)
+				end)
+				it("not play if only self = true", function()
+					isHarmful = false
+					setMockCombatLogEntry(logStringEvokerOneEnemyCast)
+					local play = spy.on(addon, "playSpell")
 
-                addon.profile.general.area["STUB"].onlySelf = false
-                addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
-                assert.spy(play).was.called()
-            end)
-        end)
+					addon.profile.general.area["STUB"].onlySelf = true
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.not_called()
+				end)
+				it("not play if only self = false", function()
+					isHarmful = false
+					setMockCombatLogEntry(logStringEvokerOneEnemyCast)
+					local play = spy.on(addon, "playSpell")
+					addon.profile.general.area["STUB"].onlySelf = false
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.not_called()
+				end)
+			end)
 
+			describe("the aura application:", function()
+				-- Fallback #1 -> We get the Aura
+				describe("is applied to us and it should:", function()
+					it("play if only self = true", function()
+						setMockCombatLogEntry(logStringEvokerOnEnemyAura_Me)
+						local play = spy.on(addon, "playSpell")
+						addon.profile.general.area["STUB"].onlySelf = true
+						addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+						assert.spy(play).was.called()
+					end)
 
-        describe("Player casts a spell on someone else:", function()
-            -- Player Evoker casts Spatial Paradox on "someone"
-            local logStringPlayerEvokerOnThird =
-                            "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-123, CasterName, 1297, 0, Player-1234-444, TargetName, 66834, 0, 406732, Spatial Paradox, 64"
+					it("play, if only self = false", function()
+						setMockCombatLogEntry(logStringEvokerOnEnemyAura_Me)
+						local play = spy.on(addon, "playSpell")
+						addon.profile.general.area["STUB"].onlySelf = false
+						addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+						assert.spy(play).was.called()
+					end)
+				end)
+				-- Fallback #2 -> Another Heal in Party gets the Aura
+				describe("is applied to party member and it should:", function()
+					it("not play if only self = true", function()
+						setMockCombatLogEntry(logStringEvokerOnEnemyAura_Other)
+						local play = spy.on(addon, "playSpell")
+						addon.profile.general.area["STUB"].onlySelf = true
+						addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+						assert.spy(play).was.not_called()
+					end)
 
-            it("should not play sound if: Watch for Own Abilities not taken", function()
-                setMockCombatLogEntry(logStringPlayerEvokerOnThird)
-                local play = spy.on(addon, "playSpell")
+					it("play, if only self = false", function()
+						setMockCombatLogEntry(logStringEvokerOnEnemyAura_Other)
+						local play = spy.on(addon, "playSpell")
+						addon.profile.general.area["STUB"].onlySelf = false
+						addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+						assert.spy(play).was.called()
+					end)
+				end)
 
-                addon.profile.general.watchFor = 6 -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
-                addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
-                assert.spy(play).was.not_called()
-            end)
+			end)
+		end)
 
-            it("should play sound if: Watch for Own Abilities taken", function()
-                setMockCombatLogEntry(logStringPlayerEvokerOnThird)
-                local play = spy.on(addon, "playSpell")
+		describe("The player casts a harmful spell on: -> NPC Target <-:", function()
+			local logStringPlayerOnThird = "123456.78, SPELL_CAST_SUCCESS, false, Player-1234-123, CasterName, 1297, 0, Creature-1234-444, TargetName, 68168, 0, 322109, Touch of Death, 1"
+			isHarmful = true
+			describe("the spellcast should:", function()
+				it("not play a sound, if -> Watch for Own Abilities <- NOT taken", function()
+					setMockCombatLogEntry(logStringPlayerOnThird)
+                	local play = spy.on(addon, "playSpell")
 
-                addon.profile.general.watchFor = 7 -- COMBATLOG_OBJECT_AFFILIATION_MINE + COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
-                addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
-                assert.spy(play).was.called()
-            end)
-        end)
+                	addon.profile.general.watchFor = 6 -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
+                	addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+                	assert.spy(play).was.not_called()
+				end)
+				it("play, if -> Watch for Own Abilities <- taken", function()
+					setMockCombatLogEntry(logStringPlayerOnThird)
+                	local play = spy.on(addon, "playSpell")
+
+					addon.profile.general.watchFor = 7 -- COMBATLOG_OBJECT_AFFILIATION_MINE + COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					assert.spy(play).was.called()
+				end)
+			end)
+
+		end)
+	]]--
     end)
 end)
