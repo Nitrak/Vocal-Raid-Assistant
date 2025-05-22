@@ -24,7 +24,7 @@ local function checkEventType(event)
 	return allowedSubEvents[event] or false
 end
 
-local function checkSpellTarget(spellID, destFlags, destGUID)
+local function checkSpellTarget(spellID, destGUID)
 	-- Valid Targets are:
 	-- No Target: --> AOE
 	-- It has to be a harmful spell. Friendly spells usually apply an aura and are handled via auraCheckFunction
@@ -42,8 +42,8 @@ local function checkAuraTarget(destFlags, destGUID, onlySelf)
 end
 
 local spellCheckFunctions = {
-	["CAST"] = function(instanceType, spellID, destFlags, destGUID)
-		if addon:IsSpellSupported(spellID) and checkSpellTarget(spellID, destFlags, destGUID) then
+	["CAST"] = function(_, spellID, _, destGUID)
+		if addon:IsSpellSupported(spellID) and checkSpellTarget(spellID, destGUID) then
 			addon:playSpell(spellID)
 		end
 	end,
