@@ -223,7 +223,7 @@ local spellListRetail = {
 		[115315] = {type = 5}, --Summon Black Ox Statue
 		[115399] = {type = 2}, --Black Ox Brew
 		[115450] = {type = 5}, --Detox
-		[116680] = {type = 8}, --Thunder Focus Tea
+		[116680] = {type = 1}, --Thunder Focus Tea
 		[116841] = {type = 5}, --Tiger's Lust
 		[116844] = {type = 8}, --Ring of Peace
 		[116849] = {type = 3}, --Life Cocoon
