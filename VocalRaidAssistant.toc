@@ -6,7 +6,7 @@
 ## Author: Nitrak
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\icon.tga
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 3.8.1
+## Version: 3.9.dev0
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko

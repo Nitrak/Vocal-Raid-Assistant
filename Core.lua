@@ -16,12 +16,11 @@ local function combatPlayCheck(instanceType)
 end
 
 local function checkEventType(event)
-	local allowedSubEvents = {
+	return ({
 		["SPELL_CAST_SUCCESS"] = true,
 		["SPELL_AURA_APPLIED"] = true,
 		["SPELL_INTERRUPT"] = true,
-	}
-	return allowedSubEvents[event] or false
+	})[event] or false
 end
 
 local function checkSpellTarget(spellID, destGUID)
@@ -58,15 +57,15 @@ local spellCheckFunctions = {
 		end
 	end,
 	["AURA_APPLICATION"] = function(instanceType, spellID, destFlags, destGUID)
+		local areaConfig = addon.profile.general.area[instanceType]
 		-- Cheat death debuffs
-		if addon.cheatDeathList[spellID] and addon.profile.general.area[instanceType].enableCheatDeaths then
+		if addon.cheatDeathList[spellID] and areaConfig.enableCheatDeaths then
 			addon:playSpell(spellID)
 			return
 		end
 
 		-- Externals
-		local onlySelf = addon.profile.general.area[instanceType].onlySelf
-		if addon:IsSpellSupported(spellID) and checkAuraTarget(destFlags, destGUID, onlySelf) then
+		if addon:IsSpellSupported(spellID) and checkAuraTarget(destFlags, destGUID, areaConfig.onlySelf) then
 			addon:playSpell(spellID)
 		end
 	end
@@ -74,33 +73,29 @@ local spellCheckFunctions = {
 
 function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 	local _, instanceType = IsInInstance()
-	if (not (cleu_event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType)) or combatPlayCheck(instanceType)) then
+	if not (cleu_event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType)) or combatPlayCheck(instanceType) then
 		return
 	end
 
 	local timestamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceFlags2, destGUID, destName, destFlags,
 	destFlags2, spellID, spellName = CombatLogGetCurrentEventInfo()
 
-	-- Check if we are interested in this event and have configured to watch for own or party member abilities
-	if (not (checkEventType(event) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0))) then
+	-- Ensure the event is relevant and the source is being watched
+	if not (checkEventType(event) and (bit.band(sourceFlags, self.profile.general.watchFor) > 0)) then
 		return
 	end
 
-	local checkHandler = nil
-	if event == 'SPELL_CAST_SUCCESS' then
-		-- apply spell correction (e.g. hex and polymorh can have different spellIds when glyphed)
-		spellID = addon.spellCorrections[spellID] or spellID
-		-- Check if this is a spellcast or taunt
-		if addon.profile.general.area[instanceType].spells[tostring(spellID)] then
-			checkHandler = spellCheckFunctions["CAST"]
-		elseif addon.tauntList[spellID] then
-			checkHandler = spellCheckFunctions["TAUNT"]
-		end
-	elseif event == 'SPELL_AURA_APPLIED' then
-		checkHandler = spellCheckFunctions["AURA_APPLICATION"]
-	elseif event == 'SPELL_INTERRUPT' then
-		checkHandler = spellCheckFunctions["INTERRUPT"]
-	end
+	-- Correct spellID if necessary
+	spellID = addon.spellCorrections[spellID] or spellID
+	local spellStr = tostring(spellID)
+	local areaSpells = addon.profile.general.area[instanceType].spells
+
+	local checkHandler = ({
+		SPELL_CAST_SUCCESS = areaSpells[spellStr] and spellCheckFunctions["CAST"]
+		                     or addon.tauntList[spellID] and spellCheckFunctions["TAUNT"],
+		SPELL_AURA_APPLIED = areaSpells[spellStr] and spellCheckFunctions["AURA_APPLICATION"],
+		SPELL_INTERRUPT    = spellCheckFunctions["INTERRUPT"],
+	})[event]
 
 	if checkHandler then
 		checkHandler(instanceType, spellID, destFlags, destGUID)
