@@ -63,7 +63,6 @@ battleres;battleres
 348477;Reanimator
 351355;Drums
 358712;Aegis
-381301;Drums
 383013;Poison Cleansing
 388686;White Tiger Statue
 387174;Eye Of Tyr
@@ -74,6 +73,7 @@ battleres;battleres
 443124;Queen's Mandate
 443415;Speaker's Accretion
 443552;Orator's Larynx
+444257;Drums
 444264;Behemoth's Chelicera
 444301;Swarmlord's Authority
 444489;Corrosive Organ
