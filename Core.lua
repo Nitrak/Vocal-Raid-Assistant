@@ -48,16 +48,20 @@ local spellCheckFunctions = {
 	end,
 	["TAUNT"] = function(instanceType)
 		if addon.profile.general.area[instanceType].enableTaunts then
-			addon:playSpell('taunted')
+			addon:playSpell("taunted")
 		end
 	end,
 	["INTERRUPT"] = function(instanceType)
 		if addon.profile.general.area[instanceType].enableInterrupts then
-			addon:playSpell('countered')
+			addon:playSpell("countered")
 		end
 	end,
 	["AURA_APPLICATION"] = function(instanceType, spellID, destFlags, destGUID)
 		local areaConfig = addon.profile.general.area[instanceType]
+		-- Resurrecting Buff
+		if spellID == "160029" and areaConfig.enableBattleres then
+			addon:playSpell("battleress")
+		end
 		-- Cheat death debuffs
 		if addon.cheatDeathList[spellID] and areaConfig.enableCheatDeaths then
 			addon:playSpell(spellID)
