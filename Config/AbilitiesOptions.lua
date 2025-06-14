@@ -240,7 +240,7 @@ local spells = {
 					type = "toggle",
 					name = L["Interrupts"],
 					desc = L["Play sound on interrupts"],
-					width = 1.05,
+					--width = 1.05,
 					order = 1,
 					get = function(info) return addon.profile.general.area[info[2]].enableInterrupts end,
 					set = function(info, val)
@@ -252,7 +252,7 @@ local spells = {
 					type = "toggle",
 					name = L["Taunts"],
 					desc = L["Play sound on taunts"],
-					width = 1.05,
+					--width = 1.05,
 					order = 2,
 					get = function(info) return addon.profile.general.area[info[2]].enableTaunts end,
 					set = function(info, val)
@@ -264,17 +264,27 @@ local spells = {
 					type = "toggle",
 					name = L["Cheat Death"],
 					desc = L["Play sound on Cheat Death abilities"],
-					width = 1.05,
+					--width = 1.05,
 					order = 3,
 					get = function(info) return addon.profile.general.area[info[2]].enableCheatDeaths end,
 					set = function(info, val) addon.profile.general.area[info[2]].enableCheatDeaths = val end
+				},
+				toggleBattleres = {
+					type = "toggle",
+					name = L["Battleres"],
+					desc = L["Play sound on combat resurrections"],
+					order = 4,
+					get = function(info) return addon.profile.general.area[info[2]].enableBattleres end,
+					set = function(info, val) addon.profile.general.area[info[2]].enableBattleres = val
+						if val then addon:playSpell("battleress") end
+					end
 				},
 				toggleCombatOnly = {
 					type = "toggle",
 					name = L["Combat only"],
 					desc = L["Combat only description"],
-					width = 1.05,
-					order = 4,
+					--width = 1.05,
+					order = 5,
 					get = function(info) return addon.profile.general.area[info[2]].combatOnly end,
 					set = function(info, val) addon.profile.general.area[info[2]].combatOnly = val end
 				},
@@ -282,7 +292,7 @@ local spells = {
 					type = 'toggle',
 					name = L["OnlySelfExternalsName"],
 					desc = L["OnlySelfExternalsDesc"],
-					order = 5,
+					order = 6,
 					get = function(info) return addon.profile.general.area[info[2]].onlySelf end,
 					set = function(info, val) addon.profile.general.area[info[2]].onlySelf = val end
 				}
