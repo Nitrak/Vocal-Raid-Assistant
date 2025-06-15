@@ -4,6 +4,11 @@ local tostring = tostring
 local IsInInstance = IsInInstance
 local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 local UnitAffectingCombat = UnitAffectingCombat
+local UnitExists = UnitExists
+local UnitGUID = UnitGUID
+local IsInGroup = IsInGroup
+local IsInRaid = IsInRaid
+local GetNumGroupMembers = GetNumGroupMembers
 local IsSpellHarmful = C_Spell and C_Spell.IsSpellHarmful or IsHarmfulSpell
 
 
@@ -41,6 +46,38 @@ local function checkAuraTarget(destFlags, destGUID, onlySelf)
 	return onlySelf and destGUID == UnitGUID("player") or not onlySelf
 end
 
+local function IsCasterInCombat(sourceGUID)
+	local groupType, groupSize
+
+    if IsInRaid() then
+        groupType = "raid"
+        groupSize = GetNumGroupMembers()
+    elseif IsInGroup() then
+        groupType = "party"
+        groupSize = GetNumGroupMembers() - 1  -- exclude player
+    end
+
+    -- Check group units first (raid or party)
+    if groupType and groupSize then
+        for i = 1, groupSize do
+            local unit = groupType..i
+            if UnitExists(unit) and UnitGUID(unit) == sourceGUID then
+                return UnitAffectingCombat(unit)
+            end
+        end
+    end
+
+    -- Fallback checks
+    local fallbackUnits = {"player", "target", "focus", "mouseover"}
+    for _, unit in ipairs(fallbackUnits) do
+        if UnitExists(unit) and UnitGUID(unit) == sourceGUID then
+            return UnitAffectingCombat(unit)
+        end
+    end
+
+    return false
+end
+
 local spellCheckFunctions = {
 	["CAST"] = function(_, spellID, _, destGUID)
 		if addon:IsSpellSupported(spellID) and checkSpellTarget(spellID, destGUID) then
@@ -57,8 +94,10 @@ local spellCheckFunctions = {
 			addon:playSpell("countered")
 		end
 	end,
-	["RESURRECT"] = function(instanceType)
-		if addon.profile.general.area[instanceType].enableBattleres then
+	["RESURRECT"] = function(instanceType, _, _, _, sourceGUID)
+		local areaConfig = addon.profile.general.area[instanceType]
+		print("Resurrect" .. tostring(IsCasterInCombat(sourceGUID)))
+		if areaConfig.enableBattleres and IsCasterInCombat(sourceGUID) then
 			addon:playSpell("battleres")
 		end
 	end,
@@ -105,6 +144,6 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 	})[event]
 
 	if checkHandler then
-		checkHandler(instanceType, spellID, destFlags, destGUID)
+		checkHandler(instanceType, spellID, destFlags, destGUID, sourceGUID)
 	end
 end

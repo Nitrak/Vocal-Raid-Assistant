@@ -32,6 +32,7 @@ describe("busted", function()
     local fakeCombatLogEvent = {}
     local fakePlayerGuid = "Player-1234-123"
 	local isHarmful = true
+	local inRaid = false
 
     -- Function to simulate CombatLogGetCurrentEventInfo Output using a stored string
     local function loadCombatLogEventFromString(logString)
@@ -86,6 +87,19 @@ describe("busted", function()
         end)
 		stub(_G, "IsHarmfulSpell", function ()
 			return isHarmful
+		end)
+		-- For testing purpose, there is no diff if raid or grp!
+		stub(_G, "IsInRaid", function()
+			return false
+		end)
+		stub(_G, "IsInGroup", function()
+			return true
+		end)
+		stub(_G, "GetNumGroupMembers", function()
+			return 5
+		end)
+		stub(_G, "UnitExists", function()
+			return true
 		end)
 
 		-- Ensure `bit` exists for Lua 5.1
@@ -180,10 +194,11 @@ describe("busted", function()
 			end)
 		end
 
-		local function checkBattleResEvent(cleu, enableBattleres, expected_result_string, assert_func)
+		local function checkBattleResEvent(cleu, enableBattleres, caster_infight, expected_result_string, assert_func)
 			describe("", function()
 				it(expected_result_string, function()
 					setMockCombatLogEntry(cleu)
+					inCombat = caster_infight
 					local play = spy.on(addon, "playSpell")
 
 					addon.profile.general.area["STUB"].enableBattleres = enableBattleres
@@ -191,7 +206,6 @@ describe("busted", function()
 					spy_assert(play, assert_func)
 					play:revert()
 				end)
-
 			end)
 		end
 
@@ -244,11 +258,11 @@ describe("busted", function()
 		local logStringEvokerOnEnemyAura_Other = "123456.78, SPELL_AURA_APPLIED, false, Player-1234-444, CasterName, 1298, 0, Player-1234-555, TargetName, 1298, 0, 406732, Spatial Paradox, 64"
 
 			describe("the spell cast should:", function()
-				describe("always play if it is a harmful spell:", function()
+				describe("play if it is a harmful spell:", function()
 					checkSpellCastEvent(logStringEvokerOneEnemyCast, true, false, "only self = false", "called")
 					checkSpellCastEvent(logStringEvokerOneEnemyCast, true, true, "only self = true", "called")
 				end)
-				describe("never play, if it is helpful spell:", function()
+				describe("not play, if it is helpful spell:", function()
 					checkSpellCastEvent(logStringEvokerOneEnemyCast, false, true, "only self = true", "not_called")
 					checkSpellCastEvent(logStringEvokerOneEnemyCast, false, false, "only self = false", "not_called")
 				end)
@@ -289,12 +303,17 @@ describe("busted", function()
 		end)
 
 
-		describe("Someone is ressurecting someone infight:", function()
+		describe("Battleres...", function()
 			local battleresString = "123456.78, SPELL_RESURRECT, false, Player-1234-123, CasterName, 1298, 32, Player-1234-555, TargetName , 1297, 0, 391054, Intercession, 2"
-			describe("the event should be: ", function()
-				checkBattleResEvent(battleresString, true, "announced", "called")
-				checkBattleResEvent(battleresString, false, "not announced", "not_called")
+			describe("should not announce, if:", function()
+				checkBattleResEvent(battleresString, false, true, "battleres option not enabled, caster infight", "not_called")
+				checkBattleResEvent(battleresString, false, false, "battleres option not enabled, caster not infight", "not_called")
+				checkBattleResEvent(battleresString, true, false,"battleres option enabled, but caster not infight", "not_called")
 			end)
+			describe("should announce if:", function()
+				checkBattleResEvent(battleresString, true, true, "battleres option enabled and caster infight", "called")
+			end)
+
 		end)
     end)
 end)
