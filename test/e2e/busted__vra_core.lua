@@ -155,13 +155,13 @@ describe("busted", function()
 			isHarmful = isHarmfulSpell
 			describe("", function()
 				it(expected_result_string, function()
-				setMockCombatLogEntry(cleu)
-				local play = spy.on(addon, "playSpell")
+					setMockCombatLogEntry(cleu)
+					local play = spy.on(addon, "playSpell")
 
-				addon.profile.general.area["STUB"].onlySelf = onlySelf
-				addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
-				spy_assert(play, assert_func)
-				play:revert()
+					addon.profile.general.area["STUB"].onlySelf = onlySelf
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					spy_assert(play, assert_func)
+					play:revert()
 				end)
 			end)
 		end
@@ -169,14 +169,29 @@ describe("busted", function()
 		local function checkAuraAppEvent(cleu, onlySelf, expected_result_string, assert_func)
 			describe("", function()
 				it(expected_result_string, function()
-				setMockCombatLogEntry(cleu)
-				local play = spy.on(addon, "playSpell")
+					setMockCombatLogEntry(cleu)
+					local play = spy.on(addon, "playSpell")
 
-				addon.profile.general.area["STUB"].onlySelf = onlySelf
-				addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
-				spy_assert(play, assert_func)
-				play:revert()
+					addon.profile.general.area["STUB"].onlySelf = onlySelf
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					spy_assert(play, assert_func)
+					play:revert()
 				end)
+			end)
+		end
+
+		local function checkBattleResEvent(cleu, enableBattleres, expected_result_string, assert_func)
+			describe("", function()
+				it(expected_result_string, function()
+					setMockCombatLogEntry(cleu)
+					local play = spy.on(addon, "playSpell")
+
+					addon.profile.general.area["STUB"].enableBattleres = enableBattleres
+					addon:COMBAT_LOG_EVENT_UNFILTERED("COMBAT_LOG_EVENT_UNFILTERED")
+					spy_assert(play, assert_func)
+					play:revert()
+				end)
+
 			end)
 		end
 
@@ -270,6 +285,15 @@ describe("busted", function()
 					addon.profile.general.watchFor = 7
 					checkSpellCastEvent(logStringPlayerOnThird, true, false, "-> Watch for Own Abilities <- taken", "called")
 				end)
+			end)
+		end)
+
+
+		describe("Someone is ressurecting someone infight:", function()
+			local battleresString = "123456.78, SPELL_RESURRECT, false, Player-1234-123, CasterName, 1298, 32, Player-1234-555, TargetName , 1297, 0, 391054, Intercession, 2"
+			describe("the event should be: ", function()
+				checkBattleResEvent(battleresString, true, "announced", "called")
+				checkBattleResEvent(battleresString, false, "not announced", "not_called")
 			end)
 		end)
     end)

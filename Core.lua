@@ -20,6 +20,7 @@ local function checkEventType(event)
 		["SPELL_CAST_SUCCESS"] = true,
 		["SPELL_AURA_APPLIED"] = true,
 		["SPELL_INTERRUPT"] = true,
+		["SPELL_RESURRECT"] = true,
 	})[event] or false
 end
 
@@ -56,12 +57,13 @@ local spellCheckFunctions = {
 			addon:playSpell("countered")
 		end
 	end,
+	["RESURRECT"] = function(instanceType)
+		if addon.profile.general.area[instanceType].enableBattleres then
+			addon:playSpell("battleres")
+		end
+	end,
 	["AURA_APPLICATION"] = function(instanceType, spellID, destFlags, destGUID)
 		local areaConfig = addon.profile.general.area[instanceType]
-		-- Resurrecting Buff
-		if spellID == "160029" and areaConfig.enableBattleres then
-			addon:playSpell("battleress")
-		end
 		-- Cheat death debuffs
 		if addon.cheatDeathList[spellID] and areaConfig.enableCheatDeaths then
 			addon:playSpell(spellID)
@@ -99,6 +101,7 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 		                     or addon.tauntList[spellID] and spellCheckFunctions["TAUNT"],
 		SPELL_AURA_APPLIED = areaSpells[spellStr] and spellCheckFunctions["AURA_APPLICATION"],
 		SPELL_INTERRUPT    = spellCheckFunctions["INTERRUPT"],
+		SPELL_RESURRECT    = spellCheckFunctions["RESURRECT"]
 	})[event]
 
 	if checkHandler then

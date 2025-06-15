@@ -276,7 +276,7 @@ local spells = {
 					order = 4,
 					get = function(info) return addon.profile.general.area[info[2]].enableBattleres end,
 					set = function(info, val) addon.profile.general.area[info[2]].enableBattleres = val
-						if val then addon:playSpell("battleress") end
+						if val then addon:playSpell("battleres") end
 					end
 				},
 				toggleCombatOnly = {
