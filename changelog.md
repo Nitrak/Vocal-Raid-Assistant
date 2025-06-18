@@ -2,6 +2,7 @@
 
 ## 3.8.2
 - Bump toc for 11.1.7
+- Update Drums
 
 ## 3.8.1
 - Bump toc for 11.1.5
