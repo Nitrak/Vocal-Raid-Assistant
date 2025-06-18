@@ -10,9 +10,9 @@ cheatdeath;Cheat Death
 35476;Trommeln
 115315;Statue des Schwarzen Ochsen
 351355;Trommeln
-381301;Trommeln
 422083;Setzling
 422750;Tainted Rageheart
+444257;Trommeln
 
 ### Changed cheat death
 45181;Von der Schippe gesprungen

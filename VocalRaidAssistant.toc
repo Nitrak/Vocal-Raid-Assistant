@@ -1,4 +1,4 @@
-## Interface: 110105
+## Interface: 110107
 ## Interface-Cata: 40402
 ## Interface-Classic: 11506, 11507
 ## Title: VocalRaidAssistant
@@ -6,7 +6,7 @@
 ## Author: Nitrak
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\icon.tga
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 3.8.1
+## Version: 3.8.2
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
