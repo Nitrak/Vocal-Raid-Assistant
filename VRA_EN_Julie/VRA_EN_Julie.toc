@@ -6,6 +6,6 @@
 ## Dependencies: VocalRaidAssistant
 ## Author: The VRA Team
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\icon.tga
-## Version: 3.8.2
+## Version: 3.8.3
 VRA_EN_Julie.lua
 

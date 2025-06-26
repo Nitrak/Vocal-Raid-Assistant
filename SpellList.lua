@@ -45,6 +45,7 @@ local spellListRetail = {
 		[390279] = {type = 1}, --Vile Contagion
 		[439843] = {type = 1}, --Reaper's Mark
 		[444347] = {type = 5}, --Death Charge
+		[455395] = {type = 1}, --Raise Abomination
 	},
 	["DEMONHUNTER"] = {
 		[179057] = {type = 8}, --Chaos Nova
@@ -164,7 +165,8 @@ local spellListRetail = {
 		[272678] = {type = 1}, --Primal Rage
 		[288613] = {type = 1}, --Trueshot
 		[321530] = {type = 1}, --Bloodshed
-		[359844] = {type = 1}, --Call of the Wild
+		[359844] = {type = 1}, --Call of the Wild,
+		[360952] = {type = 1}, --Coordinated Assault
 		[360966] = {type = 1}, --Spearhead
 		[375891] = {type = 1}, --Death Chakram
 		[392060] = {type = 8}, --Wailing Arrow
