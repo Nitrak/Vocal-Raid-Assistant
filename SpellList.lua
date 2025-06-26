@@ -556,7 +556,7 @@ local spellListRetail = {
 		[58984]  = {type = 5}, --Shadowmeld
 		[107079] = {type = 5}, --Quaking Palm
 		[255654] = {type = 5}, --Bull Rush
-		[444257] = {type = 1}, --Feral Hide Drums
+		[444257] = {type = 1}, --Thunderous Drums
 	},
 	["TRINKET"] = {
 		-- pvp
