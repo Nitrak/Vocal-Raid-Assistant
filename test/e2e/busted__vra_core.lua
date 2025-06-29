@@ -25,14 +25,15 @@ describe("busted", function()
                 channel = "Master"
             }
         },
-		cheatDeathList = {}
-    }
+		cheatDeathList = {},
+		IsRetail = function() return true end,
+		L = {},
+	}
 
     local inCombat = true
     local fakeCombatLogEvent = {}
     local fakePlayerGuid = "Player-1234-123"
 	local isHarmful = true
-	local inRaid = false
 
     -- Function to simulate CombatLogGetCurrentEventInfo Output using a stored string
     local function loadCombatLogEventFromString(logString)
@@ -101,17 +102,32 @@ describe("busted", function()
 		stub(_G, "UnitExists", function()
 			return true
 		end)
+		stub(_G, "GetTime", function()
+			-- we use 123456.78 for every mocked event string
+			return 1234567.89
+		end)
 
 		-- Ensure `bit` exists for Lua 5.1
 		if not _G.bit then
 			_G.bit = require("bit") -- Use the 'bit' library in Lua 5.1
 		end
 
-        _G.COMBATLOG_OBJECT_TYPE_NPC = 2048
-		_G.COMBATLOG_OBJECT_TYPE_PLAYER = 1024
+		-- WOW Constants
+        _G.COMBATLOG_OBJECT_TYPE_NPC = 0x00000800 		-- 2024
+		_G.COMBATLOG_OBJECT_TYPE_PLAYER = 0x00000400 	-- 1028
+		_G.COMBATLOG_OBJECT_AFFILIATION_MINE = 0x000001 -- 1
+		_G.COMBATLOG_OBJECT_AFFILIATION_PARTY = 0x2 	-- 2
+		_G.COMBATLOG_OBJECT_AFFILIATION_RAID = 0x4 		-- 4
+
+		_G.RAIDS = "RAIDS"
+		_G.DUNGEONS = "DUNGEONS"
+		_G.BUG_CATEGORY2 = "None"
+		_G.ARENA = "ARENA"
+		_G.BATTLEGROUNDS = "BATTLEGROUND"
+		_G.SCENARIOS = "SCENARIOS"
 
         -- Load minimum addon files
-        local addonFiles = {"Core.lua", "SpellList.lua", "SpellCorrections.lua"}
+        local addonFiles = {"Core.lua", "Constants.lua", "SpellList.lua", "SpellCorrections.lua"}
 
         for _, luaFileName in ipairs(addonFiles) do
             local path = luaFileName
@@ -120,6 +136,8 @@ describe("busted", function()
             chunk(addonName, addon)
         end
 
+		-- For running tests, we need to disable throttle
+		addon.MINIMUM_THROTTLE = 0
     end)
 
     describe("Addon name is mocked", function()
@@ -302,7 +320,7 @@ describe("busted", function()
 			end)
 		end)
 
-
+		-- Battle Res
 		describe("Battleres...", function()
 			local battleresString = "123456.78, SPELL_RESURRECT, false, Player-1234-123, CasterName, 1298, 32, Player-1234-555, TargetName , 1297, 0, 391054, Intercession, 2"
 			describe("should not announce, if:", function()
@@ -313,7 +331,36 @@ describe("busted", function()
 			describe("should announce if:", function()
 				checkBattleResEvent(battleresString, true, true, "battleres option enabled and caster infight", "called")
 			end)
+		end)
 
+		-- Throttle
+		-- We want to test if our throttling is handled properly.
+		-- Mainly we need to deal with one cast that applies an aura to multiple targets, like Bloodlust or Spatial Paradox
+		-- These events are logged within a view milliseconds
+		-- The inital cast event is already checked in other test cases and expected to be filtered out /
+		-- working as expected correctly here
+
+		describe("Inbuild trottle", function()
+
+			-- if the diff between both timestamps >= MINIMUM_THROTTLE do announce,
+			-- if diff < MINIMUM_THROTTLE, do not announce the seconds event
+
+			-- GetTime = 1234567.89
+
+			local logStringEvokerOnMe     = "1234567.89, SPELL_AURA_APPLIED, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
+			local logStringEvokerOnEvoker = "1234567.89, SPELL_AURA_APPLIED, false, Player-1234-456, CasterName, 1298, 0, Player-1234-123, TargetName, 1297, 0, 406732, Spatial Paradox, 64"
+
+			describe("should prevent second announce, when MINIMIUM_THROTTLE hit: ", function()
+				addon.MINIMUM_THROTTLE = 1
+				checkAuraAppEvent(logStringEvokerOnMe, false, "this should be announced", "called")
+				checkAuraAppEvent(logStringEvokerOnEvoker, false, "should be trotteled", "not_called")
+			end)
+
+			describe("should play second announce, when MINIMUM_THROTTLE not hit: ", function()
+				addon.MINIMUM_THROTTLE = 0
+				checkAuraAppEvent(logStringEvokerOnMe, false, "this should be announced", "called")
+				checkAuraAppEvent(logStringEvokerOnEvoker, false, "this should be announced", "called")
+			end)
 		end)
     end)
 end)

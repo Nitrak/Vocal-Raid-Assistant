@@ -1,6 +1,7 @@
 local _, addon = ...
 
 local tostring = tostring
+local GetTime = GetTime
 local IsInInstance = IsInInstance
 local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 local UnitAffectingCombat = UnitAffectingCombat
@@ -116,6 +117,8 @@ local spellCheckFunctions = {
 	end
 }
 
+local lastHandledSpells = {}
+
 function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 	local _, instanceType = IsInInstance()
 	if not (cleu_event == "COMBAT_LOG_EVENT_UNFILTERED" and allowedZone(instanceType)) or combatPlayCheck(instanceType) then
@@ -142,6 +145,17 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 		SPELL_INTERRUPT    = spellCheckFunctions["INTERRUPT"],
 		SPELL_RESURRECT    = spellCheckFunctions["RESURRECT"]
 	})[event]
+
+	-- If this spell was just handled, ignore duplicates.
+	-- This prevents the case when we have spell cast + multiple aura applications
+	-- The MINIMUM_THROTTLE Value is not configurable.
+	lastHandledSpells[spellStr] = lastHandledSpells[spellStr] or 0
+	if GetTime() - lastHandledSpells[spellStr] < addon.MINIMUM_THROTTLE then
+    	return
+	end
+
+	-- Mark as handled now
+	lastHandledSpells[spellStr] = timestamp
 
 	if checkHandler then
 		checkHandler(instanceType, spellID, destFlags, destGUID, sourceGUID)
