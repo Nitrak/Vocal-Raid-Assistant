@@ -1,8 +1,9 @@
 # Vocal Raid Assistant
 
-## 3.9.0
-- Detect Externals via SPELL_AURA_APPLIED instead of SPELL_CAST_SUCCESS + Target Check.
-- This fixes the wrong announce when casting externals on NPCs. (e.g. Spatial Paradox "no healer" fallback)
+## 3.8.3
+- Added Raise Abomination
+- Added Coordinated Assault
+- Druid Orbital Strike
 
 ## 3.8.2
 - Bump toc for 11.1.7
