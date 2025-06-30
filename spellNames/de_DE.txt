@@ -101,6 +101,7 @@ cheatdeath;Cheat Death
 448904;Gefräßiger Honigbrummer
 451235;Leergespenst
 452930;Dämonischer Gesundheitsstein
+455395;Monstrosität erwecken
 459796;Sperrfeuer
 472433;Prediger
 449700;Gravitationsverlust

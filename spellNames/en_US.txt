@@ -143,6 +143,7 @@ cheatdeath;Cheat Death
 448904;Ravenous Honey Buzzer
 451235;Voidwraith
 452930;Demonic Healthstone
+455395;Raise Abomination
 459796;Barrage
 472433;Evangelism
 449700;Gravity Lapse
