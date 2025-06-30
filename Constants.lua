@@ -119,7 +119,7 @@ addon.DEFAULTS = {
 				}
 			},
 			watchFor = 6, -- COMBATLOG_OBJECT_AFFILIATION_PARTY + COMBATLOG_OBJECT_AFFILIATION_RAID
-			minimap = {hide = VRA.IsRetail() or nil}
+			minimap = {hide = addon.IsRetail() or nil}
 		},
 		sound = {
 			throttle = 0,
@@ -198,3 +198,4 @@ addon.ICONCONFIG = {
 }
 
 addon.MSG_DELAY_SECONDS = 3
+addon.MINIMUM_THROTTLE = 400

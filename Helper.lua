@@ -44,7 +44,7 @@ local intendedWoWProjectName = {
 
 function addon:determinePlayerError(spellID, channel, isTest)
 	local cvarName = 'Sound_Enable' .. (channel == "Sound" and 'SFX' or channel)
-	local errorMsg = ""
+	local errorMsg = "An unexpected error occured"
 	if GetCVar("Sound_EnableAllSound") == "0" then
 		if isTest then
 			errorMsg = format('Can not play sounds, your gamesound (Master channel) is disabled')

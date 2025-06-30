@@ -1,9 +1,15 @@
 local _, addon = ...
 
 local tostring = tostring
+local GetTime = GetTime
 local IsInInstance = IsInInstance
 local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 local UnitAffectingCombat = UnitAffectingCombat
+local UnitExists = UnitExists
+local UnitGUID = UnitGUID
+local IsInGroup = IsInGroup
+local IsInRaid = IsInRaid
+local GetNumGroupMembers = GetNumGroupMembers
 local IsSpellHarmful = C_Spell and C_Spell.IsSpellHarmful or IsHarmfulSpell
 
 
@@ -20,6 +26,7 @@ local function checkEventType(event)
 		["SPELL_CAST_SUCCESS"] = true,
 		["SPELL_AURA_APPLIED"] = true,
 		["SPELL_INTERRUPT"] = true,
+		["SPELL_RESURRECT"] = true,
 	})[event] or false
 end
 
@@ -40,6 +47,38 @@ local function checkAuraTarget(destFlags, destGUID, onlySelf)
 	return onlySelf and destGUID == UnitGUID("player") or not onlySelf
 end
 
+local function IsCasterInCombat(sourceGUID)
+	local groupType, groupSize
+
+    if IsInRaid() then
+        groupType = "raid"
+        groupSize = GetNumGroupMembers()
+    elseif IsInGroup() then
+        groupType = "party"
+        groupSize = GetNumGroupMembers() - 1  -- exclude player
+    end
+
+    -- Check group units first (raid or party)
+    if groupType and groupSize then
+        for i = 1, groupSize do
+            local unit = groupType..i
+            if UnitExists(unit) and UnitGUID(unit) == sourceGUID then
+                return UnitAffectingCombat(unit)
+            end
+        end
+    end
+
+    -- Fallback checks
+    local fallbackUnits = {"player", "target", "focus", "mouseover"}
+    for _, unit in ipairs(fallbackUnits) do
+        if UnitExists(unit) and UnitGUID(unit) == sourceGUID then
+            return UnitAffectingCombat(unit)
+        end
+    end
+
+    return false
+end
+
 local spellCheckFunctions = {
 	["CAST"] = function(_, spellID, _, destGUID)
 		if addon:IsSpellSupported(spellID) and checkSpellTarget(spellID, destGUID) then
@@ -48,12 +87,19 @@ local spellCheckFunctions = {
 	end,
 	["TAUNT"] = function(instanceType)
 		if addon.profile.general.area[instanceType].enableTaunts then
-			addon:playSpell('taunted')
+			addon:playSpell("taunted")
 		end
 	end,
 	["INTERRUPT"] = function(instanceType)
 		if addon.profile.general.area[instanceType].enableInterrupts then
-			addon:playSpell('countered')
+			addon:playSpell("countered")
+		end
+	end,
+	["RESURRECT"] = function(instanceType, _, _, _, sourceGUID)
+		local areaConfig = addon.profile.general.area[instanceType]
+		print("Resurrect" .. tostring(IsCasterInCombat(sourceGUID)))
+		if areaConfig.enableBattleres and IsCasterInCombat(sourceGUID) then
+			addon:playSpell("battleres")
 		end
 	end,
 	["AURA_APPLICATION"] = function(instanceType, spellID, destFlags, destGUID)
@@ -70,6 +116,8 @@ local spellCheckFunctions = {
 		end
 	end
 }
+
+local lastHandledSpells = {}
 
 function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 	local _, instanceType = IsInInstance()
@@ -95,9 +143,21 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 		                     or addon.tauntList[spellID] and spellCheckFunctions["TAUNT"],
 		SPELL_AURA_APPLIED = areaSpells[spellStr] and spellCheckFunctions["AURA_APPLICATION"],
 		SPELL_INTERRUPT    = spellCheckFunctions["INTERRUPT"],
+		SPELL_RESURRECT    = spellCheckFunctions["RESURRECT"]
 	})[event]
 
+	-- If this spell was just handled, ignore duplicates.
+	-- This prevents the case when we have spell cast + multiple aura applications
+	-- The MINIMUM_THROTTLE Value is not configurable.
+	lastHandledSpells[spellStr] = lastHandledSpells[spellStr] or 0
+	if GetTime() - lastHandledSpells[spellStr] < addon.MINIMUM_THROTTLE then
+    	return
+	end
+
+	-- Mark as handled now
+	lastHandledSpells[spellStr] = timestamp
+
 	if checkHandler then
-		checkHandler(instanceType, spellID, destFlags, destGUID)
+		checkHandler(instanceType, spellID, destFlags, destGUID, sourceGUID)
 	end
 end
