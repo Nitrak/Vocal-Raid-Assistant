@@ -2,6 +2,7 @@
 countered;countered
 taunted;taunted
 battleres;battleres
+cheatdeath;Cheat Death
 
 ### Changed
 
