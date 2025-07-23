@@ -1,6 +1,11 @@
 # Vocal Raid Assistant
 
 ## 3.8.3
+Mists:
+- Fix addon loading
+- Remove spells removed from game
+
+Retail:
 - Added Raise Abomination
 - Added Coordinated Assault
 - Druid Orbital Strike

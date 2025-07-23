@@ -1,6 +1,4 @@
-## Interface: 110107
-## Interface-Cata: 40402
-## Interface-Classic: 11506, 11507
+## Interface: 110107, 50500, 11507
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
@@ -12,16 +10,8 @@
 ## X-Wago-ID: kRNLr8Ko
 
 embeds.xml
-# Client version specific
-#@version-retail@
-# Libs\LibDualSpec-1.0\LibDualSpec-1.0.lua
-#@end-version-retail@
-#@version-cata@
-# Libs\LibDualSpec-1.0\LibDualSpec-1.0.lua
-#@end-version-cata@
-
+Libs\LibDualSpec-1.0\LibDualSpec-1.0.lua [AllowLoadGameType retail, mists]
 Locales\locales.xml
-
 Helper.lua
 VocalRaidAssistant.lua
 Constants.lua
