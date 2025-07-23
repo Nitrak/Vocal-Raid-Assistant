@@ -37,10 +37,9 @@ function addon:prettyPrint(...)
 end
 
 local intendedWoWProjectName = {
-	[WOW_PROJECT_MAINLINE] = "Retail",
-	[WOW_PROJECT_CLASSIC] = "Classic",
-	[WOW_PROJECT_MISTS_CLASSIC] = "Mists Of Pandaria Classic"
-
+	[1] = "Retail",
+	[2] = "Classic",
+	[19] = "Mists Of Pandaria Classic"
 }
 
 function addon:determinePlayerError(spellID, channel, isTest)
