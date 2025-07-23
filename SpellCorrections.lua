@@ -117,8 +117,8 @@ local spellNameCorrections = {
 	[422750] = true
 }
 
--- Cata
-local spellCorrectionsCata = {
+-- Mists
+local spellCorrectionsMists = {
 	--- Druid
 	-- Bash
 	[6798] = 5211, -- Rank 2
@@ -301,12 +301,12 @@ spellCorrectionsRetail = nil
 
 --@version-classic@
 addon.spellCorrections = spellCorrectionsClassic
-spellCorrectionsCata = nil
+spellCorrectionsMists = nil
 --@end-version-classic@
 
---@version-cata@
-addon.spellCorrections = spellCorrectionsCata
+--@version-mists@
+addon.spellCorrections = spellCorrectionsMists
 spellCorrectionsClassic = nil
---@end-version-cata@
+--@end-version-mists@
 
 --@end-non-version-retail@]===]

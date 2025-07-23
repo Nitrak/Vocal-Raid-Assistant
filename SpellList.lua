@@ -586,7 +586,7 @@ local spellListRetail = {
 	}
 }
 
-local spellListCata = {
+local spellListMists = {
 	["DEATHKNIGHT"] = {
 		[42650]  = {type = 1},
 		[46585]  = {type = 1}, --Raise Dead
@@ -596,11 +596,9 @@ local spellListCata = {
 		[48743]  = {type = 2},
 		[48792]  = {type = 2},
 		[48982]  = {type = 2},
-		[49005]  = {type = 2},
 		[49016]  = {type = 1},
 		[49028]  = {type = 2}, -- Dancing Rune Weapon
 		[49039]  = {type = 2},
-		[49203]  = {type = 8},
 		[49206]  = {type = 1},
 		[49222]  = {type = 2},
 		[49576]  = {type = 5},
@@ -620,14 +618,12 @@ local spellListCata = {
 		[33786]  = {type = 8},
 		[48505]  = {type = 1},
 		[50334]  = {type = 1},
-		[50516]	 = {type = 8},
 	},
 	["HUNTER"] = {
 		[5384]   = {type = 5},
 		[19574]  = {type = 1},
 		[19577]  = {type = 8},
 		[19801]  = {type = 5},
-		[23989]  = {type = 1},
 		[34477]  = {type = 2},
 	},
 	["MAGE"] = {
@@ -653,7 +649,6 @@ local spellListCata = {
 		[31821]	 = {type = 4},
 		[31842]	 = {type = 5},
 		[54428]	 = {type = 5},
-		[64205]  = {type = 4}, -- Divine Sacrifice
 	},
 	["PRIEST"] = {
 		[724] 	 = {type = 3},
@@ -690,7 +685,6 @@ local spellListCata = {
 		[32182]  = {type = 1},
 		[51514]  = {type = 8},
 		[51533]  = {type = 1}, --Feral Spirit
-		[55198]  = {type = 2},
 		[58875]  = {type = 5}, --Spirit Walk
 	},
 	["WARLOCK"] = {
@@ -700,17 +694,14 @@ local spellListCata = {
 		[20707]  = {type = 5},
 		[29893]  = {type = 5}, -- Create Soulwell
 		[30283]  = {type = 8},
-		[59672]  = {type = 2},
 	},
 	["WARRIOR"] = {
 		[871]	 = {type = 2},
-		[1161]	 = {type = 5},
 		[1719]	 = {type = 1},
 		[2565]	 = {type = 2},
 		[5246]	 = {type = 8},
 		[12975]  = {type = 2},
 		[18499]  = {type = 1}, --Berserker Rage
-		[20230]  = {type = 1},
 		[23920]  = {type = 5},
 		[46924]  = {type = 1},
 		[46968]  = {type = 8},
@@ -815,13 +806,13 @@ spellListRetail = nil
 
 --@version-classic@
 spellList = spellListClassic
-spellListCata = nil
+spellListMists = nil
 --@end-version-classic@
 
---@version-cata@
-spellList = spellListCata
+--@version-mists@
+spellList = spellListMists
 spellListClassic = nil
---@end-version-cata@
+--@end-version-mists@
 
 --@end-non-version-retail@]===]
 

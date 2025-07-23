@@ -36,7 +36,7 @@ local defaultSpellsRetail = {
 	["322109"] = true,
 }
 
-local defaultSpellsCata = {
+local defaultSpellsMists = {
 	["118"] = true,
 	["642"] = true,
 	["740"] = true,
@@ -77,13 +77,13 @@ defaultSpellsRetail = nil
 
 --@version-classic@
 defaultSpells = defaultSpellsClassic
-spellListCata = nil
+spellListMists = nil
 --@end-version-classic@
 
---@version-cata@
-defaultSpells = defaultSpellsCata
+--@version-mists@
+defaultSpells = defaultSpellsMists
 spellListClassic = nil
---@end-version-cata@
+--@end-version-mists@
 
 --@end-non-version-retail@]===]
 
