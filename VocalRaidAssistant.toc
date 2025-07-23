@@ -1,4 +1,6 @@
-## Interface: 110107, 50500, 11507
+## Interface: 110107
+## Interface-Mists: 50500
+## Interface-Classic: 11507
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
 ## Author: Nitrak
