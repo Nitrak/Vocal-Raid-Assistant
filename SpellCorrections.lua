@@ -98,6 +98,10 @@ local spellCorrectionsRetail = {
 	[360952] = 266779,
 	--Lay On Hands
 	[471195] = 633,
+	--Druid Celestial [Talent] Orbital Strike
+	[383410] = 194223,
+	--Druid Incarnation [Talent] Incarnation: Chosen of Elune + Orbital Strike
+	[390414] = 102560,
 }
 
 local spellIconCorrections = {

@@ -1,5 +1,10 @@
 # Vocal Raid Assistant
 
+## 3.8.3
+- Added Raise Abomination
+- Added Coordinated Assault
+- Druid Orbital Strike
+
 ## 3.8.2
 - Bump toc for 11.1.7
 - Update Drums
