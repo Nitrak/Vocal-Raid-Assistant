@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.9.0
+- Complete overhaul for Mists Spells
+
 ## 3.8.3
 Mists:
 - Fix addon loading
