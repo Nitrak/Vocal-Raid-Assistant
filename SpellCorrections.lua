@@ -102,6 +102,8 @@ local spellCorrectionsRetail = {
 	[383410] = 194223,
 	--Druid Incarnation [Talent] Incarnation: Chosen of Elune + Orbital Strike
 	[390414] = 102560,
+	--Monk Detox
+	[218164] = 115450,
 }
 
 local spellIconCorrections = {
@@ -110,7 +112,9 @@ local spellIconCorrections = {
 	[135860] = 1247263
 }
 
+-- The values need to be localized, -> L[spellID]
 local spellNameCorrections = {
+	[113306] = true,
 	[115203] = true,
 	[243435] = true,
 	[422083] = true,

@@ -244,7 +244,6 @@ local spellListRetail = {
 		[196725] = {type = 5}, --Refreshing Jade Wind
 		[197908] = {type = 5}, --Mana Tea
 		[198898] = {type = 8}, --Song of Chi-Ji
-		[218164] = {type = 5}, --Detox
 		[243435] = {type = 2}, --Fortifying Brew
 		[322109] = {type = 1}, --Touch of Death
 		[322118] = {type = 4}, --Invoke Yu'lon, the Jade Serpent
