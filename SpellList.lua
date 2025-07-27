@@ -552,6 +552,7 @@ local spellListRetail = {
 		[406732] = {type = 5}, --Spatial Paradox
 	},
 	["GENERAL"] = {
+		[6262]   = {type = 5}, --Health Stone
 		[20549]  = {type = 5}, --War Stomp
 		[20594]  = {type = 5}, --Stoneform
 		[25046]  = {type = 5}, --Arcane Torrent

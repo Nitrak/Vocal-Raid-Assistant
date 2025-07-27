@@ -5,10 +5,18 @@ battleres;Wiederbelebung
 cheatdeath;Cheat Death
 
 ### Changed
-
+2062;Erdelementar
 2894;Feuerelementar
 35476;Trommeln
+11392;Unsichtbarkeit
+16190;Totem der Manaflut
+18540;Verdammniswache
+31687;Wasser Elementar
+42292;PvP Trinket
+105709;Manatrank
 115315;Statue des Schwarzen Ochsen
+123995;Xuen rufen
+148683;Endgültige Entschlossenheit
 351355;Trommeln
 422083;Setzling
 422750;Tainted Rageheart
@@ -32,14 +40,26 @@ cheatdeath;Cheat Death
 455467;Emblem der Schattenweberin
 
 ### Not available via Spell API
-
+676;Entwaffnen
 724;Brunnen des Lichts
-1714;Fluch der Sprachen
+1038;Hand der Erlösung
+11129;Einäschern
 11958;Kälteeinbruch
 12042;Arkane Macht
+12043;Geistesgegenwart
+12257;Feuerodem
+12292;Blutbad
+14185;Vorbereitung
+16188;Schnelligkeit der Ahnen
+16689;Griff der Natur
+1714;Fluch der Sprachen
+19263;Abschreckung
+19386;Wyverngift
 20230;Gegenschlag
 20580;Schattenhaftigkeit
 23989;Bereitschaft
+29858;Seele brechen
+3045;Schnellfeuer
 30823;Schamanistische Wut
 31842;Göttliche Gunst
 44572;Tieffrieren
@@ -53,19 +73,118 @@ cheatdeath;Cheat Death
 49222;Knochenschild
 50516;Taifun
 51713;Schattentanz
+51722;Zerlegen
+51753;Camouflage
+5229;Wutanfall
 54428;Göttliche Bitte
 55198;Kraft der Gezeiten
+55694;Wütende Regeneration
 59672;Metamorphose
+6262;Gesundheitsstein
+6346;Fear Ward
 64205;Heilige Opferung
+73981;Umlenken
+74001;Kampfbereitschaft
+76577;Rauchbombe
 79140;Vendetta
+85499;Geschwindigkeit des Lichts
+86669;Wächter der Uralten Könige
+89485;Innerer Fokus
 89751;Teufelssturm
+102060;Unterbrechender Ruf
+102795;Klammergriff
+105697;Biss des Shed-Ling
+105701;Trank des Fokus
+105702;Trank der Jadeschlange
+105706;Trank der Mogukraft
+105708;Heiltrank
+106922;Ursocs Macht
+107566;Erschütternder Ruf
 108194;Ersticken
+108200;Unbarmherziger Winter
+108201;Entweihter Boden
+108269;Totem der Energiespeicherung
+108273;Totem des Windwandelns
+108359;Finstere Regeneration
+108482;Entfesselter Wille
+108501;Grimoire der Dienstbarkeit
+108508;Mannoroths Furor
+108921;Psychoschrecken
+108978;Zeitverschiebung
+109259;Überspannen
 109964;Geisthülle
+110570;Antimagische Hülle
+110575;Eisige Gegenwehr
+110617;Abschreckung
+110621;Spiegelbild
+110696;Eisblock
+110698;Hammer der Gerechtigkeit
+110700;Gottesschild
+110707;Massenbannung
+110715;Dispersion
+110717;Furchtzauberschutz
+110718;Glaubenssprung
+110730;Umlenken
+110788;Mantel der Schatten
+110791;Entrinnen
+110806;Gunst des Geistwandlers
+110807;Wildgeist
+110913;Finsterer Handel
 110960;Große Unsichtbarkeit
+112071;Himmlische Ausrichtung
+112997;Zerschmetternder Hieb
+113002;Zauberreflexion
+113004;Einschüchterndes Gebrüll
+113072;Ursocs Macht
+113073;Spurt
+113075;Baumrinde
+113269;Wiedergeburt
+113277;Gelassenheit
+113286;Sonnenstrahl
+113306;Überlebensinstinkte
+113516;Wildpilz: Seuche
+113613;Knurren
 113858;Finstere Seele: Instabilität
 113860;Finstere Seele: Elend
+113861;Finstere Seele: Wissen
+113942;Dämonisches Tor
+114028;Massenzauberreflexion
+114030;Wachsamkeit
+114049;Aszendenz
+114157;Richtspruch
+114158;Hammer des Lichts
+114192;Spottendes Banner
+114203;Demoralisierendes Banner
+114207;Schädelbanner
+114842;Schattenwandeln
+115080;Berührung des Todes
+115213;Schaden abwenden
+115288;Belebendes Gebräu
+115989;Unheilige Verseuchung
 116011;Rune der Kraft
+117368;Waffe entreißen
+118000;Drachengebrüll
 119996;Transzendenz: Transfer
+120451;Flammen von Xoroth
+120668;Totem der Sturmpeitsche
+120697;Luchsansturm
+121818;Stampede
+122057;Aufprall
+122285;Knochenschild
+122286;Wilde Verteidigung
+122291;Erbarmungslose Entschlossenheit
+122292;Einschreiten
+122294;Anstachelnder Ruf
+126135;Lichtbrunnen
+126449;Aufprall
+126453;Flüchtiges Gebräu
+126456;Stärkendes Gebräu
+126458;Waffe entreißen
+126690;Ruf der Eroberung
+126697;Gewaltige Seelenstärke
+127361;Klammergriff
+137562;Schlüpfriges Gebräu
+142723;Leerenverschiebung
 152277;Verheerer
 194407;Speiende Kobra
 199754;Riposte
@@ -99,9 +218,9 @@ cheatdeath;Cheat Death
 443556;Doppelfangbesteck
 444347;Todessprint
 448904;Gefräßiger Honigbrummer
+449700;Gravitationsverlust
 451235;Leergespenst
 452930;Dämonischer Gesundheitsstein
 459796;Sperrfeuer
-472433;Prediger
-449700;Gravitationsverlust
 466904;Schrei des Hetzers
+472433;Prediger

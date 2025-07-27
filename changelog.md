@@ -1,7 +1,8 @@
 # Vocal Raid Assistant
 
 ## 3.9.0
-- Complete overhaul for Mists Spells
+- Complete overhaul for MOP Spells
+- Fix Pillar Of Frost sound
 
 ## 3.8.3
 Mists:
