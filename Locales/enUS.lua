@@ -83,8 +83,9 @@ L["VRANAME"] = "Vocal Raid Assistant"
 
 --- Spell Name Overrides
 -- Monk
+L[113306] = "Survival Instincts (Symbiosis)"
 L[115203] = "Fortifying Brew - MW/WW"
 L[243435] = "Fortifying Brew - BM"
+
 -- Trinkets
-L[422083] = "Seedling"
-L[422750] = "Fyrakk's Tainted Rageheart"
+

@@ -83,8 +83,9 @@ L["VRA should alert you for"] = "VRA soll Sounds abspielen für:"
 
 --- Spell Name Overrides
 -- Monk
+L[113306] = "Überlebensinstinkte (Symbiosis)"
 L[115203] = "Stärkendes Gebräu - MW/WW"
 L[243435] = "Stärkendes Gebräu - BM"
+
 -- Trinkets
-L[422083] = "Setzling"
-L[422750] = "Fyrakks besudeltes Zornesherz"
+
