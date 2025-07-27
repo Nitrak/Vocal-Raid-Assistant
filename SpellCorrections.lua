@@ -102,6 +102,8 @@ local spellCorrectionsRetail = {
 	[383410] = 194223,
 	--Druid Incarnation [Talent] Incarnation: Chosen of Elune + Orbital Strike
 	[390414] = 102560,
+	--Monk Detox
+	[218164] = 115450,
 }
 
 local spellIconCorrections = {
@@ -110,15 +112,17 @@ local spellIconCorrections = {
 	[135860] = 1247263
 }
 
+-- The values need to be localized, -> L[spellID]
 local spellNameCorrections = {
+	[113306] = true,
 	[115203] = true,
 	[243435] = true,
 	[422083] = true,
 	[422750] = true
 }
 
--- Cata
-local spellCorrectionsCata = {
+-- Mists
+local spellCorrectionsMists = {
 	--- Druid
 	-- Bash
 	[6798] = 5211, -- Rank 2
@@ -161,6 +165,7 @@ local spellCorrectionsCata = {
 	[61780] = 118, -- Turkey
 
 	--- Paladin
+	[86698] = 86669, -- Guardian of Ancient Kings
 	-- Blessing of Protection
 	[5599] = 1022, -- Rank 2
 	[10278] = 1022, -- Rank 3
@@ -207,9 +212,15 @@ local spellCorrectionsCata = {
 	[20765] = 20707, -- Rank 5
 	[27239] = 20707, -- Rank 6
 	[47883] = 20707, -- Rank 7
-	-- Arcane Torrent (Different SpellID per Class / Power Type)
+	-- Arcane Torrent (Different SpellID per Class)
 	[28730] = 25046,
-	[50613] = 25046
+	[50613] = 25046,
+	[69179] = 25046,
+	[80483] = 25046,
+	[129597] = 25046,
+	[155145] = 25046,
+	[202719] = 25046,
+	[232633] = 25046,
 	--- General
 	--
 }
@@ -301,12 +312,12 @@ spellCorrectionsRetail = nil
 
 --@version-classic@
 addon.spellCorrections = spellCorrectionsClassic
-spellCorrectionsCata = nil
+spellCorrectionsMists = nil
 --@end-version-classic@
 
---@version-cata@
-addon.spellCorrections = spellCorrectionsCata
+--@version-mists@
+addon.spellCorrections = spellCorrectionsMists
 spellCorrectionsClassic = nil
---@end-version-cata@
+--@end-version-mists@
 
 --@end-non-version-retail@]===]

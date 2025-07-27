@@ -1,9 +1,20 @@
 # Vocal Raid Assistant
 
-## 3.9.0
+## 3.10.0
 - Detect Externals via SPELL_AURA_APPLIED instead of SPELL_CAST_SUCCESS + Target Check.
 - This fixes the wrong announce when casting externals on NPCs. (e.g. Spatial Paradox "no healer" fallback)
 - Add Battle Res
+
+## 3.9.0
+- Complete overhaul for MOP Spells
+- Fix Pillar Of Frost sound
+
+## 3.8.3
+Mists:
+- Fix addon loading
+- Remove spells removed from game
+
+Retail:
 - Added Raise Abomination
 - Added Coordinated Assault
 - Druid Orbital Strike

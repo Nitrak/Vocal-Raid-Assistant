@@ -44,7 +44,7 @@ Libs/*
 .release
 desktop.ini
 .vscode
-scripts
+/scripts
 
 # Test Resulst
 test-results

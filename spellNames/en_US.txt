@@ -9,14 +9,20 @@ cheatdeath;Cheat Death
 1022;Protection
 1044;Freedom
 1122;Infernal
+2062;Earth Elemental
 2894;Fire Elemental
 5211;Bash
 6940;Sacrifice
+11392;Invisibility
+16190;Mana Tide
 16191;Mana Tide
 18499;Berserker
+18540;Doomguard
 29893;Soulwell
+31687;Water Elemental
 33891;Incarnation: Tree
 35476;Drums
+42292;PvP Trinket
 48792;Icebound
 49028;Rune Weapon
 62618;Barrier
@@ -27,16 +33,18 @@ cheatdeath;Cheat Death
 102558;Incarnation: Bear
 102560;Incarnation: Moonkin
 102793;Vortex
+108280;Healing Tide
+110960;Invisibility
 111771;Gateway
 111898;Felguard
 113858;Instability
 113860;Misery
 114018;Shroud
-108280;Healing Tide
-110960;Invisibility
 115315;Black Ox Statue
 123904;Invoke Xuen
+123995;Invoke Xuen
 132578;Invoke Niuzao
+148683;Unending Resolve
 186265;Turtle
 187650;Freezing Trap
 192077;Wind Rush
@@ -65,8 +73,8 @@ cheatdeath;Cheat Death
 351355;Drums
 358712;Aegis
 383013;Poison Cleansing
-388686;White Tiger Statue
 387174;Eye Of Tyr
+388686;White Tiger Statue
 391528;Convoke
 422083;Seedling
 422750;Tainted Rageheart
@@ -90,10 +98,25 @@ cheatdeath;Cheat Death
 417069;Prophetic Stonescale
 
 ### Not available via Spell API
-
+676;Disarm
 724;Lightwell
+1038;Hand of Salvation
+11129;Combustion
+11958;Cold Snap
+12042;Arcane Power
+12043;Presence of Mind
+12292;Bloodbath
+14185;Preparation
+16188;Ancetral Swiftness
+16689;Nature's Grasp
 1714;Curse of Tongues
+19263;Deterrence
+19386;Wyvern Sting
 23989;Readiness
+29858;Soulshatter
+3045;Rapid Fire
+30823;Shamanistic Rage
+31842;Divine Favor
 44572;Deep Freeze
 46924;Bladestorm
 47481;Gnaw
@@ -105,14 +128,117 @@ cheatdeath;Cheat Death
 49222;Bone Shield
 50516;Typhoon
 51713;Shadow Dance
+51722;Dismantle
+51753;Camouflage
+5229;Enrage
 54428;Divine Plea
 55198;Tidal Force
+55694;Frenzied Regeneration
 59672;Metamorphosis
-64205;Divine Sacrifice
+6262;Healthstone
+6346;Fear Ward
+73981;Redirect
+74001;Combat Readiness
+76577;Smoke Bomb
+79140;Vendetta
+85499;Speed of Light
+86669;Guardian of Ancient Kings
+89485;Inner Focus
 89751;Felstorm
+102060;Disrupting Shout
+102795;Bear Hug
+105697;Virement's Bite
+105701;Potion of Focus
+105702;Potion of the Jade Serpent
+105706;Potion of Mogu Power
+105708;Master Healing Potion
+105709;Master Mana Potion
+106922;Might of Ursoc
+107566;Staggering Shout
 108194;Asphyxiate
+108200;Remorseless Winter
+108201;Desecreated Ground
+108269;Capacitor Totem
+108273;Windwalk Totem
+108359;Dark Regeneration
+108482;Unbound Will
+108501;Grimoire of Service
+108508;Mannoroth's Fury
+108921;Psyfiend
+108978;Alter Time
+109259;Power Shot
+109964;Spirit Shell
+110570;Anti-Magic Shell
+110575;Icebound Fortitude
+110617;Deterrence
+110621;Mirror Image
+110696;Ice Block
+110698;Hammer of Justice
+110700;Divine Shield
+110707;Mass Dispel
+110715;Dispersion
+110717;Fear Ward
+110718;Leap of Faith
+110730;Redirect
+110788;Cloak of Shadows
+110791;Evasion
+110806;Spiritwalker's Grace
+110807;Feral Spirit
+110913;Dark Bargain
+112071;Celestial Alignment
+112997;Shattering Blow
+113002;Spell Reflection
+113004;Intimidating Roar
+113072;Might of Ursoc
+113073;Dash
+113075;Barkskin
+113269;Rebirth
+113277;Tranquility
+113286;Solar Beam
+113306;Survival Instinct
+113516;Wild Mushroom: Plague
+113613;Growl
+113858;Dark Soul: Instability
+113860;Dark Soul: Misery
+113861;Dark Soul: Knowledge
+113942;Demonic Gateway
+114028;Mass Spell Reflection
+114030;Vigilance
+114049;Ascendance
+114157;Execution Sentence
+114158;Light's Hammer
+114192;Mocking Banner
+114203;Demoralizing Banner
+114207;Skull Banner
+114842;Shadow Walk
+115080;Touch of Death
+115213;Avert Harm
+115288;Energizing Brew
+115989;Unholy Blight
 116011;Rune of Power
+117368;Grapple Weapon
+118000;Dragon Roar
 119996;Transcendence: Transfer
+120451;Flame of Xoroth
+120668;Stormlash Totem
+120697;Lynx Rush
+121818;Stampede
+122057;Clash
+122285;Bone Shield
+122286;Savage Defense
+122291;Unending Resolve
+122292;Intervene
+122294;Stampeding Shout
+126135;Lightwell
+126449;Clash
+126453;Elusive Brew
+126456;Fortifying Brew
+126458;Grapple Weapon
+126690;Call of Conquest
+126697;Tremendous Fortitude
+127361;Bear Hug
+137562;Nimble Brew
+142723;Void Shift
 152277;Ravager
 194407;Spitting Cobra
 199754;Riposte
@@ -141,10 +267,10 @@ cheatdeath;Cheat Death
 443556;Twin Fang Instruments
 444347;Death Charge
 448904;Ravenous Honey Buzzer
+449700;Gravity Lapse
 451235;Voidwraith
 452930;Demonic Healthstone
 455395;Raise Abomination
 459796;Barrage
-472433;Evangelism
-449700;Gravity Lapse
 466904;Harrier's Cry
+472433;Evangelism
