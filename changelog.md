@@ -1,9 +1,13 @@
 # Vocal Raid Assistant
 
+
 ## 3.10.0
 - Detect Externals via SPELL_AURA_APPLIED instead of SPELL_CAST_SUCCESS + Target Check.
 - This fixes the wrong announce when casting externals on NPCs. (e.g. Spatial Paradox "no healer" fallback)
 - Add Battle Res
+
+## 3.9.1
+- Bump toc for 11.2.0
 
 ## 3.9.0
 - Complete overhaul for MOP Spells
