@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.9.1
+- Bump toc for 11.2.0
+
 ## 3.9.0
 - Complete overhaul for MOP Spells
 - Fix Pillar Of Frost sound
