@@ -1,6 +1,7 @@
 local _, addon = ...
 
 local tostring = tostring
+local wipe = wipe
 local GetTime = GetTime
 local IsInInstance = IsInInstance
 local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
@@ -97,7 +98,6 @@ local spellCheckFunctions = {
 	end,
 	["RESURRECT"] = function(instanceType, _, _, _, sourceGUID)
 		local areaConfig = addon.profile.general.area[instanceType]
-		print("Resurrect" .. tostring(IsCasterInCombat(sourceGUID)))
 		if areaConfig.enableBattleres and IsCasterInCombat(sourceGUID) then
 			addon:playSpell("battleres")
 		end
@@ -147,14 +147,15 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED(cleu_event)
 	})[event]
 
 	-- If this spell was just handled, ignore duplicates.
-	-- This prevents the case when we have spell cast + multiple aura applications
-	-- The MINIMUM_THROTTLE Value is not configurable.
+	-- The MINIMUM_THROTTLE Value is not configurable atm.
+
 	lastHandledSpells[spellStr] = lastHandledSpells[spellStr] or 0
 	if GetTime() - lastHandledSpells[spellStr] < addon.MINIMUM_THROTTLE then
     	return
 	end
 
-	-- Mark as handled now
+	-- We are no longer throttled, so clear all spells and mark the current spell as handled now
+	wipe(lastHandledSpells)
 	lastHandledSpells[spellStr] = timestamp
 
 	if checkHandler then

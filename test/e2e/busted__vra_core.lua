@@ -113,11 +113,11 @@ describe("busted", function()
 		end
 
 		-- WOW Constants
-        _G.COMBATLOG_OBJECT_TYPE_NPC = 0x00000800 		-- 2024
-		_G.COMBATLOG_OBJECT_TYPE_PLAYER = 0x00000400 	-- 1028
-		_G.COMBATLOG_OBJECT_AFFILIATION_MINE = 0x000001 -- 1
-		_G.COMBATLOG_OBJECT_AFFILIATION_PARTY = 0x2 	-- 2
-		_G.COMBATLOG_OBJECT_AFFILIATION_RAID = 0x4 		-- 4
+        _G.COMBATLOG_OBJECT_TYPE_NPC = 0x00000800 		 -- 2024
+		_G.COMBATLOG_OBJECT_TYPE_PLAYER = 0x00000400 	 -- 1028
+		_G.COMBATLOG_OBJECT_AFFILIATION_MINE = 0x000001  -- 1
+		_G.COMBATLOG_OBJECT_AFFILIATION_PARTY = 0x000002 -- 2
+		_G.COMBATLOG_OBJECT_AFFILIATION_RAID = 0x000004  -- 4
 
 		_G.RAIDS = "RAIDS"
 		_G.DUNGEONS = "DUNGEONS"
@@ -340,7 +340,7 @@ describe("busted", function()
 		-- The inital cast event is already checked in other test cases and expected to be filtered out /
 		-- working as expected correctly here
 
-		describe("Inbuild trottle", function()
+		describe("Inbuilt trottle:", function()
 
 			-- if the diff between both timestamps >= MINIMUM_THROTTLE do announce,
 			-- if diff < MINIMUM_THROTTLE, do not announce the seconds event
