@@ -6,6 +6,9 @@
 - This fixes the wrong announce when casting externals on NPCs. (e.g. Spatial Paradox "no healer" fallback)
 - Add Battle Res
 
+## 3.9.2
+- Fix Breath of Sindragosa
+
 ## 3.9.1
 - Bump toc for 11.2.0
 
