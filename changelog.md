@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.9.2
+- Fix Breath of Sindragosa
+
 ## 3.9.1
 - Bump toc for 11.2.0
 

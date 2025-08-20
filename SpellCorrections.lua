@@ -104,6 +104,8 @@ local spellCorrectionsRetail = {
 	[390414] = 102560,
 	--Monk Detox
 	[218164] = 115450,
+	-- Breath of Sindragosa
+	[1249658] = 152279,
 }
 
 local spellIconCorrections = {
@@ -221,8 +223,6 @@ local spellCorrectionsMists = {
 	[155145] = 25046,
 	[202719] = 25046,
 	[232633] = 25046,
-	--- General
-	--
 }
 
 -- Classic
