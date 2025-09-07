@@ -32,9 +32,23 @@ function addon:IsTWW()
 	return select(4, GetBuildInfo()) >= 110000
 end
 
-function addon:prettyPrint(...)
-	print("|c00ff0000Vocal Raid Assistant:|r ", ...)
+function addon:prettyPrint(msg, msgType)
+    local colors = {
+        reset   = "|r",          -- reset color
+        success = "|cff00ff00",  -- green
+        info    = "|cffffffff",  -- white
+        warn    = "|cffffff00",  -- yellow
+        error   = "|cffff0000",  -- red
+    }
+
+    msgType = msgType or "error"
+    local color = colors[msgType] or colors.info
+
+    print(
+        color .. "Vocal Raid Assistant:" .. colors.reset, tostring(msg)
+    )
 end
+
 
 local intendedWoWProjectName = {
 	[1] = "Retail",

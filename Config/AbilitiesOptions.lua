@@ -11,9 +11,8 @@ local function indexOf(array, value)
 	return nil
 end
 
-local function spellOption(spellID)
+local function getSpellName(spellID)
 	local spellname, icon, description
-
 	if addon:IsTWW() then
 		spellname = C_Spell.GetSpellName(spellID)
 		icon = C_Spell.GetSpellTexture(spellID)
@@ -25,6 +24,12 @@ local function spellOption(spellID)
 
 	icon = addon.spellIconCorrections[icon] or icon
 	spellname = addon.spellNameCorrections[spellID] and L[spellID] or spellname
+
+	return spellname, icon, description
+end
+
+local function spellOption(spellID)
+	local spellname, icon, description = getSpellName(spellID)
 
 	if spellname then
 		return {
@@ -95,6 +100,7 @@ function addon:createSpellCategory(category, name, icon, order)
 		args = createOptionsForCategory(category)
 	}
 end
+
 function addon:restoreDefaultSpells(area)
 	addon.profile.general.area[area].spells = {}
 	for k, v in pairs(addon.DEFAULT_SPELLS) do
@@ -111,15 +117,25 @@ function addon:clearAll(area)
 	addon.profile.general.area[area].enableInterrupts = false
 end
 
-function addon:importSpellSelection(importString, area)
+function addon:importSpellSelection(importString, area, silent)
 	local success, importDeserialized = addon.EXP:Deserialize(importString)
 	if success then
-		for k, v in pairs(importDeserialized) do
-			addon.profile.general.area[area].spells[k] = v
+		local spells = addon.profile.general.area[area].spells
+		for spellID, newValue in pairs(importDeserialized) do
+			local oldValue = spells[spellID]
+			local spellName = getSpellName(spellID)
+
+			if oldValue ~= newValue and not silent then
+				local change = newValue and "Enabled" or "Disabled"
+				addon:prettyPrint(spellName .. " - " .. change, "success")
+			end
 		end
+		-- overwrite all spells in one go (full sync)
+		addon.profile.general.area[area].spells = importDeserialized
 		addon.ACR:NotifyChange("VocalRaidAssistantConfig")
+		addon:prettyPrint("Imported spells for area: " .. addon.ZONES[area].name, "success") --TODO:LOC
 	else
-		addon:prettyPrint("Vocal Raid Assistant: Invalid import string.")
+		addon:prettyPrint("Vocal Raid Assistant: Invalid import string.", "error") --TODO:LOC
 	end
 end
 
@@ -202,15 +218,7 @@ local spells = {
 			order = 5,
 			type = "execute",
 			func = function(info)
-				if not addon.popUpSemaphore then
-					addon.popUpSemaphore = true
-					local dialog = StaticPopup_Show("VRA_IMPORT")
-					if dialog then
-						dialog.data = info[2]
-					else
-						addon:prettyPrint("Import failed, please join the Discord and make us aware this failed")
-					end
-				end
+				addon:showIEDialog(info[2], nil)
 			end
 		},
 		exportSelectedSpells = {
@@ -218,16 +226,8 @@ local spells = {
 			order = 6,
 			type = "execute",
 			func = function(info)
-				if not addon.popUpSemaphore then
-					addon.popUpSemaphore = true
-					local dialog = StaticPopup_Show("VRA_EXPORT")
-					if dialog then
-						dialog.editBox:SetText(VRA.EXP:Serialize(addon.profile.general.area[info[2]].spells))
-						dialog.editBox:HighlightText()
-					else
-						addon:prettyPrint("Export failed, please join the Discord and make us aware this failed")
-					end
-				end
+				local text = addon.EXP:Serialize(addon.profile.general.area[info[2]].spells) or nil
+				addon:showIEDialog(info[2], text)
 			end
 		},
 		specials = {

@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 3.10.0
+- Use AceGUI for Import/Export GUI. This fixes broken import.
+- Highlight which spells were enabled or disabled
+
 ## 3.9.2
 - Fix Breath of Sindragosa
 
