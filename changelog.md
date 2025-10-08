@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.10.1
+- Bump toc for 11.2.5
+
 ## 3.10.0
 - Use AceGUI for Import/Export GUI. This fixes broken import.
 - Highlight which spells were enabled or disabled
