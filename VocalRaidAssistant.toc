@@ -1,5 +1,5 @@
-## Interface: 110200
-## Interface-Mists: 50500
+## Interface: 110205
+## Interface-Mists: 50501
 ## Interface-Classic: 11507
 ## Title: VocalRaidAssistant
 ## Notes: Raid Cooldown Alerter
