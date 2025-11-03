@@ -395,6 +395,7 @@ local spellListRetail = {
 		[8143]   = {type = 5}, --Tremor Totem
 		[16191]  = {type = 5}, --Mana Tide Totem
 		[20608]  = {type = 5}, --Reincarnation
+		[32182]  = {type = 1}, --Heroism
 		[51485]  = {type = 8}, --Earthgrab Totem
 		[51490]  = {type = 5}, --Thunderstorm
 		[51514]  = {type = 5}, --Hex
@@ -799,6 +800,7 @@ local spellListMists = {
 		[16190]  = {type = 5},
 		[20608]  = {type = 5},
 		[30823]  = {type = 2},
+		[32182]  = {type = 1},
 		[51490]  = {type = 8},
 		[51514]  = {type = 8},
 		[51533]  = {type = 1},

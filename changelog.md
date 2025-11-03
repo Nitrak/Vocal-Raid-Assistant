@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.10.2
+- Add missing Heroism
+
 ## 3.10.1
 - Bump toc for 11.2.5
 - Update FR Locales by Lejooohn
