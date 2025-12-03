@@ -87,7 +87,7 @@ spellListClassic = nil
 
 --@end-non-version-retail@]===]
 
-addon.DATABASE_VERSION = 6
+addon.DATABASE_VERSION = 7
 
 addon.DEFAULT_SPELLS = defaultSpells
 
@@ -165,7 +165,16 @@ addon.ZONES = {
 	["scenario"] = {
 		name = SCENARIOS,
 		order = 6
+	}--[[
+	["neighborhood"] = {
+		name = NEIGHBORHOOD,
+		order = 7
+	},
+	["interior"] = {
+		name = INTERIOR,
+		order = 8
 	}
+	--]]
 }
 
 addon.CATEGORY = {

@@ -95,6 +95,17 @@ local function ConfigCleanup(db)
 				if profile.general and profile.general.onlySelf then
 					profile.general.onlySelf = nil
 				end
+				-- v6 -> v7
+				if profile.general and (profile.general.area["neighborhood"] == nil or profile.general.area["interior"] == nil) then
+					profile.general.area["neighborhood"] = {
+						enabled = false,
+						spells = {}
+					}
+					profile.general.area["interior"] = {
+						enabled = false,
+						spells = {}
+					}
+				end
 			end
 			profile.version = addon.DATABASE_VERSION
 		end

@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.10.4
+- Fixed an issue causing VRA to throw multiple errors when entering housing areas.
+
 ## 3.10.3
 - Bump toc for 11.2.7
 
