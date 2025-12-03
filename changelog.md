@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 3.10.3
+- Bump toc for 11.2.7
+
 ## 3.10.2
 - Add missing Heroism
 
