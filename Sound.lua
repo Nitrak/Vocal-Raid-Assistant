@@ -37,18 +37,16 @@ end
 local function playSpell(spellID, isTest)
 	local channel = addon.profile.sound.channel
 	local soundPlayer = registeredSoundpacks[addon.profile.sound.soundpack]
-	local errorMsg = nil
-	if soundPlayer then
-		if isThrottled('sound') then
-			return
-		end
-		if not soundPlayer(spellID, channel) then
-			errorMsg = addon:determinePlayerError(spellID, channel, isTest)
-		end
-	else
-		errorMsg = L["No Voicepack"]
+
+	if not soundPlayer then
+		addon:prettyPrint(L["No Voicepack"])
+		return
 	end
-	if errorMsg and not isThrottled('msg') then
+
+	if isThrottled("sound") then return end
+
+	local errorMsg = not soundPlayer(spellID, channel) and addon:determinePlayerError(spellID, channel, isTest)
+	if errorMsg and not isThrottled("msg") then
 		addon:prettyPrint(errorMsg)
 	end
 end
@@ -58,21 +56,15 @@ function addon:playSpell(spellID, isTest)
 end
 
 function addon:verifySoundPack()
-	local countInstalledSoundPacks = 0
-	for k, v in pairs(registeredSoundpacks) do
-		countInstalledSoundPacks = countInstalledSoundPacks + 1
-	end
-
-	if countInstalledSoundPacks == 0 then --NO SOUND PACKS INSTALLED
+	if not next(registeredSoundpacks) then
 		addon.profile.sound.soundpack = nil
-		local noPackErrorMsg = L["No Voicepack Warning"]
-		addon:prettyPrint(noPackErrorMsg)
-		C_Timer.After(20, function() addon:prettyPrint(noPackErrorMsg) end)
+		local msg = L["No Voicepack Warning"]
+		addon:prettyPrint(msg)
+		C_Timer.After(20, function() addon:prettyPrint(msg) end)
 		return
 	end
 
-	--If config sound pack is not found or is nil select a valid (first valid)
-	if not addon.profile.sound.soundpack or registeredSoundpacks[addon.profile.sound.soundpack] == nil then
-		addon.profile.sound.soundpack = select(1, next(registeredSoundpacks))
+	if not registeredSoundpacks[addon.profile.sound.soundpack] then
+		addon.profile.sound.soundpack = next(registeredSoundpacks)
 	end
 end

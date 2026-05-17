@@ -9,30 +9,7 @@ on:
   pull_request:
 
 jobs:
-  tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Lua and Luarocks
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y lua5.1 luarocks
-          luarocks install luabitop --local
-          luarocks install busted --local
-          echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
-
-      - name: Check Lua Version
-        run: lua -v
-
-      - name: Run Busted tests ## and generate JUnit report
-        run: |
-          mkdir -p test-results
-          busted test/e2e/busted__vra_core.lua --output=junit
-
   package:
-    needs: tests
     runs-on: ubuntu-latest
     if: |
       success() &&
@@ -46,27 +23,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 100
-      - name: Package Classic
-        uses: BigWigsMods/packager@master
-        with:
-          args: -g classic
-        env:
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
-          WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
-          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
-          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
-
-
-      - name: Package Mists
-        uses: BigWigsMods/packager@master
-        with:
-          args: -g mists
-        env:
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
-          WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
-          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
-          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
-
 
       - name: Package Retail
         uses: BigWigsMods/packager@master

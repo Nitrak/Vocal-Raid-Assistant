@@ -1,5 +1,9 @@
 # Vocal Raid Assistant
 
+## 4.0.0
+- Midnight Purge
+- Use MiniCC API
+
 ## 3.10.4
 - Fixed an issue causing VRA to throw multiple errors when entering housing areas.
 

@@ -27,7 +27,7 @@ addon.ConfigVoiceOptions = {
 			type = 'execute',
 			name = L["Test"],
 			func = function()
-				addon:playSpell("740", true)
+				addon:playSpell("33206", true)
 			end,
 			width = "half",
 			order = 2
@@ -166,9 +166,3 @@ for key, pack in pairs(officialSoundPacks) do
 
 	order = order + 3
 end
-
-addon.ConfigSoundPackOptions.args["addition"] = {
-	type = "description",
-	name = L["Additional Voicepacks"],
-	order = order
-}
