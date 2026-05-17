@@ -3,6 +3,7 @@
 <img src="https://i.imgur.com/ap0Zsdy.png" width="300" height="300">
 
 [![VRA on Discord](https://img.shields.io/badge/discord-_vra_-fd0000.svg)](https://discord.gg/UZMzqap)
+[![Paypal](https://img.shields.io/badge/donate-_paypal_-5364d0.svg)](https://paypal.me/Nitrak)
 
 # Vocal Raid Assistant
 </div>
