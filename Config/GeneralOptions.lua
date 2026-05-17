@@ -52,27 +52,6 @@ addon.ConfigGeneralOptions = {
 				end
 			end
 		},
-		watchFor = {
-			type = 'group',
-			inline = true,
-			name = L["Alert for"],
-			desc = L["VRA should alert you for"],
-			get = function(info) return addon:getFilterValue(info[#info]) end,
-			set = function(info, val) addon:setFilterValue(info[#info], val) end,
-			order = 6,
-			args = {
-				player = {
-					type = 'toggle',
-					name = L["My own abilities"],
-					order = 1
-				},
-				grouporraid = {
-					type = 'toggle',
-					name = L["Party member abilities"],
-					order = 2
-				}
-			}
-		},
 		voice = addon.ConfigVoiceOptions,
 		soundPacksConfig = addon.ConfigSoundPackOptions
 	}

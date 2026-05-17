@@ -6,33 +6,12 @@ VRA = LibStub("AceAddon-3.0"):NewAddon(addon, addonName, "AceConsole-3.0", "AceE
 VRA.L = LibStub("AceLocale-3.0"):GetLocale(addonName)
 VRA.AC = LibStub("AceConfig-3.0")
 VRA.ACD = LibStub("AceConfigDialog-3.0")
-VRA.AG = LibStub("AceGUI-3.0")
+--VRA.AG = LibStub("AceGUI-3.0")
 VRA.ACR = LibStub("AceConfigRegistry-3.0")
 VRA.ACDBO = LibStub("AceDBOptions-3.0")
-VRA.EXP = LibStub("AceSerializer-3.0")
-VRA.LDS = nil
 VRA.ICON = LibStub("LibDBIcon-1.0")
 VRA.LDB = LibStub:GetLibrary("LibDataBroker-1.1")
 
-local L = GetLocale()
-local locales = {
-	--ruRU = "Russian (ruRU)",
-	--itIT = "Italian (itIT)",
-	koKR = "Korean (koKR)",
-	esES = "Spanish (esES)",
-	esMX = "Spanish (esMX)",
-	--deDE = "German (deDE)",
-	ptBR = "Portuguese (ptBR)",
-	frFR = "French (frFR)",
-	--zhCN = "Chinese (zhCN)",
-	--zhTW = "Chinese (zhTW)",
-}
-
-if locales[L] then
-	local msg = string.format("Missing translations for %s. Can you help? Visit https://tinyurl.com/VRA-LOCAL or ask us on Discord for more info."
-		, locales[L])
-	C_Timer.After(30, function() addon:prettyPrint(msg) end)
-end
 
 local pairs = pairs
 
@@ -73,42 +52,20 @@ end
 
 local function ConfigCleanup(db)
 	for profileKey, profile in pairs(db.profiles) do
-		if profile['version'] == nil or profile['version'] ~= addon.DATABASE_VERSION then
-			-- Remove invalid keys
-			for key, _ in pairs(profile) do
-				if addon.DEFAULTS.profile[key] == nil then
-					profile[key] = nil
-				end
-			end
-			-- Remove invalid spells
-			for zone, _ in pairs(addon.ZONES) do
-				-- v4 -> v5
-				if profile.general and profile.general.area[zone] and profile.general.area[zone].spells then
-					for spellID, _ in pairs(profile.general.area[zone].spells) do
-						if not addon:IsSpellSupported(tonumber(spellID)) then
-							profile.general.area[zone].spells[spellID] = nil
-							addon:prettyPrint(format("Removed unsupported spell %s from config", spellID))
-						end
-					end
-				end
-				-- v5 -> v6
-				if profile.general and profile.general.onlySelf then
-					profile.general.onlySelf = nil
-				end
-				-- v6 -> v7
-				if profile.general and (profile.general.area["neighborhood"] == nil or profile.general.area["interior"] == nil) then
-					profile.general.area["neighborhood"] = {
-						enabled = false,
-						spells = {}
-					}
-					profile.general.area["interior"] = {
-						enabled = false,
-						spells = {}
-					}
-				end
-			end
-			profile.version = addon.DATABASE_VERSION
-		end
+		local version = profile['version']
+		if version == nil or version < addon.DATABASE_VERSION then
+            if (version or 0) < 8 then
+                -- Hard reset: wipe and re-apply defaults for this profile
+                for k in pairs(profile) do
+                    profile[k] = nil
+                end
+                for k, v in pairs(addon.DEFAULTS.profile) do
+                    profile[k] = v
+                end
+            end
+            -- Always stamp the version after migration
+            profile['version'] = addon.DATABASE_VERSION
+        end
 	end
 end
 
@@ -117,31 +74,29 @@ function VRA:OnInitialize()
 	self.db.RegisterCallback(self, "OnProfileChanged", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileCopied", "ChangeProfile")
 	self.db.RegisterCallback(self, "OnProfileReset", "ChangeProfile")
+
+	if not pcall(ConfigCleanup, self.db) then
+		addon:prettyPrint(VRA.L["Config Cleaning Error Message"])
+		self.db:ResetDB()
+	end
+
 	self.profile = self.db.profile
 
 	-- Minimap Icon and Broker
 	addon.ICON:Register(addonName, addon.LDB:NewDataObject(addonName, addon.ICONCONFIG), self.profile.general.minimap)
 
-	if not pcall(ConfigCleanup, self.db) then
-		addon:prettyPrint(VRA.L["Config Cleaning Error Message"])
-		self.db:ResetDB("Default")
-	end
 
-	if (self:IsRetail()) then
-		AddonCompartmentFrame:RegisterAddon({
-			text = addonName,
-			icon = "Interface\\AddOns\\VocalRaidAssistant\\Media\\icon",
-			func = function() VRA:ChatCommand() end,
-			registerForAnyClick = true,
-			notCheckable = true,
-		})
-	end
 
-	if (self:IsRetail() or self:IsMists()) then
-		self.LDS = LibStub('LibDualSpec-1.0')
-		self.LDS:EnhanceDatabase(self.db, addonName)
-	end
+	AddonCompartmentFrame:RegisterAddon({
+		text = addonName,
+		icon = "Interface\\AddOns\\VocalRaidAssistant\\Media\\icon",
+		func = function() VRA:ChatCommand() end,
+		registerForAnyClick = true,
+		notCheckable = true,
+	})
 
+	self.LDS = LibStub('LibDualSpec-1.0')
+	self.LDS:EnhanceDatabase(self.db, addonName)
 	self:InitConfigOptions()
 	self:InitializeOptions()
 end
@@ -151,21 +106,13 @@ function VRA:ChangeProfile()
 end
 
 function VRA:ChatCommand(msg)
-	if (msg == "debug") then
-		local _, instanceType = IsInInstance()
-		for spellID, _ in pairs(self.profile.general.area[instanceType].spells) do
-			print(instanceType, spellID, addon:IsSpellSupported(tonumber(spellID)))
-		end
+	if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
+		self.ACD:Close("VocalRaidAssistantConfig")
 	else
-		if self.ACD.OpenFrames["VocalRaidAssistantConfig"] then
-			self.ACD:Close("VocalRaidAssistantConfig")
-		else
-			self.ACD:Open("VocalRaidAssistantConfig")
-		end
+		self.ACD:Open("VocalRaidAssistantConfig")
 	end
 end
 
 function VRA:OnEnable()
-	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	addon:verifySoundPack()
 end
