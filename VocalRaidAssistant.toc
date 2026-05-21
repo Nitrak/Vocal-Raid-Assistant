@@ -5,7 +5,7 @@
 ## IconTexture: Interface\AddOns\VocalRaidAssistant\Media\icon.tga
 ## Dependencies: MiniCC
 ## SavedVariables: VocalRaidAssistantDB
-## Version: 4.0.0
+## Version: 4.0.1
 ## X-Curse-Project-ID: 83086
 ## X-WoWI-ID: 22983
 ## X-Wago-ID: kRNLr8Ko
