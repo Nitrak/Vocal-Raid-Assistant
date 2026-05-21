@@ -41,10 +41,10 @@ addon.ConfigVoiceOptions = {
 			desc = L["The minimum interval between two alerts in seconds"],
 			order = 3
 		},
-		void = {
-			type = 'description',
-			name = "",
-			desc = "",
+		muteOwnSpells = {
+			type = 'toggle',
+			name = L["Mute own spells"],
+			desc = L["Don't vocalize own spells"],
 			order = 4
 		},
 		channel = {

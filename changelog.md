@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 4.0.1
+- Add config option to mute own spells
+
 ## 4.0.0
 - Midnight Purge
 - Use MiniCC API

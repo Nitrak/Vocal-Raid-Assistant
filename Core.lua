@@ -9,6 +9,10 @@ end
 local MiniCCApi = MiniCCApi.v1
 
 local function playsound_cb(_, spellId)
+	local muteOwn = addon.profile.sound.muteOwnSpells
+	if (muteOwn and C_SpellBook.IsSpellKnown(spellId)) then
+		return
+	end
 	addon:playSpell(spellId)
 end
 
