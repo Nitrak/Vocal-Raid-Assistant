@@ -1,5 +1,8 @@
 # Vocal Raid Assistant
 
+## 4.0.2
+- Bump toc for 12.0.7
+
 ## 4.0.1
 - Add config option to mute own spells
 
